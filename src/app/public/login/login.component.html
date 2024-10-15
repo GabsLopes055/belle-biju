@@ -1,0 +1,33 @@
+<main>
+
+  <div class="circle">
+        <div class="conteudo">
+            <img src="../../../assets/images/imagem-login.png">
+        </div>
+    </div>
+
+    <div class="content">
+
+      <div class="img-logo">
+        <img src="../../../assets/images/logo.png" alt="">
+      </div>
+
+        <form [formGroup]="formLogin" (submit)="entrar()" class="form">
+<!--            <h1 class="title-desk"><strong>Hey, </strong>Bem Vindo!</h1>-->
+            <h2>Login</h2>
+            <h5>Informe seu e-mail e senha para entrar:</h5>
+            <tgt-input-icon [border]="true" [control]="this.formLogin.controls.email" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'" icon="email" ></tgt-input-icon>
+            <tgt-input-icon [border]="true" [control]="this.formLogin.controls.password" placeholder="Senha" [type]="'password'" icon="lock" [iconPosition]="'right'" ></tgt-input-icon>
+            <div class="forgot">
+                <span><a href="/recuperar-senha">Esqueci minha senha?</a></span>
+            </div>
+            <tgt-button type="button" [color]="'primary'" size="small" iconPosition="right" (click)="entrar()">Entrar</tgt-button>
+        </form>
+
+        <div class="create">
+            <span>Não possui uma conta? <a [routerLink]="['/register']">Cadastre-se</a></span>
+        </div>
+    </div>
+
+</main>
+

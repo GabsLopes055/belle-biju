@@ -1,0 +1,109 @@
+@import "../../../assets/styles/colors.scss";
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  // height: 88px;
+  padding: 24px, 32px, 24px, 32px;
+  gap: 64px;
+  position: relative;
+  padding: 16px 24px 16px 24px;
+  border-bottom: 1px solid #B5B4B2;
+
+  .title {
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0.15000000596046448px;
+      text-align: left;
+
+    }
+
+  }
+
+  .final {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    // padding: 2rem;
+
+    .divider-vertical {
+      width: 1px;
+      height: 24px;
+      background-color: #B5B4B2;
+      ;
+    }
+
+    .user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        border: solid 4px #FFD200;
+        border-radius: 100px;
+      }
+    }
+  }
+
+  .user-detail {
+    position: absolute;
+    background-color: $color-off-white;
+    width: 145px;
+    // height: 150px;
+    top: 75px;
+    right: 15px;
+    // padding: 1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: animation .5s;
+
+    .item {
+      cursor: pointer;
+      width: Fill (166px)px;
+      height: Hug (56px)px;
+      padding: 16px;
+      gap: 9px;
+      opacity: 0px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: all .5s;
+
+      .label {
+        //styleName: M3/label/large;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.10000000149011612px;
+        text-align: center;
+
+      }
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  }
+
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}

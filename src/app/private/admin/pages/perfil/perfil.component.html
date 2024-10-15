@@ -1,0 +1,38 @@
+<main>
+  <section>
+
+    <div class="perfil">
+      <div class="icon-perfil">
+        <tgt-perfil></tgt-perfil>
+        <span>Joana da Silva</span>
+      </div>
+      <tgt-button (click)="abrirModalAlterarDados()" [icon]="'edit'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Editar</tgt-button>
+    </div>
+
+    <div class="info">
+      <span>
+        Email
+      </span>
+      <p>Joana da Silva</p>
+    </div>
+    <tgt-divider></tgt-divider>
+    <div class="info">
+      <span>
+        CPF
+      </span>
+      <p>123.456.789-89</p>
+    </div>
+    <tgt-divider></tgt-divider>
+    <div class="info">
+      <span>
+        Celular
+      </span>
+      <p>(41) 98765-4321</p>
+    </div>
+
+    <div class="alterarSenha">
+      <tgt-button (click)="abrirModalAlterarSenha()" [icon]="'edit'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Alterar Senha</tgt-button>
+    </div>
+
+  </section>
+</main>

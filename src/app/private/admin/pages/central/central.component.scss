@@ -1,0 +1,23 @@
+main {
+  padding: 24px;
+  max-height: 90vh;
+
+  .grid {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    // align-items: center;
+
+    .cameras {
+      width: 66%;
+      max-height: 30%;
+    }
+    .reconhecimentos {
+      min-width: 30%;
+      width: auto;
+      max-width: 33%;
+      height: 10%;
+      // overflow: auto;
+    }
+  }
+}
