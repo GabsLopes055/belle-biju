@@ -1,0 +1,13 @@
+main {
+    width: 170px;
+
+    span {
+      font-size: 14px;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      overflow-wrap: break-word;
+      word-break: break-all;
+    }
+}

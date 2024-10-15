@@ -1,0 +1,29 @@
+<main>
+  <div class="title">
+    <h2>Novo Aluno</h2>
+  </div>
+  <div class="form">
+    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo'" [control]="form.controls.nome"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
+      [control]="form.controls.responsavel"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
+      [control]="form.controls.email"></tgt-input-icon>
+
+    <div class="carregar-imagem" (click)="selecionarArquivo()">
+
+      <span class="material-symbols-outlined">
+        add_a_photo
+      </span>
+      <p>Capturar imagem</p>
+
+    </div>
+
+    <input type="file" #fileInput (change)="fileSelecionado($event)" style="display: none"/>
+
+  </div>
+  <div class="actions">
+    <tgt-button (click)="salvar()" [icon]="''" [fieldButton]="'outline'" [border]="false"
+      [size]="'small'">Cancelar</tgt-button>
+    <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
+  </div>
+</main>

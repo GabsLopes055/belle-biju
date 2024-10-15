@@ -1,0 +1,33 @@
+// input:-webkit-autofill {
+//     -webkit-box-shadow: 0 0 0px 1000px white inset;
+// }
+
+.main {
+    width: 100%;
+
+    .input {
+        width: -webkit-fill-available;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: solid 1px #000;
+        border-radius: 8px;
+        padding: 12px;
+
+        .color-icon {
+            color: #898989;
+        }
+
+
+
+
+        input {
+            width: 100%;
+            padding: 4px;
+            border: none;
+            outline: none;
+            background-color: rgba(0,0,0,0);
+            color: #2b2b2b;
+        }
+    }
+}

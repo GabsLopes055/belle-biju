@@ -1,0 +1,107 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .esquerdo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+
+      span {
+        padding: 9px;
+        border-radius: 50%;
+        color: #39693B;
+        background-color: #D5E8CF;
+      }
+    }
+
+    .direito {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .info-usuario {
+
+    padding: 14px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    span {
+      // width: 45px;
+      // height: 20px;
+      gap: 0px;
+      opacity: 0px;
+      color: #181D17;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      text-align: left;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+
+      // p {
+      //   width: 108px;
+      //   height: 20px;
+      //   gap: 0px;
+      //   opacity: 0px;
+      //   color: #181D17;
+      //   font-size: 14px;
+      //   font-weight: 500;
+      //   line-height: 20px;
+      //   letter-spacing: 0.10000000149011612px;
+      //   text-align: left;
+
+      // }
+    }
+  }
+
+  .icone {
+    cursor: pointer;
+  }
+
+  .find {
+    display: flex;
+    justify-content: end;
+
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
+  section {
+    height: 500px;
+    overflow: auto;
+  }
+
+  .aluno-find {
+    display: flex;
+    justify-content: space-between;
+
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
+}

@@ -1,0 +1,18 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Lançar advertencia</h3>
+    <tgt-divider></tgt-divider>
+    <div class="text">
+      <tgt-input-icon [border]="true" [placeholder]="'Assunto'" [control]="form.controls.assunto"></tgt-input-icon>
+      <!-- <tgt-input-icon [border]="true" [placeholder]="'Observação'"
+        [control]="form.controls.observacao"></tgt-input-icon> -->
+        <tgt-textarea [control]="form.controls.observacao"></tgt-textarea>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'"
+        (click)="excluir()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'" (click)="excluir()">Lançar
+        advertência</tgt-button>
+    </div>
+  </main>
+</tgt-modal>
