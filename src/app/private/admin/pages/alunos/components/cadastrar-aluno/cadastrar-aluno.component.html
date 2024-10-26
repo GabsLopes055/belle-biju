@@ -2,28 +2,34 @@
   <div class="title">
     <h2>Novo Aluno</h2>
   </div>
+
   <div class="form">
-    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo'" [control]="form.controls.nome"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
-      [control]="form.controls.responsavel"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
-      [control]="form.controls.email"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo'" [control]="form.controls['nome']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'" [control]="form.controls['responsavel']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'" [control]="form.controls['email']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Turma'" [control]="form.controls['turma']"></tgt-input-icon>
 
-    <div class="carregar-imagem" (click)="selecionarArquivo()">
+    <div class="camera-container">
+      <!-- Exibir o vídeo se a foto ainda não foi capturada -->
+      <video #video *ngIf="!fotoCapturada" width="320" height="240"></video>
 
-      <span class="material-symbols-outlined">
-        add_a_photo
-      </span>
-      <p>Capturar imagem</p>
+      <canvas #canvas width="320" height="240" style="display: none;"></canvas>
 
+      <!-- Exibir a imagem capturada ao lado do vídeo -->
+      <img *ngIf="fotoCapturadaUrl" [src]="fotoCapturadaUrl" alt="Foto Capturada" width="320" height="240" class="foto-capturada">
     </div>
 
-    <input type="file" #fileInput (change)="fileSelecionado($event)" style="display: none"/>
-
+    <div class="camera-actions">
+      <button (click)="alternarCamera()">
+        {{ cameraAtiva ? 'Parar Câmera' : 'Iniciar Câmera' }}
+      </button>
+      <button *ngIf="cameraAtiva && !fotoCapturadaUrl" (click)="capturarFoto()">Capturar Foto</button>
+      <button *ngIf="fotoCapturadaUrl" (click)="tirarOutraFoto()">Tirar Outra Foto</button>
+    </div>
   </div>
+
   <div class="actions">
-    <tgt-button (click)="salvar()" [icon]="''" [fieldButton]="'outline'" [border]="false"
-      [size]="'small'">Cancelar</tgt-button>
+    <tgt-button (click)="form.reset(); fotoCapturada = null; pararCamera()" [icon]="''" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
     <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
   </div>
 </main>

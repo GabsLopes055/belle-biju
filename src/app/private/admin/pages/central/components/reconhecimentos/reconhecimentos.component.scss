@@ -10,15 +10,12 @@ main {
   gap: 24px;
 
   span {
-    // width: 127px;
-    // height: 24px;
-    gap: 0px;
-    opacity: 0px;
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0.5px;
     text-align: left;
+    opacity: 1;
   }
 
   .card {
@@ -28,32 +25,46 @@ main {
     display: flex;
     flex-direction: row;
     gap: 24px;
-    justify-content: space-between;
+    position: relative;
+    align-items: center;
 
-    // .infos {
-    //   display: flex;
-    //   flex-direction: row;
-    //   justify-content: space-between;
-    //   gap: 24px;
+    .aluno-foto {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: relative;
+    }
 
-      .esquerda,
-      .direita {
-        display: flex;
-        flex-direction: column;
-      }
+    .esquerda,
+    .direita {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .esquerda {
-        align-items: start;
-        justify-content: center;
-        gap: 24px;
-      }
+    .esquerda {
+      align-items: start;
+      justify-content: center;
+      gap: 8px;
+    }
 
-      .direita {
-        justify-content: end;
-        justify-content: center;
-        gap: 24px;
-      }
+    .direita {
+      justify-content: center;
+      align-items: flex-end;
+      gap: 8px;
+    }
 
-    // }
+    .presente-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 5px 10px;
+      background-color: #00d775;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 12px;
+    }
   }
 }

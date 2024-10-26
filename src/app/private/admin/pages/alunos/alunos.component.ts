@@ -14,13 +14,11 @@ import { VerAlunoComponent } from "./components/ver-aluno/ver-aluno.component";
   styleUrl: './alunos.component.scss',
 })
 export class AlunosComponent implements OnInit, OnDestroy {
-
   component: string = '';
-
   constructor(
     private readonly navbarService: NavbarService,
     private readonly menuService: MenuService,
-    private readonly alunosService: AlunosService
+    private readonly alunosService: AlunosService,
   ) {
     navbarService.setTitle('Alunos');
     menuService.setSelected({
@@ -40,4 +38,6 @@ export class AlunosComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.alunosService.steps.next('listar-alunos');
   }
+
+
 }

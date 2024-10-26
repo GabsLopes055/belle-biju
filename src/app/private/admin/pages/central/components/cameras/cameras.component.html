@@ -2,9 +2,14 @@
   <div>
     <span>Câmeras</span>
   </div>
-  <div class="imagens">
-    <img src="../../../../../../../assets/images/camera_1.png" alt="">
-    <img src="../../../../../../../assets/images/camera_2.png" alt="">
-    <img src="../../../../../../../assets/images/camera_3.png" alt="">
+  <div class="camera-container">
+    <video #videoElement autoplay muted></video>
+  </div>
+  <button (click)="toggleFrameCapture()">
+    {{ isSendingFrames ? 'Desativar' : 'Ativar' }}
+  </button>
+
+  <div id="alunoPresente" style="display:none; margin-top: 20px;">
+    <h1>Aluno <span #alunoNome></span> presente na aula</h1>
   </div>
 </main>

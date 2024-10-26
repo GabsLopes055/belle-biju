@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { alunos } from '../../../../../../models/alunos.interface';
 import { ButtonComponent } from "../../../../../../shared/button/button.component";
@@ -11,6 +11,15 @@ import { ItemListComponent } from "../../../../../../shared/list/components/item
 import { ItemDataComponent } from "../../../../../../shared/list/components/item-data/item-data.component";
 import { PaginatorComponent } from "../../../../../../shared/paginator/paginator.component";
 import { AlunosService } from '../../alunos.service';
+import { HttpClient } from '@angular/common/http';
+
+interface Aluno {
+  nome: string;
+  turma: string;
+  fotoUrl: string; // Supondo que o endpoint devolva a URL da foto
+  responsavel: string;
+  email: string;
+}
 
 @Component({
   selector: 'listar-alunos',
@@ -19,57 +28,22 @@ import { AlunosService } from '../../alunos.service';
   templateUrl: './listar-alunos.component.html',
   styleUrl: './listar-alunos.component.scss'
 })
-export class ListarAlunosComponent {
+export class ListarAlunosComponent implements  OnInit{
+  alunos: Aluno[] = [];
+  serverUrl: string = 'https://escola-ai-backend.technolimit.com.br';
 
   form = new FormGroup({
     buscarAluno: new FormControl('', Validators.required),
   });
 
-  alunos: alunos[] = [
-    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },
-    {
-      nome: 'Juliana Oliveira',
-      responsavel: 'Simone Oliveira',
-      email_responsavel: 'simoneoliveira@gmail.com',
-    },
-    {
-      nome: 'Rafael Santos',
-      responsavel: 'Maria Santos',
-      email_responsavel: 'mariasantos@gmail.com',
-    },
-    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },
-    {
-      nome: 'Juliana Oliveira',
-      responsavel: 'Simone Oliveira',
-      email_responsavel: 'simoneoliveira@gmail.com',
-    },
-    {
-      nome: 'Rafael Santos',
-      responsavel: 'Maria Santos',
-      email_responsavel: 'mariasantos@gmail.com',
-    },
-    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },
-  ];
-
   constructor(
-    private readonly alunosService: AlunosService
+    private readonly alunosService: AlunosService,
+    private http: HttpClient,
   ){}
+
+  ngOnInit() {
+    this.getAlunos();
+  }
 
   cadastrarAluno() {
     this.alunosService.steps.next("cadastrar-aluno")
@@ -79,5 +53,16 @@ export class ListarAlunosComponent {
     this.alunosService.steps.next("ver-aluno")
   }
 
+  // Função para buscar a lista de presença do endpoint
+  getAlunos(): void {
+    this.http.get<Aluno[]>(`${this.serverUrl}/alunos`).subscribe(
+      (data) => {
+        this.alunos = data;
+      },
+      (error) => {
+        console.error('Erro ao atualizar a lista de presença:', error);
+      }
+    );
+  }
 
 }
