@@ -5,11 +5,12 @@ import { MenuService } from '../../../../shared/menu/menu.service';
 import { ListarColaboradoresComponent } from "./components/listar-colaboradores/listar-colaboradores.component";
 import { CadastrarColaboradorComponent } from "./components/cadastrar-colaborador/cadastrar-colaborador.component";
 import { VerColaboradorComponent } from "./components/ver-colaborador/ver-colaborador.component";
+import { EditarColaboradorComponent } from "./components/editar-colaborador/editar-colaborador.component";
 
 @Component({
   selector: 'app-colaboradores',
   standalone: true,
-  imports: [ListarColaboradoresComponent, CadastrarColaboradorComponent, VerColaboradorComponent],
+  imports: [ListarColaboradoresComponent, CadastrarColaboradorComponent, VerColaboradorComponent, EditarColaboradorComponent],
   templateUrl: './colaboradores.component.html',
   styleUrl: './colaboradores.component.scss',
 })

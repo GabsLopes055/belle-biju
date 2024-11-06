@@ -10,29 +10,42 @@ import { ItemDataComponent } from '../../../../../../shared/list/components/item
 import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
 import { ListComponent } from '../../../../../../shared/list/list.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
-import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
-import { AlunosService } from '../../../alunos/alunos.service';
 import {
-  VerChamadaComponent,
-} from '../../../turmas/components/visualizar-turma/components/aba-chamada/ver-chamada/ver-chamada.component';
-import { ExcluirColaboradorComponent } from '../excluir-colaborador/excluir-colaborador.component';
+  Tab,
+  TabsComponent,
+} from '../../../../../../shared/tabs/tabs.component';
+import { AlunosService } from '../../../alunos/alunos.service';
+import { VerChamadaComponent } from '../../../turmas/components/visualizar-turma/components/aba-chamada/ver-chamada/ver-chamada.component';
 import { ColaboradoresService } from '../../colaboradores.service';
+import { InformacoesColaboradorComponent } from './components/informacoes-colaborador/informacoes-colaborador.component';
+import { ExcluirColaboradorComponent } from './components/excluir-colaborador/excluir-colaborador.component';
 
 @Component({
   selector: 'ver-colaborador',
   standalone: true,
-  imports: [ButtonComponent, InputIconComponent, ListComponent, HeaderListComponent, HeaderColComponent, ItemListComponent, ItemDataComponent, TabsComponent],
+  imports: [
+    ButtonComponent,
+    InputIconComponent,
+    ListComponent,
+    HeaderListComponent,
+    HeaderColComponent,
+    ItemListComponent,
+    ItemDataComponent,
+    TabsComponent,
+  ],
   templateUrl: './ver-colaborador.component.html',
-  styleUrl: './ver-colaborador.component.scss'
+  styleUrl: './ver-colaborador.component.scss',
 })
 export class VerColaboradorComponent {
+
+  isDetail = false;
 
   data: turma[] = [
     { nome: '8° Ano - Turma A', periodo: 'Manhã' },
     { nome: '8° Ano - Turma B', periodo: 'Tarde' },
     { nome: '8° Ano - Turma C', periodo: 'Manhã' },
     { nome: '8° Ano - Turma D', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma E', periodo: 'Manhã' }
+    { nome: '8° Ano - Turma E', periodo: 'Manhã' },
   ];
 
   tabs: Tab[] = [
@@ -59,7 +72,6 @@ export class VerColaboradorComponent {
   constructor(
     private readonly colaboradoresService: ColaboradoresService,
     private readonly modalService: ModalService
-
   ) {}
 
   chosenTab(tab: string) {
@@ -67,14 +79,29 @@ export class VerColaboradorComponent {
   }
 
   verChamada() {
-    this.modalService.open(VerChamadaComponent)
+    this.modalService.open(VerChamadaComponent);
   }
 
   excluir() {
+    this.isDetail = false;
     this.modalService.open(ExcluirColaboradorComponent);
+  }
+
+  informacoesColaborador() {
+    this.isDetail = false;
+    this.modalService.open(InformacoesColaboradorComponent);
   }
 
   back() {
     this.colaboradoresService.steps.next('listar-colaboradores');
+  }
+
+  editarColaborador() {
+    this.isDetail = false;
+    this.colaboradoresService.steps.next('editar-colaborador');
+  }
+
+  showHideDetail() {
+    this.isDetail = !this.isDetail;
   }
 }
