@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalComponent } from '../../../../../../../../shared/modal/modal.component';
-import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
 import { DividerComponent } from '../../../../../../../../shared/divider/divider.component';
+import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
 import { ModalService } from '../../../../../../../../shared/modal/modal.service';
 
 @Component({

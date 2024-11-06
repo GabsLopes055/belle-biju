@@ -5,9 +5,26 @@
 
   <div class="form">
     <tgt-input-icon [border]="true" [placeholder]="'Nome Completo'" [control]="form.controls['nome']"></tgt-input-icon>
+
+    <div class="infos">
+      <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'" [control]="form.controls['dataNascimento']"></tgt-input-icon>
+      <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]" [control]="form.controls['genero']"></tgt-select>
+    </div>
+    <tgt-input-icon [border]="true" [placeholder]="'Alergias'" [control]="form.controls['alergias']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Medicação necessária'" [control]="form.controls['medicacaoNecessaria']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Condições médicas relevantes'" [control]="form.controls['CondicoesMedicas']"></tgt-input-icon>
     <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'" [control]="form.controls['responsavel']"></tgt-input-icon>
     <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'" [control]="form.controls['email']"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Turma'" [control]="form.controls['turma']"></tgt-input-icon>
+
+    <tgt-input-icon [border]="true" [placeholder]="'Endereço'" [control]="form.controls['endereco']"></tgt-input-icon>
+
+    <div class="infos">
+      <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'" [control]="form.controls['numeroCasa']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'" [control]="form.controls['complementoCasa']"></tgt-input-icon>
+    </div>
+
+
+    <tgt-input-icon [border]="true" [placeholder]="'Bairro'" [control]="form.controls['bairro']"></tgt-input-icon>
 
     <div class="camera-container">
       <!-- Exibir o vídeo se a foto ainda não foi capturada -->

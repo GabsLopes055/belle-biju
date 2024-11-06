@@ -5,6 +5,7 @@ import { ToastService } from '../../../../../../shared/toast/toast.service';
 import {InputIconComponent} from "../../../../../../shared/input-icon/input-icon.component";
 import {ButtonComponent} from "../../../../../../shared/button/button.component";
 import {NgIf, NgOptimizedImage} from "@angular/common";
+import { SelectComponent } from "../../../../../../shared/select/select.component";
 
 @Component({
   selector: 'cadastrar-aluno',
@@ -15,8 +16,9 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
     InputIconComponent,
     ButtonComponent,
     NgIf,
-    NgOptimizedImage
-  ]
+    NgOptimizedImage,
+    SelectComponent
+]
 })
 export class CadastrarAlunoComponent {
   @ViewChild('video', { static: false }) videoElement!: ElementRef<HTMLVideoElement>;
@@ -28,9 +30,17 @@ export class CadastrarAlunoComponent {
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
+    dataNascimento: new FormControl('', Validators.required),
+    genero: new FormControl('', Validators.required),
+    alergias: new FormControl('', Validators.required),
+    medicacaoNecessaria: new FormControl('', Validators.required),
+    CondicoesMedicas: new FormControl('', Validators.required),
     responsavel: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    turma: new FormControl('', Validators.required),
+    endereco: new FormControl('', [Validators.required]),
+    bairro: new FormControl('', Validators.required),
+    numeroCasa: new FormControl('', Validators.required),
+    complementoCasa: new FormControl('', Validators.required),
     foto_aluno: new FormControl(null)
   });
 
@@ -46,6 +56,8 @@ export class CadastrarAlunoComponent {
       this.iniciarCamera();
     }
   }
+
+
 
   iniciarCamera() {
     navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
@@ -106,7 +118,7 @@ export class CadastrarAlunoComponent {
       formData.append('nome', this.form.get('nome')?.value || '');
       formData.append('responsavel', this.form.get('responsavel')?.value || '');
       formData.append('email', this.form.get('email')?.value || '');
-      formData.append('turma', this.form.get('turma')?.value || '');
+      formData.append('bairro', this.form.get('bairro')?.value || '');
       formData.append('foto', this.fotoCapturada);
 
       this.alunosService.cadastrarAluno(formData).subscribe(
