@@ -1,5 +1,11 @@
 <tgt-modal [witdhModal]="'auto'">
   <main>
+    <div class="header">
+      <h3>Capturar Foto</h3>
+      <span class="material-symbols-outlined" (click)="voltar()">
+        close
+        </span>
+    </div>
     <div class="camera-container">
       <!-- Exibir o vídeo se a foto ainda não foi capturada -->
       @if(!fotoCapturada) {

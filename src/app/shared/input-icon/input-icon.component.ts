@@ -15,7 +15,12 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
   styleUrl: './input-icon.component.scss'
 })
 export class InputIconComponent {
+
+  isFocused!: boolean;
+  isSelect!: boolean;
+
   @Input() type!: string;
+  @Input() disabled!: boolean;
   @Input() icon!: string;
   @Input() placeholder: string = '';
   @Input() control: FormControl = new FormControl();

@@ -1,4 +1,4 @@
-<div class="main">
+<!-- <div class="main">
     <div class="input" [style.border-color]="control.value ? '#BAF0B6' : '#000'" [style.background]="backGround" [style.border]="border ? '' : 'none'">
         @if(iconPosition == 'left') {
             <span class="material-symbols-outlined color-icon">
@@ -12,4 +12,18 @@
             </span>
         }
     </div>
+</div> -->
+
+
+<div class="input" [style.border-color]="control.value ? '#BAF0B6' : '#000'" [style.background]="backGround"
+  [style.border]="border ? '' : 'none'">
+  <div class="input-wrapper">
+    <input [style.background]="backGround" [type]="type" [formControl]="control"
+      [placeholder]="isFocused ? placeholder : ''">
+    <label [class.active]="isFocused || control.value" [style.background]="backGround">{{ placeholder }}</label>
+  </div>
+  <span class="material-symbols-outlined color-icon">
+    {{icon}}
+  </span>
+
 </div>
