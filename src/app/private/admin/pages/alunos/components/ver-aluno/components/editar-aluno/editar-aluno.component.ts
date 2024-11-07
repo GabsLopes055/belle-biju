@@ -1,44 +1,37 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlunosService } from './../../alunos.service';
-import { ToastService } from '../../../../../../shared/toast/toast.service';
-import {InputIconComponent} from "../../../../../../shared/input-icon/input-icon.component";
-import {ButtonComponent} from "../../../../../../shared/button/button.component";
-import {NgIf, NgOptimizedImage} from "@angular/common";
-import { SelectComponent } from "../../../../../../shared/select/select.component";
-import { ModalService } from '../../../../../../shared/modal/modal.service';
-import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.component';
+import { AlunosService } from '../../../../alunos.service';
+import { ToastService } from '../../../../../../../../shared/toast/toast.service';
+import { ModalService } from '../../../../../../../../shared/modal/modal.service';
+import { AbrirCameraComponent } from '../../../cadastrar-aluno/components/abrir-camera/abrir-camera.component';
+import { InputIconComponent } from "../../../../../../../../shared/input-icon/input-icon.component";
+import { ButtonComponent } from "../../../../../../../../shared/button/button.component";
+import { SelectComponent } from "../../../../../../../../shared/select/select.component";
 
 @Component({
-  selector: 'cadastrar-aluno',
+  selector: 'editar-aluno',
   standalone: true,
-  templateUrl: './cadastrar-aluno.component.html',
-  styleUrls: ['./cadastrar-aluno.component.scss'],
-  imports: [
-    InputIconComponent,
-    ButtonComponent,
-    NgIf,
-    NgOptimizedImage,
-    SelectComponent
-]
+  imports: [InputIconComponent, ButtonComponent, SelectComponent],
+  templateUrl: './editar-aluno.component.html',
+  styleUrl: './editar-aluno.component.scss'
 })
-export class CadastrarAlunoComponent {
+export class EditarAlunoComponent {
 
 
 
   form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    dataNascimento: new FormControl('', Validators.required),
-    genero: new FormControl('', Validators.required),
+    nome: new FormControl('Lucas Costa', Validators.required),
+    dataNascimento: new FormControl('23/10/2024', Validators.required),
+    genero: new FormControl('Masculino', Validators.required),
     alergias: new FormControl('', Validators.required),
     medicacaoNecessaria: new FormControl('', Validators.required),
     CondicoesMedicas: new FormControl('', Validators.required),
-    responsavel: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    endereco: new FormControl('', [Validators.required]),
-    bairro: new FormControl('', Validators.required),
-    numeroCasa: new FormControl('', Validators.required),
-    complementoCasa: new FormControl('', Validators.required),
+    responsavel: new FormControl('Sergio Costa', Validators.required),
+    email: new FormControl('sergiocosta@gmail.com', [Validators.required, Validators.email]),
+    endereco: new FormControl('Av. Vicente Machado', [Validators.required]),
+    bairro: new FormControl('Santa Rosa', Validators.required),
+    numeroCasa: new FormControl('55', Validators.required),
+    complementoCasa: new FormControl('Casa', Validators.required),
     foto_aluno: new FormControl(null)
   });
 
@@ -78,7 +71,7 @@ export class CadastrarAlunoComponent {
   }
 
   back(){
-    this.alunosService.steps.next('listar-alunos');
+    this.alunosService.steps.next('ver-aluno');
   }
 
   abrirModalCamera() {

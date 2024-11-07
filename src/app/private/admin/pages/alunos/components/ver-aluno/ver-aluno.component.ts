@@ -19,6 +19,7 @@ import { ExcluirAlunoComponent } from './components/excluir-aluno/excluir-aluno.
 import { VerFrequenciaComponent } from './components/ver-frequencia/ver-frequencia.component';
 import { VerAdvertenciaComponent } from './components/ver-advertencia/ver-advertencia.component';
 import { LancarAdvertenciaComponent } from './components/lancar-advertencia/lancar-advertencia.component';
+import { InformacoesAlunoComponent } from './components/informacoes-aluno/informacoes-aluno.component';
 
 @Component({
   selector: 'ver-aluno',
@@ -37,6 +38,8 @@ import { LancarAdvertenciaComponent } from './components/lancar-advertencia/lanc
   styleUrl: './ver-aluno.component.scss',
 })
 export class VerAlunoComponent {
+
+  isDetail = false;
   chamadas: chamada[] = [
     {
       colaborador: 'Maria Silva',
@@ -94,12 +97,12 @@ export class VerAlunoComponent {
       value: 'frequencia',
       selected: false,
     },
-    {
-      icon: '',
-      label: 'Advertências',
-      value: 'advertencias',
-      selected: false,
-    },
+    // {
+    //   icon: '',
+    //   label: 'Advertências',
+    //   value: 'advertencias',
+    //   selected: false,
+    // },
   ];
 
   opcaoTabSelecionada = '';
@@ -118,6 +121,7 @@ export class VerAlunoComponent {
   }
 
   excluirAluno() {
+    this.isDetail = false;
     this.modalService.open(ExcluirAlunoComponent);
   }
   verFrequencia() {
@@ -128,6 +132,19 @@ export class VerAlunoComponent {
   }
   lancarAdvertencia() {
     this.modalService.open(LancarAdvertenciaComponent);
+  }
+
+  showHideDetail() {
+    this.isDetail = !this.isDetail;
+  }
+
+  informacoesAluno() {
+    this.isDetail = false;
+    this.modalService.open(InformacoesAlunoComponent);
+  }
+
+  editarAluno() {
+    this.alunosService.steps.next('editar-aluno');
   }
 
   back() {

@@ -1,0 +1,29 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <div class="camera-container">
+      <!-- Exibir o vídeo se a foto ainda não foi capturada -->
+      @if(!fotoCapturada) {
+      <video #video width="320" height="240"></video>
+      }
+
+      <canvas #canvas width="320" height="240" style="display: none;"></canvas>
+
+      <!-- Exibir a imagem capturada ao lado do vídeo -->
+      @if(fotoCapturadaUrl){
+      <img [src]="fotoCapturadaUrl" alt="Foto Capturada" width="320" height="240" class="foto-capturada">
+      }
+    </div>
+
+    <div class="camera-actions">
+      <tgt-button (click)="alternarCamera()" [border]="false" [size]="'small'" [color]="cameraAtiva ? 'error' : 'primary'" [icon]="cameraAtiva ? 'no_photography' : 'videocam'">
+        {{ cameraAtiva ? 'Parar Câmera' : 'Iniciar Câmera' }}
+      </tgt-button>
+      @if(cameraAtiva && !fotoCapturadaUrl) {
+      <tgt-button (click)="capturarFoto()" [border]="false" [size]="'small'" [icon]="'photo_camera'">Capturar Foto</tgt-button>
+      }
+      @if(fotoCapturadaUrl) {
+      <tgt-button (click)="tirarOutraFoto()" [border]="false" [size]="'small'" [color]="'warning'" [icon]="'photo_camera'">Tirar Outra Foto</tgt-button>
+      }
+    </div>
+  </main>
+</tgt-modal>

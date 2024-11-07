@@ -1,0 +1,55 @@
+@import "../../../../../../../../../assets/styles/colors.scss";
+main {
+  padding: 24px;
+  background-color: #FDFEFE;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 24px;
+  width: 550px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    span {
+      cursor: pointer;
+    }
+  }
+
+  .infos {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    width: auto;
+    gap: 15px;
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span {
+        color: #c1c7aa;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-align: left;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.10000000149011612px;
+        text-align: right;
+        color: #181d17;
+      }
+    }
+  }
+}

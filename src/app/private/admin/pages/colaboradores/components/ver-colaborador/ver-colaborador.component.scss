@@ -60,6 +60,15 @@ main {
           align-items: center;
           transition: all .5s;
 
+          &:first-child {
+            border-radius: 15px 15px 0px 0px;
+            // background-color: #181D17;
+          }
+
+          &:last-child {
+            border-radius: 0px 0px 15px 15px;
+          }
+
           .label {
             font-size: 14px;
             font-weight: 500;
@@ -70,7 +79,7 @@ main {
 
           &:hover {
             background-color: $color-primary;
-            border-radius: 15px;
+            // border-radius: 15px;
           }
         }
       }

@@ -5,11 +5,12 @@ import { AlunosService } from './alunos.service';
 import { ListarAlunosComponent } from "./components/listar-alunos/listar-alunos.component";
 import { CadastrarAlunoComponent } from "./components/cadastrar-aluno/cadastrar-aluno.component";
 import { VerAlunoComponent } from "./components/ver-aluno/ver-aluno.component";
+import { EditarAlunoComponent } from "./components/ver-aluno/components/editar-aluno/editar-aluno.component";
 
 @Component({
   selector: 'app-alunos',
   standalone: true,
-  imports: [ListarAlunosComponent, CadastrarAlunoComponent, VerAlunoComponent],
+  imports: [ListarAlunosComponent, CadastrarAlunoComponent, VerAlunoComponent, EditarAlunoComponent],
   templateUrl: './alunos.component.html',
   styleUrl: './alunos.component.scss',
 })
