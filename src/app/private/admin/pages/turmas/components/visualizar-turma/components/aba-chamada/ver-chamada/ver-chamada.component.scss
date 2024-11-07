@@ -13,6 +13,38 @@ main {
     flex-direction: row;
     align-items: center;
     gap: 24px;
+    justify-content: space-between;
+
+    .infos {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: space-between;
+
+      .download,
+      .edit {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: rgba(57, 105, 59, 1);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        gap: 3px;
+      }
+
+      .close {
+        cursor: pointer;
+      }
+
+    }
 
     p {
       color: #424940;
@@ -81,27 +113,36 @@ main {
             justify-content: center;
             align-items: center;
             gap: 10px;
+
           }
 
-          .ausente {
+          .falta {
             color: #BA1A1A;
             background-color: #FFDAD6;
             padding: 4px;
             border-radius: 50%;
           }
 
+          .ausente {
+            color: #000;
+            background-color: rgba(255, 241, 194, 1);
+            padding: 4px;
+            border-radius: 50%;
+          }
+
           .presente {
-            color: #181D17;
+            color: #000;
             background-color: #D5E8CF;
             padding: 4px;
             border-radius: 50%;
           }
 
           .edit {
-            color: #181D17;
+            color: #000;
             background-color: #00E554;
             border-radius: 6px;
             padding: 2px;
+            cursor: pointer;
           }
 
           .btn-error {
@@ -110,6 +151,16 @@ main {
             padding: 8px;
             background-color: #FFDAD6;
             border: none;
+            cursor: pointer;
+          }
+
+          .btn-warning {
+            border-radius: 7px;
+            color: #181D17;
+            padding: 8px;
+            background-color: rgba(255, 241, 194, 1);
+            border: none;
+            cursor: pointer;
           }
 
           .btn-succes {
@@ -118,6 +169,7 @@ main {
             color: #181D17;
             padding: 8px;
             background-color: #D5E8CF;
+            cursor: pointer;
           }
         }
       }

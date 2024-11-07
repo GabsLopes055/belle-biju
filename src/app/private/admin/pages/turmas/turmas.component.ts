@@ -13,11 +13,12 @@ import { ListarTurmasComponent } from "./components/listar-turmas/listar-turmas.
 import { TurmasService } from './turmas.service';
 import { CriarTurmaComponent } from "./components/criar-turma/criar-turma.component";
 import { VisualizarTurmaComponent } from "./components/visualizar-turma/visualizar-turma.component";
+import { EditarTurmaComponent } from "./components/editar-turma/editar-turma.component";
 
 @Component({
   selector: 'app-turmas',
   standalone: true,
-  imports: [ButtonComponent, InputIconComponent, ReactiveFormsModule, ListarTurmasComponent, CriarTurmaComponent, VisualizarTurmaComponent],
+  imports: [ButtonComponent, InputIconComponent, ReactiveFormsModule, ListarTurmasComponent, CriarTurmaComponent, VisualizarTurmaComponent, EditarTurmaComponent],
   templateUrl: './turmas.component.html',
   styleUrl: './turmas.component.scss',
 })

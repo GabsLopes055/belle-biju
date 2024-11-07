@@ -1,3 +1,4 @@
+@import "../../../../../../../assets/styles/colors.scss";
 main {
   display: flex;
   flex-direction: column;
@@ -33,6 +34,56 @@ main {
       span {
         cursor: pointer;
       }
+
+      .user-detail {
+        position: absolute;
+        background-color: #f7fbf2;
+        width: auto;
+        // height: 150px;
+        top: 140px;
+        right: 39px;
+        border-radius: 15px;
+        z-index: 9999999;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        animation: animation .5s;
+
+        .item {
+          cursor: pointer;
+          width: Fill (166px)px;
+          height: Hug (56px)px;
+          padding: 16px;
+          gap: 9px;
+          opacity: 0px;
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          transition: all .5s;
+
+          &:first-child {
+            border-radius: 15px 15px 0px 0px;
+            // background-color: #181D17;
+          }
+
+          &:last-child {
+            border-radius: 0px 0px 15px 15px;
+          }
+
+          .label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0.10000000149011612px;
+            text-align: center;
+          }
+
+          &:hover {
+            background-color: $color-primary;
+            // border-radius: 15px;
+          }
+        }
+      }
+
     }
   }
 

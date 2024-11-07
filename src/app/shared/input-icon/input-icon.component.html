@@ -18,7 +18,7 @@
 <div class="input" [style.border-color]="control.value ? '#BAF0B6' : '#000'" [style.background]="backGround"
   [style.border]="border ? '' : 'none'">
   <div class="input-wrapper">
-    <input [style.background]="backGround" [type]="type" [formControl]="control"
+    <input [style.background]="backGround" [disabled]="disabled ? true : false" [type]="type" [formControl]="control"
       [placeholder]="isFocused ? placeholder : ''">
     <label [class.active]="isFocused || control.value" [style.background]="backGround">{{ placeholder }}</label>
   </div>

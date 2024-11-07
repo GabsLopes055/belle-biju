@@ -25,6 +25,7 @@ import { RemoverAlunoComponent } from './components/aba-aluno/remover-aluno/remo
 import { RemoverProfessorComponent } from './components/aba-professor/remover-professor/remover-professor.component';
 import { VincularAlunoComponent } from './components/aba-aluno/vincular-aluno/vincular-aluno.component';
 import { VincularProfessorComponent } from './components/aba-professor/vincular-professor/vincular-professor.component';
+import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
 
 @Component({
   selector: 'visualizar-turma',
@@ -44,6 +45,7 @@ import { VincularProfessorComponent } from './components/aba-professor/vincular-
   styleUrl: './visualizar-turma.component.scss',
 })
 export class VisualizarTurmaComponent {
+  isDetail: boolean = false;
   data: chamada[] = [
     {
       colaborador: 'Maria Silva',
@@ -173,16 +175,29 @@ export class VisualizarTurmaComponent {
     //
   }
 
+  editarTurma() {
+    this.isDetail = false;
+    this.turmaService.steps.next('editar-turma');
+  }
+  informacoesTurma() {
+    this.isDetail = false;
+    this.modalService.open(InformacoesTurmaComponent)
+  }
+
+  showHideDetail() {
+    this.isDetail = !this.isDetail;
+  }
+
   visualizarChamada() {
     this.modalService.open(VerChamadaComponent);
   }
 
   baixarChamada() {
     this.modalService.open(BaixarChamadaComponent);
-
   }
 
   excluirTurma() {
+    this.isDetail = false;
     this.modalService.open(ExcluirTurmaComponent);
     // console.log(this.opcaoTabSelecionada)
     // if(this.opcaoTabSelecionada === 'chamadas') {
