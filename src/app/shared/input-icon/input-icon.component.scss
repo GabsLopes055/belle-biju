@@ -21,6 +21,7 @@
 
 
 
+
 //         input {
 //             width: 100%;
 //             padding: 4px;
@@ -41,6 +42,10 @@
   border: solid 1px #000;
   border-radius: 8px;
   padding: 12px;
+
+  .color-icon {
+    color: red
+  }
 
   .input-wrapper {
     position: relative;
@@ -79,4 +84,9 @@
     }
   }
 
+}
+h6 {
+  padding: 3px 0px 0 18px;
+  font-weight: 700;
+  color: #ff0000;
 }

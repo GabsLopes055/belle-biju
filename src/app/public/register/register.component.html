@@ -19,12 +19,23 @@
     }
 
     @switch (step) {
+    @case(0) {
+      <form [formGroup]="form" class="form">
+        <h2>Dados cadastrais</h2>
+        <h5>Preencha as informações solicitadas para continuar:</h5>
+        <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
+          icon="email"></tgt-input-icon>
+        <tgt-button type="button" [color]="'primary'" size="small" [icon]="'arrow_forward'" iconPosition="right"
+          (click)="register()">Continuar</tgt-button>
+      </form>
+    }
+
     @case (1) {
     <form [formGroup]="form" class="form">
       <h2>Dados cadastrais</h2>
       <h5>Preencha as informações solicitadas para continuar:</h5>
-      <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
-        icon="email"></tgt-input-icon>
+      <!-- <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
+        icon="email"></tgt-input-icon> -->
       <tgt-input-icon [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'"
         icon="person"></tgt-input-icon>
       <tgt-input-icon [border]="true" placeholder="CPF" [type]="'number'" [iconPosition]="'right'" icon="fingerprint"></tgt-input-icon>
@@ -106,7 +117,7 @@
       <img src="../../../assets/images/cadastrado.png" alt="imagem-cadastrado">
       <span>Parabéns!</span>
       <p>Sua conta foi criada com sucesso! Realize o login para acessar a plataforma.</p>
-      <tgt-button [icon]="'mood'" [size]="'small'" [routerLink]="['/login']" (click)="cadastrar()" [color]="'primary'">Login</tgt-button>
+      <tgt-button [size]="'small'" [routerLink]="['/login']" (click)="cadastrar()" [color]="'primary'">Login</tgt-button>
     </div>
     }
     }

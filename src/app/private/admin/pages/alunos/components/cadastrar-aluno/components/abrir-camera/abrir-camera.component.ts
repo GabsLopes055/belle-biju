@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ModalComponent } from '../../../../../../../../shared/modal/modal.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
@@ -11,7 +17,7 @@ import { ModalService } from '../../../../../../../../shared/modal/modal.service
   templateUrl: './abrir-camera.component.html',
   styleUrl: './abrir-camera.component.scss',
 })
-export class AbrirCameraComponent {
+export class AbrirCameraComponent implements OnInit {
   fotoCapturadaUrl: string | null = null;
   @ViewChild('video', { static: false })
   videoElement!: ElementRef<HTMLVideoElement>;
@@ -27,6 +33,10 @@ export class AbrirCameraComponent {
   });
 
   constructor(private readonly modalService: ModalService) {}
+
+  ngOnInit(): void {
+    this.alternarCamera();
+  }
 
   voltar() {
     this.modalService.close();

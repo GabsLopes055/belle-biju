@@ -19,6 +19,7 @@ export class InputIconComponent {
   isFocused!: boolean;
   isSelect!: boolean;
 
+  @Input() error: boolean = false;
   @Input() type!: string;
   @Input() disabled!: boolean;
   @Input() icon!: string;
@@ -28,4 +29,12 @@ export class InputIconComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() backGround: string = '';
   @Input() border!: boolean;
+
+  validarValor() {
+    if(this.control.value  != '') {
+      this.error = false;
+    } else {
+      this.error = true;
+    }
+  }
 }

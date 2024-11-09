@@ -32,7 +32,7 @@ export class RegisterComponent {
     password: new FormControl('', Validators.required),
   });
 
-  step: number = 1;
+  step: number = 0;
 
   haveUppercaseAndLowwercase = false;
   contentNumbers = false;

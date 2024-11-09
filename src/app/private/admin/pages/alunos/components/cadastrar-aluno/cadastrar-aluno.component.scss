@@ -6,7 +6,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   overflow: auto;
 
   // padding: 160px 0px 0px 0px;
@@ -76,6 +76,10 @@ main {
 // Media queries para ajustar conforme a largura da tela
 @media (max-width: 1200px) {
   main {
+    .title {
+      width: 100%;
+
+    }
     .form {
       width: 100%;
       overflow: auto;

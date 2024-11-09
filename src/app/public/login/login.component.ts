@@ -28,6 +28,8 @@ import { ToastService } from '../../shared/toast/toast.service';
 })
 export class LoginComponent implements OnInit {
 
+  campoObrigatorio: boolean = false;
+
   formLogin = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -46,8 +48,11 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
-    this.router.navigate(['/admin/']);
+    // this.router.navigate(['/admin/']);
     this.menuService.updateMenu();
+
+    this.campoObrigatorio = true;
+    console.log(this.formLogin.getError)
     // this.authService.logar(this.formLogin.value as AuthenticationRequest).subscribe({
     //   next: response => {
     //     window.sessionStorage.setItem('token', response.token);

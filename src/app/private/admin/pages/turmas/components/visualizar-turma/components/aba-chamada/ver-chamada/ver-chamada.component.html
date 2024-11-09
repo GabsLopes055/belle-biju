@@ -282,6 +282,9 @@
     @if(editar) {
 
     <div class="footer">
+      <tgt-button [border]="false" [color]="'primary'" [fieldButton]="'outline'" [size]="'small'" [icon]="''"
+      (click)="salvar()">Cancelar</tgt-button>
+
       <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [icon]="'edit'"
         (click)="salvar()">Salvar</tgt-button>
     </div>

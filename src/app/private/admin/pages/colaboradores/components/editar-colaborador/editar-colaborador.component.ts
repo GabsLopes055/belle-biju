@@ -5,11 +5,12 @@ import { ToastService } from '../../../../../../shared/toast/toast.service';
 import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
 import { CheckboxComponent } from '../../../../../../shared/checkbox/checkbox.component';
 import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import { RadioComponent } from "../../../../../../shared/radio/radio.component";
 
 @Component({
   selector: 'editar-colaborador',
   standalone: true,
-  imports: [InputIconComponent, CheckboxComponent, ButtonComponent],
+  imports: [InputIconComponent, CheckboxComponent, ButtonComponent, RadioComponent],
   templateUrl: './editar-colaborador.component.html',
   styleUrl: './editar-colaborador.component.scss',
 })
