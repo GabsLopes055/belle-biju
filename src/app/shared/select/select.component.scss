@@ -28,7 +28,7 @@ main {
         padding: 1rem;
         position: absolute;
         margin-top: 5px;
-        width: 100%;
+        width: 94%;
         height: auto;
         //top: 20px;
         right: 0;
@@ -64,4 +64,13 @@ main {
         opacity: 1;
         margin-top: 5;
     }
+}
+
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+  main {
+    .modal {
+      max-width: 100%;
+    }
+  }
 }

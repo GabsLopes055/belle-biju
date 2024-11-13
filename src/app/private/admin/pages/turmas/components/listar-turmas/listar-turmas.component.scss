@@ -1,24 +1,36 @@
-.header {
+main {
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: end;
-  gap: 12px;
+  flex-direction: column;
+  justify-content: space-between;
 
-  tgt-input-icon {
-    width: 40%;
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 12px;
+
+    tgt-input-icon {
+      width: 40%;
+    }
   }
-}
 
-.icone {
-  cursor: pointer;
-}
+  .icone {
+    cursor: pointer;
+  }
 
-.pag-footer {
-  background-color: aqua;
-  padding-right: 200px;
-  position: absolute;
-  bottom: 20px;
-  right: 70px;
+  .pag-footer {
+    background-color: aqua;
+    padding-right: 200px;
+    position: absolute;
+    bottom: 20px;
+    right: 70px;
+  }
+
+  .action {
+    display: none;
+  }
+
 }
 
 .empty {
@@ -47,4 +59,28 @@
     text-align: center;
 
   }
+}
+
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+  main {
+
+    .header {
+      width: auto;
+
+      tgt-button {
+        display: none;
+      }
+
+      tgt-input-icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .action {
+      display: block;
+    }
+  }
+
+
 }

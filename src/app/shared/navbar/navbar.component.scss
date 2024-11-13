@@ -5,23 +5,67 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  // height: 88px;
-  padding: 24px, 32px, 24px, 32px;
-  gap: 64px;
+  padding: 16px 24px;
   position: relative;
-  padding: 16px 24px 16px 24px;
   border-bottom: 1px solid #B5B4B2;
+
+  .openMenu {
+    display: none;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1000;
+    animation: slideIn 0.3s forwards;
+
+    .menu-content {
+      width: 100%; /* largura do menu */
+      height: 100%;
+      background-color: #f7fbf2;
+      transform: translateX(-100%); /* Posição inicial fora da tela */
+      animation: slideInContent 0.3s forwards;
+      padding: 24px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px;
+        cursor: pointer;
+
+        span {
+          cursor: pointer;
+        }
+
+      }
+    }
+
+    .close {
+      cursor: pointer;
+      font-size: 24px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+    }
+  }
 
   .title {
     h2 {
       font-size: 16px;
       font-weight: 600;
       line-height: 24px;
-      letter-spacing: 0.15000000596046448px;
+      letter-spacing: 0.15px;
       text-align: left;
-
     }
-
   }
 
   .final {
@@ -29,13 +73,11 @@ main {
     flex-direction: row;
     align-items: center;
     gap: 24px;
-    // padding: 2rem;
 
     .divider-vertical {
       width: 1px;
       height: 24px;
       background-color: #B5B4B2;
-      ;
     }
 
     .user {
@@ -55,55 +97,60 @@ main {
     position: absolute;
     background-color: $color-off-white;
     width: 145px;
-    // height: 150px;
     top: 75px;
     right: 15px;
-    // padding: 1rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    animation: animation .5s;
+    animation: fadeIn 0.5s;
+    z-index: 99999;
 
     .item {
       cursor: pointer;
-      width: Fill (166px)px;
-      height: Hug (56px)px;
       padding: 16px;
-      gap: 9px;
-      opacity: 0px;
-
       display: flex;
       flex-direction: row;
       align-items: center;
-      transition: all .5s;
-
-      .label {
-        //styleName: M3/label/large;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 20px;
-        letter-spacing: 0.10000000149011612px;
-        text-align: center;
-
-      }
+      transition: all 0.5s;
 
       &:hover {
         background-color: $color-primary;
       }
     }
   }
-}
 
-.pointer {
-  cursor: pointer;
-}
-
-@keyframes animation {
-  from {
-    opacity: 0;
-    margin-top: -10px;
+  .pointer {
+    cursor: pointer;
   }
 
-  to {
-    opacity: 1;
-    margin-top: 0;
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInContent {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  // Media queries para ajustar conforme a largura da tela
+  @media (max-width: 1000px) {
+    .openMenu {
+      display: block;
+      cursor: pointer;
+    }
+
+    .pointer,
+    .divider-vertical,
+    .nome-usuario,
+    .none {
+      display: none;
+    }
   }
 }

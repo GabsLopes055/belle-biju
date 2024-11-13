@@ -7,6 +7,7 @@ import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../services/user/user.service';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { TooltipDirective } from '../directives/tooltip.directive';
+import { Menu } from '../menu/menu.component';
 
 @Component({
   selector: 'navbar',
@@ -22,6 +23,10 @@ import { TooltipDirective } from '../directives/tooltip.directive';
   ],
 })
 export class NavbarComponent {
+
+  isOpen = true;
+  menu: Menu[] = []
+  isMenu = false;
   isDetail = false;
   title: any = '';
   isViajar = this.service.showBtnViajar;
@@ -46,6 +51,11 @@ export class NavbarComponent {
   visualizarPerfil() {
     this.router.navigate(['/admin/perfil'])
     this.showHideDetail();
+  }
+
+  abrirMenu() {
+    this.isMenu = !this.isMenu;
+    console.log(this.isMenu)
   }
 
   logout() {
