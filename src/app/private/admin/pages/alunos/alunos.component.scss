@@ -6,7 +6,7 @@ main {
 // Media queries para ajustar conforme a largura da tela
 @media (max-width: 1200px) {
   main {
-    max-height: 500px;
+    // max-height: 500px;
     overflow: auto;
   }
 }

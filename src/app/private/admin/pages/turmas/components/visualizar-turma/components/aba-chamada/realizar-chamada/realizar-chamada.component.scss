@@ -152,3 +152,27 @@ main {
   }
 
 }
+
+@media (max-width: 1000px) {
+  main {
+    width: auto;
+    height: auto;
+    // background-color: #00E554;
+
+    .table {
+      overflow: auto;
+
+    }
+
+    .header {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+
+    .linhaBody {
+      height: 60px;
+      flex-direction: column !important;
+    }
+  }
+}

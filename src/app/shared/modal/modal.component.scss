@@ -1,6 +1,6 @@
 @import '../../../assets/styles/colors.scss';
 main {
-    // position: relative;
+    position: relative;
 }
 #fade {
     position: fixed;
@@ -32,4 +32,10 @@ main {
         opacity: 1;
         top: 50%;
     }
+}
+
+@media (max-width: 1000px) {
+  #modal {
+    width: 90% !important;
+  }
 }

@@ -48,3 +48,13 @@
 
   }
 }
+@media (max-width: 1000px) {
+  .header {
+    width: 100%;
+    tgt-input-icon,
+    tgt-button {
+      width: 100%;
+    }
+
+  }
+}

@@ -39,6 +39,9 @@ export class ListarTurmasComponent {
     { nome: '8° Ano - Turma D', periodo: 'Tarde' },
     { nome: '8° Ano - Turma E', periodo: 'Manhã' },
     { nome: '8° Ano - Turma F', periodo: 'Tarde' },
+    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
+    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
+    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
     { nome: '8° Ano - Turma A', periodo: 'Manhã' }
   ];
 

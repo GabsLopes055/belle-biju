@@ -109,4 +109,31 @@ main {
     }
   }
 
+  .isMobile {
+    display: none;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  main {
+    .direito {
+      tgt-button {
+        display: none;
+      }
+    }
+
+    .aluno-find {
+      flex-direction: column-reverse;
+      gap: 24px;
+      tgt-input-icon {
+        width: 100%;
+      }
+    }
+
+    .isMobile {
+      display: block;
+      padding-bottom: 20px;
+    }
+  }
 }

@@ -3,7 +3,6 @@
     <div class="esquerdo">
       <span class="material-symbols-outlined icone" (click)="back()">arrow_back</span>
       <h3>8° Ano - Turma B</h3>
-
     </div>
     <div class="direito">
       <tgt-button [color]="'primary'" [icon]="'done_all'" (click)="realizarChamada()">Realizar chamada</tgt-button>
@@ -133,6 +132,8 @@
     }
   }
 
-
+  <div class="isMobile">
+    <tgt-button [color]="'primary'" [icon]="'done_all'" (click)="realizarChamada()">Realizar chamada</tgt-button>
+  </div>
 
 </main>

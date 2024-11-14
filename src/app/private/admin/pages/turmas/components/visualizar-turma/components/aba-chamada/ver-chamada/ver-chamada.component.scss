@@ -7,6 +7,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow: auto;
 
   .header {
     display: flex;
@@ -184,4 +185,33 @@ main {
     justify-content: end;
   }
 
+}
+@media (max-width: 1000px) {
+  main {
+    width: auto;
+    height: auto;
+    // background-color: #00E554;
+
+    .table {
+      overflow: auto;
+
+    }
+
+    .header {
+      .infos {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+      }
+
+      .actions {
+        // display: none;
+      }
+    }
+
+    .linhaBody {
+      height: 60px;
+      flex-direction: column !important;
+    }
+  }
 }

@@ -1,10 +1,10 @@
 main {
-  padding: 24px;
+  padding: 12px;
 }
 
 // Media queries para ajustar conforme a largura da tela
 @media (max-width: 1000px) {
   main {
-    height: calc(100vh - 15vh)
+    height: calc(100vh - 12vh)
   }
 }

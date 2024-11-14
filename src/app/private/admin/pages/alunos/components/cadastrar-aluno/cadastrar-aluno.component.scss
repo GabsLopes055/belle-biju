@@ -83,10 +83,18 @@ main {
     .form {
       width: 100%;
       overflow: auto;
-      max-height: 600px;
+      // max-height: 600px;
 
       .infos {
         flex-direction: column;
+      }
+    }
+
+    .actions {
+      width: 100%;
+      justify-content: center;
+      tgt-button {
+        width: 100%;
       }
     }
   }

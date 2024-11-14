@@ -47,3 +47,33 @@ main {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  main {
+    background-color: rgba(230, 233, 225, 1);
+
+    .text {
+      span {
+        width: auto;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+      }
+    }
+  }
+}
