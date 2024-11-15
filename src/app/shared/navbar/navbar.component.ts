@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { NavbarService } from './navbar.service';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../services/user/user.service';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { TooltipDirective } from '../directives/tooltip.directive';
 import { Menu } from '../menu/menu.component';
+import { AbrirCameraComponent } from "../../private/admin/pages/alunos/components/cadastrar-aluno/components/abrir-camera/abrir-camera.component";
 
 @Component({
   selector: 'navbar',
@@ -20,7 +21,9 @@ import { Menu } from '../menu/menu.component';
     RouterLink,
     PerfilComponent,
     TooltipDirective,
-  ],
+    RouterLinkActive,
+    AbrirCameraComponent
+],
 })
 export class NavbarComponent {
 
@@ -42,6 +45,7 @@ export class NavbarComponent {
     // const usuario = this.userService.user;
     // const firstName = usuario?.nome.split(' ')[0];
     // this.nameUser = firstName;
+    this.menuService._menu.subscribe(menu => this.menu = menu);
   }
 
   showHideDetail() {

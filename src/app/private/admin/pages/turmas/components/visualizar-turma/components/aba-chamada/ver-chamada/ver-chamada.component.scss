@@ -16,6 +16,10 @@ main {
     gap: 24px;
     justify-content: space-between;
 
+    .close-mobile {
+      display: none;
+    }
+
     .infos {
       display: flex;
       flex-direction: row;
@@ -85,11 +89,11 @@ main {
 
 
         .th {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
+          // display: flex;
+          // flex-direction: row;
+          // align-items: center;
+          // justify-content: center;
+          // gap: 12px;
         }
 
 
@@ -177,6 +181,10 @@ main {
     }
   }
 
+  .isMobile {
+    display: none;
+  }
+
   .footer {
     display: flex;
     flex-direction: row;
@@ -186,10 +194,11 @@ main {
   }
 
 }
+
 @media (max-width: 1000px) {
   main {
     width: auto;
-    height: auto;
+    height: 90vh;
     // background-color: #00E554;
 
     .table {
@@ -198,6 +207,12 @@ main {
     }
 
     .header {
+      align-items: start;
+
+      .close-mobile {
+        display: block;
+      }
+
       .infos {
         flex-direction: column;
         justify-content: start;
@@ -205,13 +220,57 @@ main {
       }
 
       .actions {
-        // display: none;
+        display: none;
       }
     }
 
     .linhaBody {
-      height: 60px;
+      height: auto;
       flex-direction: column !important;
+      label {
+        display: none;
+      }
+    }
+
+    .isMobile {
+      display: block;
+
+      .actions {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        justify-content: space-around;
+
+        .download,
+        .edit {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          color: rgba(57, 105, 59, 1);
+          font-size: 14px;
+          font-weight: 700;
+          text-align: center;
+          gap: 3px;
+
+          span {
+            font-weight: 600;
+          }
+        }
+
+        .close {
+          cursor: pointer;
+        }
+
+      }
+    }
+
+    .footer {
+      width: 100%;
+
+      tgt-button {
+        width: 100%;
+      }
     }
   }
 }

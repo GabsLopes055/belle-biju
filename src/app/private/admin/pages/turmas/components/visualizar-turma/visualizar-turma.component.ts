@@ -52,47 +52,47 @@ export class VisualizarTurmaComponent {
       materia: 'Português',
       perfil: 'Professor(a)',
     },
-    {
-      colaborador: 'João Santos',
-      materia: 'Matemática',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Ana Oliveira',
-      materia: 'Geografia',
-      perfil: 'Professor(a)',
-    },
-    { colaborador: 'Joana Silva', materia: 'História', perfil: 'Professor(a)' },
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Português',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Marcelo Santos',
-      materia: 'Química',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Nataly Oliveira',
-      materia: 'Português',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Andrey Silva',
-      materia: 'Biologia',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Educação Física',
-      perfil: 'Professor(a)',
-    },
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Português',
-      perfil: 'Professor(a)',
-    },
+    // {
+    //   colaborador: 'João Santos',
+    //   materia: 'Matemática',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Ana Oliveira',
+    //   materia: 'Geografia',
+    //   perfil: 'Professor(a)',
+    // },
+    // { colaborador: 'Joana Silva', materia: 'História', perfil: 'Professor(a)' },
+    // {
+    //   colaborador: 'Maria Silva',
+    //   materia: 'Português',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Marcelo Santos',
+    //   materia: 'Química',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Nataly Oliveira',
+    //   materia: 'Português',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Andrey Silva',
+    //   materia: 'Biologia',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Maria Silva',
+    //   materia: 'Educação Física',
+    //   perfil: 'Professor(a)',
+    // },
+    // {
+    //   colaborador: 'Maria Silva',
+    //   materia: 'Português',
+    //   perfil: 'Professor(a)',
+    // },
   ];
 
   alunos: alunos[] = [

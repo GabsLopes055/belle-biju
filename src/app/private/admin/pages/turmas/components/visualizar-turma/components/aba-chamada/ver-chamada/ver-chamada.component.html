@@ -8,10 +8,13 @@
         <p>Professor: Maria Silva</p>
         <p>Data/Hora: 29/04/2024 10:30</p>
       </div>
-      <div class="actions"
-      [style.opacity]="!this.editar ? 1 : 0.5"
-      [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'"
-      >
+      <div class="close-mobile" (click)="finalizarChamada()">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+      </div>
+      <div class="actions" [style.opacity]="!this.editar ? 1 : 0.5"
+        [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'">
 
         <div class="download" (click)="baixarChamada()">
           <span class="material-symbols-outlined">
@@ -125,15 +128,15 @@
               <div class="linhaBody">
                 <button class="btn-error linhaBody">
                   <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
-                  Ausente
+                  <label for="">Ausente</label>
                 </button>
                 <button class="btn-warning linhaBody">
                   <span class="material-symbols-outlined ausente">mood_bad</span>
-                  Ausência justificada
+                  <label for="">Ausência justificada</label>
                 </button>
                 <button class="btn-succes linhaBody">
                   <span class="material-symbols-outlined presente">sentiment_very_satisfied</span>
-                  Presente
+                  <label for="">Presente</label>
                 </button>
               </div>
             </td>
@@ -152,15 +155,15 @@
               <div class="linhaBody">
                 <button class="btn-error linhaBody">
                   <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
-                  Ausente
+                  <label for="">Ausente</label>
                 </button>
                 <button class="btn-warning linhaBody">
                   <span class="material-symbols-outlined ausente">mood_bad</span>
-                  Ausência justificada
+                  <label for="">Ausência justificada</label>
                 </button>
                 <button class="btn-succes linhaBody">
                   <span class="material-symbols-outlined presente">sentiment_very_satisfied</span>
-                  Presente
+                  <label for="">Presente</label>
                 </button>
               </div>
             </td>
@@ -279,16 +282,33 @@
 
     </div>
 
-    <!-- <div class="isMobile">
-    </div> -->
+    <div class="isMobile">
+      <div class="actions" [style.opacity]="!this.editar ? 1 : 0.5"
+      [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'">
+
+      <div class="download" (click)="baixarChamada()">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <span>Download</span>
+      </div>
+
+      <div class="edit" (click)="editarChamada()">
+        <span class="material-symbols-outlined">
+          edit
+        </span>
+        <span>Editar</span>
+      </div>
+    </div>
+    </div>
     }
     @if(editar) {
 
     <div class="footer">
       <tgt-button [border]="false" [color]="'primary'" [fieldButton]="'outline'" [size]="'small'" [icon]="''"
-      (click)="salvar()">Cancelar</tgt-button>
+        (click)="salvar()">Cancelar</tgt-button>
 
-      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [icon]="'edit'"
+      <tgt-button [border]="false" [color]="'primary'" [size]="'middle'" [icon]="'edit'"
         (click)="salvar()">Salvar</tgt-button>
     </div>
     }

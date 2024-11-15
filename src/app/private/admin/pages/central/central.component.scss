@@ -21,3 +21,24 @@ main {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  main {
+    .grid {
+      display: flex;
+      flex-direction: column;
+
+      .cameras {
+        width: 100%;
+      }
+
+      .reconhecimentos {
+        min-width: 90%;
+        width: auto;
+        max-width: 33%;
+        height: auto;
+        // overflow: auto;
+      }
+    }
+  }
+}

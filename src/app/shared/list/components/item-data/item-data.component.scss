@@ -12,3 +12,15 @@ main {
     }
 }
 
+@media (max-width: 1000px) {
+  main {
+    width: 50px;
+
+    span {
+      font-size: 10px;
+
+    }
+  }
+}
+
+

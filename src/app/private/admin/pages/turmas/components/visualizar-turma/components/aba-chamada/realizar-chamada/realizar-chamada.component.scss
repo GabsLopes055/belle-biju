@@ -52,11 +52,11 @@ main {
 
 
         .th {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
+          // display: flex;
+          // flex-direction: row;
+          // align-items: center;
+          // justify-content: center;
+          // gap: 12px;
         }
 
 
@@ -156,7 +156,8 @@ main {
 @media (max-width: 1000px) {
   main {
     width: auto;
-    height: auto;
+    max-height: 90vh;
+
     // background-color: #00E554;
 
     .table {
@@ -171,8 +172,17 @@ main {
     }
 
     .linhaBody {
-      height: 60px;
+      height: auto;
       flex-direction: column !important;
+      label {
+        display: none;
+      }
+    }
+    .footer {
+      width: 100%;
+      tgt-button {
+        width: 100%;
+      }
     }
   }
 }
