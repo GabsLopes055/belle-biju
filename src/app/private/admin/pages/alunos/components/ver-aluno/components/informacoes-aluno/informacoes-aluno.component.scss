@@ -19,37 +19,40 @@ main {
     }
   }
 
-  .infos {
-
+  .info {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: auto;
+    flex-direction: row;
+    justify-content: space-between;
+
+    span {
+      color: #888d73;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      text-align: left;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0.10000000149011612px;
+      text-align: right;
+      color: #181d17;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
     width: auto;
-    gap: 15px;
-
-    .info {
+    background-color: rgba(230, 233, 225, 1);
+    .infos {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      span {
-        color: #888d73;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0.25px;
-        text-align: left;
-      }
-
-      p {
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 20px;
-        letter-spacing: 0.10000000149011612px;
-        text-align: right;
-        color: #181d17;
-      }
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
     }
   }
 }

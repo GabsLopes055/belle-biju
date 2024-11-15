@@ -159,3 +159,11 @@ main {
   }
 
 }
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+  main {
+    .info-usuario {
+      flex-direction: column;
+    }
+  }
+}

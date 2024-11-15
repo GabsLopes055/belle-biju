@@ -1,17 +1,24 @@
 <main>
-  <div class="title">
-    <h2>Novo Colaborador</h2>
-  </div>
-  <div class="form">
-    <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'Nome'" [control]="form.controls.nome"></tgt-input-icon>
-    <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'E-mail'" [control]="form.controls.email"></tgt-input-icon>
-    <div class="check">
-      <tgt-radio [value]="'professor'" [control]="form.controls.tipo" (valueChange)="changeValue($event)"> Professor(a)</tgt-radio>
-      <tgt-radio [value]="'secretario'" [control]="form.controls.tipo" (valueChange)="changeValue($event)"> Secretário(a)</tgt-radio>
+  <div class="content">
+    <div class="title">
+      <h2>Novo Colaborador</h2>
     </div>
-    @if(isProfessor) {
-      <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'Matéria'" [control]="form.controls.materia"></tgt-input-icon>
-    }
+    <div class="form">
+      <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'Nome'"
+        [control]="form.controls.nome"></tgt-input-icon>
+      <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'E-mail'"
+        [control]="form.controls.email"></tgt-input-icon>
+      <div class="check">
+        <tgt-radio [value]="'professor'" [control]="form.controls.tipo" (valueChange)="changeValue($event)">
+          Professor(a)</tgt-radio>
+        <tgt-radio [value]="'secretario'" [control]="form.controls.tipo" (valueChange)="changeValue($event)">
+          Secretário(a)</tgt-radio>
+      </div>
+      @if(isProfessor) {
+      <tgt-input-icon [error]="campoObrigatorio" [border]="true" [placeholder]="'Matéria'"
+        [control]="form.controls.materia"></tgt-input-icon>
+      }
+    </div>
   </div>
   <div class="actions">
     <tgt-button (click)="salvar()" [icon]="''" [fieldButton]="'outline'" [border]="false"

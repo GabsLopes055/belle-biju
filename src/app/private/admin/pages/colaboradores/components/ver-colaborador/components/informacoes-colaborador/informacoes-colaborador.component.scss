@@ -42,3 +42,11 @@ main {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  main {
+    width: auto;
+    background-color: rgba(230, 233, 225, 1);
+
+  }
+}

@@ -76,6 +76,7 @@ main {
 // Media queries para ajustar conforme a largura da tela
 @media (max-width: 1200px) {
   main {
+    height: 100%;
     .title {
       width: 100%;
 

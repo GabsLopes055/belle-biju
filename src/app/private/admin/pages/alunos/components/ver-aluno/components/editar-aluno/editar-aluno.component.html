@@ -1,11 +1,10 @@
 <main>
   <div class="title">
-    <h2>Novo Aluno</h2>
+    <h2>Editar Aluno</h2>
   </div>
 
   <div class="form">
-    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo'" [control]="form.controls['nome']"></tgt-input-icon>
-
+    <tgt-input-icon [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
     <div class="infos">
       <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'" [control]="form.controls['dataNascimento']"></tgt-input-icon>
       <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]" [control]="form.controls['genero']"></tgt-select>
@@ -40,7 +39,7 @@
 
   <div class="actions">
     <tgt-button  (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
-    <tgt-button (click)="salvar()" [icon]="'edit'">Editar</tgt-button>
+    <tgt-button (click)="salvar()" [icon]="'add'">Editar</tgt-button>
   </div>
 </main>
 

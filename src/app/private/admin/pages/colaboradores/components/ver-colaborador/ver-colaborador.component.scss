@@ -155,3 +155,11 @@ main {
   }
 
 }
+
+@media (max-width: 1000px) {
+  main {
+    .info-usuario {
+      flex-direction: column;
+    }
+  }
+}
