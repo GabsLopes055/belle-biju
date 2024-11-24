@@ -40,6 +40,24 @@ export class ListarColaboradoresComponent {
       materia: 'História',
       perfil: 'Professor(a)'
     },
+    {
+      nome: 'Maria Silva',
+      email: 'mariasilva@ayrtonsenna.gov',
+      materia: 'Português',
+      perfil: 'Professor(a)'
+    },
+    {
+      nome: 'João Santos',
+      email: 'joaosantos@ayrtonsenna.gov',
+      materia: 'Matemática',
+      perfil: 'Professor(a)'
+    },
+    {
+      nome: 'Ana Oliveira',
+      email: 'anaoliveira@ayrtonsenna.gov',
+      materia: 'História',
+      perfil: 'Professor(a)'
+    },
   ];
 
   form = new FormGroup({

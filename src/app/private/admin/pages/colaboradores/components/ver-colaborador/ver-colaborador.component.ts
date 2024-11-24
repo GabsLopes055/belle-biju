@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { turma } from '../../../../../../models/turma.interface';
 import { ButtonComponent } from '../../../../../../shared/button/button.component';
 import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
 import { HeaderColComponent } from '../../../../../../shared/list/components/header-col/header-col.component';
@@ -10,15 +9,14 @@ import { ItemDataComponent } from '../../../../../../shared/list/components/item
 import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
 import { ListComponent } from '../../../../../../shared/list/list.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
+import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
+import { ListarTurmasComponent } from '../../components/ver-colaborador/components/aba-turma/listar-turmas/listar-turmas.component';
 import {
-  Tab,
-  TabsComponent,
-} from '../../../../../../shared/tabs/tabs.component';
-import { AlunosService } from '../../../alunos/alunos.service';
-import { VerChamadaComponent } from '../../../turmas/components/visualizar-turma/components/aba-chamada/ver-chamada/ver-chamada.component';
+  ListarChamadasComponent,
+} from '../../components/ver-colaborador/components/aba-chamadas/listar-chamadas/listar-chamadas.component';
 import { ColaboradoresService } from '../../colaboradores.service';
-import { InformacoesColaboradorComponent } from './components/informacoes-colaborador/informacoes-colaborador.component';
 import { ExcluirColaboradorComponent } from './components/excluir-colaborador/excluir-colaborador.component';
+import { InformacoesColaboradorComponent } from './components/informacoes-colaborador/informacoes-colaborador.component';
 
 @Component({
   selector: 'ver-colaborador',
@@ -32,7 +30,9 @@ import { ExcluirColaboradorComponent } from './components/excluir-colaborador/ex
     ItemListComponent,
     ItemDataComponent,
     TabsComponent,
-  ],
+    ListarChamadasComponent,
+    ListarTurmasComponent
+],
   templateUrl: './ver-colaborador.component.html',
   styleUrl: './ver-colaborador.component.scss',
 })
@@ -40,13 +40,7 @@ export class VerColaboradorComponent {
 
   isDetail = false;
 
-  data: turma[] = [
-    { nome: '8° Ano - Turma A', periodo: 'Manhã' },
-    { nome: '8° Ano - Turma B', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma C', periodo: 'Manhã' },
-    { nome: '8° Ano - Turma D', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma E', periodo: 'Manhã' },
-  ];
+
 
   tabs: Tab[] = [
     {
@@ -76,10 +70,6 @@ export class VerColaboradorComponent {
 
   chosenTab(tab: string) {
     this.opcaoTabSelecionada = tab;
-  }
-
-  verChamada() {
-    this.modalService.open(VerChamadaComponent);
   }
 
   excluir() {

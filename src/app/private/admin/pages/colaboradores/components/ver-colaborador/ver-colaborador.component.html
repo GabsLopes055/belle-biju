@@ -64,60 +64,10 @@
   @switch (opcaoTabSelecionada) {
 
   @case ('turmas') {
-  <div class="find">
-    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
-      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
-  </div>
-  <section>
-    <tgt-list>
-      <div header class="header-list">
-        <tgt-header-list>
-          <tgt-header-col>Turma</tgt-header-col>
-          <tgt-header-col>Matéria</tgt-header-col>
-          <tgt-header-col></tgt-header-col>
-        </tgt-header-list>
-      </div>
-      <div body class="body">
-        @for (item of data; track item) {
-        <tgt-item-list>
-          <tgt-item-data>{{ item.nome }}</tgt-item-data>
-          <tgt-item-data>{{ item.periodo }}</tgt-item-data>
-          <tgt-item-data>
-            <span class="material-symbols-outlined icone">arrow_forward</span>
-          </tgt-item-data>
-        </tgt-item-list>
-        }
-      </div>
-    </tgt-list>
-  </section>
+    <listar-turmas></listar-turmas>
   }
   @case ('chamadas') {
-  <div class="find">
-    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
-      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
-  </div>
-  <section>
-    <tgt-list>
-      <div header class="header-list">
-        <tgt-header-list>
-          <tgt-header-col>Turma</tgt-header-col>
-          <tgt-header-col>Data/Hora</tgt-header-col>
-          <tgt-header-col></tgt-header-col>
-        </tgt-header-list>
-      </div>
-      <div body class="body">
-        @for (item of data; track item) {
-        <tgt-item-list>
-          <tgt-item-data>{{ item.nome }}</tgt-item-data>
-          <tgt-item-data>29/04/2024 10:30</tgt-item-data>
-          <tgt-item-data>
-            <span class="material-symbols-outlined icone" (click)="verChamada()">search</span>
-          </tgt-item-data>
-        </tgt-item-list>
-        }
-      </div>
-    </tgt-list>
-  </section>
+    <listar-chamadas></listar-chamadas>
   }
   }
 

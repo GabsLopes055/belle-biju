@@ -2,6 +2,7 @@ main {
 
   height: 100%;
   width: 100%;
+
   .header {
     display: flex;
     flex-direction: row;
@@ -18,12 +19,20 @@ main {
     cursor: pointer;
   }
 
+  .mobile {
+    display: none;
+  }
+
   .pag-footer {
     background-color: aqua;
     padding-right: 200px;
     position: absolute;
     bottom: 20px;
     right: 70px;
+  }
+
+  .content {
+    height: 100%;
   }
 
   .action {
@@ -67,6 +76,7 @@ main {
     flex-direction: column;
     // align-items: center;
     justify-content: space-between;
+
     .header {
       width: auto;
 
@@ -77,6 +87,82 @@ main {
       tgt-input-icon {
         width: 100%;
         height: 100%;
+      }
+    }
+
+    .content {
+
+      height: 90%;
+
+      .desktop {
+        display: none;
+      }
+
+      .mobile {
+        display: block;
+        height: 90%;
+        overflow: auto;
+
+        .cards {
+          display: flex;
+          flex-direction: column;
+          padding: 24px;
+          border-radius: 16px;
+          margin: 12px 0px;
+          gap: 12px;
+          background-color: #F7FBF2;
+
+          .title {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 28px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #181D17;
+          }
+
+          .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .icone {
+              padding: 12px;
+              background-color: #E0E4DB;
+              border-radius: 50%;
+            }
+
+            .infos {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+
+              span {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+              }
+            }
+
+            .actions {
+              display: flex;
+              flex-direction: row;
+              gap: 12px;
+
+              span {
+                color: #101F10;
+                font-size: 18px;
+              }
+            }
+          }
+        }
       }
     }
 
