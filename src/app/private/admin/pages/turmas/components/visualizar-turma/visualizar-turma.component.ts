@@ -1,30 +1,22 @@
-import { professores } from './../../../../../../models/professores.interface';
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../../../../../shared/button/button.component';
-import {
-  Tab,
-  TabsComponent,
-} from '../../../../../../shared/tabs/tabs.component';
-import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ListComponent } from '../../../../../../shared/list/list.component';
-import { HeaderListComponent } from '../../../../../../shared/list/components/header-list/header-list.component';
+import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import { TooltipDirective } from '../../../../../../shared/directives/tooltip.directive';
+import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
 import { HeaderColComponent } from '../../../../../../shared/list/components/header-col/header-col.component';
-import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
+import { HeaderListComponent } from '../../../../../../shared/list/components/header-list/header-list.component';
 import { ItemDataComponent } from '../../../../../../shared/list/components/item-data/item-data.component';
-import { PaginatorComponent } from '../../../../../../shared/paginator/paginator.component';
-import { chamada } from '../../../../../../models/chamada.interface';
-import { alunos } from '../../../../../../models/alunos.interface';
-import { TurmasService } from '../../turmas.service';
+import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
+import { ListComponent } from '../../../../../../shared/list/list.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
-import { RealizarChamadaComponent } from './components/aba-chamada/realizar-chamada/realizar-chamada.component';
+import { PaginatorComponent } from '../../../../../../shared/paginator/paginator.component';
+import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
+import { ListarAlunosComponent } from './components/aba-aluno/listar-alunos/listar-alunos.component';
+import { TurmasService } from '../../turmas.service';
 import { ExcluirTurmaComponent } from './components/aba-chamada/excluir-turma/excluir-turma.component';
-import { VerChamadaComponent } from './components/aba-chamada/ver-chamada/ver-chamada.component';
-import { BaixarChamadaComponent } from './components/aba-chamada/baixar-chamada/baixar-chamada.component';
-import { RemoverAlunoComponent } from './components/aba-aluno/remover-aluno/remover-aluno.component';
-import { RemoverProfessorComponent } from './components/aba-professor/remover-professor/remover-professor.component';
-import { VincularAlunoComponent } from './components/aba-aluno/vincular-aluno/vincular-aluno.component';
-import { VincularProfessorComponent } from './components/aba-professor/vincular-professor/vincular-professor.component';
+import { ListarChamadasComponent } from './components/aba-chamada/listar-chamadas/listar-chamadas.component';
+import { RealizarChamadaComponent } from './components/aba-chamada/realizar-chamada/realizar-chamada.component';
+import { ListarProfessoresComponent } from './components/aba-professor/listar-professores/listar-professores.component';
 import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
 
 @Component({
@@ -40,101 +32,16 @@ import { InformacoesTurmaComponent } from './components/informacoes-turma/inform
     ItemListComponent,
     ItemDataComponent,
     PaginatorComponent,
-  ],
+    TooltipDirective,
+    ListarChamadasComponent,
+    ListarAlunosComponent,
+    ListarProfessoresComponent
+],
   templateUrl: './visualizar-turma.component.html',
   styleUrl: './visualizar-turma.component.scss',
 })
 export class VisualizarTurmaComponent {
   isDetail: boolean = false;
-  data: chamada[] = [
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Português',
-      perfil: 'Professor(a)',
-    },
-    // {
-    //   colaborador: 'João Santos',
-    //   materia: 'Matemática',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Ana Oliveira',
-    //   materia: 'Geografia',
-    //   perfil: 'Professor(a)',
-    // },
-    // { colaborador: 'Joana Silva', materia: 'História', perfil: 'Professor(a)' },
-    // {
-    //   colaborador: 'Maria Silva',
-    //   materia: 'Português',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Marcelo Santos',
-    //   materia: 'Química',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Nataly Oliveira',
-    //   materia: 'Português',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Andrey Silva',
-    //   materia: 'Biologia',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Maria Silva',
-    //   materia: 'Educação Física',
-    //   perfil: 'Professor(a)',
-    // },
-    // {
-    //   colaborador: 'Maria Silva',
-    //   materia: 'Português',
-    //   perfil: 'Professor(a)',
-    // },
-  ];
-
-  alunos: alunos[] = [
-    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },
-    {
-      nome: 'Juliana Oliveira',
-      responsavel: 'Simone Oliveira',
-      email_responsavel: 'simoneoliveira@gmail.com',
-    },
-    {
-      nome: 'Rafael Santos',
-      responsavel: 'Maria Santos',
-      email_responsavel: 'mariasantos@gmail.com',
-    },
-    {
-      nome: 'Lucas Costa',
-      responsavel: 'Sergio Costa',
-      email_responsavel: 'sergiocosta@gmail.com',
-    },
-  ];
-
-  professores: professores[] = [
-    {
-      nome: 'Maria Silva',
-      email: 'mariasilva@ayrtonsenna.gov',
-      materia: 'Português',
-    },
-    {
-      nome: 'João Santos',
-      email: 'joaosantos@ayrtonsenna.gov',
-      materia: 'Matemática',
-    },
-    {
-      nome: 'Ana Oliveira',
-      email: 'anaoliveira@ayrtonsenna.gov',
-      materia: 'História',
-    },
-  ];
 
   tabs: Tab[] = [
     {
@@ -181,19 +88,11 @@ export class VisualizarTurmaComponent {
   }
   informacoesTurma() {
     this.isDetail = false;
-    this.modalService.open(InformacoesTurmaComponent)
+    this.modalService.open(InformacoesTurmaComponent);
   }
 
   showHideDetail() {
     this.isDetail = !this.isDetail;
-  }
-
-  visualizarChamada() {
-    this.modalService.open(VerChamadaComponent);
-  }
-
-  baixarChamada() {
-    this.modalService.open(BaixarChamadaComponent);
   }
 
   excluirTurma() {
@@ -209,23 +108,6 @@ export class VisualizarTurmaComponent {
 
     // }
   }
-
-  desvincularAluno() {
-    this.modalService.open(RemoverAlunoComponent);
-  }
-
-  vincularAluno() {
-    this.modalService.open(VincularAlunoComponent);
-  }
-
-  vincularProfessor() {
-    this.modalService.open(VincularProfessorComponent);
-  }
-
-  desvincularProfessor() {
-    this.modalService.open(RemoverProfessorComponent);
-  }
-
   chosenTab(tab: string) {
     this.opcaoTabSelecionada = tab;
   }

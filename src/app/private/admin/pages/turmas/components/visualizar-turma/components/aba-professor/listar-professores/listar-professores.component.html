@@ -1,0 +1,54 @@
+<main>
+  <div class="aluno-find">
+    <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'" [icon]="'badge'"
+      (click)="vincularProfessor()">Vincular Professor</tgt-button>
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+  <section class="desktop">
+
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Professor</tgt-header-col>
+          <tgt-header-col>E-mail</tgt-header-col>
+          <tgt-header-col>Materia</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        @for (item of professores; track item) {
+          <tgt-item-list>
+            <tgt-item-data>{{ item.nome }}</tgt-item-data>
+            <tgt-item-data>{{ item.email }}</tgt-item-data>
+            <tgt-item-data>{{ item.materia }}</tgt-item-data>
+            <tgt-item-data>
+              <span class="material-symbols-outlined icone" [appTooltip]="'Desvincular Professor'"
+              [tooltipPosition]="'bottom'" (click)="desvincularProfessor()">link_off</span>
+              <span class="material-symbols-outlined icone">arrow_forward</span>
+            </tgt-item-data>
+          </tgt-item-list>
+        }
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    @for (item of professores; track item) {
+    <div class="cards">
+      <div class="title">{{item.nome}}</div>
+      <div class="content">
+        <div class="infos">
+          <span>{{item.materia}}</span>
+          <span>{{item.email}}</span>
+          <span>{{item.perfil}}</span>
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="desvincularProfessor()">link_off</span>
+          <span class="material-symbols-outlined icone">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+    }
+  </section>
+
+</main>

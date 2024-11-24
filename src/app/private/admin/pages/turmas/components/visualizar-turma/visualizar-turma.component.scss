@@ -1,9 +1,11 @@
 @import "../../../../../../../assets/styles/colors.scss";
+
 main {
   display: flex;
   flex-direction: column;
   gap: 12px;
-
+  width: 100%;
+  height: 100%;
   .header {
     display: flex;
     flex-direction: row;
@@ -87,26 +89,16 @@ main {
     }
   }
 
-  .icone {
-    cursor: pointer;
-  }
-
-  .find {
-    display: flex;
-    justify-content: end;
-
-    tgt-input-icon {
-      width: 500px;
+  section {
+    listar-chamadas,
+    listar-alunos,
+    listar-professores {
+      width: 100%;
+      height: 100%;
     }
-  }
-
-  .aluno-find {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-
-    tgt-input-icon {
-      width: 500px;
-    }
   }
 
   .isMobile {
@@ -123,17 +115,13 @@ main {
       }
     }
 
-    .aluno-find {
-      flex-direction: column-reverse;
-      gap: 24px;
-      tgt-input-icon {
-        width: 100%;
-      }
+    section {
+      height: 100vh;
     }
 
     .isMobile {
       display: block;
-      padding-bottom: 20px;
+      // padding-bottom: 20px;
     }
   }
 }

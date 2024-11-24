@@ -6,7 +6,7 @@
       <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
         [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
     </div>
-    <section>
+    <section class="desktop">
       <tgt-list>
         <div header class="header-list">
           <tgt-header-list>
@@ -27,6 +27,18 @@
           }
         </div>
       </tgt-list>
+    </section>
+    <section class="mobile">
+
+      @for (item of data; track item) {
+      <div class="cards">
+        <div class="title">{{item.nome}}</div>
+        <div class="content">
+          <span>{{item.periodo}}</span>
+          <span class="material-symbols-outlined icone" (click)="visualizarturma()">arrow_forward</span>
+        </div>
+      </div>
+      }
     </section>
   </div>
   <div class="action">

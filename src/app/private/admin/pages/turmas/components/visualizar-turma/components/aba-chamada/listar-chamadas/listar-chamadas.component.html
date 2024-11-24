@@ -1,0 +1,54 @@
+<main>
+
+  <div class="find">
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+  <section class="desktop">
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Colaborador</tgt-header-col>
+          <tgt-header-col>Matéria</tgt-header-col>
+          <tgt-header-col>Perfil</tgt-header-col>
+          <tgt-header-col>Matéria</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        @for (item of data; track item) {
+        <tgt-item-list>
+          <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
+          <tgt-item-data>{{ item.materia }}</tgt-item-data>
+          <tgt-item-data>{{ item.perfil }}</tgt-item-data>
+          <tgt-item-data>{{ item.materia }}</tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icone" [appTooltip]="'Baixar Chamada'" [tooltipPosition]="'bottom'"
+              (click)="baixarChamada()">download</span>
+            <span class="material-symbols-outlined icone" [appTooltip]="'Vizualisar Chamada'"
+              [tooltipPosition]="'bottom'" (click)="visualizarChamada()">search</span>
+          </tgt-item-data>
+        </tgt-item-list>
+        }
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    @for (item of data; track item) {
+    <div class="cards">
+      <div class="title">{{item.materia}}</div>
+      <div class="content">
+        <div class="infos">
+          <span>{{item.colaborador}}</span>
+          <span>{{item.perfil}}</span>
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="baixarChamada()">download</span>
+          <span class="material-symbols-outlined icone" (click)="visualizarChamada()">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+    }
+  </section>
+
+</main>
