@@ -22,10 +22,10 @@
           @for (item of alunos; track item) {
           <tgt-item-list>
             <tgt-item-data>{{ item.nome }}</tgt-item-data>
-            <tgt-item-data>{{ item.responsavel }}</tgt-item-data>
-            <tgt-item-data>{{ item.email }}</tgt-item-data>
+            <tgt-item-data>{{ item.nomeResponsavel }}</tgt-item-data>
+            <tgt-item-data>{{ item.emailResponsavel }}</tgt-item-data>
             <tgt-item-data>
-              <span class="material-symbols-outlined icone" (click)="verAluno()">arrow_forward</span>
+              <span class="material-symbols-outlined icone" (click)="verAluno(item.id)">arrow_forward</span>
             </tgt-item-data>
           </tgt-item-list>
           }
@@ -38,11 +38,11 @@
         <div class="title">{{item.nome}}</div>
         <div class="content">
           <div class="infos">
-            <span>{{item.responsavel}}</span>
-            <span>{{item.email}}</span>
+            <span>{{item.nomeResponsavel}}</span>
+            <span>{{item.emailResponsavel}}</span>
           </div>
           <div class="actions">
-            <span class="material-symbols-outlined icone" (click)="verAluno()">arrow_forward</span>
+            <span class="material-symbols-outlined icone" (click)="verAluno(item.id)">arrow_forward</span>
           </div>
         </div>
       </div>
@@ -50,8 +50,7 @@
     </section>
     <div class="pag-footer">
       <div class="pag">
-        <!-- <tgt-paginator [pageSize]="tamanhoPagina" [currentPage]="pagina" [totalItems]="totalItems"
-    (changePage)="changePage($event)"></tgt-paginator> -->
+        <tgt-paginator [pageSize]="limit" [currentPage]="page" (changePage)="changePage($event)"></tgt-paginator>
       </div>
     </div>
   </div>

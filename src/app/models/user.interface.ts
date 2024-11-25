@@ -1,5 +1,5 @@
 import {Empresa} from "./empresa.interface";
-import { FiltroDeBusca } from "./filtro-busca.interface";
+import { filtroDeBusca } from "./filtro-busca.interface";
 
 export interface User {
     id: number;
@@ -54,7 +54,7 @@ export interface SolicitacaoUser {
   empresa: Empresa;
   role: Role;
 }
-export interface SolicitacaoUserRequest extends FiltroDeBusca {
+export interface SolicitacaoUserRequest extends filtroDeBusca {
   nome?: string | null;
   email?: string | null;
   role?: Role | null;

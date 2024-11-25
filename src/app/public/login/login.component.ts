@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { InputComponent } from "../../shared/input/input.component";
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from "../../shared/button/button.component";
+import { InputComponent } from '../../shared/input/input.component';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { ButtonComponent } from '../../shared/button/button.component';
 import { Router, RouterLink } from '@angular/router';
-import { InputIconComponent } from "../../shared/input-icon/input-icon.component";
+import { InputIconComponent } from '../../shared/input-icon/input-icon.component';
 import { MenuService } from '../../shared/menu/menu.service';
 import { AuthService } from '../services/auth.service';
 import { AuthenticationRequest } from '../../models/authentication.interface';
@@ -24,15 +30,14 @@ import { ToastService } from '../../shared/toast/toast.service';
     InputIconComponent,
     ReactiveFormsModule,
     FormsModule,
-  ]
+  ],
 })
 export class LoginComponent implements OnInit {
-
   campoObrigatorio: boolean = false;
 
   formLogin = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    email: new FormControl('lopesgabriel055@gmail.com', Validators.required),
+    password: new FormControl('G@bs2305', Validators.required),
   });
 
   constructor(
@@ -41,42 +46,31 @@ export class LoginComponent implements OnInit {
     private readonly authService: AuthService,
     private readonly userService: UserService,
     private readonly toastService: ToastService
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   entrar() {
-    // this.router.navigate(['/admin/']);
-    this.menuService.updateMenu();
+    this.authService
+      .logar(this.formLogin.value as AuthenticationRequest)
+      .subscribe({
+        next: (response) => {
+          window.sessionStorage.setItem('token', response.token);
+          const token = response.token.split('.')[1];
+          const payload = JSON.parse(atob(token));
+          const usuario: User = payload['usuario'];
 
-    this.campoObrigatorio = true;
-    console.log(this.formLogin.getError)
-    // this.authService.logar(this.formLogin.value as AuthenticationRequest).subscribe({
-    //   next: response => {
-    //     window.sessionStorage.setItem('token', response.token);
-
-    //     const token = response.token.split(".")[1];
-    //     const payload = JSON.parse(atob(token));
-    //     const usuario: User = payload['usuario'];
-
-    //     this.userService.usuarioInstance = usuario;
-    //     this.userService.usuario.next(usuario);
-
-    //   },
-    //   error: erro => {
-    //     this.toastService.notify({message: 'Usuário ou senha incorreto', type: 'ERROR'})
-    //   }
-    // });
-
+          this.userService.usuarioInstance = usuario;
+          this.userService.usuario.next(usuario);
+          this.menuService.updateMenu();
+          this.router.navigate(['/admin/']);
+        },
+        error: (erro) => {
+          this.toastService.notify({
+            message: 'Usuário ou senha incorreto',
+            type: 'ERROR',
+          });
+        },
+      });
   }
-
-}
-
-export interface Payload {
-  sub: "jonathan.souza@togotrip.com.br",
-  usuario: User
-  iat: number,
-  exp: number
 }

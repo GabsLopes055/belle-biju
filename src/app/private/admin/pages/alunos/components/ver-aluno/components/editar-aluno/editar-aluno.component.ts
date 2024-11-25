@@ -20,6 +20,8 @@ export class EditarAlunoComponent {
 
 
   form = new FormGroup({
+
+    id: new FormControl('', Validators.required),
     nome: new FormControl('Lucas Costa', Validators.required),
     dataNascimento: new FormControl('23/10/2024', Validators.required),
     genero: new FormControl('Masculino', Validators.required),
@@ -71,7 +73,7 @@ export class EditarAlunoComponent {
   }
 
   back(){
-    this.alunosService.steps.next('ver-aluno');
+    this.alunosService.steps.next({component: 'ver-aluno', idAluno: this.form.controls.id.value as string});
   }
 
   abrirModalCamera() {

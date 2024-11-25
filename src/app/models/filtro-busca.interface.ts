@@ -1,6 +1,6 @@
-export interface FiltroDeBusca {
-  pagina: number;
-  tamanhoPagina: number;
+export interface filtroDeBusca {
+  page: number;
+  limit: number;
 }
 
 export interface EntityPaginated<T> {

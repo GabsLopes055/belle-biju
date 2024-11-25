@@ -1,25 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { advertencias } from '../../../../../../models/advertencias.interface';
+import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
+import { HeaderColComponent } from '../../../../../../shared/list/components/header-col/header-col.component';
+import { HeaderListComponent } from '../../../../../../shared/list/components/header-list/header-list.component';
+import { ItemDataComponent } from '../../../../../../shared/list/components/item-data/item-data.component';
+import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
+import { ListComponent } from '../../../../../../shared/list/list.component';
+import { ModalService } from '../../../../../../shared/modal/modal.service';
 import {
   Tab,
   TabsComponent,
 } from '../../../../../../shared/tabs/tabs.component';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlunosService } from '../../alunos.service';
-import { ButtonComponent } from '../../../../../../shared/button/button.component';
-import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
-import { ListComponent } from '../../../../../../shared/list/list.component';
-import { HeaderListComponent } from '../../../../../../shared/list/components/header-list/header-list.component';
-import { HeaderColComponent } from '../../../../../../shared/list/components/header-col/header-col.component';
-import { ItemListComponent } from '../../../../../../shared/list/components/item-list/item-list.component';
-import { ItemDataComponent } from '../../../../../../shared/list/components/item-data/item-data.component';
-import { advertencias } from '../../../../../../models/advertencias.interface';
-import { chamada } from '../../../../../../models/chamada.interface';
-import { ModalService } from '../../../../../../shared/modal/modal.service';
+import { AbaFrequenciaComponent } from './components/aba-frequencia/aba-frequencia.component';
 import { ExcluirAlunoComponent } from './components/excluir-aluno/excluir-aluno.component';
-import { VerFrequenciaComponent } from './components/ver-frequencia/ver-frequencia.component';
-import { VerAdvertenciaComponent } from './components/ver-advertencia/ver-advertencia.component';
-import { LancarAdvertenciaComponent } from './components/lancar-advertencia/lancar-advertencia.component';
 import { InformacoesAlunoComponent } from './components/informacoes-aluno/informacoes-aluno.component';
+import { LancarAdvertenciaComponent } from './components/lancar-advertencia/lancar-advertencia.component';
+import { VerAdvertenciaComponent } from './components/ver-advertencia/ver-advertencia.component';
+import { alunoResponse } from '../../../../../../models/alunos.interface';
+import { ToastService } from '../../../../../../shared/toast/toast.service';
 
 @Component({
   selector: 'ver-aluno',
@@ -33,46 +35,17 @@ import { InformacoesAlunoComponent } from './components/informacoes-aluno/inform
     HeaderColComponent,
     ItemListComponent,
     ItemDataComponent,
+    AbaFrequenciaComponent,
   ],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',
 })
-export class VerAlunoComponent {
-
+export class VerAlunoComponent implements OnInit {
   isDetail = false;
-  chamadas: chamada[] = [
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Português',
-      data: '29/04/2024 10:30',
-    },
-    {
-      colaborador: 'João Santos',
-      materia: 'Matemática',
-      data: '29/04/2024 10:30',
-    },
-    {
-      colaborador: 'Ana Oliveira',
-      materia: 'Geografia',
-      data: '29/04/2024 10:30',
-    },
-    {
-      colaborador: 'Joana Silva',
-      materia: 'História',
-      data: '29/04/2024 10:30',
-    },
-    {
-      colaborador: 'Maria Silva',
-      materia: 'Português',
-      data: '29/04/2024 10:30',
-    },
-    {
-      colaborador: 'Marcelo Santos',
-      materia: 'Química',
-      data: '29/04/2024 10:30',
-    }
-  ];
+  // @Input() idAluno!: string;
+  idAluno: string = '';
 
+  aluno!: alunoResponse;
   advertencias: advertencias[] = [
     {
       assunto: 'Frequência',
@@ -113,8 +86,30 @@ export class VerAlunoComponent {
 
   constructor(
     private readonly alunosService: AlunosService,
+    private readonly toast: ToastService,
     private readonly modalService: ModalService
-  ) {}
+  ) {
+    this.alunosService.steps.subscribe((value) => {
+      this.idAluno = value.idAluno;
+    });
+  }
+  ngOnInit(): void {
+    this.buscarAlunoPorId();
+  }
+
+  buscarAlunoPorId() {
+    this.alunosService.buscarAlunoPorId(this.idAluno).subscribe({
+      next: value => {
+        this.aluno = value
+      },
+      error: error => {
+        this.toast.notify({
+          message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
+          type: 'ERROR',
+        });
+      }
+    })
+  }
 
   chosenTab(tab: string) {
     this.opcaoTabSelecionada = tab;
@@ -124,9 +119,7 @@ export class VerAlunoComponent {
     this.isDetail = false;
     this.modalService.open(ExcluirAlunoComponent);
   }
-  verFrequencia() {
-    this.modalService.open(VerFrequenciaComponent);
-  }
+
   verAdvertencia() {
     this.modalService.open(VerAdvertenciaComponent);
   }
@@ -144,10 +137,10 @@ export class VerAlunoComponent {
   }
 
   editarAluno() {
-    this.alunosService.steps.next('editar-aluno');
+    this.alunosService.steps.next({ component: 'editar-aluno', idAluno: '' });
   }
 
   back() {
-    this.alunosService.steps.next('listar-alunos');
+    this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
   }
 }

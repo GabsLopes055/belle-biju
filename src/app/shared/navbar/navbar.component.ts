@@ -33,7 +33,7 @@ export class NavbarComponent {
   isDetail = false;
   title: any = '';
   isViajar = this.service.showBtnViajar;
-  nameUser: string | undefined = 'Joana';
+  nameUser: string | undefined = '';
 
   constructor(
     private readonly service: NavbarService,
@@ -42,10 +42,11 @@ export class NavbarComponent {
     private readonly menuService: MenuService
   ) {
     this.title = service.title;
-    // const usuario = this.userService.user;
-    // const firstName = usuario?.nome.split(' ')[0];
-    // this.nameUser = firstName;
+    const usuario = this.userService.user;
+    const firstName = usuario?.nome.split(' ')[0];
+    this.nameUser = firstName;
     this.menuService._menu.subscribe(menu => this.menu = menu);
+    // console.log(usuario)
   }
 
   showHideDetail() {

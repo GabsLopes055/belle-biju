@@ -15,7 +15,7 @@ import { EditarAlunoComponent } from "./components/ver-aluno/components/editar-a
   styleUrl: './alunos.component.scss',
 })
 export class AlunosComponent implements OnInit, OnDestroy {
-  component: string = '';
+  case!: aluno;
   constructor(
     private readonly navbarService: NavbarService,
     private readonly menuService: MenuService,
@@ -32,13 +32,17 @@ export class AlunosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.alunosService.steps.subscribe((value) => {
-      this.component = value;
+      if(value.component) {
+        this.case = value;
+      }
     });
   }
 
   ngOnDestroy(): void {
-    this.alunosService.steps.next('listar-alunos');
+    this.alunosService.steps.next({component: 'listar-alunos', idAluno: ''});
   }
-
-
+}
+export interface aluno {
+  component: string,
+  idAluno: string
 }

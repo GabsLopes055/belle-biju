@@ -18,7 +18,6 @@ export class TokenService {
 
     const token = await window.sessionStorage.getItem('token');
     const isValid = this.jwtService.isTokenValid(token as string);
-
     if(isValid) {
       return true;
     }else {

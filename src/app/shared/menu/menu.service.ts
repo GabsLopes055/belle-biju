@@ -14,7 +14,10 @@ export class MenuService {
   constructor(
     private readonly userService: UserService
   ) {
-    this.updateMenu();
+    // if(this.userService.user) {
+      // console.log(this.userService.)
+        this.updateMenu();
+      // }
   }
 
   setMenu(menu: Menu[]) {

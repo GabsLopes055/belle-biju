@@ -21,7 +21,7 @@
             <div class="forgot">
                 <span><a href="/recuperar-senha">Esqueci minha senha?</a></span>
             </div>
-            <tgt-button type="button" [color]="'primary'" size="small" iconPosition="right" (click)="entrar()">Entrar</tgt-button>
+            <tgt-button type="button" [disabled]="!formLogin.valid" [color]="'primary'" size="small" iconPosition="right" (click)="entrar()">Entrar</tgt-button>
         </form>
 
         <div class="create">

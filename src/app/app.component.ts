@@ -1,17 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-  RouterOutlet,
-} from '@angular/router';
-import { Menu, MenuComponent } from './shared/menu/menu.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { MenuService } from './shared/menu/menu.service';
 import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { filter, map, mergeMap } from 'rxjs';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+
+import { Menu, MenuComponent } from './shared/menu/menu.component';
+import { MenuService } from './shared/menu/menu.service';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +22,7 @@ import { filter, map, mergeMap } from 'rxjs';
   ],
 })
 export class AppComponent implements OnInit {
-  title = 'togotrip-angular';
+  title = 'Escolar Ai';
   isMenu: Menu[] = [];
 
   constructor(
@@ -36,23 +31,9 @@ export class AppComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.menuService._menu.subscribe((menu) => (this.isMenu = menu));
+    this.menuService._menu.subscribe((menu) => {
+      this.isMenu = menu;
+    });
   }
-  ngOnInit() {
-    this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        map(() => this.activatedRoute),
-        map((route) => {
-          while (route.firstChild) {
-            route = route.firstChild;
-          }
-          return route;
-        }),
-        mergeMap((route) => route.data)
-      )
-      .subscribe((event) => {
-        this.titleService.setTitle(event['title']);
-      });
-  }
+  ngOnInit() {}
 }

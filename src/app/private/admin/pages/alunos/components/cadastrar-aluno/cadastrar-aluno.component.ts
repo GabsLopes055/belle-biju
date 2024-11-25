@@ -2,12 +2,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlunosService } from './../../alunos.service';
 import { ToastService } from '../../../../../../shared/toast/toast.service';
-import {InputIconComponent} from "../../../../../../shared/input-icon/input-icon.component";
-import {ButtonComponent} from "../../../../../../shared/button/button.component";
-import {NgIf, NgOptimizedImage} from "@angular/common";
-import { SelectComponent } from "../../../../../../shared/select/select.component";
+import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
+import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import { NgIf, NgOptimizedImage } from '@angular/common';
+import { SelectComponent } from '../../../../../../shared/select/select.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.component';
+import { alunoRequest } from '../../../../../../models/alunos.interface';
 
 @Component({
   selector: 'cadastrar-aluno',
@@ -19,27 +20,31 @@ import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.com
     ButtonComponent,
     NgIf,
     NgOptimizedImage,
-    SelectComponent
-]
+    SelectComponent,
+  ],
 })
 export class CadastrarAlunoComponent {
-
-
-
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
+    cpf: new FormControl('', Validators.required),
     dataNascimento: new FormControl('', Validators.required),
     genero: new FormControl('', Validators.required),
     alergias: new FormControl('', Validators.required),
-    medicacaoNecessaria: new FormControl('', Validators.required),
-    CondicoesMedicas: new FormControl('', Validators.required),
-    responsavel: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    medicacao: new FormControl('', Validators.required),
+    condicaoMedica: new FormControl('', Validators.required),
+    nomeResponsavel: new FormControl('', Validators.required),
+    emailResponsavel: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
     endereco: new FormControl('', [Validators.required]),
+    cep: new FormControl('', [Validators.required]),
+    cidade: new FormControl('', [Validators.required]),
+    uf: new FormControl('', [Validators.required]),
     bairro: new FormControl('', Validators.required),
-    numeroCasa: new FormControl('', Validators.required),
-    complementoCasa: new FormControl('', Validators.required),
-    foto_aluno: new FormControl(null)
+    numeroEndereco: new FormControl('', Validators.required),
+    complemento: new FormControl('', Validators.required),
+    // foto_aluno: new FormControl(null)
   });
 
   constructor(
@@ -48,9 +53,30 @@ export class CadastrarAlunoComponent {
     private readonly modalService: ModalService
   ) {}
 
-
-
   salvar() {
+    if (this.form.valid) {
+      console.log(this.form.value)
+      this.alunosService.cadastrarAluno(this.form.value as alunoRequest).subscribe({
+        next: value => {
+          this.alunosService.steps.next({component: 'listar-alunos', idAluno: ''});
+          this.toast.notify({
+            message: 'Aluno Cadastrado com Sucesso',
+            type: 'SUCCESS',
+          });
+        },
+        error: err => {
+          this.toast.notify({
+            message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
+            type: 'ERROR',
+          });
+        },
+      })
+    } else {
+      this.toast.notify({
+        message: 'Preencha todos os campos obrigatórios e capture uma foto.',
+        type: 'WARNING',
+      });
+    }
     // if (this.form.valid && this.fotoCapturada) {
     //   const formData = new FormData();
     //   formData.append('nome', this.form.get('nome')?.value || '');
@@ -77,8 +103,8 @@ export class CadastrarAlunoComponent {
     // }
   }
 
-  back(){
-    this.alunosService.steps.next('listar-alunos');
+  back() {
+    this.alunosService.steps.next({component: 'listar-alunos', idAluno: ''});
   }
 
   abrirModalCamera() {

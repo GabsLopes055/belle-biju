@@ -1,3 +1,3 @@
 export const environment = {
-    BACKEND_API: 'http://localhost:3025',
+    BACKEND_API: 'https://escola.technolimit.com.br/api/v1',
 };

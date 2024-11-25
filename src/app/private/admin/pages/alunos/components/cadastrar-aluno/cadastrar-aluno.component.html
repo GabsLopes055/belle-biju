@@ -1,31 +1,53 @@
 <main>
-  <div class="title">
-    <h2>Novo Aluno</h2>
-  </div>
 
   <div class="form">
-    <tgt-input-icon [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
+    <div class="title">
+      <h2>Novo Aluno</h2>
+    </div>
+
+
+    <tgt-input-icon [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'"
+      [control]="form.controls.nome"></tgt-input-icon>
+    <tgt-input-icon [border]="true" placeholder="CPF" [mask]="'000.000.000-00'" [type]="'text'" [iconPosition]="'right'"
+      [control]="form.controls.cpf"></tgt-input-icon>
     <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'" [control]="form.controls['dataNascimento']"></tgt-input-icon>
-      <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]" [control]="form.controls['genero']"></tgt-select>
+      <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"
+        [control]="form.controls['dataNascimento']"></tgt-input-icon>
+      <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
+        [control]="form.controls['genero']"></tgt-select>
     </div>
     <tgt-input-icon [border]="true" [placeholder]="'Alergias'" [control]="form.controls['alergias']"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Medicação necessária'" [control]="form.controls['medicacaoNecessaria']"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Condições médicas relevantes'" [control]="form.controls['CondicoesMedicas']"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'" [control]="form.controls['responsavel']"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'" [control]="form.controls['email']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Medicação necessária'"
+      [control]="form.controls['medicacao']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Condições médicas relevantes'"
+      [control]="form.controls['condicaoMedica']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
+      [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
+      [control]="form.controls['emailResponsavel']"></tgt-input-icon>
 
     <tgt-input-icon [border]="true" [placeholder]="'Endereço'" [control]="form.controls['endereco']"></tgt-input-icon>
 
     <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'" [control]="form.controls['numeroCasa']"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'" [control]="form.controls['complementoCasa']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'"
+        [control]="form.controls['numeroEndereco']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'"
+        [control]="form.controls['complemento']"></tgt-input-icon>
     </div>
 
 
     <tgt-input-icon [border]="true" [placeholder]="'Bairro'" [control]="form.controls['bairro']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Cidade'" [control]="form.controls['cidade']"></tgt-input-icon>
 
-    <div class="carregar-imagem"  (click)="abrirModalCamera()">
+
+    <div class="infos">
+      <tgt-input-icon [border]="true" [placeholder]="'UF'" [type]="'text'"
+        [control]="form.controls['uf']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'CEP'" [type]="'text'"
+        [control]="form.controls['cep']"></tgt-input-icon>
+    </div>
+
+    <div class="carregar-imagem" (click)="abrirModalCamera()">
 
       <span class="material-symbols-outlined">
         add_a_photo
@@ -38,7 +60,7 @@
   </div>
 
   <div class="actions">
-    <tgt-button  (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
+    <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
     <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
   </div>
 </main>
