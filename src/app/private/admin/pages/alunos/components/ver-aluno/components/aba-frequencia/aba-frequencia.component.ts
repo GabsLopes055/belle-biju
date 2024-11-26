@@ -8,7 +8,7 @@ import { ItemDataComponent } from '../../../../../../../../shared/list/component
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from '../../../../../../../../shared/modal/modal.service';
 import { chamada } from '../../../../../../../../models/chamada.interface';
-import { VerFrequenciaComponent } from '../ver-frequencia/ver-frequencia.component';
+import { VerFrequenciaComponent } from './ver-frequencia/ver-frequencia.component';
 
 @Component({
   selector: 'aba-frequencia',

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { Menu } from './menu.component';
+import { BehaviorSubject } from 'rxjs';
 import { UserService } from '../services/user/user.service';
-import { Role, User } from '../../models/user.interface';
+import { Menu } from './menu.component';
 
 @Injectable({
   providedIn: 'root',

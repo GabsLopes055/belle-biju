@@ -1,0 +1,14 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Editar Advertência</h3>
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Tipo Mérito*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.assunto"></tgt-input-icon>
+      <tgt-textarea [control]="form.controls.observacao"></tgt-textarea>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="editar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'edit'" (click)="editar()">Editar</tgt-button>
+    </div>
+  </main>
+</tgt-modal>

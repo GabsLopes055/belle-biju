@@ -1,0 +1,85 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+    <div class="header">
+      <div class="title">
+        <h3>Nota</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarNota()">
+          edit
+        </span>
+        <p (click)="editarNota()">Editar</p>
+      </div>
+
+    </div>
+
+    <div class="table">
+      <table>
+        <!-- Cabeçalho da Tabela -->
+        <thead border="1" cellspacing="0" cellpadding="10">
+          <tr>
+            <th>
+              Matéria
+            </th>
+            <th>
+              Período/Semestre
+            </th>
+            <th>
+              Tipo de Avaliação
+            </th>
+            <th>
+              Colaborador
+            </th>
+            <th>
+              Data da Avaliação
+            </th>
+            <th>
+              Observação
+            </th>
+            <th>
+              Nota
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Corpo da Tabela -->
+        <tbody>
+          <tr>
+            <td>
+              História
+            </td>
+            <td>
+              1 Semestre
+            </td>
+            <td>
+              Trabalho
+            </td>
+            <td>
+              [Nome do Colaborador]
+            </td>
+            <td>
+              10/10/2024
+            </td>
+            <td>
+              ---
+            </td>
+            <td>
+              3,0
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>

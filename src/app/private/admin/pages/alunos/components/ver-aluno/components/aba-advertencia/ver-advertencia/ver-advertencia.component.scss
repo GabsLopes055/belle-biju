@@ -11,8 +11,22 @@ main {
   .header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 24px;
+    justify-content: space-between;
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      color: #39693B;
+
+      p,
+      span {
+        cursor: pointer;
+        font-size: 14px;
+        color: #39693B;
+      }
+    }
 
     p {
       color: #424940;
@@ -131,5 +145,22 @@ main {
     gap: 24px;
     justify-content: end;
   }
+
+}
+
+
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+
+  main {
+    height: auto;
+    width: auto;
+    overflow: auto;
+
+    .footer {
+      justify-content: start;
+    }
+  }
+
 
 }

@@ -43,7 +43,7 @@ export class NavbarComponent {
   ) {
     this.title = service.title;
     const usuario = this.userService.user;
-    const firstName = usuario?.nome.split(' ')[0];
+    const firstName = usuario?.firstName.split(' ')[0];
     this.nameUser = firstName;
     this.menuService._menu.subscribe(menu => this.menu = menu);
     // console.log(usuario)

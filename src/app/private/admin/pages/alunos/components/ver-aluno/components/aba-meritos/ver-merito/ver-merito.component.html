@@ -1,7 +1,20 @@
 <tgt-modal [witdhModal]="'80%'">
   <main>
     <div class="header">
-      <h3>Advertência</h3>
+      <div class="title">
+        <h3>Méritos</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarNota()">
+          edit
+        </span>
+        <p (click)="editarNota()">Editar</p>
+      </div>
+
     </div>
 
     <div class="table">
@@ -10,13 +23,13 @@
         <thead border="1" cellspacing="0" cellpadding="10">
           <tr>
             <th>
-              Assunto
-            </th>
-            <th>
-              Colaborador
+              Tipo do Mérito
             </th>
             <th>
               Descrição
+            </th>
+            <th>
+              Colaborador
             </th>
             <th>
               Data
@@ -28,15 +41,17 @@
         <tbody>
           <tr>
             <td>
-              Frequência
+              Acadêmico
             </td>
             <td>
-              Nome colaborador
+              Excelência acadêmica em Matemática
             </td>
             <td>
-              O aluno tem faltado muito, o que pode afetar o desempenho dele...
+              [Nome do Colaborador]
             </td>
-            <td>29/04/2024 10:30</td>
+            <td>
+              10/10/2024
+            </td>
           </tr>
 
         </tbody>
@@ -44,7 +59,8 @@
 
     </div>
     <div class="footer">
-      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'">Fechar</tgt-button>
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
       <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
     </div>
   </main>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { InputComponent } from '../../shared/input/input.component';
 import {
   FormControl,
@@ -13,7 +13,7 @@ import { InputIconComponent } from '../../shared/input-icon/input-icon.component
 import { MenuService } from '../../shared/menu/menu.service';
 import { AuthService } from '../services/auth.service';
 import { AuthenticationRequest } from '../../models/authentication.interface';
-import { User } from '../../models/user.interface';
+import { User } from '../../models/authentication.interface';
 import { UserService } from '../../shared/services/user/user.service';
 import { ToastService } from '../../shared/toast/toast.service';
 
@@ -32,7 +32,7 @@ import { ToastService } from '../../shared/toast/toast.service';
     FormsModule,
   ],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   campoObrigatorio: boolean = false;
 
   formLogin = new FormGroup({
@@ -47,30 +47,41 @@ export class LoginComponent implements OnInit {
     private readonly userService: UserService,
     private readonly toastService: ToastService
   ) {}
+  ngAfterViewInit(): void {
+    this.menuService._menu.next([]);
+  }
 
   ngOnInit(): void {}
 
   entrar() {
-    this.authService
-      .logar(this.formLogin.value as AuthenticationRequest)
-      .subscribe({
-        next: (response) => {
-          window.sessionStorage.setItem('token', response.token);
-          const token = response.token.split('.')[1];
-          const payload = JSON.parse(atob(token));
-          const usuario: User = payload['usuario'];
-
-          this.userService.usuarioInstance = usuario;
-          this.userService.usuario.next(usuario);
-          this.menuService.updateMenu();
-          this.router.navigate(['/admin/']);
-        },
-        error: (erro) => {
-          this.toastService.notify({
-            message: 'Usuário ou senha incorreto',
-            type: 'ERROR',
-          });
-        },
+    if (this.formLogin.valid) {
+      this.authService
+        .logar(this.formLogin.value as AuthenticationRequest)
+        .subscribe({
+          next: (response) => {
+            window.sessionStorage.setItem('token', response.token);
+            // const token = response.token.split('.')[1];
+            // const payload = JSON.parse(atob(token));
+            // console.log(payload)
+            const usuario: User = response.user;
+            this.userService.usuarioInstance = usuario;
+            this.userService.usuario.next(usuario);
+            this.router.navigate(['/admin/']);
+            this.menuService.updateMenu();
+          },
+          error: (erro) => {
+            this.toastService.notify({
+              message: 'Usuário ou senha incorreto',
+              type: 'ERROR',
+            });
+          },
+        });
+    } else {
+      this.campoObrigatorio = true;
+      this.toastService.notify({
+        message: 'Preencha o formulário corretamente !',
+        type: 'WARNING',
       });
+    }
   }
 }

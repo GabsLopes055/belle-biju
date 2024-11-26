@@ -1,4 +1,15 @@
 main {
+
+  .find {
+    // width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
   .mobile {
     display: none;
   }
@@ -27,7 +38,7 @@ main {
         background-color: #F7FBF2;
 
         .title {
-          font-size: 22px;
+          font-size: 18px;
           font-weight: 500;
           line-height: 28px;
           text-align: left;

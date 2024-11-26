@@ -1,5 +1,15 @@
 main {
 
+  .find {
+    // width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
   .mobile {
     display: none;
   }

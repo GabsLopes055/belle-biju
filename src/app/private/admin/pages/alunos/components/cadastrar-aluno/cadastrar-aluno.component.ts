@@ -47,6 +47,8 @@ export class CadastrarAlunoComponent {
     // foto_aluno: new FormControl(null)
   });
 
+  camposObrigadores: boolean = false;
+
   constructor(
     private readonly alunosService: AlunosService,
     private readonly toast: ToastService,
@@ -72,6 +74,8 @@ export class CadastrarAlunoComponent {
         },
       })
     } else {
+      console.log(this.form.value)
+      // this.camposObrigadores = true
       this.toast.notify({
         message: 'Preencha todos os campos obrigatórios e capture uma foto.',
         type: 'WARNING',

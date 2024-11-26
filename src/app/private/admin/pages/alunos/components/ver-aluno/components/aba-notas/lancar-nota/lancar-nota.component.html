@@ -1,0 +1,18 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Lançar Nota</h3>
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Matéria*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.materia"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Período/Semestre*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.periodo"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Tipo de Avaliação*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.tipoAvaliacao"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Data da Avaliação*" [type]="'date'" [iconPosition]="'right'" [control]="form.controls.dataAvaliacao"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Nota*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.nota"></tgt-input-icon>
+      <tgt-textarea [control]="form.controls.descricao"></tgt-textarea>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="cadastrar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'" (click)="cadastrar()">Cadastrar</tgt-button>
+    </div>
+  </main>
+</tgt-modal>

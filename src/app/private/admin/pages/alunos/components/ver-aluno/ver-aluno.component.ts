@@ -18,10 +18,12 @@ import { AlunosService } from '../../alunos.service';
 import { AbaFrequenciaComponent } from './components/aba-frequencia/aba-frequencia.component';
 import { ExcluirAlunoComponent } from './components/excluir-aluno/excluir-aluno.component';
 import { InformacoesAlunoComponent } from './components/informacoes-aluno/informacoes-aluno.component';
-import { LancarAdvertenciaComponent } from './components/lancar-advertencia/lancar-advertencia.component';
-import { VerAdvertenciaComponent } from './components/ver-advertencia/ver-advertencia.component';
 import { alunoResponse } from '../../../../../../models/alunos.interface';
 import { ToastService } from '../../../../../../shared/toast/toast.service';
+import { DashboardComponent } from "./components/aba-dashboard/dashboard/dashboard.component";
+import { ListarNotasComponent } from "./components/aba-notas/listar-notas/listar-notas.component";
+import { ListarMeritosComponent } from "./components/aba-meritos/listar-meritos/listar-meritos.component";
+import { ListarAdvertenciaComponent } from "./components/aba-advertencia/listar-advertencia/listar-advertencia.component";
 
 @Component({
   selector: 'ver-aluno',
@@ -36,7 +38,11 @@ import { ToastService } from '../../../../../../shared/toast/toast.service';
     ItemListComponent,
     ItemDataComponent,
     AbaFrequenciaComponent,
-  ],
+    DashboardComponent,
+    ListarNotasComponent,
+    ListarMeritosComponent,
+    ListarAdvertenciaComponent
+],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',
 })
@@ -46,36 +52,57 @@ export class VerAlunoComponent implements OnInit {
   idAluno: string = '';
 
   aluno!: alunoResponse;
-  advertencias: advertencias[] = [
-    {
-      assunto: 'Frequência',
-      colaborador: 'Nome colaborador',
-      descricao:
-        'O aluno tem faltado muito, o que pode afetar o desempenho dele...',
-      data: '29/04/2024 10:30',
-    },
-    {
-      assunto: 'Frequência',
-      colaborador: 'Nome colaborador',
-      descricao:
-        'O aluno tem faltado muito, o que pode afetar o desempenho dele...',
-      data: '29/04/2024 10:30',
-    },
-  ];
 
   tabs: Tab[] = [
+    {
+      icon: '',
+      label: 'Dashboard',
+      value: 'dashboard',
+      selected: false,
+    },
     {
       icon: '',
       label: 'Frequência',
       value: 'frequencia',
       selected: false,
     },
-    // {
-    //   icon: '',
-    //   label: 'Advertências',
-    //   value: 'advertencias',
-    //   selected: false,
-    // },
+    {
+      icon: '',
+      label: 'Notas',
+      value: 'notas',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Méritos',
+      value: 'meritos',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Advertências',
+      value: 'advertencias',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Ficha Médica',
+      value: 'ficha-medica',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Histórico',
+      value: 'historico',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Dados Pessoais',
+      value: 'dados-pessoais',
+      selected: false,
+    },
+
   ];
 
   opcaoTabSelecionada = '';
@@ -120,12 +147,7 @@ export class VerAlunoComponent implements OnInit {
     this.modalService.open(ExcluirAlunoComponent);
   }
 
-  verAdvertencia() {
-    this.modalService.open(VerAdvertenciaComponent);
-  }
-  lancarAdvertencia() {
-    this.modalService.open(LancarAdvertenciaComponent);
-  }
+
 
   showHideDetail() {
     this.isDetail = !this.isDetail;

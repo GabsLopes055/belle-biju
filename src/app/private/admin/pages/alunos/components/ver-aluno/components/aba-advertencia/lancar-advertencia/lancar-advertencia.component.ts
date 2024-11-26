@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../../../../../../../../shared/modal/modal.service';
-import { ModalComponent } from "../../../../../../../../shared/modal/modal.component";
-import { DividerComponent } from "../../../../../../../../shared/divider/divider.component";
-import { ButtonComponent } from "../../../../../../../../shared/button/button.component";
-import { InputIconComponent } from "../../../../../../../../shared/input-icon/input-icon.component";
+
 import { FormControl, FormGroup } from '@angular/forms';
-import { TextareaComponent } from "../../../../../../../../shared/textarea/textarea.component";
+import { ModalComponent } from '../../../../../../../../../shared/modal/modal.component';
+import { DividerComponent } from '../../../../../../../../../shared/divider/divider.component';
+import { ButtonComponent } from '../../../../../../../../../shared/button/button.component';
+import { InputIconComponent } from '../../../../../../../../../shared/input-icon/input-icon.component';
+import { TextareaComponent } from '../../../../../../../../../shared/textarea/textarea.component';
+import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-lancar-advertencia',
@@ -26,7 +27,7 @@ export class LancarAdvertenciaComponent {
   ){}
 
 
-  excluir() {
+  cadastrar() {
     this.modalService.close();
   }
 }

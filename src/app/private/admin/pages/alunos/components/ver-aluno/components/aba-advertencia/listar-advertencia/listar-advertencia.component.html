@@ -1,0 +1,51 @@
+<main>
+  <div class="find">
+    <tgt-button (click)="lancarAdvertencia()" [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'" [icon]="'report'"
+      >Lançar Advertência</tgt-button>
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+  <section class="desktop">
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Assunto</tgt-header-col>
+          <tgt-header-col>Descrição</tgt-header-col>
+          <tgt-header-col>Colaborador</tgt-header-col>
+          <tgt-header-col>Data</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        @for (item of advertencias; track item) {
+        <tgt-item-list>
+          <tgt-item-data>{{ item.assunto }}</tgt-item-data>
+          <tgt-item-data>{{ item.descricao }}</tgt-item-data>
+          <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
+          <tgt-item-data>{{ item.data }}</tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icone" (click)="verAdvertencia()">search</span>
+          </tgt-item-data>
+
+        </tgt-item-list>
+        }
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    @for (item of advertencias; track item) {
+    <div class="cards">
+      <div class="title">{{item.assunto}}</div>
+      <div class="content">
+        <div class="infos">
+          <span>{{item.colaborador}}</span>
+          <span>{{item.data}}</span>
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="verAdvertencia()">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+    }
+  </section>
+</main>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../../../../../../../../shared/modal/modal.service';
-import { ModalComponent } from "../../../../../../../../shared/modal/modal.component";
-import { ButtonComponent } from "../../../../../../../../shared/button/button.component";
+import { ModalComponent } from '../../../../../../../../../shared/modal/modal.component';
+import { ButtonComponent } from '../../../../../../../../../shared/button/button.component';
+import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-ver-frequencia',
