@@ -18,7 +18,7 @@
           </span>
           <span class="label">Excluir Aluno</span>
         </div>
-        <div class="item" (click)="informacoesAluno()">
+        <!-- <div class="item" (click)="informacoesAluno()">
           <span class="material-symbols-outlined">
             info
           </span>
@@ -29,7 +29,7 @@
             edit
           </span>
           <span class="label">Editar Aluno</span>
-        </div>
+        </div> -->
       </div>
       }
     </div>
@@ -73,6 +73,9 @@
     }
     @case ('historico') {
       <listar-historico></listar-historico>
+    }
+    @case ('dados-pessoais') {
+      <dados-pessoais></dados-pessoais>
     }
   }
 
