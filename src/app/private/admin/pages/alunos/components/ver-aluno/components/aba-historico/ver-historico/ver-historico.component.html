@@ -1,0 +1,48 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+
+    <div class="header">
+      <div class="title">
+        <h3>Histórico</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+      </div>
+    </div>
+
+    <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
+
+    @switch (opcaoTabSelecionada) {
+      @case ('dados-pessoais') {
+        <dados-pessoais></dados-pessoais>
+      }
+      @case ('detalhes-transferencia') {
+        <detalhes-transferencia></detalhes-transferencia>
+      }
+      @case ('informacoes-academicas') {
+        <informacoes-academicas></informacoes-academicas>
+      }
+      @case ('historico-comportamento') {
+        <historico-comportamento></historico-comportamento>
+      }
+      @case ('ficha-medica') {
+        <ficha-medica></ficha-medica>
+      }
+      @case ('documentos') {
+        <documentos></documentos>
+
+      }
+
+    }
+
+
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>
