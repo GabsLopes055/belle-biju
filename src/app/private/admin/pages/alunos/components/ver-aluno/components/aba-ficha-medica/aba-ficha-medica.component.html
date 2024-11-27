@@ -1,0 +1,101 @@
+<main>
+  <div class="find">
+    <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'"
+      [icon]="'edit'" (click)="editarForm()">Editar</tgt-button>
+  </div>
+
+  @if(!editar) {
+    <section class="desktop">
+      <div class="esquerda">
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>Lorem 1</span>
+          <span>Lorem 1</span>
+        </div>
+      </div>
+      <div class="direita">
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Lorem 2</span>
+          <span>Lorem 2</span>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if(editar) {
+    <section class="editar">
+      Criar form de editar
+    </section>
+  }
+</main>

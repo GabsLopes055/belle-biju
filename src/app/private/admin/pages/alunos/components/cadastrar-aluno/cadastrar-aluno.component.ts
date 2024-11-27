@@ -24,6 +24,9 @@ import { alunoRequest } from '../../../../../../models/alunos.interface';
   ],
 })
 export class CadastrarAlunoComponent {
+
+
+
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
     cpf: new FormControl('', Validators.required),
@@ -48,6 +51,10 @@ export class CadastrarAlunoComponent {
   });
 
   camposObrigadores: boolean = false;
+  stepsAdicionarResponsavel: number = 1;
+  adicionarPrimeiroResponsavel: boolean = false;
+  adicionarSegundoResponsavel: boolean = false;
+  adicionarTerceiroResponsavel: boolean = false;
 
   constructor(
     private readonly alunosService: AlunosService,
@@ -105,6 +112,33 @@ export class CadastrarAlunoComponent {
     // } else {
     //   this.toast.notify({ message: 'Preencha todos os campos obrigatórios e capture uma foto.', type: "WARNING" });
     // }
+  }
+
+  adicionarResponsavel() {
+    if(this.adicionarSegundoResponsavel === false && this.adicionarTerceiroResponsavel === false) {
+      this.stepsAdicionarResponsavel = 1;
+    }
+    if(this.stepsAdicionarResponsavel <= 2) {
+      this.stepsAdicionarResponsavel++;
+    }
+    if(this.stepsAdicionarResponsavel === 2) {
+      this.adicionarSegundoResponsavel = true;
+    }
+    if(this.stepsAdicionarResponsavel === 3) {
+      this.adicionarTerceiroResponsavel = true;
+    }
+  }
+
+  retirarResponsavel(value: string) {
+
+    if(value === 'dois') {
+      this.adicionarSegundoResponsavel = false;
+      this.stepsAdicionarResponsavel--;
+    }
+    if(value === 'tres') {
+      this.adicionarTerceiroResponsavel = false;
+      this.stepsAdicionarResponsavel--;
+    }
   }
 
   back() {

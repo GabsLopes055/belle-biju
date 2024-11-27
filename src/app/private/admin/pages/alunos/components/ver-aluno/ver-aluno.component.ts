@@ -24,6 +24,7 @@ import { DashboardComponent } from "./components/aba-dashboard/dashboard/dashboa
 import { ListarNotasComponent } from "./components/aba-notas/listar-notas/listar-notas.component";
 import { ListarMeritosComponent } from "./components/aba-meritos/listar-meritos/listar-meritos.component";
 import { ListarAdvertenciaComponent } from "./components/aba-advertencia/listar-advertencia/listar-advertencia.component";
+import { AbaFichaMedicaComponent } from "./components/aba-ficha-medica/aba-ficha-medica.component";
 
 @Component({
   selector: 'ver-aluno',
@@ -41,7 +42,8 @@ import { ListarAdvertenciaComponent } from "./components/aba-advertencia/listar-
     DashboardComponent,
     ListarNotasComponent,
     ListarMeritosComponent,
-    ListarAdvertenciaComponent
+    ListarAdvertenciaComponent,
+    AbaFichaMedicaComponent
 ],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',

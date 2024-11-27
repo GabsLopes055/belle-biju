@@ -1,32 +1,79 @@
 <main>
 
+  <div class="title">
+    <h2>Novo Aluno</h2>
+  </div>
+
+
   <div class="form">
-    <div class="title">
-      <h2>Novo Aluno</h2>
-    </div>
-
-
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'"
-      [control]="form.controls.nome"></tgt-input-icon>
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="CPF" [mask]="'000.000.000-00'" [type]="'text'" [iconPosition]="'right'"
-      [control]="form.controls.cpf"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="Nome Completo" [type]="'text'"
+      [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="CPF" [mask]="'000.000.000-00'"
+      [type]="'text'" [iconPosition]="'right'" [control]="form.controls.cpf"></tgt-input-icon>
     <div class="infos">
       <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"
         [control]="form.controls['dataNascimento']"></tgt-input-icon>
-      <tgt-select  [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
+      <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
         [control]="form.controls['genero']"></tgt-select>
     </div>
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Alergias'" [control]="form.controls['alergias']"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Alergias'"
+      [control]="form.controls['alergias']"></tgt-input-icon>
     <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Medicação necessária'"
       [control]="form.controls['medicacao']"></tgt-input-icon>
     <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Condições médicas relevantes'"
       [control]="form.controls['condicaoMedica']"></tgt-input-icon>
+
     <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
       [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
     <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
       [control]="form.controls['emailResponsavel']"></tgt-input-icon>
 
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Endereço'" [control]="form.controls['endereco']"></tgt-input-icon>
+    @if(adicionarSegundoResponsavel) {
+    <div class="segundo-responsavel">
+      <div class="esquerda">
+        <p>2</p>
+        <span class="material-symbols-outlined delete" (click)="retirarResponsavel('dois')">
+          delete
+        </span>
+      </div>
+      <div class="direita">
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+          [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+          [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+          [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+      </div>
+    </div>
+    }
+    @if(adicionarTerceiroResponsavel) {
+    <div class="segundo-responsavel">
+      <div class="esquerda">
+        <p>3</p>
+        <span class="material-symbols-outlined delete" (click)="retirarResponsavel('tres')">
+          delete
+        </span>
+      </div>
+      <div class="direita">
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+          [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+          [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+          [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+      </div>
+    </div>
+    }
+    @if(this.stepsAdicionarResponsavel <= 2) {
+      <div class="adicionar-responsavel">
+        <span class="material-symbols-outlined">
+          add
+        </span>
+        <p (click)="adicionarResponsavel()">Adicionar mais um Responsável</p>
+      </div>
+    }
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Endereço'"
+      [control]="form.controls['endereco']"></tgt-input-icon>
 
     <div class="infos">
       <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Número'" [type]="'text'"
@@ -36,8 +83,10 @@
     </div>
 
 
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Bairro'" [control]="form.controls['bairro']"></tgt-input-icon>
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Cidade'" [control]="form.controls['cidade']"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Bairro'"
+      [control]="form.controls['bairro']"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Cidade'"
+      [control]="form.controls['cidade']"></tgt-input-icon>
 
 
     <div class="infos">
