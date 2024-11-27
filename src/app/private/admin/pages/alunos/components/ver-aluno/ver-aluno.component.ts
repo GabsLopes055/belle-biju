@@ -26,7 +26,7 @@ import { ListarMeritosComponent } from "./components/aba-meritos/listar-meritos/
 import { ListarAdvertenciaComponent } from "./components/aba-advertencia/listar-advertencia/listar-advertencia.component";
 import { AbaFichaMedicaComponent } from "./components/aba-ficha-medica/aba-ficha-medica.component";
 import { ListarHistoricoComponent } from "./components/aba-historico/listar-historico/listar-historico.component";
-import { DadosPessoaisComponent } from "./components/aba-historico/ver-historico/components/dados-pessoais/dados-pessoais.component";
+import { AbaDadosPessoaisComponent } from "./components/aba-dados-pessoais/aba-dados-pessoais.component";
 
 @Component({
   selector: 'ver-aluno',
@@ -47,7 +47,7 @@ import { DadosPessoaisComponent } from "./components/aba-historico/ver-historico
     ListarAdvertenciaComponent,
     AbaFichaMedicaComponent,
     ListarHistoricoComponent,
-    DadosPessoaisComponent
+    AbaDadosPessoaisComponent
 ],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',

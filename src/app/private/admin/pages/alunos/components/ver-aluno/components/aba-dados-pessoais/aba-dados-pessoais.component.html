@@ -1,1 +1,60 @@
-<p>aba-dados-pessoais works!</p>
+<main>
+  <div class="find">
+    <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'"
+      [icon]="'edit'" (click)="editar()">Editar</tgt-button>
+  </div>
+
+
+  <section class="desktop">
+    <div class="esquerda">
+      <div class="content-esquerda">
+        <span>Nome Completo Aluno</span>
+        <span>{{aluno?.nome}}</span>
+      </div>
+      <div class="content-esquerda">
+        <span>Data de nascimento</span>
+        <span>{{aluno?.dataNascimento}}</span>
+      </div>
+      <div class="content-esquerda">
+        <span>Gênero</span>
+        <span>{{aluno?.genero}}</span>
+      </div>
+      <div class="content-esquerda">
+        <span>Nome completo responsável</span>
+        <span>{{aluno?.nomeResponsavel}}</span>
+      </div>
+      <div class="content-esquerda">
+        <span>E-mail responsável</span>
+        <span>{{aluno?.emailResponsavel}}</span>
+      </div>
+      <div class="content-esquerda">
+        <span>Endereço</span>
+        <span>{{aluno?.endereco}}</span>
+      </div>
+
+    </div>
+    <div class="direita">
+      <div class="content-direita">
+        <span>Complemento</span>
+        <span>{{aluno?.complemento}}</span>
+      </div>
+      <div class="content-direita">
+        <span>Bairro</span>
+        <span>{{aluno?.bairro}}</span>
+      </div>
+      <div class="content-direita">
+        <span>Cidade</span>
+        <span>{{aluno?.cidade}}</span>
+      </div>
+      <div class="content-direita">
+        <span>Estado</span>
+        <span>{{aluno?.uf}}</span>
+      </div>
+      <div class="content-direita">
+        <span>Foto</span>
+        <span>Trazer foto</span>
+      </div>
+    </div>
+  </section>
+
+</main>

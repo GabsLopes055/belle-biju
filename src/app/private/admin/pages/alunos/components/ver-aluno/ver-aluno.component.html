@@ -2,7 +2,7 @@
   <div class="header">
     <div class="esquerdo">
       <span class="material-symbols-outlined icone" (click)="back()">arrow_back</span>
-      <h3>{{this.aluno.nome}}</h3>
+      <h3>{{this.aluno?.nome}}</h3>
 
     </div>
     <div class="direito">
@@ -42,11 +42,11 @@
     </div> -->
     <div class="info">
       <span>Responsável:</span>
-      <p>{{this.aluno.nomeResponsavel}}</p>
+      <p>{{this.aluno?.nomeResponsavel}}</p>
     </div>
     <div class="info">
       <span>E-mail Responsável:</span>
-      <p>{{this.aluno.emailResponsavel}}</p>
+      <p>{{this.aluno?.emailResponsavel}}</p>
     </div>
   </div>
 
