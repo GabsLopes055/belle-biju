@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {NgxMaskDirective} from "ngx-mask";
-import {FormControl, ReactiveFormsModule} from "@angular/forms";
+import { Component, Input } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'tgt-textarea',
@@ -13,28 +13,10 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
   styleUrl: './textarea.component.scss'
 })
 export class TextareaComponent {
-  @Input() type: 'text' | 'email' | 'password' | 'number' | 'date' = 'text';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
-  @Input() mask: string = '';
-  @Input() linhas: number = 10;
   @Input() readonly: boolean = false;
-  @Input() border: boolean = true;
-  @Input() buttons: boolean = false;
-
-  reprovar() {
-    // Lógica para reprovar
-    console.log('Reprovado');
-  }
-
-  aprovar() {
-    // Lógica para aprovar
-    console.log('Aprovado');
-  }
-
-  enviarMensagem() {
-    // Lógica para enviar mensagem
-    console.log('Mensagem enviada');
-  }
+  @Input() linhas: number = 10;
+  @Input() placeholder: string = '';
 
 }

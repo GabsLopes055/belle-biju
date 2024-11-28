@@ -1,0 +1,51 @@
+<main>
+  <div class="find">
+    <tgt-button (click)="lancarDocumento()" [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'" [icon]="'description'"
+      >Carregar Documento</tgt-button>
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+  <section class="desktop">
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Assunto</tgt-header-col>
+          <tgt-header-col>Observação</tgt-header-col>
+          <tgt-header-col>Data de inserção</tgt-header-col>
+          <tgt-header-col>Documento</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        <!-- @for (item of historico; track item) { -->
+        <tgt-item-list>
+          <tgt-item-data>Justificativa</tgt-item-data>
+          <tgt-item-data>Observação</tgt-item-data>
+          <tgt-item-data>Data de inserção</tgt-item-data>
+          <tgt-item-data>Documento</tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icone">delete</span>
+            <span class="material-symbols-outlined icone">download</span>
+          </tgt-item-data>
+        </tgt-item-list>
+        <!-- } -->
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    <!-- @for (item of historico; track item) { -->
+    <div class="cards">
+      <div class="title">Justificativa</div>
+      <div class="content">
+        <div class="infos">
+          <span>Data</span>
+          <!-- <span>{{item.data}}</span> -->
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="verHistorico()">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+    <!-- } -->
+  </section>
+</main>

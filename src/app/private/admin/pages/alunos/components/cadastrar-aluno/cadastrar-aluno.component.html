@@ -13,7 +13,7 @@
     <div class="infos">
       <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"
         [control]="form.controls['dataNascimento']"></tgt-input-icon>
-      <tgt-select [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
+      <tgt-select [label]="'Sexo'" [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
         [control]="form.controls['genero']"></tgt-select>
     </div>
     <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Alergias'"

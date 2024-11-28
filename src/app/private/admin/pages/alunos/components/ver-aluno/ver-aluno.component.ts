@@ -27,6 +27,7 @@ import { ListarAdvertenciaComponent } from "./components/aba-advertencia/listar-
 import { AbaFichaMedicaComponent } from "./components/aba-ficha-medica/aba-ficha-medica.component";
 import { ListarHistoricoComponent } from "./components/aba-historico/listar-historico/listar-historico.component";
 import { AbaDadosPessoaisComponent } from "./components/aba-dados-pessoais/aba-dados-pessoais.component";
+import { ListarDocumentosComponent } from "./components/aba-enviar-documento/listar-documentos/listar-documentos.component";
 
 @Component({
   selector: 'ver-aluno',
@@ -47,7 +48,8 @@ import { AbaDadosPessoaisComponent } from "./components/aba-dados-pessoais/aba-d
     ListarAdvertenciaComponent,
     AbaFichaMedicaComponent,
     ListarHistoricoComponent,
-    AbaDadosPessoaisComponent
+    AbaDadosPessoaisComponent,
+    ListarDocumentosComponent
 ],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',
@@ -100,6 +102,12 @@ export class VerAlunoComponent implements OnInit {
       icon: '',
       label: 'Histórico',
       value: 'historico',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Documentos',
+      value: 'listar-documentos',
       selected: false,
     },
     {
