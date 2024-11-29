@@ -1,0 +1,18 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Adicionar Certificação</h3>
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Nome*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Organização Emissora*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.organizacao"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Data de Início*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.dataInicio"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Data de Término*" [type]="'date'" [iconPosition]="'right'" [control]="form.controls.dataFim"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="URL da Credencial" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.urlCredencial"></tgt-input-icon>
+      <tgt-textarea [placeholder]="'Observação'" [control]="form.controls.observacao"></tgt-textarea>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="cadastrar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'" (click)="cadastrar()">Cadastrar</tgt-button>
+    </div>
+  </main>
+</tgt-modal>

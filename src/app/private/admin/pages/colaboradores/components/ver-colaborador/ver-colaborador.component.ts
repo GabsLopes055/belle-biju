@@ -17,6 +17,9 @@ import {
 import { ColaboradoresService } from '../../colaboradores.service';
 import { ExcluirColaboradorComponent } from './components/excluir-colaborador/excluir-colaborador.component';
 import { InformacoesColaboradorComponent } from './components/informacoes-colaborador/informacoes-colaborador.component';
+import { DashboardColaboradorComponent } from "./components/aba-dashboard/dashboard-colaborador/dashboard-colaborador.component";
+import { ListarCertificacoesColaboradorComponent } from "./components/aba-certificacoes/listar-certificacoes-colaborador/listar-certificacoes-colaborador.component";
+import { DadosPessoaisColaboradorComponent } from "./components/aba-dados-pessoais/dados-pessoais-colaborador/dados-pessoais-colaborador.component";
 
 @Component({
   selector: 'ver-colaborador',
@@ -31,7 +34,10 @@ import { InformacoesColaboradorComponent } from './components/informacoes-colabo
     ItemDataComponent,
     TabsComponent,
     ListarChamadasComponent,
-    ListarTurmasComponent
+    ListarTurmasComponent,
+    DashboardColaboradorComponent,
+    ListarCertificacoesColaboradorComponent,
+    DadosPessoaisColaboradorComponent
 ],
   templateUrl: './ver-colaborador.component.html',
   styleUrl: './ver-colaborador.component.scss',
@@ -45,6 +51,12 @@ export class VerColaboradorComponent {
   tabs: Tab[] = [
     {
       icon: '',
+      label: 'Dashboard',
+      value: 'dashboard',
+      selected: false,
+    },
+    {
+      icon: '',
       label: 'Turmas',
       value: 'turmas',
       selected: false,
@@ -53,6 +65,18 @@ export class VerColaboradorComponent {
       icon: '',
       label: 'Chamadas',
       value: 'chamadas',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Certificações',
+      value: 'certificacoes',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Dados Pessoais',
+      value: 'dados-pessoais',
       selected: false,
     },
   ];

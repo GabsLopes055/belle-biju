@@ -1,0 +1,79 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+    <div class="header">
+      <div class="title">
+        <h3>Certificado</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarNota()">
+          edit
+        </span>
+        <p (click)="editarNota()">Editar</p>
+      </div>
+
+    </div>
+
+    <div class="table">
+      <table>
+        <!-- Cabeçalho da Tabela -->
+        <thead border="1" cellspacing="0" cellpadding="10">
+          <tr>
+            <th>
+              Nome
+            </th>
+            <th>
+              Organização Emissora
+            </th>
+            <th>
+              Data de Início
+            </th>
+            <th>
+              Data de Término
+            </th>
+            <th>
+              URL da Credencial
+            </th>
+            <th>
+              Observação
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Corpo da Tabela -->
+        <tbody>
+          <tr>
+            <td>
+              Certificação Google for Education – Nível 1
+            </td>
+            <td>
+              Google Education
+            </td>
+            <td>
+              01/01/2024
+            </td>
+            <td>
+              12/12/2024
+            </td>
+            <td>
+              <a href="https://google.com">Link</a>
+            </td>
+            <td>
+              Curso realizado para aprimorar minhas habilidades de ensino.
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>

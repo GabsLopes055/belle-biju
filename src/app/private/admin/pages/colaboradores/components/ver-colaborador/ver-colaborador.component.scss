@@ -1,8 +1,10 @@
 @import "../../../../../../../assets/styles/colors.scss";
+
 main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  // height: 800px;
 
   .header {
     display: flex;
@@ -54,20 +56,18 @@ main {
           padding: 16px;
           gap: 9px;
           opacity: 0px;
-
           display: flex;
           flex-direction: row;
           align-items: center;
           transition: all .5s;
+          border-radius: 15px;
 
           &:first-child {
-            border-radius: 15px 15px 0px 0px;
+            // border-radius: 15px 15px 0px 0px;
             // background-color: #181D17;
           }
 
-          &:last-child {
-            border-radius: 0px 0px 15px 15px;
-          }
+          &:last-child {}
 
           .label {
             font-size: 14px;
@@ -79,7 +79,7 @@ main {
 
           &:hover {
             background-color: $color-primary;
-            // border-radius: 15px;
+            border-radius: 15px;
           }
         }
       }
@@ -125,6 +125,12 @@ main {
 
       // }
     }
+  }
+
+  app-tabs {
+
+    width: 100%;
+    overflow: auto;
   }
 
   .icone {

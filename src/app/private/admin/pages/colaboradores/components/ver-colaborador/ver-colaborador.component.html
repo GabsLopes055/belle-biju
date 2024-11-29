@@ -17,7 +17,7 @@
           </span>
           <span class="label">Excluir colaborador</span>
         </div>
-        <div class="item" (click)="informacoesColaborador()">
+        <!-- <div class="item" (click)="informacoesColaborador()">
           <span class="material-symbols-outlined">
             info
           </span>
@@ -28,7 +28,7 @@
             edit
           </span>
           <span class="label">Editar colaborador</span>
-        </div>
+        </div> -->
       </div>
       }
 
@@ -63,11 +63,20 @@
 
   @switch (opcaoTabSelecionada) {
 
+  @case ('dashboard') {
+    <dashboard-colaborador></dashboard-colaborador>
+  }
   @case ('turmas') {
     <listar-turmas></listar-turmas>
   }
   @case ('chamadas') {
     <listar-chamadas></listar-chamadas>
+  }
+  @case ('certificacoes') {
+    <listar-certificacoes-colaborador></listar-certificacoes-colaborador>
+  }
+  @case ('dados-pessoais') {
+    <dados-pessoais-colaborador></dados-pessoais-colaborador>
   }
   }
 

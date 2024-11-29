@@ -1,0 +1,50 @@
+<main>
+  <div class="find">
+    <tgt-button (click)="cadastrarCertificacao()" [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'add'"
+      >Adicionar Certificação</tgt-button>
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+  <section class="desktop">
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Nome</tgt-header-col>
+          <tgt-header-col>Organização Emissora</tgt-header-col>
+          <tgt-header-col>Data de Início </tgt-header-col>
+          <tgt-header-col>Data de Término</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        <!-- @for (item of listaNotas; track item) { -->
+        <tgt-item-list>
+          <tgt-item-data>Certificação Google for Education – Nível 1</tgt-item-data>
+          <tgt-item-data>Google Education</tgt-item-data>
+          <tgt-item-data>01/01/2024</tgt-item-data>
+          <tgt-item-data>12/12/2024</tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icone" (click)="verCertificacao()">search</span>
+          </tgt-item-data>
+        </tgt-item-list>
+        <!-- } -->
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    <!-- @for (item of listaNotas; track item) { -->
+    <div class="cards">
+      <div class="title">Google Education</div>
+      <div class="content">
+        <div class="infos">
+          <span>01/01/2024</span>
+          <span>01/01/2024</span>
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="verCertificacao()">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+    <!-- } -->
+  </section>
+</main>
