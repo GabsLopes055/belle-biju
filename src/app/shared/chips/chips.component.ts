@@ -12,6 +12,9 @@ export class ChipsComponent {
   @Input() label: string = '';
   @Input() select!: boolean;
 
-  @Output() filtrar = new EventEmitter();
+  @Output() chipClicked = new EventEmitter();
 
+  clicked() {
+    this.chipClicked.emit(this.label);
+  }
 }

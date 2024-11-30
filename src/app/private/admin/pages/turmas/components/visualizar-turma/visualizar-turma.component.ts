@@ -13,11 +13,15 @@ import { PaginatorComponent } from '../../../../../../shared/paginator/paginator
 import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
 import { ListarAlunosComponent } from './components/aba-aluno/listar-alunos/listar-alunos.component';
 import { TurmasService } from '../../turmas.service';
-import { ExcluirTurmaComponent } from './components/aba-chamada/excluir-turma/excluir-turma.component';
-import { ListarChamadasComponent } from './components/aba-chamada/listar-chamadas/listar-chamadas.component';
-import { RealizarChamadaComponent } from './components/aba-chamada/realizar-chamada/realizar-chamada.component';
 import { ListarProfessoresComponent } from './components/aba-professor/listar-professores/listar-professores.component';
 import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
+import { DashboardComponent } from "./components/aba-dashboard/dashboard/dashboard.component";
+import { NotasTurmasComponent } from "./components/aba-notas/notas-turmas/notas-turmas.component";
+import { TurmasConteudosComponent } from "./components/aba-conteudo/turmas-conteudos/turmas-conteudos.component";
+import { DadosTurmaComponent } from "./components/aba-dados-turma/dados-turma/dados-turma.component";
+import { RealizarChamadaComponent } from './components/aba-frequencia/realizar-chamada/realizar-chamada.component';
+import { ExcluirTurmaComponent } from './components/aba-frequencia/excluir-turma/excluir-turma.component';
+import { ListarChamadasComponent } from './components/aba-frequencia/listar-chamadas/listar-chamadas.component';
 
 @Component({
   selector: 'visualizar-turma',
@@ -35,7 +39,11 @@ import { InformacoesTurmaComponent } from './components/informacoes-turma/inform
     TooltipDirective,
     ListarChamadasComponent,
     ListarAlunosComponent,
-    ListarProfessoresComponent
+    ListarProfessoresComponent,
+    DashboardComponent,
+    NotasTurmasComponent,
+    TurmasConteudosComponent,
+    DadosTurmaComponent
 ],
   templateUrl: './visualizar-turma.component.html',
   styleUrl: './visualizar-turma.component.scss',
@@ -46,8 +54,26 @@ export class VisualizarTurmaComponent {
   tabs: Tab[] = [
     {
       icon: '',
-      label: 'Chamadas',
-      value: 'chamadas',
+      label: 'Dashboard',
+      value: 'turma-dashboard',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Frequência',
+      value: 'turma-frequencia',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Notas',
+      value: 'notas-turmas',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Conteúdos',
+      value: 'turmas-conteudos',
       selected: false,
     },
     {
@@ -60,6 +86,12 @@ export class VisualizarTurmaComponent {
       icon: '',
       label: 'Professores',
       value: 'professores',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Dados da turma',
+      value: 'dados-turma',
       selected: false,
     },
   ];
@@ -116,7 +148,5 @@ export class VisualizarTurmaComponent {
     this.turmaService.steps.next('listar-turmas');
   }
 
-  realizarChamada() {
-    this.modalService.open(RealizarChamadaComponent);
-  }
+
 }

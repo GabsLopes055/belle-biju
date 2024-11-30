@@ -5,7 +5,7 @@
       <h3>8° Ano - Turma B</h3>
     </div>
     <div class="direito">
-      <tgt-button [color]="'primary'" [icon]="'done_all'" (click)="realizarChamada()">Realizar chamada</tgt-button>
+
       <span class="material-symbols-outlined icone" (click)="showHideDetail()">more_vert</span>
       @if(isDetail) {
 
@@ -38,19 +38,31 @@
   <section>
 
     @switch (opcaoTabSelecionada) {
-      @case ('chamadas') {
-        <listar-chamadas></listar-chamadas>
-      }
-      @case ('alunos') {
-        <listar-alunos></listar-alunos>
-      }
-      @case ('professores') {
-        <listar-professores></listar-professores>
-      }
+    @case ('turma-dashboard') {
+    <turma-dashboard></turma-dashboard>
+    }
+    @case ('turma-frequencia') {
+    <listar-chamadas></listar-chamadas>
+    }
+    @case ('notas-turmas') {
+    <notas-turmas></notas-turmas>
+    }
+    @case ('turmas-conteudos') {
+    <turmas-conteudos></turmas-conteudos>
+    }
+    @case ('alunos') {
+    <listar-alunos></listar-alunos>
+    }
+    @case ('professores') {
+    <listar-professores></listar-professores>
+    }
+    @case ('dados-turma') {
+    <dados-turma></dados-turma>
+    }
     }
 
     <div class="isMobile">
-      <tgt-button [color]="'primary'" [icon]="'done_all'" (click)="realizarChamada()">Realizar chamada</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [icon]="'done_all'" (click)="realizarChamada()">Realizar chamada</tgt-button> -->
     </div>
   </section>
 

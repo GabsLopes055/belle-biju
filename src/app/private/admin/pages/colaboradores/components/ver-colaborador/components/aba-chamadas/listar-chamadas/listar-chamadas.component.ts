@@ -8,7 +8,7 @@ import { ItemDataComponent } from "../../../../../../../../../shared/list/compon
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { turma } from '../../../../../../../../../models/turma.interface';
 import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
-import { VerChamadaComponent } from '../../../../../../turmas/components/visualizar-turma/components/aba-chamada/ver-chamada/ver-chamada.component';
+import { VerChamadaComponent } from '../../../../../../turmas/components/visualizar-turma/components/aba-frequencia/ver-chamada/ver-chamada.component';
 
 @Component({
   selector: 'listar-chamadas',

@@ -8,11 +8,12 @@ import {
   OptionSelect,
   SelectComponent,
 } from '../../../../../../shared/select/select.component';
+import { TextareaComponent } from "../../../../../../shared/textarea/textarea.component";
 
 @Component({
   selector: 'criar-turma',
   standalone: true,
-  imports: [ButtonComponent, InputIconComponent, SelectComponent],
+  imports: [ButtonComponent, InputIconComponent, SelectComponent, TextareaComponent],
   templateUrl: './criar-turma.component.html',
   styleUrl: './criar-turma.component.scss',
 })
@@ -22,12 +23,25 @@ export class CriarTurmaComponent {
     serie: new FormControl('', Validators.required),
     turno: new FormControl('', Validators.required),
     anoLetivo: new FormControl('', Validators.required),
+    curso: new FormControl('', Validators.required),
   });
 
   optionsTurno: OptionSelect[] = [
     { label: 'Matutino', value: 'matutino' },
-    { label: 'Vespertino', value: 'nespertino' },
+    { label: 'Vespertino', value: 'vespertino' },
     { label: 'Noturno', value: 'noturno' }
+  ];
+
+  optionCursos: OptionSelect[] = [
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' },
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' },
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' }
   ];
 
   constructor(

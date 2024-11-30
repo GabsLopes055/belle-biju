@@ -1,6 +1,9 @@
-<div class="chip"
-     [style.background-color]="select ? '#fdd325' : ''"
-     [style.border]="select ? 'none' : 'solid 1px black'"
-     [style.cursor]="'pointer'">
+<div (click)="clicked()" class="chip" [style.background-color]="select ? '#D5E8CF' : ''"
+  [style.border]="select ? 'none' : 'solid 1px black'" [style.cursor]="'pointer'">
+  @if(select) {
+    <span class="material-symbols-outlined">
+      check
+    </span>
+  }
   {{ label }}
 </div>

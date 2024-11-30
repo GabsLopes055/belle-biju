@@ -89,6 +89,11 @@ main {
     }
   }
 
+  app-tabs {
+    width: 100%;
+    overflow: auto;
+  }
+
   section {
     listar-chamadas,
     listar-alunos,

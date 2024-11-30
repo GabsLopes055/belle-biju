@@ -4,10 +4,11 @@
       <h2>Nova Turma</h2>
     </div>
     <div class="form">
-      <tgt-input-icon [border]="true" [placeholder]="'Nome'" [control]="form.controls.nome"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Série'" [control]="form.controls.serie"></tgt-input-icon>
-      <tgt-select [label]="'Turno'" [options]="optionsTurno" [control]="form.controls.turno"></tgt-select>
-      <tgt-input-icon [border]="true" [placeholder]="'Ano Letivo'" [control]="form.controls.anoLetivo"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Nome*'" [control]="form.controls.nome"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Série*'" [control]="form.controls.serie"></tgt-input-icon>
+      <tgt-select [label]="'Turno*'" [options]="optionsTurno" [control]="form.controls.turno"></tgt-select>
+      <tgt-input-icon [border]="true" [placeholder]="'Ano Letivo*'" [control]="form.controls.anoLetivo"></tgt-input-icon>
+      <tgt-select [options]="optionCursos" [control]="form.controls.curso" [label]="'Curso*'"></tgt-select>
     </div>
   </div>
   <div class="actions">

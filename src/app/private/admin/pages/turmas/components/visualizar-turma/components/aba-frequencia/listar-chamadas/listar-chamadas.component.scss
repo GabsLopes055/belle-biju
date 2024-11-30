@@ -1,11 +1,19 @@
 main {
 
-  // min-height: 62vh;
-
-  .find {
+  .chips-materias {
     display: flex;
-    justify-content: end;
+    flex-wrap: wrap; // Permite quebra de linha
+    gap: 12px; // Espaço entre chips
+    align-items: center; // Alinhamento vertical dos chips
+    max-width: 100%; // Respeita o tamanho do pai
+    overflow: hidden; // Evita rolagem horizontal
+  }
 
+  .aluno-find {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 18px 0px;
     tgt-input-icon {
       width: 500px;
     }
@@ -14,19 +22,26 @@ main {
   .mobile {
     display: none;
   }
+
 }
 
-// Media queries para ajustar conforme a largura da tela
 @media (max-width: 1000px) {
-
   main {
+    .aluno-find {
+      tgt-input-icon {
+        width: auto;
+      }
+
+      flex-direction: column-reverse;
+      gap: 12px;
+    }
     .desktop {
       display: none;
     }
 
     .mobile {
       display: block;
-      max-height: 500px;
+      max-height: 450px;
       overflow: auto;
 
       .cards {
@@ -39,7 +54,7 @@ main {
         background-color: #F7FBF2;
 
         .title {
-          font-size: 22px;
+          font-size: 18px;
           font-weight: 500;
           line-height: 28px;
           text-align: left;
@@ -91,6 +106,4 @@ main {
       }
     }
   }
-
-
 }

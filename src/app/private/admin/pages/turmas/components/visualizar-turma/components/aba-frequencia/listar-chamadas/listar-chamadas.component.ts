@@ -11,6 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
 import { VerChamadaComponent } from '../ver-chamada/ver-chamada.component';
 import { BaixarChamadaComponent } from '../baixar-chamada/baixar-chamada.component';
+import { ButtonComponent } from '../../../../../../../../../shared/button/button.component';
+import { RealizarChamadaComponent } from '../realizar-chamada/realizar-chamada.component';
+import { ChipsComponent } from '../../../../../../../../../shared/chips/chips.component';
 
 @Component({
   selector: 'listar-chamadas',
@@ -23,63 +26,66 @@ import { BaixarChamadaComponent } from '../baixar-chamada/baixar-chamada.compone
     ItemListComponent,
     ItemDataComponent,
     TooltipDirective,
+    ButtonComponent,
+    ChipsComponent,
   ],
   templateUrl: './listar-chamadas.component.html',
   styleUrl: './listar-chamadas.component.scss',
 })
 export class ListarChamadasComponent {
+
+  chipSelected: string = 'Língua Portuguesa';
+
   data: chamada[] = [
     {
       colaborador: 'Maria Silva',
       materia: 'Português',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'João Santos',
       materia: 'Matemática',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Ana Oliveira',
       materia: 'Geografia',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
-    { colaborador: 'Joana Silva', materia: 'História', perfil: 'Professor(a)' },
+    { colaborador: 'Joana Silva', materia: 'História', perfil: '10/10/2024' },
     {
       colaborador: 'Maria Silva',
       materia: 'Português',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Marcelo Santos',
       materia: 'Química',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Nataly Oliveira',
       materia: 'Português',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Andrey Silva',
       materia: 'Biologia',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Maria Silva',
       materia: 'Educação Física',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
     {
       colaborador: 'Maria Silva',
       materia: 'Português',
-      perfil: 'Professor(a)',
+      perfil: '10/10/2024',
     },
   ];
 
-  constructor(
-    private readonly modalService: ModalService
-  ) {}
+  constructor(private readonly modalService: ModalService) {}
 
   form = new FormGroup({
     buscarTurma: new FormControl('', Validators.required),
@@ -91,5 +97,15 @@ export class ListarChamadasComponent {
 
   baixarChamada() {
     this.modalService.open(BaixarChamadaComponent);
+  }
+
+  eventChipSelected(event: string, materia: string) {
+    if(event === materia) {
+      this.chipSelected = event
+    }
+  }
+
+  realizarChamada() {
+    this.modalService.open(RealizarChamadaComponent);
   }
 }

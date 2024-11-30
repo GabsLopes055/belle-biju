@@ -20,8 +20,9 @@ import { FormControl } from '@angular/forms';
 export class SelectComponent implements OnChanges {
   isOpenModal = false;
 
-  @Input() label: string = 'Selecione';
+  @Input() label: string = '';
   @Input() options: OptionSelect[] = [];
+  @Input() valueOptionSelected: OptionSelect = {label: '', value: ''};
   @Input() control: FormControl = new FormControl();
   @Input() icon: string = 'arrow_drop_down';
   @Input() size: 'small' | 'middle' = 'middle';
@@ -44,7 +45,8 @@ export class SelectComponent implements OnChanges {
   }
 
   optionSelect(option: OptionSelect) {
-    this.label = option.label;
+    // this.label = option.label;
+    this.valueOptionSelected = option;
     this.isOpenModal = false;
     this.control.setValue(option.value);
     this.changeValue.emit(this.control.value);
