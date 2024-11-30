@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalComponent } from "../../../../../../../../../shared/modal/modal.component";
 import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
 import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
+import { AusenciaJustificadaComponent } from './ausencia-justificada/ausencia-justificada.component';
 
 @Component({
   selector: 'app-realizar-chamada',
@@ -19,6 +20,10 @@ export class RealizarChamadaComponent {
 
   finalizarChamada() {
     this.modalService.close();
+  }
+
+  ausenciaJustificada() {
+    this.modalService.open(AusenciaJustificadaComponent)
   }
 
 }

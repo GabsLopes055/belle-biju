@@ -18,3 +18,12 @@ export interface responseNotas {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface notasPorBimestre {
+  nomeAluno: string,
+  primeiroBimestre: string,
+  segundoBimestre: string,
+  terceiroBimestre: string,
+  quartoBimestre: string,
+  media: string
+}

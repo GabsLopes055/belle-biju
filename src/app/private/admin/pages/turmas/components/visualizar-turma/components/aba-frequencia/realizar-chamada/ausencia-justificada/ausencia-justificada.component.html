@@ -1,0 +1,25 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Justificativa</h3>
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-textarea [placeholder]="'Justificativa'" [control]="form.controls.observacao"></tgt-textarea>
+      <div class="carregar-arquivo">
+        <div class="arquivo">
+          <span class="material-symbols-outlined icone">folder</span>
+        </div>
+        <div class="info-arquivo">
+          <span>Clique para carregar</span>
+          <p>Tamanho máximo do arquivo: X</p>
+        </div>
+      </div>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'"
+        (click)="cadastrar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'"
+        (click)="cadastrar()">Salvar</tgt-button>
+    </div>
+
+  </main>
+</tgt-modal>

@@ -1,5 +1,5 @@
 <div (click)="clicked()" class="chip" [style.background-color]="select ? '#D5E8CF' : ''"
-  [style.border]="select ? 'none' : 'solid 1px black'" [style.cursor]="'pointer'">
+  [style.border]="select ? 'none' : 'solid 1px black'" [style.padding]="select ? '8px' : ''" [style.cursor]="'pointer'">
   @if(select) {
     <span class="material-symbols-outlined">
       check

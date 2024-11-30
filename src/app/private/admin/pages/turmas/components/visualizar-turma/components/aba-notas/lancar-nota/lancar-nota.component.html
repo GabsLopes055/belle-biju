@@ -1,0 +1,312 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+    <div class="header">
+      <div class="title">
+        <h3>Lançar Notas</h3>
+      </div>
+
+      <div class="info-materia">
+        <div class="materia">
+          <h4>Matéria: </h4>
+          <span>Lingua Portuguesa</span>
+        </div>
+        <div class="materia">
+          <h4>Data:</h4>
+          <span>29/04/2024</span>
+        </div>
+      </div>
+      <!-- <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarNota()">
+          edit
+        </span>
+        <p (click)="editarNota()">Editar</p>
+      </div> -->
+
+    </div>
+
+    <div class="table">
+      <table>
+        <!-- Cabeçalho da Tabela -->
+        <thead border="1" cellspacing="0" cellpadding="10">
+          <tr>
+            <th>
+              Aluno
+            </th>
+            <th>
+              1º Bimestre
+            </th>
+            <th>
+              2º Bimestre
+            </th>
+            <th>
+              3º Bimestre
+            </th>
+            <th>
+              4º Bimestre
+            </th>
+            <th>
+              Média Total
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Corpo da Tabela -->
+        <tbody>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [Nome do Aluno]
+            </td>
+            <td>
+              7,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              0,0
+            </td>
+            <td>
+              - - -
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'field'">Salvar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>

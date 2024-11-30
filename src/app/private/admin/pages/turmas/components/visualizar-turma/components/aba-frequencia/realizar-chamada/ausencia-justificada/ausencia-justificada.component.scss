@@ -1,0 +1,85 @@
+main {
+  padding: 24px;
+  background-color: #FFF;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 24px;
+  width: 500px;
+
+  .form {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    tgt-input-icon,
+    tgt-textarea {
+      width: 100%;
+    }
+
+    .carregar-arquivo {
+      display: flex;
+      flex-direction: row;
+      padding: 24px;
+      background-color: #F7FBF2;
+      width: 90%;
+      border-radius: 4px;
+      gap: 20px;
+      align-items: center;
+      border: 1px dashed #00E554;
+      .arquivo {
+
+        .icone {
+          cursor: pointer;
+          border-radius: 50%;
+          padding: 10px;
+          font-size: 18px;
+          background-color: #B4F2B1;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+        }
+      }
+
+      .info-arquivo {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        span {
+          font-weight: 700;
+          font-size: 18px;
+
+        }
+      }
+
+    }
+  }
+
+  .action {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    // justify-content: end;
+    width: 100%;
+
+    tgt-button {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
+    background-color: #FFF;
+    justify-content: start;
+    width: auto;
+    height: auto;
+    overflow: auto;
+
+  }
+}
