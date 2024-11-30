@@ -1,0 +1,67 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+    <div class="header">
+      <div class="title">
+        <h3>Conteúdo</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarConteudo()">
+          edit
+        </span>
+        <p (click)="editarConteudo()">Editar</p>
+      </div>
+
+    </div>
+
+    <div class="table">
+      <table>
+        <!-- Cabeçalho da Tabela -->
+        <thead border="1" cellspacing="0" cellpadding="10">
+          <tr>
+            <th>
+              Assunto
+            </th>
+            <th>
+              Matéria
+            </th>
+            <th>
+              Observação
+            </th>
+            <th>
+              Conteúdo
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Corpo da Tabela -->
+        <tbody>
+          <tr>
+            <td>
+              Descoberta do Brasil
+            </td>
+            <td>
+              História
+            </td>
+            <td>
+              Arquivo sobre a descoberta do Brasil...
+            </td>
+            <td>
+              nome_arquivo.extensão
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>

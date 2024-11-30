@@ -1,0 +1,29 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Adicionar Conteúdo</h3>
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Assunto" [type]="'text'" [iconPosition]="'right'"
+        [control]="form.controls.assunto"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Assunto" [type]="'text'" [iconPosition]="'right'"
+        [control]="form.controls.materia"></tgt-input-icon>
+      <tgt-textarea [placeholder]="'Observação'" [control]="form.controls.observacao"></tgt-textarea>
+      <div class="carregar-arquivo">
+        <div class="arquivo">
+          <span class="material-symbols-outlined icone">folder</span>
+        </div>
+        <div class="info-arquivo">
+          <span>Clique para carregar</span>
+          <p>Tamanho máximo do arquivo: X</p>
+        </div>
+      </div>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'"
+        (click)="cadastrar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'"
+        (click)="cadastrar()">Cadastrar</tgt-button>
+    </div>
+
+  </main>
+</tgt-modal>
