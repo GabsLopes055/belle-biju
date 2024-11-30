@@ -8,7 +8,15 @@
 
     <div class="lista-alunos">
 
-      <div class="aluno">
+      @for (item of alunos; track item) {
+        <div class="aluno">
+          <tgt-checkbox></tgt-checkbox>
+          <img src="assets/images/avatar.png" alt="">
+          <p>{{item.nome}}</p>
+        </div>
+      }
+
+      <!-- <div class="aluno">
         <tgt-checkbox></tgt-checkbox>
         <img src="assets/images/avatar.png" alt="">
         <p>Nome e Sobrenome</p>
@@ -61,12 +69,13 @@
         <img src="assets/images/avatar.png" alt="">
         <p>Nome e Sobrenome</p>
       </div>
-      <tgt-divider></tgt-divider>
+      <tgt-divider></tgt-divider> -->
 
     </div>
 
     <div class="action">
-      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="vincular()">Cancelar</tgt-button>
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'"
+        (click)="vincular()">Cancelar</tgt-button>
       <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'" (click)="vincular()">Vincular</tgt-button>
     </div>
 

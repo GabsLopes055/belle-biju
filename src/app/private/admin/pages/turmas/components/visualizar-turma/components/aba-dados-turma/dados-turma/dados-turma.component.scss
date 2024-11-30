@@ -1,0 +1,174 @@
+main {
+
+  .find {
+    // width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
+  .desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    gap: 12px;
+    padding: 24px 0px;
+
+    // &:last-child {
+    //   border-bottom: none;
+    // }
+
+    .esquerda,
+    .direita {
+      width: 100%;
+      height: 100%;
+      border-left: 1px solid #C2C9BD;
+      border-right: 1px solid #C2C9BD;
+      border-top: 1px solid #C2C9BD;
+
+
+
+      .content-esquerda,
+      .content-direita {
+        padding: 12px;
+        border-bottom: 1px solid #C2C9BD;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+      }
+    }
+
+
+    .direita {
+      width: 100%;
+      height: 100%;
+
+      .content-direita {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+
+      }
+    }
+
+
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+
+  main {
+    .desktop {
+      flex-direction: column;
+    }
+
+    // .mobile {
+    //   display: block;
+    //   max-height: 90%;
+    //   overflow: auto;
+
+
+    // }
+  }
+
+
+}
+main {
+
+  .find {
+    // width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+    tgt-input-icon {
+      width: 500px;
+    }
+  }
+
+  .desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    gap: 12px;
+    padding: 24px 0px;
+
+    // &:last-child {
+    //   border-bottom: none;
+    // }
+
+    .esquerda,
+    .direita {
+      width: 100%;
+      height: 100%;
+      border-left: 1px solid #C2C9BD;
+      border-right: 1px solid #C2C9BD;
+      border-top: 1px solid #C2C9BD;
+
+
+
+      .content-esquerda,
+      .content-direita {
+        padding: 12px;
+        border-bottom: 1px solid #C2C9BD;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+      }
+    }
+
+
+    .direita {
+      width: 100%;
+      height: 100%;
+
+      .content-direita {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+
+      }
+    }
+
+
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+// Media queries para ajustar conforme a largura da tela
+@media (max-width: 1000px) {
+
+  main {
+    .desktop {
+      flex-direction: column;
+    }
+
+    // .mobile {
+    //   display: block;
+    //   max-height: 90%;
+    //   overflow: auto;
+
+
+    // }
+  }
+
+
+}
