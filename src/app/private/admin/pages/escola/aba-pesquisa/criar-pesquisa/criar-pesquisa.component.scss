@@ -17,6 +17,17 @@ main {
       flex-direction: row;
       gap: 12px;
     }
+
+    .input {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 12px;
+
+      tgt-input-icon {
+        width: 100%;
+      }
+    }
   }
 
   .action {

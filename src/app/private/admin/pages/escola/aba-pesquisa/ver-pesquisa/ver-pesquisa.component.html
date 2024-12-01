@@ -1,1 +1,36 @@
-<p>ver-pesquisa works!</p>
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+
+    <div class="header">
+      <div class="title">
+        <h3>Pesquisa</h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+      </div>
+    </div>
+
+    <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
+
+    @switch (opcaoTabSelecionada) {
+      @case ('pergunta') {
+        <pergunta-pesquisa></pergunta-pesquisa>
+      }
+      @case ('resposta') {
+        <resposta-pesquisa></resposta-pesquisa>
+      }
+
+
+    }
+
+
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>
