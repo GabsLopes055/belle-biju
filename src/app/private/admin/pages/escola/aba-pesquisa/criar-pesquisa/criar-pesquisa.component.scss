@@ -1,0 +1,30 @@
+main {
+  padding: 24px;
+  background-color: #FDFEFE;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 24px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    .checkbox {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+  }
+
+  .action {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+  }
+}

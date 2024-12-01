@@ -1,0 +1,26 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+
+    <h3>Criar Pesquisa</h3>
+    <tgt-divider></tgt-divider>
+
+    <div class="form">
+      <tgt-input-icon [border]="true" [placeholder]="'Assunto*'" [icon]="'description'" [control]="form.controls.assunto"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Pergunta Principal*'" [control]="form.controls.perguntaPrincipal"></tgt-input-icon>
+      <span>Para quem deseja enviar este evento?</span>
+      <div class="checkbox">
+        <tgt-checkbox> &nbsp; &nbsp;Colaboradores</tgt-checkbox>
+        <tgt-checkbox> &nbsp; &nbsp;Pais de Alunos</tgt-checkbox>
+        <tgt-checkbox> &nbsp; &nbsp;Alunos</tgt-checkbox>
+      </div>
+      <tgt-toggle [label]="'Agendar'"></tgt-toggle>
+
+    </div>
+
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" (click)="agendar()" [fieldButton]="'outline'">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" (click)="agendar()" [icon]="'add'">Enviar</tgt-button>
+    </div>
+
+  </main>
+</tgt-modal>
