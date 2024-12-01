@@ -1,0 +1,18 @@
+<main>
+
+  <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
+
+  @switch (component) {
+  @case ('dashboard-escola') {
+  <dashboard-escola></dashboard-escola>
+  }
+  @case ('agenda-escola') {
+    <agenda-escola></agenda-escola>
+  }
+  @case ('pesquisa-escola') {
+    <pesquisa-escola></pesquisa-escola>
+  }
+
+  }
+
+</main>

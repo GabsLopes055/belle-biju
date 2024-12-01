@@ -11,6 +11,7 @@ const tokenGuard: CanActivateFn = () => {
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [tokenGuard]},
+  { path: 'escola', loadComponent: () => import('./pages/escola/escola.component').then((c) => c.EscolaComponent), canActivate: [tokenGuard]},
   { path: 'turmas', loadComponent: () => import('./pages/turmas/turmas.component').then((c) => c.TurmasComponent), canActivate: [tokenGuard]},
   { path: 'colaboradores', loadComponent: () => import('./pages/colaboradores/colaboradores.component').then((c) => c.ColaboradoresComponent), canActivate: [tokenGuard]},
   { path: 'alunos', loadComponent: () => import('./pages/alunos/alunos.component').then((c) => c.AlunosComponent), canActivate: [tokenGuard]},

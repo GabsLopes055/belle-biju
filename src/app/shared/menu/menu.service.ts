@@ -7,16 +7,13 @@ import { Menu } from './menu.component';
   providedIn: 'root',
 })
 export class MenuService {
-
   _menu = new BehaviorSubject<Menu[]>([]);
 
-  constructor(
-    private readonly userService: UserService
-  ) {
+  constructor(private readonly userService: UserService) {
     // if(this.userService.user) {
-      // console.log(this.userService.)
-        this.updateMenu();
-      // }
+    // console.log(this.userService.)
+    this.updateMenu();
+    // }
   }
 
   setMenu(menu: Menu[]) {
@@ -42,6 +39,12 @@ export class MenuService {
 
   updateMenu() {
     this._menu.next([
+      {
+        icon: 'school',
+        label: 'Escola',
+        route: '/admin/escola',
+        checked: false,
+      },
       {
         icon: 'meeting_room',
         label: 'Turmas',

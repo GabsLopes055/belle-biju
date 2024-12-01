@@ -37,7 +37,7 @@ main {
     left: 0;
     width: 40px;
     height: 24px;
-    background-color: $color-White;
+    background-color: $color-white;
     border: solid 2px $color-black;
     border-radius: 34px;
     cursor: pointer;
@@ -60,7 +60,7 @@ main {
 
 /* Anahtarın etkin hale gelmesindeki stil değişiklikleri */
 .toggle-switch .toggle-input:checked + .toggle-label {
-    background-color: $color-yellow;
+    background-color: $color-primary;
     border: none;
 }
 

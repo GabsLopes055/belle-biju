@@ -1,0 +1,89 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+    <div class="header">
+      <div class="title">
+        <h3>Evento </h3>
+      </div>
+      <div class="actions">
+        <span class="material-symbols-outlined">
+          download
+        </span>
+        <p>Download</p>
+        <span class="material-symbols-outlined" (click)="editarConteudo()">
+          edit
+        </span>
+        <p (click)="editarConteudo()">Editar</p>
+      </div>
+
+    </div>
+
+    <div class="table">
+      <table>
+        <!-- Cabeçalho da Tabela -->
+        <thead border="1" cellspacing="0" cellpadding="10">
+          <tr>
+            <th>
+              Assunto
+            </th>
+            <th>
+              Descrição
+            </th>
+            <th>
+              Enviar para
+            </th>
+            <th>
+              Data/Hora
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Corpo da Tabela -->
+        <tbody>
+          <tr>
+            <td>
+              Férias Escolares
+            </td>
+            <td>
+              Prezados Pais e Responsáveis,
+
+              Informamos que as férias escolares estarão iniciando em [data de início das férias] e terão término em
+              [data de término das férias]. Durante este período, a escola estará fechada, e não haverá atividades
+              acadêmicas.
+
+              Importante:
+
+              Retorno das aulas: As aulas retornarão no [data do retorno], conforme nosso calendário escolar.
+              Atividades extracurriculares: Durante as férias, [caso haja alguma atividade extracurricula, como colônias
+              de férias, projetos de verão, etc.].
+              Organização das mochilas e materiais: Aproveite este momento para revisar o material escolar, caso haja
+              necessidade de reposição ou organização para o próximo semestre.
+              Desejamos a todos um período de descanso tranquilo e revigorante, e esperamos ver todos de volta com
+              energia renovada para o próximo semestre!
+
+              Se houver alguma dúvida, a nossa equipe estará disponível para atendê-los até [data de encerramento do
+              atendimento], por meio dos canais habituais de comunicação:
+
+              Telefone: [número de telefone]
+              E-mail: [e-mail da escola]
+              Atenciosamente,
+              Equipe Pedagógica da Escola [Nome da Escola]
+            </td>
+            <td>
+              Colaboradores; Pais de Alunos
+            </td>
+            <td>
+              20/12/2024
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
+    </div>
+  </main>
+</tgt-modal>

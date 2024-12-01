@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TooltipDirective} from "../directives/tooltip.directive";
 
 @Component({
-  selector: 'toggle',
+  selector: 'tgt-toggle',
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, TooltipDirective],
   templateUrl: './toggle.component.html',

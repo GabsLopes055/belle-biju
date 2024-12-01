@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
             const usuario: User = response.user;
             this.userService.usuarioInstance = usuario;
             this.userService.usuario.next(usuario);
-            this.router.navigate(['/admin/']);
+            this.router.navigate(['/admin/escola']);
             this.menuService.updateMenu();
           },
           error: (erro) => {

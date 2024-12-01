@@ -1,0 +1,30 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+
+    <h3>Criar Evento</h3>
+    <tgt-divider></tgt-divider>
+
+    <div class="evento">
+      <div class="infos">
+        <tgt-input-icon [border]="true" [placeholder]="'Assunto*'" [icon]="'description'" [control]="form.controls.assunto"></tgt-input-icon>
+        <span>Para quem deseja enviar este evento?</span>
+        <div class="checkbox">
+          <tgt-checkbox> &nbsp; &nbsp;Colaboradores</tgt-checkbox>
+          <tgt-checkbox> &nbsp; &nbsp;Pais de Alunos</tgt-checkbox>
+        </div>
+        <tgt-toggle [label]="'Agendar'"></tgt-toggle>
+        <tgt-input-icon [border]="true" [placeholder]="'Data*'" [type]="'date'"  [control]="form.controls.data"></tgt-input-icon>
+        <tgt-input-icon [border]="true" [placeholder]="'Hora*'" [icon]="'schedule'" [iconPosition]="'right'" [control]="form.controls.hora"></tgt-input-icon>
+      </div>
+      <div class="descricao">
+        <tgt-textarea [linhas]="24" [placeholder]="'Texto a ser enviado....'"></tgt-textarea>
+      </div>
+    </div>
+
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" (click)="agendar()" [fieldButton]="'outline'">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" (click)="agendar()" [icon]="'add'">Agendar</tgt-button>
+    </div>
+
+  </main>
+</tgt-modal>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../services/user/user.service';
 
 @Component({
@@ -6,42 +6,27 @@ import { UserService } from '../services/user/user.service';
   standalone: true,
   imports: [],
   templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.scss'
+  styleUrl: './perfil.component.scss',
 })
-export class PerfilComponent implements OnInit{
-
-  iniciais: string = 'JS';
-  @Input() nome:string = '';
+export class PerfilComponent implements OnInit {
+  iniciais: string = '';
+  @Input() nome: string = '';
   @Input() size: 'middle' | 'small' = 'middle';
   @Input() border: 'true' | 'none' = 'true';
   @Input() icon: boolean = false;
 
-  constructor(
-    private readonly userService: UserService,
-  ) {}
+  constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-    // if(!this.nome.length) {
-    //   const usuario = this.userService.user;
-    //   this.iniciais = this.obterIniciais(usuario?.nome as string).toUpperCase()
-    // } else {
-    //   this.iniciais = this.obterIniciais(this.nome).toUpperCase()
-    // }
+
+    console.log(this.userService.user)
+
+    if(this.userService.usuarioInstance) {
+
+      this.iniciais = this.userService.usuarioInstance.firstName.charAt(0).toUpperCase();
+      this.iniciais += this.userService.usuarioInstance.lastName.charAt(0).toUpperCase();
+
+    }
   }
 
-
-  obterIniciais(nomeCompleto: string) {
-    // Dividir o nome completo em partes
-    // let partesNome = nomeCompleto.split(" ");
-
-    // // Obter a primeira letra do primeiro nome
-    // let primeiraLetraPrimeiroNome = partesNome[0][0];
-
-    // // Obter a primeira letra do último sobrenome
-    // let ultimoSobrenome = partesNome[partesNome.length - 1];
-    // let primeiraLetraUltimoSobrenome = ultimoSobrenome[0];
-
-    // // Retornar as iniciais
-    // return primeiraLetraPrimeiroNome + primeiraLetraUltimoSobrenome;
-}
 }
