@@ -13,7 +13,7 @@ const tokenGuard: CanActivateFn = () => {
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path:'login', component: LoginComponent},
-    {path:'primeiroAcesso', component: RegisterComponent},
+    // {path:'primeiroAcesso', component: RegisterComponent},
     {path:'register', loadComponent: () => import('./public/register/register.component').then((c)=>c.RegisterComponent)},
     {path:'recuperar-senha', loadComponent: () => import('./public/recuperar-senha/recuperar-senha.component').then((c)=>c.RecuperarSenhaComponent)},
     {path: 'admin', loadChildren: () => import('./private/admin/admin.module').then(module => module.AdminModule), canActivate: [tokenGuard]}

@@ -50,7 +50,7 @@ main {
   }
 
   .table {
-    height: 500px;
+    height: 700px;
     overflow: auto;
     table {
 
@@ -145,6 +145,13 @@ main {
             padding: 8px;
             background-color: #D5E8CF;
           }
+        }
+
+        .btn-lancar-nota {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
         }
       }
     }

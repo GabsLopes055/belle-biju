@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
 import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
 import { ModalComponent } from "../../../../../../../../../shared/modal/modal.component";
+import { LancarNotaAlunoComponent } from './components/lancar-nota-aluno/lancar-nota-aluno.component';
 
 @Component({
   selector: 'lancar-nota',
@@ -17,6 +18,10 @@ export class LancarNotaComponent {
 
   editarNota() {
     // this.modalService.open(EditarAdvertenciaComponent)
+  }
+
+  abrirModalLancarNota() {
+    this.modalService.open(LancarNotaAlunoComponent)
   }
 
   fechar() {

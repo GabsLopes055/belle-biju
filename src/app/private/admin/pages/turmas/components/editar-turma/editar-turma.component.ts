@@ -16,16 +16,29 @@ import { ToastService } from '../../../../../../shared/toast/toast.service';
 export class EditarTurmaComponent {
 
   form = new FormGroup({
-    nome: new FormControl('8° Ano - Turma B', Validators.required),
-    serie: new FormControl('8º ano', Validators.required),
-    turno: new FormControl('Manhã', Validators.required),
-    anoLetivo: new FormControl('2024', Validators.required),
+    nome: new FormControl('', Validators.required),
+    serie: new FormControl('', Validators.required),
+    turno: new FormControl('', Validators.required),
+    anoLetivo: new FormControl('', Validators.required),
+    curso: new FormControl('', Validators.required),
   });
 
   optionsTurno: OptionSelect[] = [
     { label: 'Matutino', value: 'matutino' },
-    { label: 'Vespertino', value: 'nespertino' },
+    { label: 'Vespertino', value: 'vespertino' },
     { label: 'Noturno', value: 'noturno' }
+  ];
+
+  optionCursos: OptionSelect[] = [
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' },
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' },
+    { label: 'Português', value: 'portugues' },
+    { label: 'Matemática', value: 'matematica' },
+    { label: 'História', value: 'historia' }
   ];
 
   constructor(

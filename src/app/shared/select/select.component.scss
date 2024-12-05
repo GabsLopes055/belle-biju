@@ -59,9 +59,9 @@ main {
     margin-top: 5px;
     animation: initModal 0.5s;
     z-index: 9999999;
-
+    width: auto;
     .content {
-      max-height: 100px;
+      max-height: 150px;
       overflow: auto;
       display: flex;
       flex-direction: column;

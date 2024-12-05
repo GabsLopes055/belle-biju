@@ -1,0 +1,97 @@
+<main>
+
+  <!--
+  Nesse caso, acredito que esses chips serão montados pela consulta da turma. Nesse caso, essa consulta terá que retornar as materias dessa turma
+  Teria que ter um @for para mostrar todas as materias
+  O segundo paretro da função eventChipSelected teria que ser a posicao do for que esta percorrendo
+  vou passar manualmente, mas quando formos integrar terá que corrigir
+  -->
+
+  <div class="chips-materias">
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')"
+      [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'"
+      [label]="'Matemática'"></tgt-chips>
+    <tgt-chips [label]="'Inglês'"></tgt-chips>
+    <tgt-chips [label]="'Física'"></tgt-chips>
+    <tgt-chips [label]="'Química'"></tgt-chips>
+    <tgt-chips [label]="'Biologia'"></tgt-chips>
+    <tgt-chips [label]="'História'"></tgt-chips>
+    <tgt-chips [label]="'Geografia'"></tgt-chips>
+    <tgt-chips [label]="'Filosofia'"></tgt-chips>
+    <tgt-chips [label]="'Sociologia'"></tgt-chips>
+    <tgt-chips [label]="'Educação Física'"></tgt-chips>
+    <tgt-chips [label]="'Artes'"></tgt-chips>
+  </div>
+
+  <div class="aluno-find">
+    <div class="progress">
+      <span>Progresso: 25%</span>
+      <div class="line-progress">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+      </div>
+    </div>
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+  </div>
+
+  <section class="desktop">
+    <tgt-list>
+      <div header class="header-list">
+        <tgt-header-list>
+          <tgt-header-col>Conteúdo</tgt-header-col>
+          <tgt-header-col>Período</tgt-header-col>
+          <tgt-header-col>Data Início</tgt-header-col>
+          <tgt-header-col>Data Fim</tgt-header-col>
+          <tgt-header-col>Observação</tgt-header-col>
+          <tgt-header-col></tgt-header-col>
+        </tgt-header-list>
+      </div>
+      <div body class="body">
+        @for (item of data; track item) {
+        <tgt-item-list>
+          <tgt-item-data>{{ item.conteudo }}</tgt-item-data>
+          <tgt-item-data>{{ item.periodo }}</tgt-item-data>
+          <tgt-item-data>{{ item.dataInicio }}</tgt-item-data>
+          <tgt-item-data>{{ item.dataFim }}</tgt-item-data>
+          <tgt-item-data>{{ item.observacao }}</tgt-item-data>
+          <tgt-item-data>
+            @if(item.finalizado) {
+            <span class="material-symbols-outlined check-concluido">
+              done_all
+            </span>
+            Concluído
+            <span class="material-symbols-outlined check-edit" (click)="editarConteudo()">
+              edit
+            </span>
+            } @else {
+            <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'outline'"
+              [icon]="'done_all'" (click)="concluirConteudo()">Concluir</tgt-button>
+            }
+
+
+          </tgt-item-data>
+        </tgt-item-list>
+        }
+      </div>
+    </tgt-list>
+  </section>
+  <section class="mobile">
+    @for (item of data; track item) {
+    <div class="cards">
+      <div class="title">{{item.conteudo}}</div>
+      <div class="content">
+        <div class="infos">
+          <span>{{item.dataInicio}}</span>
+          <span>{{item.dataFim}}</span>
+        </div>
+        <div class="actions">
+          <span class="material-symbols-outlined icone" (click)="editarConteudo()">edit</span>
+          <span class="material-symbols-outlined icone" (click)="concluirConteudo()">done_all</span>
+        </div>
+      </div>
+    </div>
+    }
+  </section>
+</main>

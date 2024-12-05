@@ -3,8 +3,8 @@
 main {
   height: 100vh;
   display: flex;
-  gap: 70px;
-  justify-content: center;
+  // gap: 70px;
+  justify-content: space-around;
   align-items: center;
 
   .circle {
@@ -30,7 +30,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 20%;
+    width: 40%;
     height: 75%;
 
     .back {
@@ -101,13 +101,87 @@ main {
 
     }
 
+    .selfie {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 32px;
+        color: #000000;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+
+        .card-content {
+
+          // min-width: 200px;
+          height: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 24px;
+          gap: 16px;
+          border-radius: 16px;
+          opacity: 0px;
+          background-color: #F7FBF2;
+
+
+          span {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: 0.15000000596046448px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+          }
+
+
+
+          .btn-selfies {
+            // padding: 1px 0px;
+            border-radius: 16px;
+            border: 1px dashed #39693B;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px;
+            gap: 12px;
+          }
+        }
+      }
+
+      // align-items: ;
+    }
+
     .cadastrado {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 100px 0px;
+      padding: 80px 0px;
       gap: 35px;
+
       span {
         font-size: 22px;
         font-weight: 400;
@@ -132,6 +206,10 @@ main {
         text-align: center;
 
       }
+
+      .action {
+        width: 50%;
+      }
     }
 
     .create {
@@ -151,22 +229,27 @@ main {
 }
 
 // Media queries para ajustar conforme a largura da tela
-@media (max-width: 1200px) {
-  .circle {
-    width: 40vw;
-  }
+@media (max-width: 1000px) {
+  main {
+    align-items: start;
+    .circle {
+      display: none;
+    }
 
-  .content {
-    width: 30%;
-  }
-}
+    .content {
+      width: 90%;
 
-@media (max-width: 992px) {
-  .circle {
-    display: none;
-  }
+      .back {
+        padding: 24px 0px;
+      }
 
-  .content {
-    width: 90% !important;
+      .selfie {
+        padding-bottom: 12px;
+        .cards {
+          flex-direction: column;
+        }
+      }
+
+    }
   }
 }

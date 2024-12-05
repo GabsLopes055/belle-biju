@@ -41,3 +41,10 @@ export interface AuthResponse {
   tokenExpires: number;
   user: User;
 }
+
+export enum StepsRegister {
+  EMAIL_CORPORATIVO = 1,
+  DADOS_CADASTRAIS = 2,
+  SELFIE = 3,
+  SENHA = 4
+}

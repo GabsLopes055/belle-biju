@@ -1,0 +1,21 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    <h3>Concluir Conteúdo</h3>
+    <tgt-divider></tgt-divider>
+
+    <div class="conteudo">
+      <p>Conteúdo:</p>
+      <span>Introdução à Linguística</span>
+    </div>
+
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Data Início*" [type]="'date'" [iconPosition]="'right'" [control]="form.controls.dataInicio"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Data Fim*" [type]="'date'" [iconPosition]="'right'" [control]="form.controls.dataFim"></tgt-input-icon>
+      <tgt-textarea [label]="'Observacão'" [control]="form.controls.observacao"></tgt-textarea>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="cadastrar()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="cadastrar()">Concluir</tgt-button>
+    </div>
+  </main>
+</tgt-modal>

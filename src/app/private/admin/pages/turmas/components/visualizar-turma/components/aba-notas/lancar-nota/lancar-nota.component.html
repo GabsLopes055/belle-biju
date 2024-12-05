@@ -1,4 +1,4 @@
-<tgt-modal [witdhModal]="'80%'">
+<tgt-modal [witdhModal]="'90%'">
   <main>
     <div class="header">
       <div class="title">
@@ -25,7 +25,6 @@
         </span>
         <p (click)="editarNota()">Editar</p>
       </div> -->
-
     </div>
 
     <div class="table">
@@ -60,8 +59,9 @@
             <td>
               [Nome do Aluno]
             </td>
-            <td>
+            <td class="btn-lancar-nota">
               7,0
+              <tgt-button (click)="abrirModalLancarNota()" [border]="false" [icon]="'add'" [fieldButton]="'outline'"></tgt-button>
             </td>
             <td>
               0,0

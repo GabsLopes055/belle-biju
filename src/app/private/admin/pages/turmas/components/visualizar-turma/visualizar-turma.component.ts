@@ -22,6 +22,7 @@ import { DadosTurmaComponent } from "./components/aba-dados-turma/dados-turma/da
 import { RealizarChamadaComponent } from './components/aba-frequencia/realizar-chamada/realizar-chamada.component';
 import { ExcluirTurmaComponent } from './components/aba-frequencia/excluir-turma/excluir-turma.component';
 import { ListarChamadasComponent } from './components/aba-frequencia/listar-chamadas/listar-chamadas.component';
+import { ListarGradeCurricularComponent } from "./components/aba-grade-curricular/listar-grade-curricular/listar-grade-curricular.component";
 
 @Component({
   selector: 'visualizar-turma',
@@ -43,7 +44,8 @@ import { ListarChamadasComponent } from './components/aba-frequencia/listar-cham
     DashboardComponent,
     NotasTurmasComponent,
     TurmasConteudosComponent,
-    DadosTurmaComponent
+    DadosTurmaComponent,
+    ListarGradeCurricularComponent
 ],
   templateUrl: './visualizar-turma.component.html',
   styleUrl: './visualizar-turma.component.scss',
@@ -62,6 +64,12 @@ export class VisualizarTurmaComponent {
       icon: '',
       label: 'Frequência',
       value: 'turma-frequencia',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Grade Curricular',
+      value: 'turma-grade-curricular',
       selected: false,
     },
     {

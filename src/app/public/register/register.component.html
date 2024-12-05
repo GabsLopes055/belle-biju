@@ -2,13 +2,18 @@
 
   <div class="circle">
     <div class="conteudo">
+
+      <!-- [style.width]="step === 2 ? '40%' : '90%'" -->
+
+
+
       <img src="../../../assets/images/imagem-login.png">
     </div>
   </div>
 
   <div class="content">
 
-    @if(step != 3) {
+    @if(step != 4) {
 
     <div class="back" [routerLink]="['/login']">
       <span class="material-symbols-outlined">
@@ -20,38 +25,92 @@
 
     @switch (step) {
     @case(0) {
-      <form [formGroup]="form" class="form">
-        <h2>Dados cadastrais</h2>
-        <h5>Preencha as informações solicitadas para continuar:</h5>
-        <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
-          icon="email"></tgt-input-icon>
-        <tgt-button type="button" [color]="'primary'" size="small" [icon]="'arrow_forward'" iconPosition="right"
-          (click)="register()">Continuar</tgt-button>
-      </form>
+    <form [formGroup]="form" class="form">
+      <h2>Dados cadastrais</h2>
+      <h5>Preencha as informações solicitadas para continuar:</h5>
+      <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
+        icon="email"></tgt-input-icon>
+      <tgt-button type="button" [color]="'primary'" size="small" [icon]="'arrow_forward'" iconPosition="right"
+        (click)="register()">Continuar</tgt-button>
+    </form>
     }
 
     @case (1) {
     <form [formGroup]="form" class="form">
       <h2>Dados cadastrais</h2>
       <h5>Preencha as informações solicitadas para continuar:</h5>
-      <!-- <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
-        icon="email"></tgt-input-icon> -->
+      <tgt-input-icon [border]="true" placeholder="E-mail corporativo" [type]="'email'" [iconPosition]="'right'"
+        icon="email"></tgt-input-icon>
       <tgt-input-icon [border]="true" placeholder="Nome Completo" [type]="'text'" [iconPosition]="'right'"
         icon="person"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="CPF" [type]="'number'" [iconPosition]="'right'" icon="fingerprint"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="Celular" [type]="'number'" [iconPosition]="'right'" icon="numbers"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="CPF" [type]="'number'" [iconPosition]="'right'"
+        icon="fingerprint"></tgt-input-icon>
+      <tgt-input-icon [border]="true" placeholder="Celular" [type]="'number'" [iconPosition]="'right'"
+        icon="numbers"></tgt-input-icon>
       <tgt-button type="button" [color]="'primary'" size="small" [icon]="'arrow_forward'" iconPosition="right"
         (click)="register()">Continuar</tgt-button>
     </form>
     }
-    @case (2) {
+    @case(2) {
+
+    <div class="selfie">
+
+      <span>Selfie</span>
+      <p>Para que possamos te identificar solicitamos que envie três fotos. Essas imagens serão utilizadas
+        exclusivamente para a identificação automática e não serão compartilhadas ou usadas para outros fins.</p>
+
+      <div class="cards">
+        <div class="card-content">
+          <div>
+            <span>Foto frontal</span>
+            <p>Uma foto de frente, onde o rosto do aluno esteja bem visível e iluminado.</p>
+          </div>
+          <div class="btn-selfies">
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+          </div>
+        </div>
+        <div class="card-content">
+          <div>
+            <span>Foto do lado direito</span>
+            <p>Uma foto do lado direito do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+          </div>
+          <div class="btn-selfies">
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+          </div>
+        </div>
+        <div class="card-content">
+          <div>
+            <span>Foto do lado esquerdo</span>
+            <p>Uma foto do lado esquerdo do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+          </div>
+          <div class="btn-selfies">
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+            <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+              [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+          </div>
+        </div>
+      </div>
+
+      <tgt-button type="button" [color]="'primary'" size="small" [icon]="'arrow_forward'" iconPosition="right"
+        (click)="register()">Continuar</tgt-button>
+    </div>
+
+    }
+    @case (3) {
     <form [formGroup]="form" class="form">
       <div class="title-back">
         <h2>Criar conta</h2>
       </div>
 
-      <tgt-input-icon [border]="true" [control]="this.form.controls.password" placeholder="Senha" [type]="'password'" icon=""
-        [iconPosition]="'right'"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [control]="this.form.controls.password" placeholder="Senha" [type]="'password'"
+        icon="" [iconPosition]="'right'"></tgt-input-icon>
       <tgt-input-icon [border]="true" placeholder="Confirmar senha" [type]="'password'" icon=""
         [iconPosition]="'right'"></tgt-input-icon>
 
@@ -112,12 +171,15 @@
       </div>
     </form>
     }
-    @case (3) {
+    @case (4) {
     <div class="cadastrado">
       <img src="../../../assets/images/cadastrado.png" alt="imagem-cadastrado">
       <span>Parabéns!</span>
       <p>Sua conta foi criada com sucesso! Realize o login para acessar a plataforma.</p>
-      <tgt-button [size]="'small'" [routerLink]="['/login']" (click)="cadastrar()" [color]="'primary'">Login</tgt-button>
+      <div class="action">
+        <tgt-button [size]="'small'" [routerLink]="['/login']" (click)="cadastrar()"
+          [color]="'primary'">Login</tgt-button>
+      </div>
     </div>
     }
     }
