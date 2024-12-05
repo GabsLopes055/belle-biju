@@ -28,7 +28,16 @@
     <div class="buttons">
       <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'add'"
         (click)="lancarNota()">Lançar Notas</tgt-button>
-      <button-select [label]="'Bimestre'" [options]="optionSelect"></button-select>
+      <div class="progress">
+        <div class="infos">
+          <span>1º Bimestre</span>
+          <span> 25%</span>
+        </div>
+        <div class="line-progress">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+        </div>
+      </div>
     </div>
     <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
       [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
