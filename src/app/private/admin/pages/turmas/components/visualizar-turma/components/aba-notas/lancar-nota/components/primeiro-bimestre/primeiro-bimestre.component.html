@@ -1,0 +1,24 @@
+<main>
+  <div class="header">
+    <tgt-button
+    [size]="'small'"
+      (click)="adicionarAvaliacao()"
+      [border]="false"
+      [color]="'primary'"
+      [size]="'small'"
+      [fieldButton]="'field'"
+      [icon]="'add'"
+      >Adicionar Avaliação</tgt-button
+    >
+  </div>
+
+  <revo-grid
+
+    class="tableGrid"
+    stretch="true"
+    [source]="source"
+    [columns]="columns"
+  ></revo-grid>
+</main>
+<!-- resize="true" -->
+<!-- autoSizeColumn="true" --> <!-- Define as colunas com o tamanho automatico -->

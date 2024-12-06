@@ -11,14 +11,23 @@ main {
 
   .title {
     display: flex;
-    width: 60%;
+    width: 100%;
     flex-direction: row;
     justify-content: start;
   }
+
+  .chips {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 8px 0px;
+  }
+
   .form {
     height: 80%;
-    width: 60%;
-    max-height: 500px;
+    width: 100%;
+    max-height: 600px;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -125,9 +134,120 @@ main {
 
   }
 
+  .selfie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+
+    span {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+      color: #000000;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      .card-content {
+
+        // min-width: 200px;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+        gap: 16px;
+        border-radius: 16px;
+        opacity: 0px;
+        background-color: #F7FBF2;
+
+
+        span {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0.15000000596046448px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+
+        }
+
+
+
+        .btn-selfies {
+          // padding: 1px 0px;
+          border-radius: 16px;
+          border: 1px dashed #39693B;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          padding: 16px;
+          gap: 12px;
+
+          tgt-button {
+            width: 100%;
+          }
+
+        }
+      }
+    }
+
+    .card-footer {
+
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0px 24px;
+
+      span {
+        //styleName: M3/body/large;
+        font-family: var(--BodyLargeFont);
+        font-size: var(--BodyLargeSize);
+        font-weight: 700;
+        line-height: var(--BodyLargeLineHeight);
+        letter-spacing: var(--BodyLargeTracking);
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+
+      li {
+        //styleName: M3/body/large;
+        font-family: var(--BodyLargeFont);
+        font-size: var(--BodyLargeSize);
+        // font-weight: 700;
+        line-height: var(--BodyLargeLineHeight);
+        letter-spacing: var(--BodyLargeTracking);
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+      }
+    }
+
+    // align-items: ;
+  }
+
   .actions {
     display: flex;
-    width: 60%;
+    width: 100%;
     flex-direction: row;
     justify-content: end;
     align-items: center;
@@ -143,6 +263,7 @@ main {
     .title {
       width: 100%;
     }
+
     .form {
       height: 100%;
 

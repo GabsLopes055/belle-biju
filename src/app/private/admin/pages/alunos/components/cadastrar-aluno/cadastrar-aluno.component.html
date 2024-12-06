@@ -4,7 +4,13 @@
     <h2>Novo Aluno</h2>
   </div>
 
+  <div class="chips">
+    <tgt-chips [select]="chipSelectedDadosPessoais" [label]="'Dados Pessoais'"></tgt-chips>
+    <tgt-chips [select]="chipSelectedSelfieAluno" [label]="'Selfie do Aluno'"></tgt-chips>
+  </div>
 
+  @switch (stepRegisterUser) {
+  @case('dados-pessoais') {
   <div class="form">
     <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="Nome Completo" [type]="'text'"
       [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
@@ -41,7 +47,7 @@
           [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
         <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
           [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
           [control]="form.controls['emailResponsavel']"></tgt-input-icon>
       </div>
     </div>
@@ -59,54 +65,111 @@
           [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
         <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
           [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
           [control]="form.controls['emailResponsavel']"></tgt-input-icon>
       </div>
     </div>
     }
-    @if(this.stepsAdicionarResponsavel <= 2) {
-      <div class="adicionar-responsavel">
-        <span class="material-symbols-outlined">
-          add
-        </span>
-        <p (click)="adicionarResponsavel()">Adicionar mais um Responsável</p>
-      </div>
-    }
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Endereço'"
-      [control]="form.controls['endereco']"></tgt-input-icon>
-
-    <div class="infos">
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Número'" [type]="'text'"
-        [control]="form.controls['numeroEndereco']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Complemento'" [type]="'text'"
-        [control]="form.controls['complemento']"></tgt-input-icon>
-    </div>
-
-
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Bairro'"
-      [control]="form.controls['bairro']"></tgt-input-icon>
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Cidade'"
-      [control]="form.controls['cidade']"></tgt-input-icon>
-
-
-    <div class="infos">
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'UF'" [type]="'text'"
-        [control]="form.controls['uf']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'CEP'" [type]="'text'"
-        [control]="form.controls['cep']"></tgt-input-icon>
-    </div>
-
-    <div class="carregar-imagem" (click)="abrirModalCamera()">
-
+    @if(this.stepsAdicionarResponsavel <= 2) { <div class="adicionar-responsavel">
       <span class="material-symbols-outlined">
-        add_a_photo
+        add
       </span>
-      <p>Capturar imagem</p>
+      <p (click)="adicionarResponsavel()">Adicionar mais um Responsável</p>
+  </div>
+  }
+  <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Endereço'"
+    [control]="form.controls['endereco']"></tgt-input-icon>
 
-    </div>
+  <div class="infos">
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Número'" [type]="'text'"
+      [control]="form.controls['numeroEndereco']"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Complemento'" [type]="'text'"
+      [control]="form.controls['complemento']"></tgt-input-icon>
+  </div>
+
+
+  <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Bairro'"
+    [control]="form.controls['bairro']"></tgt-input-icon>
+  <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Cidade'"
+    [control]="form.controls['cidade']"></tgt-input-icon>
+
+
+  <div class="infos">
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'UF'" [type]="'text'"
+      [control]="form.controls['uf']"></tgt-input-icon>
+    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'CEP'" [type]="'text'"
+      [control]="form.controls['cep']"></tgt-input-icon>
+  </div>
+
+  <!-- <div class="carregar-imagem" (click)="abrirModalCamera()">
+
+        <span class="material-symbols-outlined">
+          add_a_photo
+        </span>
+        <p>Capturar imagem</p>
+
+      </div> -->
 
 
   </div>
+  }
+  @case('selfie-aluno') {
+  <div class="selfie">
+    <p>Para que possamos realizar a chamada automática solicitamos que o aluno envie três fotos. Essas imagens serão
+      utilizadas exclusivamente para a identificação automática do aluno durante a chamada e não serão compartilhadas ou
+      usadas para outros fins.</p>
+
+    <div class="cards">
+      <div class="card-content">
+        <div>
+          <span>Foto frontal</span>
+          <p>Uma foto de frente, onde o rosto do aluno esteja bem visível e iluminado.</p>
+        </div>
+        <div class="btn-selfies">
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+        </div>
+      </div>
+      <div class="card-content">
+        <div>
+          <span>Foto do lado direito</span>
+          <p>Uma foto do lado direito do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+        </div>
+        <div class="btn-selfies">
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+        </div>
+      </div>
+      <div class="card-content">
+        <div>
+          <span>Foto do lado esquerdo</span>
+          <p>Uma foto do lado esquerdo do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+        </div>
+        <div class="btn-selfies">
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="card-footer">
+      <span>Importante!</span>
+      <li>A imagem do rosto do aluno deve ser nítida;</li>
+      <li>Não utilize fotos com óculos escuros ou chapéus.</li>
+    </div>
+  </div>
+  }
+
+  }
+
 
   <div class="actions">
     <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>

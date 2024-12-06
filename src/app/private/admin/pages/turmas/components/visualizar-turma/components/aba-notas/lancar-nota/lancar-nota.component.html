@@ -19,10 +19,11 @@
 
     <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
 
-    <section>
-      criar-data-grid
-    </section>
-
+    @switch (opcaoTabSelecionada) {
+      @case ('primeiro-bimestre') {
+        <primeiro-bimestre></primeiro-bimestre>
+      }
+    }
 
     <div class="footer">
       <tgt-button (click)="fechar()" [border]="false" [color]="'primary'" [size]="'small'"

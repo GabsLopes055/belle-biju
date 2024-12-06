@@ -9,6 +9,7 @@ import { SelectComponent } from '../../../../../../shared/select/select.componen
 import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.component';
 import { alunoRequest } from '../../../../../../models/alunos.interface';
+import { ChipsComponent } from '../../../../../../shared/chips/chips.component';
 
 @Component({
   selector: 'cadastrar-aluno',
@@ -21,11 +22,14 @@ import { alunoRequest } from '../../../../../../models/alunos.interface';
     NgIf,
     NgOptimizedImage,
     SelectComponent,
+    ChipsComponent,
   ],
 })
 export class CadastrarAlunoComponent {
 
-
+  //=============================
+  //Todo esse component tem que melhorar, ta muito feio.
+  //=============================
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
@@ -50,11 +54,17 @@ export class CadastrarAlunoComponent {
     // foto_aluno: new FormControl(null)
   });
 
+  stepRegisterUser: 'dados-pessoais' | 'selfie-aluno' = 'dados-pessoais';
+
   camposObrigadores: boolean = false;
   stepsAdicionarResponsavel: number = 1;
   adicionarPrimeiroResponsavel: boolean = false;
   adicionarSegundoResponsavel: boolean = false;
   adicionarTerceiroResponsavel: boolean = false;
+
+  chipSelectedDadosPessoais: boolean = true;
+  chipSelectedSelfieAluno: boolean = false;
+
 
   constructor(
     private readonly alunosService: AlunosService,
@@ -63,31 +73,41 @@ export class CadastrarAlunoComponent {
   ) {}
 
   salvar() {
-    if (this.form.valid) {
-      console.log(this.form.value)
-      this.alunosService.cadastrarAluno(this.form.value as alunoRequest).subscribe({
-        next: value => {
-          this.alunosService.steps.next({component: 'listar-alunos', idAluno: ''});
-          this.toast.notify({
-            message: 'Aluno Cadastrado com Sucesso',
-            type: 'SUCCESS',
-          });
-        },
-        error: err => {
-          this.toast.notify({
-            message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
-            type: 'ERROR',
-          });
-        },
-      })
-    } else {
-      console.log(this.form.value)
-      // this.camposObrigadores = true
-      this.toast.notify({
-        message: 'Preencha todos os campos obrigatórios e capture uma foto.',
-        type: 'WARNING',
-      });
-    }
+
+    this.stepRegisterUser = 'selfie-aluno';
+    this.chipSelectedSelfieAluno = true;
+
+
+    // if (this.form.valid) {
+    //   console.log(this.form.value);
+    //   this.alunosService
+    //     .cadastrarAluno(this.form.value as alunoRequest)
+    //     .subscribe({
+    //       next: (value) => {
+    //         this.alunosService.steps.next({
+    //           component: 'listar-alunos',
+    //           idAluno: '',
+    //         });
+    //         this.toast.notify({
+    //           message: 'Aluno Cadastrado com Sucesso',
+    //           type: 'SUCCESS',
+    //         });
+    //       },
+    //       error: (err) => {
+    //         this.toast.notify({
+    //           message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
+    //           type: 'ERROR',
+    //         });
+    //       },
+    //     });
+    // } else {
+    //   // console.log(this.form.value);
+    //   // this.camposObrigadores = true
+    //   this.toast.notify({
+    //     message: 'Preencha todos os campos obrigatórios e capture uma foto.',
+    //     type: 'WARNING',
+    //   });
+    // }
     // if (this.form.valid && this.fotoCapturada) {
     //   const formData = new FormData();
     //   formData.append('nome', this.form.get('nome')?.value || '');
@@ -115,34 +135,41 @@ export class CadastrarAlunoComponent {
   }
 
   adicionarResponsavel() {
-    if(this.adicionarSegundoResponsavel === false && this.adicionarTerceiroResponsavel === false) {
+    if (
+      this.adicionarSegundoResponsavel === false &&
+      this.adicionarTerceiroResponsavel === false
+    ) {
       this.stepsAdicionarResponsavel = 1;
     }
-    if(this.stepsAdicionarResponsavel <= 2) {
+    if (this.stepsAdicionarResponsavel <= 2) {
       this.stepsAdicionarResponsavel++;
     }
-    if(this.stepsAdicionarResponsavel === 2) {
+    if (this.stepsAdicionarResponsavel === 2) {
       this.adicionarSegundoResponsavel = true;
     }
-    if(this.stepsAdicionarResponsavel === 3) {
+    if (this.stepsAdicionarResponsavel === 3) {
       this.adicionarTerceiroResponsavel = true;
     }
   }
 
   retirarResponsavel(value: string) {
-
-    if(value === 'dois') {
+    if (value === 'dois') {
       this.adicionarSegundoResponsavel = false;
       this.stepsAdicionarResponsavel--;
     }
-    if(value === 'tres') {
+    if (value === 'tres') {
       this.adicionarTerceiroResponsavel = false;
       this.stepsAdicionarResponsavel--;
     }
   }
 
   back() {
-    this.alunosService.steps.next({component: 'listar-alunos', idAluno: ''});
+    if(this.stepRegisterUser === 'selfie-aluno') {
+      this.stepRegisterUser = 'dados-pessoais'
+      this.chipSelectedSelfieAluno = false;
+    } else {
+      this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
+    }
   }
 
   abrirModalCamera() {
