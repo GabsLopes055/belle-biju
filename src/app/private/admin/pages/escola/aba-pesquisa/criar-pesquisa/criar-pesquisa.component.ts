@@ -96,13 +96,13 @@ export class CriarPesquisaComponent {
     // falta pegar o valor que foi excluir e adicionar novamente aos options
   }
 
+  eventToggle(event: any) {
+    this.habilitarDatas = event;
+  }
+
   adicionarPerguntas() {
     const novaPergunta = `pergunta${Object.keys(this.formPerguntas.controls).length + 1}`;
     this.formPerguntas.addControl(novaPergunta, new FormControl('', Validators.required));
-  }
-
-  eventToggle(event: any) {
-    this.habilitarDatas = event;
   }
 
   get controlNames() {

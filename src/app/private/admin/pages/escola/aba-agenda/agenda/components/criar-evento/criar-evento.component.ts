@@ -9,6 +9,8 @@ import { ModalComponent } from '../../../../../../../../shared/modal/modal.compo
 import { ToggleComponent } from "../../../../../../../../shared/toggle/toggle.component";
 import { TextareaComponent } from "../../../../../../../../shared/textarea/textarea.component";
 import { ModalService } from '../../../../../../../../shared/modal/modal.service';
+import { OptionSelect, SelectComponent } from "../../../../../../../../shared/select/select.component";
+import { ChipsSelectsComponent } from "../../../../../../../../shared/chips-selects/chips-selects.component";
 
 @Component({
   selector: 'app-criar-evento',
@@ -20,14 +22,21 @@ import { ModalService } from '../../../../../../../../shared/modal/modal.service
     InputIconComponent,
     CheckboxComponent,
     ToggleComponent,
-    TextareaComponent
+    TextareaComponent,
+    SelectComponent,
+    ChipsSelectsComponent
 ],
   templateUrl: './criar-evento.component.html',
   styleUrl: './criar-evento.component.scss',
 })
 export class CriarEventoComponent {
+
+  chips: any[] = [];
+  habilitarDatas: boolean = false;
+
   form = new FormGroup({
     assunto: new FormControl('', Validators.required),
+    toggle: new FormControl('', Validators.required),
     data: new FormControl('', Validators.required),
     hora: new FormControl('', Validators.required),
   });
@@ -36,7 +45,52 @@ export class CriarEventoComponent {
     private readonly modalService: ModalService
   ){}
 
+  optionsPerfis: OptionSelect[] = [
+    {
+      label: 'Professores',
+      value: 'professores',
+    },
+    {
+      label: 'Pais',
+      value: 'pais',
+    },
+    {
+      label: 'Coordenadores',
+      value: 'coordenadores',
+    },
+    {
+      label: 'Diretoria',
+      value: 'diretoria',
+    },
+  ];
+
   agendar() {
-    this.modalService.close();
+    // console.log(this.formPerguntas.value)
+    this.modalService.close(CriarEventoComponent);
+  }
+
+  eventSelect(event: any) {
+    this.chips.push(event);
+    const index = this.optionsPerfis.findIndex(
+      (value) => value.value === event
+    );
+
+    if (index !== -1) {
+      this.optionsPerfis.splice(index, 1);
+    }
+  }
+
+  eventChip(event: boolean) {
+    const chipIndex = this.chips.findIndex((chip) => chip === event);
+    console.log(chipIndex);
+    if (chipIndex !== -1) {
+      this.chips.splice(chipIndex, 1);
+    }
+
+    // falta pegar o valor que foi excluir e adicionar novamente aos options
+  }
+
+  eventToggle(event: any) {
+    this.habilitarDatas = event;
   }
 }
