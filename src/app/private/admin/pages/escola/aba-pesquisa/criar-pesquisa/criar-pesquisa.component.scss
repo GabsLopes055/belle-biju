@@ -7,28 +7,104 @@ main {
   justify-content: center;
   border-radius: 24px;
 
-  .form {
+  section {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 36px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
 
-    .checkbox {
+    .direita,
+    .esquerda {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       gap: 12px;
+      width: 50%;
     }
 
-    .input {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 12px;
-
-      tgt-input-icon {
-        width: 100%;
+    .direita {
+      .chips {
+        display: flex;
+        flex-wrap: wrap; // Permite quebra de linha
+        gap: 12px; // Espaço entre chips
+        align-items: center; // Alinhamento vertical dos chips
+        max-width: 100%; // Respeita o tamanho do pai
+        overflow: hidden; // Evita rolagem horizontal
       }
     }
+
+    .esquerda {
+
+      .pergunta {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+
+        tgt-input-icon {
+          width: 100%;
+        }
+
+        .numeroPergunta {
+          padding: 8px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #DEE5D9;
+          color: #000;
+          border-radius: 50%;
+        }
+
+        .delete {
+          padding: 8px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #FFDAD6;
+          color: #000;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+      }
+
+      .add-pergunta {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+      }
+    }
+
   }
+
+  // .form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 36px;
+
+  //   .checkbox {
+  //     display: flex;
+  //     flex-direction: row;
+  //     gap: 12px;
+  //   }
+
+  //   .input {
+  //     display: flex;
+  //     flex-direction: row;
+  //     justify-content: space-between;
+  //     gap: 12px;
+
+  //     tgt-input-icon {
+  //       width: 100%;
+  //     }
+  //   }
+  // }
 
   .action {
     display: flex;

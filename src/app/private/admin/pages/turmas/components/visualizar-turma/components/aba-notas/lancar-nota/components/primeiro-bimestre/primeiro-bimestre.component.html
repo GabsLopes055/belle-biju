@@ -14,11 +14,17 @@
 
   <revo-grid
 
-    class="tableGrid"
-    stretch="true"
-    [source]="source"
-    [columns]="columns"
-  ></revo-grid>
+
+  [source]="source"
+  [columns]="columns"
+  autoSizeColumns="true"
+  [resize]="true"
+  style="width: 100%; height: auto;"
+>
+
+
+</revo-grid>
+
 </main>
 <!-- resize="true" -->
 <!-- autoSizeColumn="true" --> <!-- Define as colunas com o tamanho automatico -->

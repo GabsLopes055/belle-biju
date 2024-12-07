@@ -9,6 +9,12 @@ import { CheckboxComponent } from '../../../../../../shared/checkbox/checkbox.co
 import { ToggleComponent } from '../../../../../../shared/toggle/toggle.component';
 import { TextareaComponent } from '../../../../../../shared/textarea/textarea.component';
 import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import {
+  OptionSelect,
+  SelectComponent,
+} from '../../../../../../shared/select/select.component';
+import { ChipsComponent } from '../../../../../../shared/chips/chips.component';
+import { ChipsSelectsComponent } from '../../../../../../shared/chips-selects/chips-selects.component';
 
 @Component({
   selector: 'app-criar-pesquisa',
@@ -21,20 +27,85 @@ import { ButtonComponent } from '../../../../../../shared/button/button.componen
     ToggleComponent,
     TextareaComponent,
     ButtonComponent,
+    SelectComponent,
+    ChipsComponent,
+    ChipsSelectsComponent,
   ],
   templateUrl: './criar-pesquisa.component.html',
   styleUrl: './criar-pesquisa.component.scss',
 })
 export class CriarPesquisaComponent {
+  chips: any[] = [];
+  habilitarDatas: boolean = false;
+
   form = new FormGroup({
     assunto: new FormControl('', Validators.required),
+    toggle: new FormControl('', Validators.required),
     perguntaPrincipal: new FormControl('', Validators.required),
     tipo: new FormControl('', Validators.required),
   });
 
+  formPerguntas = new FormGroup<{ [key: string]: FormControl<string | null> }>({
+    pergunta: new FormControl('', Validators.required),
+  });
+
+  optionsPerfis: OptionSelect[] = [
+    {
+      label: 'Professores',
+      value: 'professores',
+    },
+    {
+      label: 'Pais',
+      value: 'pais',
+    },
+    {
+      label: 'Coordenadores',
+      value: 'coordenadores',
+    },
+    {
+      label: 'Diretoria',
+      value: 'diretoria',
+    },
+  ];
+
   constructor(private readonly modalService: ModalService) {}
 
   agendar() {
+    console.log(this.formPerguntas.value)
     this.modalService.close(EditarPesquisaComponent);
+  }
+
+  eventSelect(event: any) {
+    this.chips.push(event);
+    const index = this.optionsPerfis.findIndex(
+      (value) => value.value === event
+    );
+
+    if (index !== -1) {
+      this.optionsPerfis.splice(index, 1);
+    }
+  }
+
+  eventChip(event: boolean) {
+    const chipIndex = this.chips.findIndex((chip) => chip === event);
+    console.log(chipIndex);
+    if (chipIndex !== -1) {
+      this.chips.splice(chipIndex, 1);
+    }
+
+    // falta pegar o valor que foi excluir e adicionar novamente aos options
+  }
+
+  adicionarPerguntas() {
+    const novaPergunta = `pergunta${Object.keys(this.formPerguntas.controls).length + 1}`;
+    this.formPerguntas.addControl(novaPergunta, new FormControl('', Validators.required));
+  }
+
+  eventToggle(event: any) {
+    this.habilitarDatas = event;
+  }
+
+  get controlNames() {
+    return Object.keys(this.formPerguntas.controls);
   }
 }

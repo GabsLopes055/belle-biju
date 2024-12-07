@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [

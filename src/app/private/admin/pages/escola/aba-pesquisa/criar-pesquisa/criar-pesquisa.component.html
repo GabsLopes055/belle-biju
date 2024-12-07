@@ -4,7 +4,44 @@
     <h3>Criar Pesquisa</h3>
     <tgt-divider></tgt-divider>
 
-    <div class="form">
+    <section>
+      <div class="direita">
+        <tgt-select [options]="optionsPerfis" (changeValue)="eventSelect($event)" [label]="'Enviar Para*'"></tgt-select>
+        <div class="chips">
+          @for (item of chips; track $index) {
+            <chips-selects (clicked)="eventChip($event)" [_clicked]="true" [mode]="'outline'" [label]="item"></chips-selects>
+          }
+        </div>
+        <tgt-toggle [control]="form.controls.toggle" (changeToggle)="eventToggle($event)"
+          [label]="'Agendar'"></tgt-toggle>
+
+        @if(habilitarDatas) {
+
+        <tgt-input-icon [border]="true" [placeholder]="'Data*'" [type]="'date'"
+          [control]="form.controls.assunto"></tgt-input-icon>
+        <tgt-input-icon [border]="true" [placeholder]="'Hora*'"
+          [control]="form.controls.perguntaPrincipal"></tgt-input-icon>
+        }
+      </div>
+      <div class="esquerda">
+        @for (item of controlNames; track $index) {
+          <div class="pergunta">
+            <span class="numeroPergunta">{{$index + 1}}</span>
+            <tgt-input-icon [border]="true" [placeholder]="'Pergunta*'" [icon]="'description'"
+            [control]="formPerguntas.controls['pergunta']"></tgt-input-icon>
+            <span class="material-symbols-outlined delete">
+              delete
+            </span>
+          </div>
+        }
+        <div class="add-pergunta">
+          <tgt-button [border]="false" [icon]="'add'" [color]="'primary'" [size]="'middle'" (click)="adicionarPerguntas()"
+            [fieldButton]="'outline'">Adicionar pergunta</tgt-button>
+        </div>
+      </div>
+    </section>
+
+    <!-- <div class="form">
       <tgt-input-icon [border]="true" [placeholder]="'Assunto*'" [icon]="'description'"
         [control]="form.controls.assunto"></tgt-input-icon>
       <tgt-input-icon [border]="true" [placeholder]="'Pergunta Principal*'"
@@ -22,7 +59,7 @@
         <tgt-input-icon [border]="true" [placeholder]="'Hora*'"
           [control]="form.controls.perguntaPrincipal"></tgt-input-icon>
       </div>
-    </div>
+    </div> -->
 
     <div class="action">
       <tgt-button [border]="false" [color]="'primary'" [size]="'small'" (click)="agendar()"
