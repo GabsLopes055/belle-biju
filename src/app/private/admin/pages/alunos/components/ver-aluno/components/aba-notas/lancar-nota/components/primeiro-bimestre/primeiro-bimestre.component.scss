@@ -1,0 +1,18 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .header {
+    display: flex;
+    justify-content: end;
+  }
+
+  revo-grid {
+
+    revo-grid {
+      height: 100px !important;
+    }
+  }
+
+}

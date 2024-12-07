@@ -12,16 +12,15 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 24px;
 
-    p {
-      color: #424940;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 20px;
-      letter-spacing: 0.25px;
-      text-align: left;
+    tgt-input-icon {
+      width: 50%;
+    }
 
+    .icon {
+      cursor: pointer;
     }
   }
 

@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from '../../../../../../../../shared/modal/modal.service';
 import { chamada } from '../../../../../../../../models/chamada.interface';
 import { VerFrequenciaComponent } from './ver-frequencia/ver-frequencia.component';
+import { ChipsComponent } from "../../../../../../../../shared/chips/chips.component";
 
 @Component({
   selector: 'aba-frequencia',
@@ -20,11 +21,14 @@ import { VerFrequenciaComponent } from './ver-frequencia/ver-frequencia.componen
     HeaderColComponent,
     ItemListComponent,
     ItemDataComponent,
-  ],
+    ChipsComponent
+],
   templateUrl: './aba-frequencia.component.html',
   styleUrl: './aba-frequencia.component.scss',
 })
 export class AbaFrequenciaComponent {
+
+  chipSelected: string = 'Todas';
 
   form = new FormGroup({
     buscarTurma: new FormControl('', Validators.required),
@@ -63,7 +67,14 @@ export class AbaFrequenciaComponent {
     },
   ];
 
+
   constructor(private readonly modalService: ModalService) {}
+
+  eventChipSelected(event: string, materia: string) {
+    if(event === materia) {
+      this.chipSelected = event
+    }
+  }
 
   verFrequencia() {
     this.modalService.open(VerFrequenciaComponent);

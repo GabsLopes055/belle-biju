@@ -8,6 +8,7 @@
   -->
 
   <div class="chips-materias">
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Geral')" [select]="chipSelected === 'Geral'" [label]="'Geral'"></tgt-chips>
     <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')" [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
     <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'" [label]="'Matemática'"></tgt-chips>
     <tgt-chips [label]="'Inglês'"></tgt-chips>
@@ -23,9 +24,13 @@
   </div>
 
   <div class="aluno-find">
-    <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'"
+    @if(chipSelected != 'Geral') {
+      <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'"
       (click)="realizarChamada()">Realizar chamada</tgt-button>
-    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+    } @else {
+      <div></div>
+    }
+      <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
       [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
   </div>
 
@@ -44,7 +49,7 @@
           <tgt-item-data>{{ item.perfil }}</tgt-item-data>
           <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
           <tgt-item-data>
-            <span class="material-symbols-outlined icone" (click)="baixarChamada()">download</span>
+            <!-- <span class="material-symbols-outlined icone" (click)="baixarChamada()">download</span> -->
             <span class="material-symbols-outlined icone" (click)="visualizarChamada()">search</span>
           </tgt-item-data>
         </tgt-item-list>

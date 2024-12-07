@@ -14,6 +14,7 @@ import { BaixarChamadaComponent } from '../baixar-chamada/baixar-chamada.compone
 import { ButtonComponent } from '../../../../../../../../../shared/button/button.component';
 import { RealizarChamadaComponent } from '../realizar-chamada/realizar-chamada.component';
 import { ChipsComponent } from '../../../../../../../../../shared/chips/chips.component';
+import { ChamadaGeralAlunoComponent } from '../chamada-geral/chamada-geral.component';
 
 @Component({
   selector: 'listar-chamadas',
@@ -34,7 +35,7 @@ import { ChipsComponent } from '../../../../../../../../../shared/chips/chips.co
 })
 export class ListarChamadasComponent {
 
-  chipSelected: string = 'Língua Portuguesa';
+  chipSelected: string = 'Geral';
 
   data: chamada[] = [
     {
@@ -92,7 +93,13 @@ export class ListarChamadasComponent {
   });
 
   visualizarChamada() {
-    this.modalService.open(VerChamadaComponent);
+
+    if(this.chipSelected === 'Geral') {
+      this.modalService.open(ChamadaGeralAlunoComponent);
+    } else {
+      this.modalService.open(VerChamadaComponent);
+    }
+
   }
 
   baixarChamada() {

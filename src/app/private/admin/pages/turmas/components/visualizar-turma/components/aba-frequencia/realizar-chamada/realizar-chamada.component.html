@@ -2,8 +2,13 @@
   <main>
     <div class="header">
       <h3>Chamada</h3>
-      <p>Turma: 8° Ano - Turma A</p>
-      <p>Data: 29/04/2024</p>
+
+      <tgt-input-icon [icon]="'search'" [backGround]="'#EEF2E9'" [placeholder]="'Busque aqui'"
+        [iconPosition]="'right'"></tgt-input-icon>
+
+      <span class="material-symbols-outlined icon">
+        close
+      </span>
     </div>
 
     <div class="table">
@@ -60,9 +65,20 @@
             </td>
             <td>
               <div class="linhaBody">
-                <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
-                Inativo
-                <span class="material-symbols-outlined edit">edit</span>
+                <div class="linhaBody">
+                  <button class="btn-error linhaBody">
+                    <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
+                    <label for="">Ausente</label>
+                  </button>
+                  <button class="btn-warning linhaBody" (click)="ausenciaJustificada()">
+                    <span class="material-symbols-outlined ausente">mood_bad</span>
+                    <label for="">Ausência justificada</label>
+                  </button>
+                  <button class="btn-succes linhaBody">
+                    <span class="material-symbols-outlined presente">sentiment_very_satisfied</span>
+                    <label for="">Presente</label>
+                  </button>
+                </div>
               </div>
             </td>
           </tr>
@@ -76,10 +92,20 @@
             </td>
             <td>
               <div class="linhaBody">
-
-                <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
-                Inativo
-                <span class="material-symbols-outlined edit">edit</span>
+                <div class="linhaBody">
+                  <button class="btn-error linhaBody">
+                    <span class="material-symbols-outlined falta">sentiment_dissatisfied</span>
+                    <label for="">Ausente</label>
+                  </button>
+                  <button class="btn-warning linhaBody" (click)="ausenciaJustificada()">
+                    <span class="material-symbols-outlined ausente">mood_bad</span>
+                    <label for="">Ausência justificada</label>
+                  </button>
+                  <button class="btn-succes linhaBody">
+                    <span class="material-symbols-outlined presente">sentiment_very_satisfied</span>
+                    <label for="">Presente</label>
+                  </button>
+                </div>
               </div>
             </td>
           </tr>
@@ -139,21 +165,10 @@
       </table>
     </div>
     <div class="footer">
-      <tgt-button
-        [border]="false"
-        [color]="'primary'"
-        [size]="'small'"
-        [fieldButton]="'outline'"
-        (click)="finalizarChamada()"
-        >Cancelar</tgt-button
-      >
-      <tgt-button
-        [color]="'primary'"
-        [fieldButton]="'field'"
-        [icon]="'done_all'"
-        (click)="finalizarChamada()"
-        >Finalizar Chamada</tgt-button
-      >
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'"
+        (click)="finalizarChamada()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar
+        Chamada</tgt-button>
     </div>
   </main>
 </tgt-modal>

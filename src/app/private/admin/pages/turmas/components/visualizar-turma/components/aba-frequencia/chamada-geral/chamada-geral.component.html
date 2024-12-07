@@ -1,0 +1,134 @@
+<tgt-modal [witdhModal]="'90%'">
+
+
+
+  <main>
+    <h6>
+      A tabela mostrara todas as notas de todas as materias do aluno em questão
+    </h6>
+    <div class="header">
+      <div class="infos">
+        <h3>[Nome do Aluno]</h3>
+        <span class="material-symbols-outlined icon" (click)="finalizarChamada()">
+          close
+        </span>
+      </div>
+    </div>
+
+    <div class="table">
+      <tgt-table [headers]="headers">
+        <!-- <div class="header">
+          <div class="list">
+            <span>1º Bimestre </span>
+            <span>2º Bimestre </span>
+            <span>3º Bimestre </span>
+            <span>4º Bimestre </span>
+            <span>Total</span>
+          </div>
+        </div> -->
+        <tgt-header-table>
+          <tgt-header-table-data></tgt-header-table-data>
+          <tgt-header-table-data>1º Bimestre </tgt-header-table-data>
+          <tgt-header-table-data>2º Bimestre </tgt-header-table-data>
+          <tgt-header-table-data>3º Bimestre </tgt-header-table-data>
+          <tgt-header-table-data>4º Bimestre </tgt-header-table-data>
+          <tgt-header-table-data>Total </tgt-header-table-data>
+        </tgt-header-table>
+        <tgt-header-table>
+          <tgt-header-table-data>Matéria</tgt-header-table-data>
+          <tgt-header-table-data>Presença</tgt-header-table-data>
+          <tgt-header-table-data>Falta</tgt-header-table-data>
+          <tgt-header-table-data>Presença</tgt-header-table-data>
+          <tgt-header-table-data>Falta</tgt-header-table-data>
+          <tgt-header-table-data>Presença</tgt-header-table-data>
+          <tgt-header-table-data>Falta</tgt-header-table-data>
+          <tgt-header-table-data>Presença</tgt-header-table-data>
+          <tgt-header-table-data>Falta</tgt-header-table-data>
+          <tgt-header-table-data>Presença</tgt-header-table-data>
+          <tgt-header-table-data>Falta</tgt-header-table-data>
+        </tgt-header-table>
+        <tgt-item-table>
+          <tgt-table-data>[Nome da Máteria]</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+        </tgt-item-table>
+        <tgt-item-table>
+          <tgt-table-data>[Nome da Máteria]</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+        </tgt-item-table>
+        <tgt-item-table>
+          <tgt-table-data>[Nome da Máteria]</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+          <tgt-table-data>0</tgt-table-data>
+        </tgt-item-table>
+      </tgt-table>
+      <!-- <tgt-list>
+        <div header class="header-list">
+          <tgt-header-list>
+            <tgt-header-col>[Nome do Aluno]</tgt-header-col>
+            <tgt-header-col>1º Bimestre </tgt-header-col>
+            <tgt-header-col>2º Bimestre </tgt-header-col>
+            <tgt-header-col>3º Bimestre </tgt-header-col>
+            <tgt-header-col>4º Bimestre </tgt-header-col>
+            <tgt-header-col>Total </tgt-header-col>
+          </tgt-header-list>
+          <tgt-header-list>
+            <tgt-header-col>Presença </tgt-header-col>
+            <tgt-header-col>Falta </tgt-header-col>
+            <tgt-header-col>Presença </tgt-header-col>
+            <tgt-header-col>Falta </tgt-header-col>
+            <tgt-header-col>Presença </tgt-header-col>
+            <tgt-header-col>Falta </tgt-header-col>
+            <tgt-header-col>Presença </tgt-header-col>
+            <tgt-header-col>Falta </tgt-header-col>
+            <tgt-header-col>Presença </tgt-header-col>
+            <tgt-header-col>Falta </tgt-header-col>
+            <tgt-header-col></tgt-header-col>
+          </tgt-header-list>
+        </div>
+        <div body class="body">
+          @for (item of data; track item) {
+          <tgt-item-list>
+            <tgt-item-data>item</tgt-item-data>
+            <tgt-item-data>item</tgt-item-data>
+            <tgt-item-data>item</tgt-item-data>
+            <tgt-item-data>item</tgt-item-data>
+            <tgt-item-data>item</tgt-item-data>
+            <tgt-item-data>item</tgt-item-data>
+          </tgt-item-list>
+          }
+        </div>
+      </tgt-list> -->
+    </div>
+
+    <div class="footer">
+      <span>% de faltas: 0%</span>
+    </div>
+
+  </main>
+</tgt-modal>

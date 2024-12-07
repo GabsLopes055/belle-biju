@@ -11,6 +11,7 @@ import { ModalService } from '../../../../../../../../../shared/modal/modal.serv
 import { VerNotaComponent } from '../ver-nota/ver-nota.component';
 import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
 import { LancarNotaComponent } from '../lancar-nota/lancar-nota.component';
+import { ChipsComponent } from "../../../../../../../../../shared/chips/chips.component";
 
 @Component({
   selector: 'listar-notas',
@@ -22,12 +23,15 @@ import { LancarNotaComponent } from '../lancar-nota/lancar-nota.component';
     HeaderColComponent,
     ItemListComponent,
     ItemDataComponent,
-    ButtonComponent
+    ButtonComponent,
+    ChipsComponent
 ],
   templateUrl: './listar-notas.component.html',
   styleUrl: './listar-notas.component.scss',
 })
 export class ListarNotasComponent {
+
+  chipSelected: string = 'Todas';
 
   listaNotas: responseNotas[] = [
     {
@@ -73,6 +77,11 @@ export class ListarNotasComponent {
     private readonly modalService: ModalService
   ){}
 
+  eventChipSelected(event: string, materia: string) {
+    if(event === materia) {
+      this.chipSelected = event
+    }
+  }
 
   verNota() {
     this.modalService.open(VerNotaComponent);

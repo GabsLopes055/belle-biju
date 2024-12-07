@@ -62,14 +62,14 @@ export class VisualizarTurmaComponent {
     },
     {
       icon: '',
-      label: 'Frequência',
-      value: 'turma-frequencia',
+      label: 'Grade Curricular',
+      value: 'turma-grade-curricular',
       selected: false,
     },
     {
       icon: '',
-      label: 'Grade Curricular',
-      value: 'turma-grade-curricular',
+      label: 'Frequência',
+      value: 'turma-frequencia',
       selected: false,
     },
     {

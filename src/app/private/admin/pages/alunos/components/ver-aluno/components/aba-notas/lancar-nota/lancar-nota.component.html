@@ -1,18 +1,36 @@
-<tgt-modal [witdhModal]="'auto'">
+<tgt-modal [witdhModal]="'90%'">
   <main>
-    <h3>Lançar Nota</h3>
-    <tgt-divider></tgt-divider>
-    <div class="form">
-      <tgt-input-icon [border]="true" placeholder="Matéria*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.materia"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="Período/Semestre*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.periodo"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="Tipo de Avaliação*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.tipoAvaliacao"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="Data da Avaliação*" [type]="'date'" [iconPosition]="'right'" [control]="form.controls.dataAvaliacao"></tgt-input-icon>
-      <tgt-input-icon [border]="true" placeholder="Nota*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.nota"></tgt-input-icon>
-      <tgt-textarea [placeholder]="'Descrição'" [control]="form.controls.descricao"></tgt-textarea>
+    <div class="header">
+      <div class="title">
+        <h3>Lançar Notas</h3>
+      </div>
+
+      <div class="info-materia">
+        <div class="materia">
+          <h4>Matéria: </h4>
+          <span>Lingua Portuguesa</span>
+        </div>
+        <div class="materia">
+          <h4>Data:</h4>
+          <span>29/04/2024</span>
+        </div>
+      </div>
     </div>
-    <div class="action">
-      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="cadastrar()">Cancelar</tgt-button>
-      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'" (click)="cadastrar()">Cadastrar</tgt-button>
+
+    <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
+
+    @switch (opcaoTabSelecionada) {
+      @case ('primeiro-bimestre') {
+        <primeiro-bimestre></primeiro-bimestre>
+      }
+    }
+
+    <div class="footer">
+      <tgt-button (click)="cadastrar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'outline'">Fechar</tgt-button>
+      <tgt-button (click)="cadastrar()" [border]="false" [color]="'primary'" [size]="'small'"
+        [fieldButton]="'field'">Salvar</tgt-button>
+      <!-- <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'" (click)="finalizarChamada()">Finalizar Chamada</tgt-button> -->
     </div>
   </main>
 </tgt-modal>

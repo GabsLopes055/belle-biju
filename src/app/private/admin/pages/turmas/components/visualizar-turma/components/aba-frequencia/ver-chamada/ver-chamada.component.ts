@@ -3,11 +3,12 @@ import { ModalService } from '../../../../../../../../../shared/modal/modal.serv
 import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
 import { ModalComponent } from "../../../../../../../../../shared/modal/modal.component";
 import { BaixarChamadaComponent } from '../baixar-chamada/baixar-chamada.component';
+import { InputIconComponent } from "../../../../../../../../../shared/input-icon/input-icon.component";
 
 @Component({
   selector: 'app-ver-chamada',
   standalone: true,
-  imports: [ButtonComponent, ModalComponent],
+  imports: [ButtonComponent, ModalComponent, InputIconComponent],
   templateUrl: './ver-chamada.component.html',
   styleUrl: './ver-chamada.component.scss'
 })

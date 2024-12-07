@@ -1,5 +1,18 @@
 main {
 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .chips-materias {
+    display: flex;
+    flex-wrap: wrap; // Permite quebra de linha
+    gap: 12px; // Espaço entre chips
+    align-items: center; // Alinhamento vertical dos chips
+    max-width: 100%; // Respeita o tamanho do pai
+    overflow: hidden; // Evita rolagem horizontal
+  }
+
   .find {
     display: flex;
     flex-direction: row;

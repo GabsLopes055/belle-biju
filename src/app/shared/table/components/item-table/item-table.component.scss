@@ -4,11 +4,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid 1px #CDCDCC;
+    // border-bottom: solid 1px #CDCDCC;
     padding: 0 16px;
     transition: all .5s;
-
+    // border: 1px solid #C2C9BD;
     &:hover {
-        background-color: #FFFAE5;
+        // background-color: #FFFAE5;
     }
 }
