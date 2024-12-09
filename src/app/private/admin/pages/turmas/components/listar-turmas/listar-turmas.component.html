@@ -11,7 +11,9 @@
         <div header class="header-list">
           <tgt-header-list>
             <tgt-header-col>Turma</tgt-header-col>
+            <tgt-header-col>Série</tgt-header-col>
             <tgt-header-col>Período</tgt-header-col>
+            <tgt-header-col>Ano Letivo</tgt-header-col>
             <tgt-header-col></tgt-header-col>
           </tgt-header-list>
         </div>
@@ -19,7 +21,9 @@
           @for (item of data; track item) {
           <tgt-item-list>
             <tgt-item-data>{{ item.nome }}</tgt-item-data>
+            <tgt-item-data>{{ item.serie }}</tgt-item-data>
             <tgt-item-data>{{ item.periodo }}</tgt-item-data>
+            <tgt-item-data>{{ item.anoLetivo }}</tgt-item-data>
             <tgt-item-data>
               <span class="material-symbols-outlined icone" (click)="visualizarturma()">arrow_forward</span>
             </tgt-item-data>

@@ -33,16 +33,30 @@ import { TooltipDirective } from '../../../../../../shared/directives/tooltip.di
 })
 export class ListarTurmasComponent {
   data: turma[] = [
-    { nome: '8° Ano - Turma A', periodo: 'Manhã' },
-    { nome: '8° Ano - Turma B', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma C', periodo: 'Manhã' },
-    { nome: '8° Ano - Turma D', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma E', periodo: 'Manhã' },
-    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma F', periodo: 'Tarde' },
-    { nome: '8° Ano - Turma A', periodo: 'Manhã' }
+    {
+      nome: '8° Ano - Turma A',
+      serie: '8º ano',
+      anoLetivo: '2024',
+      periodo: 'Manhã',
+    },
+    {
+      nome: '8° Ano - Turma A',
+      serie: '8º ano',
+      anoLetivo: '2024',
+      periodo: 'Manhã',
+    },
+    {
+      nome: '8° Ano - Turma A',
+      serie: '8º ano',
+      anoLetivo: '2024',
+      periodo: 'Manhã',
+    },
+    {
+      nome: '8° Ano - Turma A',
+      serie: '8º ano',
+      anoLetivo: '2024',
+      periodo: 'Manhã',
+    },
   ];
 
   constructor(private readonly turmaService: TurmasService) {}

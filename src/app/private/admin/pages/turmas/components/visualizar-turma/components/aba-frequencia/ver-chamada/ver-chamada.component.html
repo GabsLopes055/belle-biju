@@ -2,12 +2,9 @@
   <main>
     <div class="header">
       <div class="infos">
-
-        <h3>Chamada</h3>
-        <p>Turma: 8° Ano - Turma A</p>
-        <p>Professor: Maria Silva</p>
-        <p>Data/Hora: 29/04/2024 10:30</p>
+        <h3>[Nome do Aluno]</h3>
       </div>
+      <tgt-input-icon [border]="false" [backGround]="'#EEF2E9'" [placeholder]="'Busque aqui'"></tgt-input-icon>
       <div class="close-mobile" (click)="finalizarChamada()">
         <span class="material-symbols-outlined">
           close
@@ -15,14 +12,6 @@
       </div>
       <div class="actions" [style.opacity]="!this.editar ? 1 : 0.5"
         [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'">
-
-        <div class="download" (click)="baixarChamada()">
-          <span class="material-symbols-outlined">
-            download
-          </span>
-          <span>Download</span>
-        </div>
-
         <div class="edit" (click)="editarChamada()">
           <span class="material-symbols-outlined">
             edit
@@ -284,22 +273,22 @@
 
     <div class="isMobile">
       <div class="actions" [style.opacity]="!this.editar ? 1 : 0.5"
-      [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'">
+        [style.cursor]="!this.editar ? 'pointer' : 'not-allowed'">
 
-      <div class="download" (click)="baixarChamada()">
-        <span class="material-symbols-outlined">
-          download
-        </span>
-        <span>Download</span>
-      </div>
+        <div class="download" (click)="baixarChamada()">
+          <span class="material-symbols-outlined">
+            download
+          </span>
+          <span>Download</span>
+        </div>
 
-      <div class="edit" (click)="editarChamada()">
-        <span class="material-symbols-outlined">
-          edit
-        </span>
-        <span>Editar</span>
+        <div class="edit" (click)="editarChamada()">
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+          <span>Editar</span>
+        </div>
       </div>
-    </div>
     </div>
     }
     @if(editar) {

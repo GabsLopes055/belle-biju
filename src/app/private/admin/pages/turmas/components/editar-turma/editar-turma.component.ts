@@ -5,15 +5,32 @@ import { ButtonComponent } from "../../../../../../shared/button/button.componen
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TurmasService } from '../../turmas.service';
 import { ToastService } from '../../../../../../shared/toast/toast.service';
+import { alunoResponse } from '../../../../../../models/alunos.interface';
+import { professores } from '../../../../../../models/professores.interface';
+import { AlunosService } from '../../../alunos/alunos.service';
+import { HeaderColComponent } from "../../../../../../shared/list/components/header-col/header-col.component";
+import { ItemDataComponent } from "../../../../../../shared/list/components/item-data/item-data.component";
+import { ItemListComponent } from "../../../../../../shared/list/components/item-list/item-list.component";
+import { CheckboxComponent } from "../../../../../../shared/checkbox/checkbox.component";
+import { HeaderListComponent } from "../../../../../../shared/list/components/header-list/header-list.component";
+import { ListComponent } from "../../../../../../shared/list/list.component";
+import { ChipsComponent } from "../../../../../../shared/chips/chips.component";
 
 @Component({
   selector: 'editar-turma',
   standalone: true,
-  imports: [InputIconComponent, SelectComponent, ButtonComponent],
+  imports: [InputIconComponent, SelectComponent, ButtonComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, CheckboxComponent, HeaderListComponent, ListComponent, ChipsComponent],
   templateUrl: './editar-turma.component.html',
   styleUrl: './editar-turma.component.scss'
 })
 export class EditarTurmaComponent {
+  stepRegisterTurma: 'dados-turma' | 'colaboradores' | 'alunos' = 'dados-turma';
+
+  alunos: alunoResponse[] = [];
+
+  chipSelectedDadosTurma: boolean = true;
+  chipSelectedColaboradores: boolean = false;
+  chipSelectedAlunos: boolean = false;
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
@@ -26,7 +43,7 @@ export class EditarTurmaComponent {
   optionsTurno: OptionSelect[] = [
     { label: 'Matutino', value: 'matutino' },
     { label: 'Vespertino', value: 'vespertino' },
-    { label: 'Noturno', value: 'noturno' }
+    { label: 'Noturno', value: 'noturno' },
   ];
 
   optionCursos: OptionSelect[] = [
@@ -38,20 +55,103 @@ export class EditarTurmaComponent {
     { label: 'História', value: 'historia' },
     { label: 'Português', value: 'portugues' },
     { label: 'Matemática', value: 'matematica' },
-    { label: 'História', value: 'historia' }
+    { label: 'História', value: 'historia' },
+  ];
+
+  professores: professores[] = [
+    {
+      nome: 'Maria Silva',
+      email: 'mariasilva@ayrtonsenna.gov',
+      materia: 'Português',
+      perfil: 'Professor(a)',
+    },
+    {
+      nome: 'João Santos',
+      email: 'joaosantos@ayrtonsenna.gov',
+      materia: 'Matemática',
+      perfil: 'Professor(a)',
+    },
+    {
+      nome: 'Ana Oliveira',
+      email: 'anaoliveira@ayrtonsenna.gov',
+      materia: 'História',
+      perfil: 'Professor(a)',
+    },
+    {
+      nome: 'Maria Silva',
+      email: 'mariasilva@ayrtonsenna.gov',
+      materia: 'Português',
+      perfil: 'Professor(a)',
+    },
+    {
+      nome: 'João Santos',
+      email: 'joaosantos@ayrtonsenna.gov',
+      materia: 'Matemática',
+      perfil: 'Professor(a)',
+    },
+    {
+      nome: 'Ana Oliveira',
+      email: 'anaoliveira@ayrtonsenna.gov',
+      materia: 'História',
+      perfil: 'Professor(a)',
+    },
   ];
 
   constructor(
     private readonly turmaService: TurmasService,
-    private readonly toast: ToastService
+    private readonly toast: ToastService,
+    private readonly alunosService: AlunosService
   ) {}
 
-  editar() {
-    this.turmaService.steps.next('visualizar-turma');
-    this.toast.notify({
-      message: 'Turma editada com sucesso.',
-      type: 'SUCCESS',
+  ngOnInit(): void {
+    this.listarAlunos();
+  }
+
+  listarAlunos() {
+    this.alunosService.listarAlunos({ page: 1, limit: 1000 }).subscribe({
+      next: (value) => {
+        this.alunos = value.data;
+        console.log(value.data)
+      },
+      error: (err) => {
+        this.toast.notify({
+          message: 'Erro ao listar alunos.',
+          type: 'ERROR',
+        });
+      },
     });
   }
 
+  back() {
+    if (this.stepRegisterTurma === 'colaboradores') {
+      this.stepRegisterTurma = 'dados-turma';
+      this.chipSelectedColaboradores = false;
+      return;
+    }
+    if (this.stepRegisterTurma === 'alunos') {
+      this.stepRegisterTurma = 'colaboradores';
+      this.chipSelectedAlunos = false;
+      return;
+    }
+    this.turmaService.steps.next('listar-turmas');
+  }
+
+  salvar() {
+    if (this.stepRegisterTurma === 'dados-turma') {
+      this.stepRegisterTurma = 'colaboradores';
+      this.chipSelectedColaboradores = true;
+      return;
+    }
+    if (this.stepRegisterTurma === 'colaboradores') {
+      this.stepRegisterTurma = 'alunos';
+      this.chipSelectedAlunos = true;
+      return;
+    }
+
+    // this.turmaService.steps.next('listar-turmas');
+    // this.toast.notify({
+    //   message: 'Aluno cadastrado com sucesso.',
+    //   type: 'SUCCESS',
+    // });
+  }
 }

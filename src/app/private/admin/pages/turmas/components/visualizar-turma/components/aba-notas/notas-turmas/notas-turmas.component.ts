@@ -15,6 +15,8 @@ import { ModalService } from '../../../../../../../../../shared/modal/modal.serv
 import { SelectComponent } from '../../../../../../../../../shared/select/select.component';
 import { LancarNotaComponent } from '../lancar-nota/lancar-nota.component';
 import { OptionSelect } from './../../../../../../../../../shared/select/select.component';
+import { DividerComponent } from "../../../../../../../../../shared/divider/divider.component";
+import { LancarNotaAlunoComponent } from '../lancar-nota-aluno/lancar-nota-aluno.component';
 
 @Component({
   selector: 'notas-turmas',
@@ -29,13 +31,15 @@ import { OptionSelect } from './../../../../../../../../../shared/select/select.
     ItemListComponent,
     ItemDataComponent,
     SelectComponent,
-    ButtonSelectComponent
+    ButtonSelectComponent,
+    DividerComponent
 ],
   templateUrl: './notas-turmas.component.html',
   styleUrl: './notas-turmas.component.scss',
 })
 export class NotasTurmasComponent {
   chipSelected: string = 'Língua Portuguesa';
+  isModalVisible = false;
   optionSelect: OptionSelect[] = [
     { label: ' 1º Bimestre', value: 'primeiroBimestre' },
     { label: ' 2º Bimestre', value: 'primeiroBimestre' },
@@ -99,10 +103,22 @@ export class NotasTurmasComponent {
     buscarTurma: new FormControl('', Validators.required),
   });
 
+  showModal() {
+    this.isModalVisible = true;
+  }
+
+  hideModal() {
+    this.isModalVisible = false;
+  }
+
   eventChipSelected(event: string, materia: string) {
     if (event === materia) {
       this.chipSelected = event;
     }
+  }
+
+  lancarNotaAluno() {
+    this.modalService.open(LancarNotaAlunoComponent);
   }
 
   lancarNota() {

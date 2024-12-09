@@ -92,8 +92,8 @@ export class VisualizarTurmaComponent {
     },
     {
       icon: '',
-      label: 'Professores',
-      value: 'professores',
+      label: 'Colaboradores',
+      value: 'colaboradores',
       selected: false,
     },
     {

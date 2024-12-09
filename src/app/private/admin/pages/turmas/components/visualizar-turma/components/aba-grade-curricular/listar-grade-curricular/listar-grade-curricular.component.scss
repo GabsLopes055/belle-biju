@@ -21,60 +21,91 @@ main {
       justify-content: space-between;
       width: 20%;
 
-      span {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 24px;
-        letter-spacing: 0.15000000596046448px;
-        text-align: left;
-        text-underline-position: from-font;
-        text-decoration-skip-ink: none;
-      }
-
-      .line-progress {
-
+      .modal {
+        position: absolute;
+        background-color: #FFF;
+        width: 30%;
+        top: 42%;
+        right: 50%;
+        border-radius: 15px;
+        z-index: 9999999;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        animation: animation 0.5s;
+        padding: 12px;
         display: flex;
-        flex-direction: row;
-        width: 100%;
+        flex-direction: column;
+        gap: 12px;
 
-        //  background-color: #00E554;
-        .line-1 {
-          width: 40%;
-          border-bottom: 5px solid #00E554;
-        }
+        .infos {
+          display: flex;
+          flex-direction: column;
 
-        .line-2 {
-          width: 80%;
-          border-bottom: 5px solid #C2C9BD;
+          .date {
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            color: #181D17;
+            border: 1px solid #C2C9BD;
+          }
         }
       }
     }
 
-    tgt-input-icon {
-      width: 500px;
+    span {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0.15000000596046448px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+
+    .line-progress {
+
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      //  background-color: #00E554;
+      .line-1 {
+        width: 40%;
+        border-bottom: 5px solid #00E554;
+      }
+
+      .line-2 {
+        width: 80%;
+        border-bottom: 5px solid #C2C9BD;
+      }
     }
   }
 
-  .desktop {
-    .check-concluido {
-      background-color: #D5E8CF;
-      border-radius: 50%;
-      padding: 4px;
-    }
-    .check-edit {
-      // font-size: 16px;
-      background-color: #00E554;
-      border-radius: 4px;
-      padding: 4px;
-      cursor: pointer;
-    }
+  tgt-input-icon {
+    width: 500px;
   }
-
-  .mobile {
-    display: none;
-  }
-
 }
+
+.desktop {
+  .check-concluido {
+    background-color: #D5E8CF;
+    border-radius: 50%;
+    padding: 4px;
+  }
+
+  .check-edit {
+    // font-size: 16px;
+    background-color: #00E554;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+
 
 @media (max-width: 1000px) {
   main {

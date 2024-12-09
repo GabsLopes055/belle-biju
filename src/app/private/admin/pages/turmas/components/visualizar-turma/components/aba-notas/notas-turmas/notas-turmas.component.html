@@ -28,7 +28,7 @@
     <div class="buttons">
       <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'add'"
         (click)="lancarNota()">Lançar Notas</tgt-button>
-      <div class="progress">
+      <div class="progress" (mouseenter)="showModal()" (mouseleave)="hideModal()">
         <div class="infos">
           <span>1º Bimestre</span>
           <span> 25%</span>
@@ -37,6 +37,28 @@
           <div class="line-1"></div>
           <div class="line-2"></div>
         </div>
+        @if(isModalVisible) {
+
+        <div class="modal">
+          <span>1ª Bimestre</span>
+          <tgt-divider></tgt-divider>
+          <span>Progresso: 25%</span>
+          <div class="line-progress">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+          </div>
+          <div class="infos">
+            <div class="date">
+              <span>Data Início</span>
+              <span>01/02/2024</span>
+            </div>
+            <div class="date">
+              <span>Data Fim</span>
+              <span>10/04/24</span>
+            </div>
+          </div>
+        </div>
+        }
       </div>
     </div>
     <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
@@ -65,9 +87,11 @@
           <tgt-item-data>{{ item.terceiroBimestre }}</tgt-item-data>
           <tgt-item-data>{{ item.quartoBimestre }}</tgt-item-data>
           <tgt-item-data>{{ item.media }}</tgt-item-data>
-          <tgt-item-data><span class="material-symbols-outlined">
+          <tgt-item-data (click)="lancarNotaAluno()">
+            <span class="material-symbols-outlined">
               search
-            </span></tgt-item-data>
+            </span>
+          </tgt-item-data>
         </tgt-item-list>
         }
       </div>

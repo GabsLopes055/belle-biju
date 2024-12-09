@@ -12,6 +12,7 @@ import { HeaderColComponent } from '../../../../../../../../../shared/list/compo
 import { gradeCurricular } from '../../../../../../../../../models/grade-curricular.interface';
 import { EditarConteudoComponent } from './components/editar-conteudo/editar-conteudo.component';
 import { ConcluirConteudoComponent } from './components/concluir-conteudo/concluir-conteudo.component';
+import { DividerComponent } from "../../../../../../../../../shared/divider/divider.component";
 
 @Component({
   selector: 'listar-grade-curricular',
@@ -25,11 +26,14 @@ import { ConcluirConteudoComponent } from './components/concluir-conteudo/conclu
     ListComponent,
     HeaderListComponent,
     HeaderColComponent,
-  ],
+    DividerComponent
+],
   templateUrl: './listar-grade-curricular.component.html',
   styleUrl: './listar-grade-curricular.component.scss',
 })
 export class ListarGradeCurricularComponent {
+
+
   data: gradeCurricular[] = [
     {
       conteudo: 'Introdução à Linguística',

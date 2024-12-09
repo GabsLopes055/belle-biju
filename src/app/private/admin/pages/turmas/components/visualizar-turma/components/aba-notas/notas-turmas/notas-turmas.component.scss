@@ -27,6 +27,36 @@ main {
         justify-content: center;
         width: 50%;
 
+
+        .modal {
+          position: absolute;
+          background-color: #FFF;
+          width: 30%;
+          top: 35%;
+          right: 48%;
+          border-radius: 15px;
+          z-index: 9999999;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          animation: animation 0.5s;
+          padding: 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          .infos {
+            display: flex;
+            flex-direction: column;
+
+            .date {
+              padding: 12px;
+              display: flex;
+              justify-content: space-between;
+              color: #181D17;
+              border: 1px solid #C2C9BD;
+            }
+          }
+        }
+
         .infos {
           display: flex;
           flex-direction: row;

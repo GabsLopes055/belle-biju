@@ -1,4 +1,6 @@
 export interface turma {
-  nome: string;
+  nome: string,
+  serie: string,
+  anoLetivo: string,
   periodo: string
 }

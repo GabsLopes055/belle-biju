@@ -1,19 +1,107 @@
 <main>
+
   <div class="content">
     <div class="title">
       <h2>Editar Turma</h2>
     </div>
-    <div class="form">
-      <tgt-input-icon [border]="true" [placeholder]="'Nome*'" [control]="form.controls.nome"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Série*'" [control]="form.controls.serie"></tgt-input-icon>
-      <tgt-select [label]="'Turno*'" [options]="optionsTurno" [control]="form.controls.turno"></tgt-select>
-      <tgt-input-icon [border]="true" [placeholder]="'Ano Letivo*'" [control]="form.controls.anoLetivo"></tgt-input-icon>
-      <tgt-select [options]="optionCursos" [control]="form.controls.curso" [label]="'Curso*'"></tgt-select>
+    <div class="chips">
+      <tgt-chips [select]="chipSelectedDadosTurma" [label]="'Dados da turma'"></tgt-chips>
+      <tgt-chips [select]="chipSelectedColaboradores" [label]="'Colaboradores'"></tgt-chips>
+      <tgt-chips [select]="chipSelectedAlunos" [label]="'Alunos'"></tgt-chips>
     </div>
+
+    @switch (stepRegisterTurma) {
+      @case('dados-turma') {
+        <div class="form">
+          <div class="content-form">
+            <div class="esquerda">
+              <tgt-input-icon [control]="form.controls.nome" [placeholder]="'Nome*'" [border]="true"></tgt-input-icon>
+              <tgt-input-icon [control]="form.controls.nome" [placeholder]="'Série*'" [border]="true"></tgt-input-icon>
+            </div>
+            <div class="direita">
+              <tgt-select label="Turno*" [options]="optionsTurno"></tgt-select>
+              <tgt-input-icon [control]="form.controls.nome" [placeholder]="'Ano Letivo*'" [border]="true"></tgt-input-icon>
+            </div>
+            <tgt-select label="Curso*" [options]="optionCursos"></tgt-select>
+          </div>
+        </div>
+      }
+      @case('colaboradores') {
+        <div class="form">
+          <div class="content-form">
+            <div class="find">
+              <span>Selecione os colaboradores que deseja vincular a esta turma:</span>
+              <tgt-input-icon [icon]="'search'" [backGround]="'#EEF2E9'" [placeholder]="'Busque aqui'"
+                [iconPosition]="'right'"></tgt-input-icon>
+            </div>
+            <tgt-list>
+              <div header class="header-list">
+                <tgt-header-list>
+                  <tgt-header-col>Selecionar Colaborador</tgt-header-col>
+                  <tgt-header-col>Nome</tgt-header-col>
+                  <tgt-header-col>E-mail</tgt-header-col>
+                  <tgt-header-col>Perfil</tgt-header-col>
+                  <tgt-header-col>Matéria</tgt-header-col>
+                </tgt-header-list>
+              </div>
+              <div body class="body">
+                @for (item of professores; track item) {
+                <tgt-item-list>
+                  <tgt-item-data><tgt-checkbox></tgt-checkbox></tgt-item-data>
+                  <tgt-item-data>{{ item.nome }}</tgt-item-data>
+                  <tgt-item-data>{{ item.materia }}</tgt-item-data>
+                  <tgt-item-data>{{ item.email }}</tgt-item-data>
+                  <tgt-item-data>{{ item.perfil }}</tgt-item-data>
+                </tgt-item-list>
+                }
+              </div>
+            </tgt-list>
+          </div>
+        </div>
+      }
+      @case('alunos') {
+        <div class="form">
+          <div class="content-form">
+            <div class="find">
+              <span>Selecione os alunos que deseja vincular a esta turma:</span>
+              <tgt-input-icon [icon]="'search'" [backGround]="'#EEF2E9'" [placeholder]="'Busque aqui'"
+                [iconPosition]="'right'"></tgt-input-icon>
+            </div>
+            <tgt-list>
+              <div header class="header-list">
+                <tgt-header-list>
+                  <tgt-header-col>Selecionar Alunos</tgt-header-col>
+                  <tgt-header-col>Nome</tgt-header-col>
+                  <tgt-header-col>Responsável</tgt-header-col>
+                  <tgt-header-col>E-mail Responsável</tgt-header-col>
+                </tgt-header-list>
+              </div>
+              <div body class="body">
+                @for (item of alunos; track item) {
+                <tgt-item-list>
+                  <tgt-item-data><tgt-checkbox></tgt-checkbox></tgt-item-data>
+                  <tgt-item-data>{{ item.nome }}</tgt-item-data>
+                  <tgt-item-data>{{ item.nomeResponsavel }}</tgt-item-data>
+                  <tgt-item-data>{{ item.emailResponsavel }}</tgt-item-data>
+                </tgt-item-list>
+                }
+              </div>
+            </tgt-list>
+          </div>
+        </div>
+      }
+
+    }
+
   </div>
   <div class="actions">
-    <tgt-button (click)="editar()" [icon]="''" [fieldButton]="'outline'" [border]="false"
-      [size]="'small'">Cancelar</tgt-button>
-    <tgt-button (click)="editar()" [icon]="'edit'">Editar</tgt-button>
+    <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
+    @if(this.stepRegisterTurma != 'alunos') {
+      <tgt-button (click)="salvar()" [size]="'small'">Próximo</tgt-button>
+    } @else {
+      <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
+    }
   </div>
 </main>
+
+<!-- (click)="form.reset(); fotoCapturada = null; pararCamera()" -->

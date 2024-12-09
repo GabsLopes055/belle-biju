@@ -8,9 +8,12 @@
   -->
 
   <div class="chips-materias">
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Geral')" [select]="chipSelected === 'Geral'" [label]="'Geral'"></tgt-chips>
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')" [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'" [label]="'Matemática'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Geral')" [select]="chipSelected === 'Geral'"
+      [label]="'Geral'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')"
+      [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'"
+      [label]="'Matemática'"></tgt-chips>
     <tgt-chips [label]="'Inglês'"></tgt-chips>
     <tgt-chips [label]="'Física'"></tgt-chips>
     <tgt-chips [label]="'Química'"></tgt-chips>
@@ -25,38 +28,204 @@
 
   <div class="aluno-find">
     @if(chipSelected != 'Geral') {
-      <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'"
+    <tgt-button [size]="'small'" [border]="false" [color]="'primary'" [fieldButton]="'field'" [icon]="'done_all'"
       (click)="realizarChamada()">Realizar chamada</tgt-button>
     } @else {
-      <div></div>
+    <h6>Mudar essa tabela. Caso o chip selecionado for 'GERAL', a tabela mostrara as informacoes gerais conforme os
+      bimestres.
+      Caso o chip selecionado for outra materia, a tabela mostrara as informacoes de frequencia relacionada a essa
+      materia em questão.
+    </h6>
     }
-      <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
+    <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
       [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
   </div>
 
+  <!-- @if(chipSelected === 'Geral') { -->
   <section class="desktop">
-    <tgt-list>
-      <div header class="header-list">
-        <tgt-header-list>
-          <tgt-header-col>Data</tgt-header-col>
-          <tgt-header-col>Colaborador</tgt-header-col>
-          <tgt-header-col></tgt-header-col>
-        </tgt-header-list>
-      </div>
-      <div body class="body">
-        @for (item of data; track item) {
-        <tgt-item-list>
-          <tgt-item-data>{{ item.perfil }}</tgt-item-data>
-          <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
-          <tgt-item-data>
-            <!-- <span class="material-symbols-outlined icone" (click)="baixarChamada()">download</span> -->
-            <span class="material-symbols-outlined icone" (click)="visualizarChamada()">search</span>
-          </tgt-item-data>
-        </tgt-item-list>
-        }
-      </div>
-    </tgt-list>
+    <table class="custom-table">
+      <thead>
+        <tr class="linha-superior">
+          <th></th>
+          <th>1º Bimestre </th>
+          <th>2º Bimestre </th>
+          <th>3º Bimestre </th>
+          <th>4º Bimestre </th>
+          <th></th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Nome do Aluno</th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>% de Faltas</th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[Nome do Aluno]</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="porcentagem">
+              2%
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td (click)="visualizarChamada()">
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>[Nome do Aluno]</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span style="color:#BA1A1A">3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="porcentagem">
+              2%
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>[Nome do Aluno]</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span style="color:#BA1A1A">3</span>
+            </div>
+          </td>
+          <td>
+            <div class="porcentagem">
+              12%
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
+  <!-- } -->
+
   <section class="mobile">
     @for (item of data; track item) {
     <div class="cards">
@@ -67,7 +236,7 @@
         </div>
         <div class="actions">
           <span class="material-symbols-outlined icone" (click)="baixarChamada()">download</span>
-            <span class="material-symbols-outlined icone" (click)="visualizarChamada()">arrow_forward</span>
+          <span class="material-symbols-outlined icone" (click)="visualizarChamada()">arrow_forward</span>
         </div>
       </div>
     </div>

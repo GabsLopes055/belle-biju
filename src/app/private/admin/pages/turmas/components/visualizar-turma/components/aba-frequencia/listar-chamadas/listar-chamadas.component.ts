@@ -34,7 +34,6 @@ import { ChamadaGeralAlunoComponent } from '../chamada-geral/chamada-geral.compo
   styleUrl: './listar-chamadas.component.scss',
 })
 export class ListarChamadasComponent {
-
   chipSelected: string = 'Geral';
 
   data: chamada[] = [
@@ -93,13 +92,11 @@ export class ListarChamadasComponent {
   });
 
   visualizarChamada() {
-
-    if(this.chipSelected === 'Geral') {
+    if (this.chipSelected === 'Geral') {
       this.modalService.open(ChamadaGeralAlunoComponent);
     } else {
       this.modalService.open(VerChamadaComponent);
     }
-
   }
 
   baixarChamada() {
@@ -107,8 +104,8 @@ export class ListarChamadasComponent {
   }
 
   eventChipSelected(event: string, materia: string) {
-    if(event === materia) {
-      this.chipSelected = event
+    if (event === materia) {
+      this.chipSelected = event;
     }
   }
 
