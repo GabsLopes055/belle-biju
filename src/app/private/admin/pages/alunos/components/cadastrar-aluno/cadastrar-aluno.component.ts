@@ -10,6 +10,7 @@ import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.component';
 import { alunoRequest } from '../../../../../../models/alunos.interface';
 import { ChipsComponent } from '../../../../../../shared/chips/chips.component';
+import { CheckboxComponent } from "../../../../../../shared/checkbox/checkbox.component";
 
 @Component({
   selector: 'cadastrar-aluno',
@@ -23,16 +24,17 @@ import { ChipsComponent } from '../../../../../../shared/chips/chips.component';
     NgOptimizedImage,
     SelectComponent,
     ChipsComponent,
-  ],
+    CheckboxComponent
+],
 })
 export class CadastrarAlunoComponent {
-
   //=============================
   //Todo esse component tem que melhorar, ta muito feio.
   //=============================
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
+    matricula: new FormControl('', Validators.required),
     cpf: new FormControl('', Validators.required),
     dataNascimento: new FormControl('', Validators.required),
     genero: new FormControl('', Validators.required),
@@ -54,7 +56,8 @@ export class CadastrarAlunoComponent {
     // foto_aluno: new FormControl(null)
   });
 
-  stepRegisterUser: 'dados-pessoais' | 'selfie-aluno' = 'dados-pessoais';
+  stepRegisterUser: 'dados-pessoais' | 'selfie-aluno' | 'ficha-medica' =
+    'dados-pessoais';
 
   camposObrigadores: boolean = false;
   stepsAdicionarResponsavel: number = 1;
@@ -64,7 +67,7 @@ export class CadastrarAlunoComponent {
 
   chipSelectedDadosPessoais: boolean = true;
   chipSelectedSelfieAluno: boolean = false;
-
+  chipSelectedFichaMedica: boolean = false;
 
   constructor(
     private readonly alunosService: AlunosService,
@@ -72,67 +75,68 @@ export class CadastrarAlunoComponent {
     private readonly modalService: ModalService
   ) {}
 
-  salvar() {
+  // salvar() {
 
-    this.stepRegisterUser = 'selfie-aluno';
-    this.chipSelectedSelfieAluno = true;
+  //   if(this.se)
 
+  //   this.stepRegisterUser = 'selfie-aluno';
+  //   this.chipSelectedSelfieAluno = true;
 
-    // if (this.form.valid) {
-    //   console.log(this.form.value);
-    //   this.alunosService
-    //     .cadastrarAluno(this.form.value as alunoRequest)
-    //     .subscribe({
-    //       next: (value) => {
-    //         this.alunosService.steps.next({
-    //           component: 'listar-alunos',
-    //           idAluno: '',
-    //         });
-    //         this.toast.notify({
-    //           message: 'Aluno Cadastrado com Sucesso',
-    //           type: 'SUCCESS',
-    //         });
-    //       },
-    //       error: (err) => {
-    //         this.toast.notify({
-    //           message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
-    //           type: 'ERROR',
-    //         });
-    //       },
-    //     });
-    // } else {
-    //   // console.log(this.form.value);
-    //   // this.camposObrigadores = true
-    //   this.toast.notify({
-    //     message: 'Preencha todos os campos obrigatórios e capture uma foto.',
-    //     type: 'WARNING',
-    //   });
-    // }
-    // if (this.form.valid && this.fotoCapturada) {
-    //   const formData = new FormData();
-    //   formData.append('nome', this.form.get('nome')?.value || '');
-    //   formData.append('responsavel', this.form.get('responsavel')?.value || '');
-    //   formData.append('email', this.form.get('email')?.value || '');
-    //   formData.append('bairro', this.form.get('bairro')?.value || '');
-    //   formData.append('foto', this.fotoCapturada);
+  //   // if (this.form.valid) {
+  //   //   console.log(this.form.value);
+  //   //   this.alunosService
+  //   //     .cadastrarAluno(this.form.value as alunoRequest)
+  //   //     .subscribe({
+  //   //       next: (value) => {
+  //   //         this.alunosService.steps.next({
+  //   //           component: 'listar-alunos',
+  //   //           idAluno: '',
+  //   //         });
+  //   //         this.toast.notify({
+  //   //           message: 'Aluno Cadastrado com Sucesso',
+  //   //           type: 'SUCCESS',
+  //   //         });
+  //   //       },
+  //   //       error: (err) => {
+  //   //         this.toast.notify({
+  //   //           message: 'Erro ao cadastrar aluno. Tente novamente mais tarde !',
+  //   //           type: 'ERROR',
+  //   //         });
+  //   //       },
+  //   //     });
+  //   // } else {
+  //   //   // console.log(this.form.value);
+  //   //   // this.camposObrigadores = true
+  //   //   this.toast.notify({
+  //   //     message: 'Preencha todos os campos obrigatórios e capture uma foto.',
+  //   //     type: 'WARNING',
+  //   //   });
+  //   // }
+  //   // if (this.form.valid && this.fotoCapturada) {
+  //   //   const formData = new FormData();
+  //   //   formData.append('nome', this.form.get('nome')?.value || '');
+  //   //   formData.append('responsavel', this.form.get('responsavel')?.value || '');
+  //   //   formData.append('email', this.form.get('email')?.value || '');
+  //   //   formData.append('bairro', this.form.get('bairro')?.value || '');
+  //   //   formData.append('foto', this.fotoCapturada);
 
-    //   this.alunosService.cadastrarAluno(formData).subscribe(
-    //     () => {
-    //       this.toast.notify({ message: 'Aluno cadastrado com sucesso.', type: "SUCCESS" });
-    //       this.form.reset();
-    //       this.fotoCapturada = null;
-    //       this.fotoCapturadaUrl = null;
-    //       this.alunosService.steps.next('listar-alunos');
-    //     },
-    //     (error) => {
-    //       console.error('Erro ao cadastrar aluno:', error);
-    //       this.toast.notify({ message: 'Erro ao cadastrar aluno.', type: "ERROR" });
-    //     }
-    //   );
-    // } else {
-    //   this.toast.notify({ message: 'Preencha todos os campos obrigatórios e capture uma foto.', type: "WARNING" });
-    // }
-  }
+  //   //   this.alunosService.cadastrarAluno(formData).subscribe(
+  //   //     () => {
+  //   //       this.toast.notify({ message: 'Aluno cadastrado com sucesso.', type: "SUCCESS" });
+  //   //       this.form.reset();
+  //   //       this.fotoCapturada = null;
+  //   //       this.fotoCapturadaUrl = null;
+  //   //       this.alunosService.steps.next('listar-alunos');
+  //   //     },
+  //   //     (error) => {
+  //   //       console.error('Erro ao cadastrar aluno:', error);
+  //   //       this.toast.notify({ message: 'Erro ao cadastrar aluno.', type: "ERROR" });
+  //   //     }
+  //   //   );
+  //   // } else {
+  //   //   this.toast.notify({ message: 'Preencha todos os campos obrigatórios e capture uma foto.', type: "WARNING" });
+  //   // }
+  // }
 
   adicionarResponsavel() {
     if (
@@ -164,12 +168,37 @@ export class CadastrarAlunoComponent {
   }
 
   back() {
-    if(this.stepRegisterUser === 'selfie-aluno') {
-      this.stepRegisterUser = 'dados-pessoais'
+    if (this.stepRegisterUser === 'selfie-aluno') {
+      this.stepRegisterUser = 'ficha-medica';
       this.chipSelectedSelfieAluno = false;
-    } else {
-      this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
+      return;
     }
+    if (this.stepRegisterUser === 'ficha-medica') {
+      this.stepRegisterUser = 'dados-pessoais';
+      this.chipSelectedFichaMedica = false;
+      return;
+    }
+    this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
+  }
+
+  salvar() {
+    if (this.stepRegisterUser === 'dados-pessoais') {
+      this.stepRegisterUser = 'ficha-medica';
+      this.chipSelectedFichaMedica = true;
+      return;
+    }
+    if (this.stepRegisterUser === 'ficha-medica') {
+      this.stepRegisterUser = 'selfie-aluno';
+      this.chipSelectedSelfieAluno = true;
+      return;
+    }
+
+
+    // this.turmaService.steps.next('listar-turmas');
+    // this.toast.notify({
+    //   message: 'Aluno cadastrado com sucesso.',
+    //   type: 'SUCCESS',
+    // });
   }
 
   abrirModalCamera() {
