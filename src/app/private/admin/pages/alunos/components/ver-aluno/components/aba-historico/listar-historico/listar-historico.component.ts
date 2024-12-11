@@ -9,11 +9,12 @@ import { ItemDataComponent } from "../../../../../../../../../shared/list/compon
 import { ItemListComponent } from "../../../../../../../../../shared/list/components/item-list/item-list.component";
 import { historico } from '../../../../../../../../../models/historico.interface';
 import { VerHistoricoComponent } from '../ver-historico/ver-historico.component';
+import {GridEditableComponent} from "../../../../../../../../../shared/grid-editable/grid-editable.component";
 
 @Component({
   selector: 'listar-historico',
   standalone: true,
-  imports: [InputIconComponent, ListComponent, HeaderListComponent, HeaderColComponent, ItemDataComponent, ItemListComponent],
+  imports: [InputIconComponent, ListComponent, HeaderListComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, GridEditableComponent],
   templateUrl: './listar-historico.component.html',
   styleUrl: './listar-historico.component.scss'
 })

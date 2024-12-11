@@ -1,0 +1,65 @@
+<main>
+    <div class="find">
+      <tgt-input-icon [icon]="'search'" [backGround]="'#EEF2E9'"
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+    </div>
+    <section class="desktop">
+      <tgt-list>
+        <div header class="header-list">
+          <tgt-header-list>
+            <tgt-header-col>{{dados.nameGroup.Label}}</tgt-header-col>
+          </tgt-header-list>
+        </div>
+        <div body class="body">
+          @for(valor of dados.nameGroup.value; track valor) {
+          <tgt-item-list>
+            <tgt-item-data><tgt-input-icon [control]="valor.nome"></tgt-input-icon></tgt-item-data>
+          </tgt-item-list>
+          }
+        </div>
+      </tgt-list>
+      @for (personal of dados.personal; track personal) {
+        <tgt-list>
+          <div header class="header-list">
+            <tgt-header-list>
+              <tgt-header-col>{{personal.label}}</tgt-header-col>
+            </tgt-header-list>
+          </div>
+          <div body class="body">
+            @for(valor of personal.value; track valor) {
+              @if(personal.typeInput === 'select') {
+                <tgt-item-list>
+                  <tgt-item-data><tgt-select [border]="false"
+                    [options]="personal.optionSelect"
+                    [valueOptionSelected]="{label: 'Select value', value: ''}"
+                  ></tgt-select></tgt-item-data>
+                </tgt-item-list>
+              } @else {
+                <tgt-item-list>
+                  <tgt-item-data><tgt-input-icon [type]="personal.typeInput"></tgt-input-icon></tgt-item-data>
+                </tgt-item-list>
+              }
+            }
+          </div>
+        </tgt-list>
+      }
+
+    </section>
+  <tgt-button (click)="newColumn()">Nova coluna</tgt-button>
+<!--    <section class="mobile">-->
+<!--      @for (item of historico; track item) {-->
+<!--      <div class="cards">-->
+<!--        <div class="title">{{item.escola_origem}}</div>-->
+<!--        <div class="content">-->
+<!--          <div class="infos">-->
+<!--            <span>{{item.data_transferencia}}</span>-->
+<!--            &lt;!&ndash; <span>{{item.data}}</span> &ndash;&gt;-->
+<!--          </div>-->
+<!--          <div class="actions">-->
+<!--            <span class="material-symbols-outlined icone" (click)="verHistorico()">arrow_forward</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      }-->
+<!--    </section>-->
+</main>
