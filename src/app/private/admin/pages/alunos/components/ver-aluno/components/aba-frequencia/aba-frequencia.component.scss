@@ -17,8 +17,76 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: end;
+
     tgt-input-icon {
       width: 500px;
+    }
+  }
+
+  .desktop {
+
+    .icon {
+      padding: 2px;
+      border-radius: 50%;
+      background-color: #D5E8CF;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      /* Elimina os espaços entre bordas */
+      /* Adiciona uma borda para visualização */
+
+      thead {
+
+        tr {
+          .linha-superior {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+          }
+        }
+
+        .presenca-falta {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+
+      tbody {
+
+        tr {
+          td {
+
+            .porcentagem {
+              display: flex;
+              justify-content: center;
+              border: none;
+            }
+          }
+
+          .presenca-falta {
+            display: flex;
+            justify-content: space-around;
+          }
+        }
+      }
+    }
+
+    .custom-table th,
+    .custom-table td {
+      padding: 16px;
+      font-size: 12px;
+      border-bottom: 1px solid #ddd;
+
+      &:first-child {
+        text-align: start;
+        // border-bottom: 1px solid #ddd;
+      }
+    }
+
+    .custom-table th {
+      background-color: #F7FBF2;
     }
   }
 

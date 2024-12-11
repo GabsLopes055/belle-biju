@@ -1,9 +1,12 @@
 <main>
 
   <div class="chips-materias">
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Todas')" [select]="chipSelected === 'Todas'" [label]="'Todas'"></tgt-chips>
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')" [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
-    <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'" [label]="'Matemática'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Todas')" [select]="chipSelected === 'Todas'"
+      [label]="'Todas'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Língua Portuguesa')"
+      [select]="chipSelected === 'Língua Portuguesa'" [label]="'Língua Portuguesa'"></tgt-chips>
+    <tgt-chips (chipClicked)="eventChipSelected($event, 'Matemática')" [select]="chipSelected === 'Matemática'"
+      [label]="'Matemática'"></tgt-chips>
     <tgt-chips [label]="'Inglês'"></tgt-chips>
     <tgt-chips [label]="'Física'"></tgt-chips>
     <tgt-chips [label]="'Química'"></tgt-chips>
@@ -18,24 +21,203 @@
 
   <div class="find">
     <tgt-input-icon [control]="this.form.controls.buscarTurma" [icon]="'search'" [backGround]="'#EEF2E9'"
-    [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
+      [placeholder]="'Busque aqui'" [iconPosition]="'right'"></tgt-input-icon>
   </div>
   <section class="desktop">
+    @if(chipSelected === 'Todas') {
+    <table class="custom-table">
+      <thead>
+        <tr class="linha-superior">
+          <th></th>
+          <th>1º Bimestre </th>
+          <th>2º Bimestre </th>
+          <th>3º Bimestre </th>
+          <th>4º Bimestre </th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Matéria</th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <!-- <th>% de Faltas</th> -->
+          <th>
+            <div class="presenca-falta">
+              <span>Presença</span>
+              <span>Falta</span>
+            </div>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nome da Matéria</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Nome da Matéria</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span style="color:#BA1A1A">3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Nome da Matéria</td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span style="color:#BA1A1A">3</span>
+            </div>
+          </td>
+          <td>
+            <div class="presenca-falta">
+              <span>3</span>
+              <span>3</span>
+            </div>
+          </td>
+          <td>
+            <span class="material-symbols-outlined">
+              search
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    } @else {
     <tgt-list>
       <div header class="header-list">
         <tgt-header-list>
-          <tgt-header-col>Professor</tgt-header-col>
-          <tgt-header-col>Matéria</tgt-header-col>
           <tgt-header-col>Data</tgt-header-col>
+          <tgt-header-col>Colaborador</tgt-header-col>
+          <tgt-header-col>Rock (IA)</tgt-header-col>
+          <tgt-header-col>Professor</tgt-header-col>
           <tgt-header-col></tgt-header-col>
         </tgt-header-list>
       </div>
       <div body class="body">
         @for (item of chamadas; track item) {
         <tgt-item-list>
-          <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
-          <tgt-item-data>{{ item.materia }}</tgt-item-data>
           <tgt-item-data>{{ item.data }}</tgt-item-data>
+          <tgt-item-data>{{ item.colaborador }}</tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icon">
+              mood
+            </span>
+            Presente
+          </tgt-item-data>
+          <tgt-item-data>
+            <span class="material-symbols-outlined icon">
+              mood
+            </span>
+            Presente
+          </tgt-item-data>
+
           <tgt-item-data>
             <span class="material-symbols-outlined icone" (click)="verFrequencia()">search</span>
           </tgt-item-data>
@@ -43,6 +225,7 @@
         }
       </div>
     </tgt-list>
+    }
   </section>
   <section class="mobile">
     @for (item of chamadas; track item) {
