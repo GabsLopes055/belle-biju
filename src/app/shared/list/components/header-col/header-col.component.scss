@@ -6,6 +6,12 @@ main {
   line-height: 16px;
   letter-spacing: 0.4000000059604645px;
   text-align: left;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 1000px) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 
 @Component({
   selector: 'tgt-list',
@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
+  overflow = input(true);
 }

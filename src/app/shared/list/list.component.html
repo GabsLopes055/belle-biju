@@ -2,7 +2,7 @@
     <div class="header">
            <ng-content select="[header]"></ng-content>
     </div>
-    <div class="body">
+    <div class="body" [style.overflow]="overflow() ? 'auto': ''">
         <ng-content select="[body]"></ng-content>
     </div>
 </main>

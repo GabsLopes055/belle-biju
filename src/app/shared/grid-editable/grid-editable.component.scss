@@ -1,4 +1,22 @@
 .desktop {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  overflow: auto;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .add {
+    display: flex;
+    justify-content: end;
+  }
+}
+.valor {
+  height: 46px;
+}
+.valor-label {
+  height: 16px;
+}
+
