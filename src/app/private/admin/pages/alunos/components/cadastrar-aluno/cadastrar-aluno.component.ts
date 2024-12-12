@@ -10,7 +10,11 @@ import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { AbrirCameraComponent } from './components/abrir-camera/abrir-camera.component';
 import { alunoRequest } from '../../../../../../models/alunos.interface';
 import { ChipsComponent } from '../../../../../../shared/chips/chips.component';
-import { CheckboxComponent } from "../../../../../../shared/checkbox/checkbox.component";
+import { CheckboxComponent } from '../../../../../../shared/checkbox/checkbox.component';
+import {
+  StepperComponent,
+  steps,
+} from '../../../../../../shared/stepper/stepper.component';
 
 @Component({
   selector: 'cadastrar-aluno',
@@ -24,13 +28,32 @@ import { CheckboxComponent } from "../../../../../../shared/checkbox/checkbox.co
     NgOptimizedImage,
     SelectComponent,
     ChipsComponent,
-    CheckboxComponent
-],
+    CheckboxComponent,
+    StepperComponent,
+  ],
 })
 export class CadastrarAlunoComponent {
   //=============================
   //Todo esse component tem que melhorar, ta muito feio.
   //=============================
+
+  steps: steps[] = [
+    {
+      label: 'Dados Pessoais',
+      value: 'dados-pessoais',
+      active: true,
+    },
+    {
+      label: 'Ficha Médica',
+      value: 'ficha-medica',
+      active: false,
+    },
+    {
+      label: 'Selfie do Aluno',
+      value: 'selfie-aluno',
+      active: false,
+    },
+  ];
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
@@ -138,6 +161,46 @@ export class CadastrarAlunoComponent {
   //   // }
   // }
 
+  next() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
+
+    console.log(lastIndex);
+
+    if (lastIndex < this.steps.length - 1) {
+      this.steps[lastIndex + 1].active = true;
+
+      console.log();
+
+      if (this.steps[lastIndex + 1].value === 'ficha-medica') {
+        this.stepRegisterUser = 'ficha-medica';
+      }
+      if (this.steps[lastIndex + 1].value === 'selfie-aluno') {
+        this.stepRegisterUser = 'selfie-aluno';
+      }
+    }
+  }
+
+  back() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
+
+    if (lastIndex > 0 && lastIndex <= this.steps.length) {
+      this.steps[lastIndex].active = false;
+
+      if (this.steps[lastIndex - 1].value === 'ficha-medica') {
+        this.stepRegisterUser = 'ficha-medica';
+      }
+      if (this.steps[lastIndex - 1].value === 'dados-pessoais') {
+        this.stepRegisterUser = 'dados-pessoais';
+      }
+
+    } else {
+      this.alunosService.steps.next({
+        component: 'listar-alunos',
+        idAluno: '',
+      });
+    }
+  }
+
   adicionarResponsavel() {
     if (
       this.adicionarSegundoResponsavel === false &&
@@ -167,19 +230,19 @@ export class CadastrarAlunoComponent {
     }
   }
 
-  back() {
-    if (this.stepRegisterUser === 'selfie-aluno') {
-      this.stepRegisterUser = 'ficha-medica';
-      this.chipSelectedSelfieAluno = false;
-      return;
-    }
-    if (this.stepRegisterUser === 'ficha-medica') {
-      this.stepRegisterUser = 'dados-pessoais';
-      this.chipSelectedFichaMedica = false;
-      return;
-    }
-    this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
-  }
+  // back() {
+  //   if (this.stepRegisterUser === 'selfie-aluno') {
+  //     this.stepRegisterUser = 'ficha-medica';
+  //     this.chipSelectedSelfieAluno = false;
+  //     return;
+  //   }
+  //   if (this.stepRegisterUser === 'ficha-medica') {
+  //     this.stepRegisterUser = 'dados-pessoais';
+  //     this.chipSelectedFichaMedica = false;
+  //     return;
+  //   }
+  //   this.alunosService.steps.next({ component: 'listar-alunos', idAluno: '' });
+  // }
 
   salvar() {
     if (this.stepRegisterUser === 'dados-pessoais') {
@@ -192,7 +255,6 @@ export class CadastrarAlunoComponent {
       this.chipSelectedSelfieAluno = true;
       return;
     }
-
 
     // this.turmaService.steps.next('listar-turmas');
     // this.toast.notify({

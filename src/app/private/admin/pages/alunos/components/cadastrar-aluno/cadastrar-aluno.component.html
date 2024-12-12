@@ -5,9 +5,10 @@
       <h2>Novo Aluno</h2>
     </div>
     <div class="chips">
-      <tgt-chips [select]="chipSelectedDadosPessoais" [label]="'Dados Pessoais'"></tgt-chips>
+      <tgt-stepper [steps]="steps"></tgt-stepper>
+      <!-- <tgt-chips [select]="chipSelectedDadosPessoais" [label]="'Dados Pessoais'"></tgt-chips>
       <tgt-chips [select]="chipSelectedFichaMedica" [label]="'Ficha Médica'"></tgt-chips>
-      <tgt-chips [select]="chipSelectedSelfieAluno" [label]="'Selfie do Aluno'"></tgt-chips>
+      <tgt-chips [select]="chipSelectedSelfieAluno" [label]="'Selfie do Aluno'"></tgt-chips> -->
     </div>
 
     @switch (stepRegisterUser) {
@@ -306,7 +307,7 @@
     @if(this.stepRegisterUser === 'selfie-aluno') {
     <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
     } @else {
-    <tgt-button (click)="salvar()" [size]="'small'">Próximo</tgt-button>
+    <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
     }
   </div>
 </main>

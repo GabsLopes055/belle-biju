@@ -1,0 +1,13 @@
+<main>
+
+  @for (step of steps; track $index) {
+    @if($index < steps.length && $index > 0 ) {
+      <p class="divider" [ngClass]="step.active ? '' : 'disabled'"></p>
+    }
+    <div class="step" [ngClass]="step.active ? 'active' : 'disabled'">
+      <p>{{$index + 1}}</p>
+      <span>{{step.label}}</span>
+    </div>
+
+  }
+</main>
