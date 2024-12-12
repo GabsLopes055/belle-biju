@@ -19,6 +19,10 @@ import { professores } from '../../../../../../models/professores.interface';
 import { CheckboxComponent } from '../../../../../../shared/checkbox/checkbox.component';
 import { AlunosService } from '../../../alunos/alunos.service';
 import { alunoResponse } from '../../../../../../models/alunos.interface';
+import {
+  StepperComponent,
+  steps,
+} from '../../../../../../shared/stepper/stepper.component';
 
 @Component({
   selector: 'criar-turma',
@@ -35,12 +39,31 @@ import { alunoResponse } from '../../../../../../models/alunos.interface';
     ItemListComponent,
     ItemDataComponent,
     CheckboxComponent,
+    StepperComponent,
   ],
   templateUrl: './criar-turma.component.html',
   styleUrl: './criar-turma.component.scss',
 })
 export class CriarTurmaComponent implements OnInit {
   stepRegisterTurma: 'dados-turma' | 'colaboradores' | 'alunos' = 'dados-turma';
+
+  steps: steps[] = [
+    {
+      label: 'Dados da Turma',
+      value: 'dados-turma',
+      active: true,
+    },
+    {
+      label: 'Colaboradores',
+      value: 'colaboradores',
+      active: false,
+    },
+    {
+      label: 'Alunos',
+      value: 'alunos',
+      active: false,
+    },
+  ];
 
   alunos: alunoResponse[] = [];
 
@@ -127,7 +150,7 @@ export class CriarTurmaComponent implements OnInit {
     this.alunosService.listarAlunos({ page: 1, limit: 1000 }).subscribe({
       next: (value) => {
         this.alunos = value.data;
-        console.log(value.data)
+        console.log(value.data);
       },
       error: (err) => {
         this.toast.notify({
@@ -138,36 +161,39 @@ export class CriarTurmaComponent implements OnInit {
     });
   }
 
-  back() {
-    if (this.stepRegisterTurma === 'colaboradores') {
-      this.stepRegisterTurma = 'dados-turma';
-      this.chipSelectedColaboradores = false;
-      return;
+  next() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
+
+    console.log(lastIndex);
+
+    if (lastIndex < this.steps.length - 1) {
+      this.steps[lastIndex + 1].active = true;
+
+      console.log();
+
+      if (this.steps[lastIndex + 1].value === 'colaboradores') {
+        this.stepRegisterTurma = 'colaboradores';
+      }
+      if (this.steps[lastIndex + 1].value === 'alunos') {
+        this.stepRegisterTurma = 'alunos';
+      }
     }
-    if (this.stepRegisterTurma === 'alunos') {
-      this.stepRegisterTurma = 'colaboradores';
-      this.chipSelectedAlunos = false;
-      return;
-    }
-    this.turmaService.steps.next('listar-turmas');
   }
 
-  salvar() {
-    if (this.stepRegisterTurma === 'dados-turma') {
-      this.stepRegisterTurma = 'colaboradores';
-      this.chipSelectedColaboradores = true;
-      return;
-    }
-    if (this.stepRegisterTurma === 'colaboradores') {
-      this.stepRegisterTurma = 'alunos';
-      this.chipSelectedAlunos = true;
-      return;
-    }
+  back() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
 
-    // this.turmaService.steps.next('listar-turmas');
-    // this.toast.notify({
-    //   message: 'Aluno cadastrado com sucesso.',
-    //   type: 'SUCCESS',
-    // });
+    if (lastIndex > 0 && lastIndex <= this.steps.length) {
+      this.steps[lastIndex].active = false;
+
+      if (this.steps[lastIndex - 1].value === 'dados-turma') {
+        this.stepRegisterTurma = 'dados-turma';
+      }
+      if (this.steps[lastIndex - 1].value === 'colaboradores') {
+        this.stepRegisterTurma = 'colaboradores';
+      }
+    } else {
+      this.turmaService.steps.next('listar-turmas');
+    }
   }
 }

@@ -47,6 +47,10 @@ export class CriarEventoComponent {
 
   optionsPerfis: OptionSelect[] = [
     {
+      label: 'Todos',
+      value: 'todos',
+    },
+    {
       label: 'Professores',
       value: 'professores',
     },
