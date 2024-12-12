@@ -1,5 +1,5 @@
 <main>
-  <div
+  <div [style.border]="border ? 'solid 1px #000' : ''"
     class="input-wrapper" [style.border-color]="control.value ? '#39693b' : '#000'"
     [class.floating]="control.value || isOpenModal"
     (click)="openModal()">

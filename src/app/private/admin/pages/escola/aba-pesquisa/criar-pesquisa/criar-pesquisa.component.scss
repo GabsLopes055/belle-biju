@@ -19,10 +19,17 @@ main {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      width: 50%;
+      // width: 50%;
+    }
+
+
+    .esquerda {
+      width: 70%;
     }
 
     .direita {
+      width: 30%;
+
       .chips {
         display: flex;
         flex-wrap: wrap; // Permite quebra de linha
@@ -113,5 +120,17 @@ main {
     justify-content: end;
     align-items: center;
     width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
+    section {
+      flex-direction: column;
+      .direita,
+      .esquerda {
+        width: 100%;
+      }
+    }
   }
 }

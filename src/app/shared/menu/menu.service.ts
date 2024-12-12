@@ -40,7 +40,7 @@ export class MenuService {
   updateMenu() {
     this._menu.next([
       {
-        icon: 'school',
+        icon: 'home_work',
         label: 'Escola',
         route: '/admin/escola',
         checked: false,

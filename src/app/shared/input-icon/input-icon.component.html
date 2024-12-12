@@ -15,17 +15,19 @@
 </div> -->
 
 
-<div class="input" [style.border-color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'" [style.background]="backGround"
-  [style.border]="border ? '' : 'none'">
+<div class="input" [style.border-color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'"
+  [style.background]="backGround" [style.border]="border ? '' : 'none'">
   <div class="input-wrapper">
-    <input [style.background]="backGround" [mask]="mask" (change)="validarValor()" [disabled]="disabled ? true : false" [type]="type" [formControl]="control"
-      [placeholder]="isFocused ? placeholder : ''">
-    <label [class.active]="isFocused || control.value" [style.color]="error ? '#ff0000' : ''" [style.background]="backGround">{{ placeholder }}</label>
+    <input [style.background]="backGround" [mask]="mask" (change)="validarValor()" [disabled]="disabled ? true : false"
+      [type]="type" [formControl]="control" [placeholder]="isFocused ? placeholder : ''">
+    <label [class.active]="isFocused || control.value" [style.color]="error ? '#ff0000' : ''"
+      [style.background]="backGround">{{ placeholder }}</label>
   </div>
-  <span class="material-symbols-outlined color-icon" [style.color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'">
+  <span class="material-symbols-outlined color-icon"
+    [style.color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'">
     {{icon}}
   </span>
 </div>
 @if(error) {
-  <h6>Campo Obrigatorio</h6>
+<h6>Campo Obrigatorio</h6>
 }

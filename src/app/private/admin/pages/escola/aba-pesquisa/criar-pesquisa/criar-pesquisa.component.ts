@@ -51,6 +51,10 @@ export class CriarPesquisaComponent {
 
   optionsPerfis: OptionSelect[] = [
     {
+      label: 'Todos',
+      value: 'todos',
+    },
+    {
       label: 'Professores',
       value: 'professores',
     },

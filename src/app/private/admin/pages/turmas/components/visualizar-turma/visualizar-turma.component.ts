@@ -10,19 +10,22 @@ import { ItemListComponent } from '../../../../../../shared/list/components/item
 import { ListComponent } from '../../../../../../shared/list/list.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { PaginatorComponent } from '../../../../../../shared/paginator/paginator.component';
-import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
+import {
+  Tab,
+  TabsComponent,
+} from '../../../../../../shared/tabs/tabs.component';
 import { ListarAlunosComponent } from './components/aba-aluno/listar-alunos/listar-alunos.component';
 import { TurmasService } from '../../turmas.service';
 import { ListarProfessoresComponent } from './components/aba-professor/listar-professores/listar-professores.component';
 import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
-import { DashboardComponent } from "./components/aba-dashboard/dashboard/dashboard.component";
-import { NotasTurmasComponent } from "./components/aba-notas/notas-turmas/notas-turmas.component";
-import { TurmasConteudosComponent } from "./components/aba-conteudo/turmas-conteudos/turmas-conteudos.component";
-import { DadosTurmaComponent } from "./components/aba-dados-turma/dados-turma/dados-turma.component";
+import { DashboardComponent } from './components/aba-dashboard/dashboard/dashboard.component';
+import { NotasTurmasComponent } from './components/aba-notas/notas-turmas/notas-turmas.component';
+import { TurmasConteudosComponent } from './components/aba-conteudo/turmas-conteudos/turmas-conteudos.component';
+import { DadosTurmaComponent } from './components/aba-dados-turma/dados-turma/dados-turma.component';
 import { RealizarChamadaComponent } from './components/aba-frequencia/realizar-chamada/realizar-chamada.component';
 import { ExcluirTurmaComponent } from './components/aba-frequencia/excluir-turma/excluir-turma.component';
 import { ListarChamadasComponent } from './components/aba-frequencia/listar-chamadas/listar-chamadas.component';
-import { ListarGradeCurricularComponent } from "./components/aba-grade-curricular/listar-grade-curricular/listar-grade-curricular.component";
+import { ListarGradeCurricularComponent } from './components/aba-grade-curricular/listar-grade-curricular/listar-grade-curricular.component';
 
 @Component({
   selector: 'visualizar-turma',
@@ -45,8 +48,8 @@ import { ListarGradeCurricularComponent } from "./components/aba-grade-curricula
     NotasTurmasComponent,
     TurmasConteudosComponent,
     DadosTurmaComponent,
-    ListarGradeCurricularComponent
-],
+    ListarGradeCurricularComponent,
+  ],
   templateUrl: './visualizar-turma.component.html',
   styleUrl: './visualizar-turma.component.scss',
 })
@@ -78,12 +81,7 @@ export class VisualizarTurmaComponent {
       value: 'notas-turmas',
       selected: false,
     },
-    {
-      icon: '',
-      label: 'Conteúdos',
-      value: 'turmas-conteudos',
-      selected: false,
-    },
+
     {
       icon: '',
       label: 'Alunos',
@@ -94,6 +92,12 @@ export class VisualizarTurmaComponent {
       icon: '',
       label: 'Colaboradores',
       value: 'colaboradores',
+      selected: false,
+    },
+    {
+      icon: '',
+      label: 'Conteúdos',
+      value: 'turmas-conteudos',
       selected: false,
     },
     {
@@ -155,6 +159,4 @@ export class VisualizarTurmaComponent {
   back() {
     this.turmaService.steps.next('listar-turmas');
   }
-
-
 }

@@ -45,7 +45,7 @@ export class EscolaComponent {
   ) {
     navbarService.setTitle('Escola');
     menuService.setSelected({
-      icon: 'school',
+      icon: 'home_work',
       label: 'Escola',
       route: '/admin/Escola',
       checked: true,
