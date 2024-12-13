@@ -10,6 +10,7 @@ import { ItemDataComponent } from '../../../../../../shared/list/components/item
 import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { CriarEventoComponent } from './components/criar-evento/criar-evento.component';
 import { VerEventoComponent } from './components/ver-evento/ver-evento.component';
+import {CalendarComponent} from "../../../../../../shared/calendar/calendar.component";
 
 @Component({
   selector: 'agenda-escola',
@@ -22,6 +23,7 @@ import { VerEventoComponent } from './components/ver-evento/ver-evento.component
     HeaderColComponent,
     ItemListComponent,
     ItemDataComponent,
+    CalendarComponent,
   ],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.scss',

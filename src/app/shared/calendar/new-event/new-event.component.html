@@ -1,0 +1,29 @@
+<tgt-modal [witdhModal]="'auto'">
+  <main>
+    @if(data?.title) {
+      <h3>{{data?.title}}</h3>
+    } @else {
+      <h3>Novo Evento</h3>
+    }
+
+    <tgt-divider></tgt-divider>
+    <div class="form">
+      <tgt-input-icon [border]="true" placeholder="Nome Evento" [type]="'text'" [iconPosition]="'right'" [control]="title"
+      ></tgt-input-icon>
+      <div class="grid col-12">
+        <tgt-input-icon class="col-6" [border]="true" [control]="horaInicio" placeholder="Hora inicio" mask="00:00" [type]="'text'" [iconPosition]="'right'"
+        ></tgt-input-icon>
+        <tgt-input-icon class="col-6" [border]="true" [control]="horaFim" placeholder="Hora fim" mask="00:00" [type]="'text'" [iconPosition]="'right'"
+        ></tgt-input-icon>
+      </div>
+
+      <tgt-select [options]="options"
+                  [valueOptionSelected]="{label: 'Selecione uma cor', value: ''}"
+      ></tgt-select>
+    </div>
+    <div class="action">
+      <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="close()">Cancelar</tgt-button>
+      <tgt-button [color]="'primary'" [fieldButton]="'field'" [icon]="'add'">Cadastrar</tgt-button>
+    </div>
+  </main>
+</tgt-modal>

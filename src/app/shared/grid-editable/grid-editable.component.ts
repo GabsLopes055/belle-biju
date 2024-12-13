@@ -69,63 +69,63 @@ export class GridEditableComponent implements OnInit {
   newColumn() {
     this.modal.open(NewColumnComponent);
 
-    // const emptyValues = Array(this.dados.nameGroup.value.length).fill(''); // Cria um array de valores vazios com o mesmo tamanho de nameGroup.value
-    // this.dados.personal.push({
-    //   column: {
-    //     typeLabel: 'text',
-    //     label: 'Data Nascimento',
-    //     optionSelect: [],
-    //     controlInput: new FormControl(),
-    //     ControlSelect: new FormControl()
-    //   },
-    //   typeInput: 'date',
-    //   optionSelect: [],
-    //   value: emptyValues
-    // });
-    //
-    //
-    // this.dados.personal.push({
-    //   column: {
-    //     typeLabel: 'text',
-    //     label: 'Color',
-    //     optionSelect:[],
-    //     controlInput: new FormControl(),
-    //     ControlSelect: new FormControl()
-    //   },
-    //   typeInput: 'select',
-    //   optionSelect: [
-    //     {label: 'vermelho', value: 'red'},
-    //     {label: 'verde', value: 'green'},
-    //   ],
-    //   value: emptyValues
-    // });
-    // this.dados.personal.push({
-    //   column: {
-    //     typeLabel: 'text',
-    //     label: 'Idade',
-    //     optionSelect:[],
-    //     controlInput: new FormControl(),
-    //     ControlSelect: new FormControl()
-    //   },
-    //   typeInput: 'number',
-    //   optionSelect: [],
-    //   value: emptyValues
-    // });
-    // this.dados.personal.push({
-    //   column: {
-    //     typeLabel: 'select_and_date',
-    //     label: '',
-    //     controlInput: new FormControl(),
-    //     ControlSelect: new FormControl(),
-    //     optionSelect: [
-    //       {label: 'Prova', value: 'red'},
-    //       {label: 'Trabalho', value: 'green'},
-    //     ],
-    //   },
-    //   typeInput: 'number',
-    //   optionSelect: [],
-    //   value: emptyValues
-    // });
+    const emptyValues = Array(this.dados.nameGroup.value.length).fill(''); // Cria um array de valores vazios com o mesmo tamanho de nameGroup.value
+    this.dados.personal.push({
+      column: {
+        typeLabel: 'text',
+        label: 'Data Nascimento',
+        optionSelect: [],
+        controlInput: new FormControl(),
+        ControlSelect: new FormControl()
+      },
+      typeInput: 'date',
+      optionSelect: [],
+      value: emptyValues
+    });
+
+
+    this.dados.personal.push({
+      column: {
+        typeLabel: 'text',
+        label: 'Color',
+        optionSelect:[],
+        controlInput: new FormControl(),
+        ControlSelect: new FormControl()
+      },
+      typeInput: 'select',
+      optionSelect: [
+        {label: 'vermelho', value: 'red'},
+        {label: 'verde', value: 'green'},
+      ],
+      value: emptyValues
+    });
+    this.dados.personal.push({
+      column: {
+        typeLabel: 'text',
+        label: 'Idade',
+        optionSelect:[],
+        controlInput: new FormControl(),
+        ControlSelect: new FormControl()
+      },
+      typeInput: 'number',
+      optionSelect: [],
+      value: emptyValues
+    });
+    this.dados.personal.push({
+      column: {
+        typeLabel: 'select_and_date',
+        label: '',
+        controlInput: new FormControl(),
+        ControlSelect: new FormControl(),
+        optionSelect: [
+          {label: 'Prova', value: 'red'},
+          {label: 'Trabalho', value: 'green'},
+        ],
+      },
+      typeInput: 'number',
+      optionSelect: [],
+      value: emptyValues
+    });
   }
 
   popular(): void {
