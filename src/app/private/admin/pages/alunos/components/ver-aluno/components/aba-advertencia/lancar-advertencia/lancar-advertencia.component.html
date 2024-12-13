@@ -4,7 +4,7 @@
     <tgt-divider></tgt-divider>
     <div class="form">
       <tgt-input-icon [border]="true" placeholder="Tipo Mérito*" [type]="'text'" [iconPosition]="'right'" [control]="form.controls.assunto"></tgt-input-icon>
-      <tgt-textarea [control]="form.controls.observacao"></tgt-textarea>
+      <tgt-textarea [placeholder]="'Descrição'" [control]="form.controls.observacao"></tgt-textarea>
     </div>
     <div class="action">
       <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="cadastrar()">Cancelar</tgt-button>
