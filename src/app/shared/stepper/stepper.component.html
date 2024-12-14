@@ -1,13 +1,19 @@
 <main>
 
   @for (step of steps; track $index) {
-    @if($index < steps.length && $index > 0 ) {
-      <p class="divider" [ngClass]="step.active ? '' : 'disabled'"></p>
+  @if($index < steps.length && $index> 0 ) {
+    <p class="divider" [ngClass]="step.active ? '' : 'disabled'"></p>
     }
     <div class="step" [ngClass]="step.active ? 'active' : 'disabled'">
-      <p>{{$index + 1}}</p>
+
+      <!-- <p>{{$index + 1}}</p> -->
+      <p>
+        <span class="material-symbols-outlined">
+          done_all
+        </span>
+      </p>
       <span>{{step.label}}</span>
     </div>
 
-  }
+    }
 </main>

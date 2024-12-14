@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {FullCalendarModule} from "@fullcalendar/angular";
-import {CalendarOptions, EventClickArg} from "@fullcalendar/core";
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import {ModalService} from "../modal/modal.service";
-import {NewEventComponent} from "./new-event/new-event.component";
+
+import { ModalService } from '../modal/modal.service';
+import { NewEventComponent } from './new-event/new-event.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import {NewEventComponent} from "./new-event/new-event.component";
     FullCalendarModule
   ],
   templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss'
+  styleUrl: './calendar.component.scss',
 })
 export class CalendarComponent {
 
@@ -30,14 +31,14 @@ export class CalendarComponent {
       { title: 'Reunião Pais | 09:00 às 12:00', date: '2024-12-03'},
       { title: 'Reunião Professores | 15:00 às 16:00', date: '2024-12-03', backgroundColor: 'orange'},
       { title: 'Férias | 08:00 às 18:00', backgroundColor: 'green', start: '2024-12-16', end: '2024-12-20'},
-    ]
+    ],
+
   };
 
   constructor(
     private readonly modal: ModalService
   ) {
   }
-
 
   dayClick(res: {dateStr: string}) {
     this.modal.open(NewEventComponent);

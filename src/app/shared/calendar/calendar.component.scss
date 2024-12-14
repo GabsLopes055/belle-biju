@@ -1,0 +1,12 @@
+full-calendar {
+  height: 690px !important;
+
+  /* Alterar o estilo da barra de navegação */
+  .fc .fc-toolbar {
+    background-color: #1976d2 !important;
+    /* Fundo azul */
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+  }
+}

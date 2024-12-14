@@ -23,6 +23,12 @@ main {
     }
   }
 
+  .desktop {
+    .header-list {
+      width: 100%;
+    }
+  }
+
   .mobile {
     display: none;
   }

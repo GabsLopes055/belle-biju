@@ -1,14 +1,17 @@
-import { MenuService } from './../menu/menu.service';
-import { Component } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
-import { NavbarService } from './navbar.service';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { UserService } from '../services/user/user.service';
-import { PerfilComponent } from '../perfil/perfil.component';
+
+import {
+  AbrirCameraComponent,
+} from '../../private/admin/pages/alunos/components/cadastrar-aluno/components/abrir-camera/abrir-camera.component';
+import { ButtonComponent } from '../button/button.component';
 import { TooltipDirective } from '../directives/tooltip.directive';
 import { Menu } from '../menu/menu.component';
-import { AbrirCameraComponent } from "../../private/admin/pages/alunos/components/cadastrar-aluno/components/abrir-camera/abrir-camera.component";
+import { PerfilComponent } from '../perfil/perfil.component';
+import { UserService } from '../services/user/user.service';
+import { MenuService } from './../menu/menu.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'navbar',
@@ -42,9 +45,6 @@ export class NavbarComponent {
     private readonly menuService: MenuService
   ) {
     this.title = service.title;
-    const usuario = this.userService.user;
-    const firstName = usuario?.firstName.split(' ')[0];
-    this.nameUser = firstName;
     this.menuService._menu.subscribe(menu => this.menu = menu);
     // console.log(usuario)
   }

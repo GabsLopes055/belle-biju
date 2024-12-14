@@ -18,15 +18,15 @@ export class PerfilComponent implements OnInit {
   constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-
-    console.log(this.userService.user)
-
-    if(this.userService.usuarioInstance) {
-
-      this.iniciais = this.userService.usuarioInstance.firstName.charAt(0).toUpperCase();
-      this.iniciais += this.userService.usuarioInstance.lastName.charAt(0).toUpperCase();
-
-    }
+    this.buscarUsuarioPorID();
   }
 
+  buscarUsuarioPorID() {
+    this.userService.buscarUserPorId().subscribe({
+      next: (user) => {
+        this.iniciais = user.firstName.charAt(0).toUpperCase();
+        this.iniciais += user.lastName.charAt(0).toUpperCase();
+      },
+    });
+  }
 }
