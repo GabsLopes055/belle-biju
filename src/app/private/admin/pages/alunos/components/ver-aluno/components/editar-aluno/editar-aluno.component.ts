@@ -8,11 +8,13 @@ import { InputIconComponent } from '../../../../../../../../shared/input-icon/in
 import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
 import { SelectComponent } from '../../../../../../../../shared/select/select.component';
 import { alunoResponse } from '../../../../../../../../models/alunos.interface';
+import { StepperComponent, steps } from "../../../../../../../../shared/stepper/stepper.component";
+import { CheckboxComponent } from "../../../../../../../../shared/checkbox/checkbox.component";
 
 @Component({
   selector: 'editar-aluno',
   standalone: true,
-  imports: [InputIconComponent, ButtonComponent, SelectComponent],
+  imports: [InputIconComponent, ButtonComponent, SelectComponent, StepperComponent, CheckboxComponent],
   templateUrl: './editar-aluno.component.html',
   styleUrl: './editar-aluno.component.scss',
 })
@@ -50,6 +52,33 @@ export class EditarAlunoComponent {
     // foto_aluno: new FormControl(null)
   });
 
+  steps: steps[] = [
+      {
+        label: 'Dados Pessoais',
+        value: 'dados-pessoais',
+        active: true,
+      },
+      {
+        label: 'Ficha Médica',
+        value: 'ficha-medica',
+        active: false,
+      },
+      {
+        label: 'Selfie do Aluno',
+        value: 'selfie-aluno',
+        active: false,
+      },
+    ];
+
+
+    stepRegisterUser: 'dados-pessoais' | 'selfie-aluno' | 'ficha-medica' =
+      'dados-pessoais';
+
+
+    chipSelectedDadosPessoais: boolean = true;
+    chipSelectedSelfieAluno: boolean = false;
+    chipSelectedFichaMedica: boolean = false;
+
 
 
   constructor(
@@ -63,6 +92,25 @@ export class EditarAlunoComponent {
       }
     });
     this.buscarAlunoPorId();
+  }
+
+  next() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
+
+    console.log(lastIndex);
+
+    if (lastIndex < this.steps.length - 1) {
+      this.steps[lastIndex + 1].active = true;
+
+      console.log();
+
+      if (this.steps[lastIndex + 1].value === 'ficha-medica') {
+        this.stepRegisterUser = 'ficha-medica';
+      }
+      if (this.steps[lastIndex + 1].value === 'selfie-aluno') {
+        this.stepRegisterUser = 'selfie-aluno';
+      }
+    }
   }
 
   buscarAlunoPorId() {

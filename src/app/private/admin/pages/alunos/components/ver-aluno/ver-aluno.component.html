@@ -1,8 +1,16 @@
 <main>
   <div class="header">
     <div class="esquerdo">
-      <span class="material-symbols-outlined icone" (click)="back()">arrow_back</span>
+      <p class="material-symbols-outlined icone" (click)="back()">arrow_back</p>
       <h3>{{this.aluno?.nome}}</h3>
+      <div class="icons">
+        <span class="material-symbols-outlined new" [appTooltip]="'Novo Aluno'" [tooltipPosition]="'right'">
+          face
+        </span>
+        <span class="material-symbols-outlined recuperacao" [appTooltip]="'Aluno Realizou prova de Recuperação'" [tooltipPosition]="'right'">
+          difference
+        </span>
+      </div>
 
     </div>
     <div class="direito">
@@ -53,33 +61,33 @@
   <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
 
   @switch (opcaoTabSelecionada) {
-    @case ('dashboard') {
-      <aba-dashboard></aba-dashboard>
-    }
-    @case ('frequencia') {
-      <aba-frequencia></aba-frequencia>
-    }
-    @case ('notas') {
-      <listar-notas></listar-notas>
-    }
-    @case ('meritos') {
-      <listar-meritos></listar-meritos>
-    }
-    @case ('advertencias') {
-      <listar-advertencia></listar-advertencia>
-    }
-    @case ('ficha-medica') {
-      <aba-ficha-medica></aba-ficha-medica>
-    }
-    @case ('historico') {
-      <listar-historico></listar-historico>
-    }
-    @case ('listar-documentos') {
-      <listar-documentos></listar-documentos>
-    }
-    @case ('dados-pessoais') {
-      <dados-pessoais></dados-pessoais>
-    }
+  @case ('dashboard') {
+  <aba-dashboard></aba-dashboard>
+  }
+  @case ('frequencia') {
+  <aba-frequencia></aba-frequencia>
+  }
+  @case ('notas') {
+  <listar-notas></listar-notas>
+  }
+  @case ('meritos') {
+  <listar-meritos></listar-meritos>
+  }
+  @case ('advertencias') {
+  <listar-advertencia></listar-advertencia>
+  }
+  @case ('ficha-medica') {
+  <aba-ficha-medica></aba-ficha-medica>
+  }
+  @case ('historico') {
+  <listar-historico></listar-historico>
+  }
+  @case ('listar-documentos') {
+  <listar-documentos></listar-documentos>
+  }
+  @case ('dados-pessoais') {
+  <dados-pessoais></dados-pessoais>
+  }
   }
 
 

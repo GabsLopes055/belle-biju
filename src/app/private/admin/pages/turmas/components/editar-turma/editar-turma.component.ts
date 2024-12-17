@@ -15,16 +15,35 @@ import { CheckboxComponent } from "../../../../../../shared/checkbox/checkbox.co
 import { HeaderListComponent } from "../../../../../../shared/list/components/header-list/header-list.component";
 import { ListComponent } from "../../../../../../shared/list/list.component";
 import { ChipsComponent } from "../../../../../../shared/chips/chips.component";
+import { StepperComponent, steps } from "../../../../../../shared/stepper/stepper.component";
 
 @Component({
   selector: 'editar-turma',
   standalone: true,
-  imports: [InputIconComponent, SelectComponent, ButtonComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, CheckboxComponent, HeaderListComponent, ListComponent, ChipsComponent],
+  imports: [InputIconComponent, SelectComponent, ButtonComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, CheckboxComponent, HeaderListComponent, ListComponent, ChipsComponent, StepperComponent],
   templateUrl: './editar-turma.component.html',
   styleUrl: './editar-turma.component.scss'
 })
 export class EditarTurmaComponent {
   stepRegisterTurma: 'dados-turma' | 'colaboradores' | 'alunos' = 'dados-turma';
+
+  steps: steps[] = [
+      {
+        label: 'Dados da Turma',
+        value: 'dados-turma',
+        active: true,
+      },
+      {
+        label: 'Colaboradores',
+        value: 'colaboradores',
+        active: false,
+      },
+      {
+        label: 'Alunos',
+        value: 'alunos',
+        active: false,
+      },
+    ];
 
   alunos: alunoResponse[] = [];
 
@@ -106,6 +125,26 @@ export class EditarTurmaComponent {
   ngOnInit(): void {
     this.listarAlunos();
   }
+
+  next() {
+    const lastIndex = this.steps.findLastIndex((step) => step.active);
+
+    console.log(lastIndex);
+
+    if (lastIndex < this.steps.length - 1) {
+      this.steps[lastIndex + 1].active = true;
+
+      console.log();
+
+      if (this.steps[lastIndex + 1].value === 'colaboradores') {
+        this.stepRegisterTurma = 'colaboradores';
+      }
+      if (this.steps[lastIndex + 1].value === 'alunos') {
+        this.stepRegisterTurma = 'alunos';
+      }
+    }
+  }
+
 
   listarAlunos() {
     this.alunosService.listarAlunos({ page: 1, limit: 1000 }).subscribe({

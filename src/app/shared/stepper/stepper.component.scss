@@ -1,5 +1,4 @@
 main {
-  // padding: 24px 0px;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -16,19 +15,16 @@ main {
     border-radius: 8px;
 
     &.active {
-      // background-color: #c7ffc3;
       cursor: auto;
     }
 
     &.disabled {
       cursor: not-allowed;
       opacity: 0.2;
-      // background-color: #F1F5EC;
-      // color: #F1F5EC;
+
       p {
         background-color: #FFF;
         color: #000;
-        // opacity: 0.2;
       }
     }
 
@@ -40,21 +36,24 @@ main {
 
     p {
       font-size: 14px;
-      font-weight: 700;
+      // font-weight: 700;
       width: 30px;
       height: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      background-color: #008a2f;
+      background-color: #39693B;
       color: #fff;
     }
+
+    .inativo {
+      p {
+        background-color: #C2C9BD;
+        color: #000;
+      }
+    }
   }
-  // :hover {
-  //   background-color: #C7FFC3;
-  //   // padding: 12px;
-  // }
 
   .divider {
     border-bottom: 1px solid #000;

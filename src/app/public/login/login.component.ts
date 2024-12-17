@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   campoObrigatorio: boolean = false;
 
   formLogin = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    email: new FormControl('lopesgabriel055@gmail.com', Validators.required),
+    password: new FormControl('G@bs2305', Validators.required),
   });
 
   constructor(

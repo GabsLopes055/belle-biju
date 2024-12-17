@@ -17,11 +17,36 @@ main {
       align-items: center;
       gap: 16px;
 
-      span {
+      p {
         padding: 9px;
         border-radius: 50%;
         color: #39693B;
         background-color: #D5E8CF;
+      }
+
+      .icons {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+
+        .new {
+          font-size: 18px;
+          border-radius: 50%;
+          color: #000;
+          background-color: #B4F2B1;
+          padding: 4px;
+          cursor: pointer;
+        }
+
+        .recuperacao {
+          font-size: 18px;
+          border-radius: 50%;
+          color: #000;
+          background-color: #FFDAD6;
+          padding: 4px;
+          cursor: pointer;
+        }
       }
     }
 
@@ -164,6 +189,7 @@ main {
   }
 
 }
+
 // Media queries para ajustar conforme a largura da tela
 @media (max-width: 1000px) {
   main {

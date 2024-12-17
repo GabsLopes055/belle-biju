@@ -28,6 +28,7 @@ import { AbaFichaMedicaComponent } from "./components/aba-ficha-medica/aba-ficha
 import { ListarHistoricoComponent } from "./components/aba-historico/listar-historico/listar-historico.component";
 import { AbaDadosPessoaisComponent } from "./components/aba-dados-pessoais/aba-dados-pessoais.component";
 import { ListarDocumentosComponent } from "./components/aba-enviar-documento/listar-documentos/listar-documentos.component";
+import { TooltipDirective } from '../../../../../../shared/directives/tooltip.directive';
 
 @Component({
   selector: 'ver-aluno',
@@ -49,7 +50,8 @@ import { ListarDocumentosComponent } from "./components/aba-enviar-documento/lis
     AbaFichaMedicaComponent,
     ListarHistoricoComponent,
     AbaDadosPessoaisComponent,
-    ListarDocumentosComponent
+    ListarDocumentosComponent,
+    TooltipDirective
 ],
   templateUrl: './ver-aluno.component.html',
   styleUrl: './ver-aluno.component.scss',

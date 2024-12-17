@@ -1,69 +1,48 @@
 import { Component } from '@angular/core';
 import { ModalService } from '../../../../../../../../../shared/modal/modal.service';
-import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
-import { ModalComponent } from "../../../../../../../../../shared/modal/modal.component";
-import { Tab, TabsComponent } from '../../../../../../../../../shared/tabs/tabs.component';
-import { DadosPessoaisComponent } from "./components/dados-pessoais/dados-pessoais.component";
-import { DetalhesTransferenciaComponent } from "./components/detalhes-transferencia/detalhes-transferencia.component";
-import { InformacoesAcademicasComponent } from "./components/informacoes-academicas/informacoes-academicas.component";
-import { HistoricoComportamentoComponent } from "./components/historico-comportamento/historico-comportamento.component";
-import { FichaMedicaComponent } from "./components/ficha-medica/ficha-medica.component";
-import { DocumentosComponent } from "./components/documentos/documentos.component";
+import { ButtonComponent } from '../../../../../../../../../shared/button/button.component';
+import { ModalComponent } from '../../../../../../../../../shared/modal/modal.component';
+import {
+  Tab,
+  TabsComponent,
+} from '../../../../../../../../../shared/tabs/tabs.component';
+import { DadosPessoaisColaboradorComponent } from "../../../../../../colaboradores/components/ver-colaborador/components/aba-dados-pessoais/dados-pessoais-colaborador/dados-pessoais-colaborador.component";
+import { DadosEscolaComponent } from "./components/dados-escola/dados-escola.component";
+import { BoletimEscolarComponent } from "./components/boletim-escolar/boletim-escolar.component";
+import { ObservacaoHistoricoComponent } from "./components/observacao-historico/observacao-historico.component";
 
 @Component({
   selector: 'app-ver-historico',
   standalone: true,
-  imports: [ButtonComponent, ModalComponent, TabsComponent, DadosPessoaisComponent, DetalhesTransferenciaComponent, InformacoesAcademicasComponent, HistoricoComportamentoComponent, FichaMedicaComponent, DocumentosComponent],
+  imports: [ButtonComponent, ModalComponent, TabsComponent, DadosPessoaisColaboradorComponent, DadosEscolaComponent, BoletimEscolarComponent, ObservacaoHistoricoComponent],
   templateUrl: './ver-historico.component.html',
-  styleUrl: './ver-historico.component.scss'
+  styleUrl: './ver-historico.component.scss',
 })
 export class VerHistoricoComponent {
-
   opcaoTabSelecionada = '';
 
   tabs: Tab[] = [
     {
       icon: '',
-      label: 'Dados Pessoais',
-      value: 'dados-pessoais',
+      label: 'Dados da Escola',
+      value: 'dados-escola',
       selected: false,
     },
     {
       icon: '',
-      label: 'Detalhes da Transferência',
-      value: 'detalhes-transferencia',
+      label: 'Boletim',
+      value: 'boletim',
       selected: false,
     },
     {
       icon: '',
-      label: 'Informações Acadêmicas',
-      value: 'informacoes-academicas',
+      label: 'Observação',
+      value: 'observacao',
       selected: false,
     },
-    {
-      icon: '',
-      label: 'Histórico de Comportamento',
-      value: 'historico-comportamento',
-      selected: false,
-    },
-    {
-      icon: '',
-      label: 'Ficha Médica',
-      value: 'ficha-medica',
-      selected: false,
-    },
-    {
-      icon: '',
-      label: 'Documentos',
-      value: 'documentos',
-      selected: false,
-    }
-
   ];
 
-  constructor(
-    private readonly modalService: ModalService
-  ){}
+  constructor(private readonly modalService: ModalService) {}
 
   chosenTab(tab: string) {
     this.opcaoTabSelecionada = tab;

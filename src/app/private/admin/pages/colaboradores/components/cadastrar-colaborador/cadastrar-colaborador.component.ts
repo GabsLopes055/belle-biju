@@ -121,14 +121,15 @@ export class CadastrarColaboradorComponent {
   }
 
   salvar() {
-    if(this.form.valid) {
-      this.colaboradoresService.steps.next('listar-colaboradores');
-      this.toast.notify({
-        message: 'Colaborador cadastrado com sucesso.',
-        type: 'SUCCESS',
-      });
-    } else {
-      // this.campoObrigatorio = true;
-    }
+    this.colaboradoresService.steps.next('listar-colaboradores');
+    // if(this.form.valid) {
+    //   this.colaboradoresService.steps.next('listar-colaboradores');
+    //   this.toast.notify({
+    //     message: 'Colaborador cadastrado com sucesso.',
+    //     type: 'SUCCESS',
+    //   });
+    // } else {
+    //   // this.campoObrigatorio = true;
+    // }
   }
 }

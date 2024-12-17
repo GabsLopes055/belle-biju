@@ -8,85 +8,113 @@
     <section class="desktop">
       <div class="esquerda">
         <div class="content-esquerda">
-          <span>Lorem 1</span>
-          <span>Lorem 1</span>
-        </div>
-        <div class="content-esquerda">
-          <span>Lorem 1</span>
+          <span>Peso</span>
           <span>Lorem 1</span>
         </div>
         <div class="content-esquerda">
-          <span>Lorem 1</span>
-          <span>Lorem 1</span>
-        </div>
-        <div class="content-esquerda">
-          <span>Lorem 1</span>
+          <span>Altura</span>
           <span>Lorem 1</span>
         </div>
         <div class="content-esquerda">
-          <span>Lorem 1</span>
-          <span>Lorem 1</span>
-        </div>
-        <div class="content-esquerda">
-          <span>Lorem 1</span>
+          <span>Grupo Sanguíneo</span>
           <span>Lorem 1</span>
         </div>
         <div class="content-esquerda">
-          <span>Lorem 1</span>
-          <span>Lorem 1</span>
-        </div>
-        <div class="content-esquerda">
-          <span>Lorem 1</span>
+          <span>Fator RH</span>
           <span>Lorem 1</span>
         </div>
         <div class="content-esquerda">
-          <span>Lorem 1</span>
+          <span>Número da Carteira do SUS</span>
           <span>Lorem 1</span>
         </div>
         <div class="content-esquerda">
+          <span>O aluno é alérgico a algum medicamento?</span>
           <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno é alérgico a algum alimento?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno possui doença congênita?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno é fumante?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno já contraiu caxumba?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno já contraiu sarampo?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno já contraiu rubeola?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno já contraiu catapora?</span>
+          <span>Lorem 1</span>
+        </div>
+        <div class="content-esquerda">
+          <span>O aluno já contraiu escarlatina?</span>
           <span>Lorem 1</span>
         </div>
       </div>
       <div class="direita">
         <div class="content-direita">
-          <span>Lorem 2</span>
-          <span>Lorem 2</span>
-        </div>
-        <div class="content-direita">
-          <span>Lorem 2</span>
+          <span>O aluno é diabético?</span>
           <span>Lorem 2</span>
         </div>
         <div class="content-direita">
-          <span>Lorem 2</span>
-          <span>Lorem 2</span>
-        </div>
-        <div class="content-direita">
-          <span>Lorem 2</span>
+          <span>Depende de insulina?</span>
           <span>Lorem 2</span>
         </div>
         <div class="content-direita">
-          <span>Lorem 2</span>
-          <span>Lorem 2</span>
-        </div>
-        <div class="content-direita">
-          <span>Lorem 2</span>
+          <span>O aluno faz algum tratamento médico?</span>
           <span>Lorem 2</span>
         </div>
         <div class="content-direita">
-          <span>Lorem 2</span>
-          <span>Lorem 2</span>
-        </div>
-        <div class="content-direita">
-          <span>Lorem 2</span>
+          <span>O aluno está ingerindo medicação específica?</span>
           <span>Lorem 2</span>
         </div>
         <div class="content-direita">
-          <span>Lorem 2</span>
+          <span>O aluno tem acompanhamento médico ou psicológico?</span>
           <span>Lorem 2</span>
         </div>
         <div class="content-direita">
+          <span>O aluno tem restrição a alguma atividade física?</span>
           <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>O aluno sofreu alguma fratura ou trauma?</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>O aluno possui algum plano de saúde?</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Em caso de emergência, autorizo levar meu(minha) filho(a) para o Hospital ou Clínica mais próximos:</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Em caso de emergência, caso não seja encontrado pais ou responsáveis, avisar:</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Nome do Responsável</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Parentesco do Responsável</span>
+          <span>Lorem 2</span>
+        </div>
+        <div class="content-direita">
+          <span>Telefone do Responsável</span>
           <span>Lorem 2</span>
         </div>
       </div>
@@ -95,7 +123,122 @@
 
   @if(editar) {
     <section class="editar">
-      Criar form de editar
+      <div class="ficha-medica">
+
+
+        <div class="infos">
+          <tgt-input-icon [border]="true" [placeholder]="'Altura (m)*'"></tgt-input-icon>
+
+          <tgt-input-icon [border]="true" [placeholder]="'Peso (kg)*'" [type]="'text'"></tgt-input-icon>
+
+          <tgt-input-icon [border]="true" [placeholder]="'Tipo Sanguíneo*'" [type]="'text'"></tgt-input-icon>
+        </div>
+
+        <div class="infos">
+
+          <tgt-input-icon [border]="true" [placeholder]="'Número da Carteira do SUS'" [type]="'text'"></tgt-input-icon>
+
+          <tgt-input-icon [border]="true" [placeholder]="'Fator RH'" [type]="'text'"></tgt-input-icon>
+        </div>
+
+        <span>Em caso de emergência, autorizo levar meu(minha) filho(a) para o Hospital ou Clínica mais próximos:*</span>
+        <tgt-input-icon [border]="true" [placeholder]="'Responsável*'" [type]="'text'"></tgt-input-icon>
+
+        <span>Em caso de emergência, caso não seja encontrado pais ou responsáveis, avisar:*</span>
+        <div class="infos">
+          <tgt-input-icon [border]="true" [placeholder]="'Nome*'" [type]="'text'"></tgt-input-icon>
+          <tgt-input-icon [border]="true" [placeholder]="'Parentesco*'" [type]="'text'"></tgt-input-icon>
+        </div>
+        <div class="infos">
+          <tgt-input-icon [border]="true" [placeholder]="'Telefone*'" [type]="'text'"></tgt-input-icon>
+          <tgt-input-icon [border]="true" [placeholder]="'Celular*'" [type]="'text'"></tgt-input-icon>
+        </div>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno possui plano de saúde?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno é alérgico a algum medicamento?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno é alérgico a algum alimento?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno possui doença congêtina?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno é fumante?</tgt-checkbox>
+          <tgt-checkbox>O aluno já contraiu caxumba?</tgt-checkbox>
+          <tgt-checkbox>O aluno já contraiu sarampo?</tgt-checkbox>
+          <tgt-checkbox>O aluno já contraiu rubeola?</tgt-checkbox>
+          <tgt-checkbox>O aluno já contraiu catapora?</tgt-checkbox>
+        </div>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno já contraiu escarlatina?</tgt-checkbox>
+          <tgt-checkbox>O aluno já contraiu coqueluche?</tgt-checkbox>
+          <tgt-checkbox>O aluno é epilético?</tgt-checkbox>
+          <tgt-checkbox>Está em tratamento?</tgt-checkbox>
+          <tgt-checkbox>O aluno é hemofílico?</tgt-checkbox>
+          <tgt-checkbox>O aluno tem hipertensão?</tgt-checkbox>
+        </div>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno é asmático?</tgt-checkbox>
+          <tgt-checkbox>O aluno é diabético?</tgt-checkbox>
+          <tgt-checkbox>Depende de insulina?</tgt-checkbox>
+        </div>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno faz tratamento médico?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno está ingerindo medicação específica?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno tem acompanhamento médico ou psicológico?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno tem restrição a alguma atividade física?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+        <div class="checkbox">
+          <tgt-checkbox>O aluno sofreu alguma fratura ou trauma?</tgt-checkbox>
+        </div>
+
+        <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+
+
+      </div>
     </section>
   }
 </main>

@@ -5,9 +5,10 @@
       <h2>Editar Turma</h2>
     </div>
     <div class="chips">
-      <tgt-chips [select]="chipSelectedDadosTurma" [label]="'Dados da turma'"></tgt-chips>
+      <tgt-stepper [steps]="steps"></tgt-stepper>
+      <!-- <tgt-chips [select]="chipSelectedDadosTurma" [label]="'Dados da turma'"></tgt-chips>
       <tgt-chips [select]="chipSelectedColaboradores" [label]="'Colaboradores'"></tgt-chips>
-      <tgt-chips [select]="chipSelectedAlunos" [label]="'Alunos'"></tgt-chips>
+      <tgt-chips [select]="chipSelectedAlunos" [label]="'Alunos'"></tgt-chips> -->
     </div>
 
     @switch (stepRegisterTurma) {
@@ -96,10 +97,10 @@
   </div>
   <div class="actions">
     <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
-    @if(this.stepRegisterTurma != 'alunos') {
-      <tgt-button (click)="salvar()" [size]="'small'">Próximo</tgt-button>
+    @if(this.stepRegisterTurma === 'alunos') {
+    <tgt-button (click)="next()" [icon]="'edit'">Editar</tgt-button>
     } @else {
-      <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
+    <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
     }
   </div>
 </main>

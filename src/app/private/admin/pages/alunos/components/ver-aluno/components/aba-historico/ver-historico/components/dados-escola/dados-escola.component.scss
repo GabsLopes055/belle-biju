@@ -1,0 +1,11 @@
+main {
+  border: 1px solid #C2C9BD;
+
+  .infos {
+    border-bottom: 1px solid #C2C9BD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+  }
+}

@@ -10,30 +10,26 @@
           download
         </span>
         <p>Download</p>
+        <span class="material-symbols-outlined">
+          edit
+        </span>
+        <p>Editar</p>
       </div>
     </div>
 
     <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
 
     @switch (opcaoTabSelecionada) {
-      @case ('dados-pessoais') {
-        <dados-pessoais></dados-pessoais>
+      @case ('dados-escola') {
+        <dados-escola></dados-escola>
       }
-      @case ('detalhes-transferencia') {
-        <detalhes-transferencia></detalhes-transferencia>
+      @case('boletim') {
+        <boletim-escolar></boletim-escolar>
       }
-      @case ('informacoes-academicas') {
-        <informacoes-academicas></informacoes-academicas>
+      @case('observacao') {
+        <observacao-historico></observacao-historico>
       }
-      @case ('historico-comportamento') {
-        <historico-comportamento></historico-comportamento>
-      }
-      @case ('ficha-medica') {
-        <ficha-medica></ficha-medica>
-      }
-      @case ('documentos') {
-        <documentos></documentos>
-      }
+
 
     }
 
