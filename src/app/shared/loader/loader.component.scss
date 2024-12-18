@@ -1,0 +1,17 @@
+main {
+
+  border: solid 5px #F7FBF2;
+  border-top-color: #00C648;
+  border-radius: 40px;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}

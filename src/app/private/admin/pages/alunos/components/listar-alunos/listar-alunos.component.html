@@ -1,8 +1,11 @@
 <main>
 
-  @if(alunos.length > 0) {
-  <div class="content">
-
+  @if(loading) {
+    <div class="loader">
+      <tgt-loader [size]="'large'"></tgt-loader>
+    </div>
+  }@else {
+    <div class="content">
     <div class="header">
       <tgt-button [icon]="'add'" [size]="'small'" (click)="cadastrarAluno()">Cadastrar Aluno</tgt-button>
       <tgt-input-icon [control]="this.form.controls.buscarAluno" [icon]="'search'" [backGround]="'#EEF2E9'"
@@ -72,15 +75,15 @@
       </div>
     </div>
   </div>
-  <div class="action">
-    <tgt-button [icon]="'add'" [size]="'small'" (click)="cadastrarAluno()">Cadastrar Aluno</tgt-button>
-  </div>
-  } @else {
-  <div class="empty">
+  @if(alunos.length <= 0) { <div class="empty">
     <img src="../../../../../../../assets/images/turma-empty.png" alt="">
     <span>Você ainda não possui Colaboradores</span>
     <p>Convide secretários e professores para gerenciar as turmas cadastradas.</p>
     <tgt-button (click)="cadastrarAluno()" [icon]="'add'" [size]="'small'">Convidar</tgt-button>
-  </div>
-  }
+    </div>
+    }
+    <div class="action">
+      <tgt-button [icon]="'add'" [size]="'small'" (click)="cadastrarAluno()">Cadastrar Aluno</tgt-button>
+    </div>
+    }
 </main>

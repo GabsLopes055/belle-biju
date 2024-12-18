@@ -1,14 +1,21 @@
 <main>
-  <section>
+  @if(loading) {
+  <div class="loader">
+    <tgt-loader [size]="'large'"></tgt-loader>
+  </div>
+  } @else {
 
+  <section>
     <div class="perfil">
       <div class="icon-perfil">
         <tgt-perfil></tgt-perfil>
         <span>{{user.firstName + ' ' + user.lastName}}</span>
       </div>
       <div class="actions">
-        <tgt-button (click)="abrirModalAlterarSenha()" [icon]="'lock_reset'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Alterar Senha</tgt-button>
-        <tgt-button (click)="abrirModalAlterarDados()" [icon]="'edit'" [fieldButton]="'field'" [color]="'primary'">Editar</tgt-button>
+        <tgt-button (click)="abrirModalAlterarSenha()" [icon]="'lock_reset'" [border]="false" [fieldButton]="'outline'"
+          [color]="'secundary'">Alterar Senha</tgt-button>
+        <tgt-button (click)="abrirModalAlterarDados()" [icon]="'edit'" [fieldButton]="'field'"
+          [color]="'primary'">Editar</tgt-button>
       </div>
     </div>
 
@@ -38,4 +45,5 @@
     </div>
 
   </section>
+  }
 </main>

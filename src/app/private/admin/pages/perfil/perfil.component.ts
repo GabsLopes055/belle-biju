@@ -9,17 +9,19 @@ import { AlterarSenhaComponent } from './components/alterar-senha/alterar-senha.
 import { AlterarDadosComponent } from './components/alterar-dados/alterar-dados.component';
 import { UserService } from '../../../../shared/services/user/user.service';
 import { User } from '../../../../models/authentication.interface';
+import { LoaderComponent } from "../../../../shared/loader/loader.component";
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [PerfilComponent, ButtonComponent, DividerComponent],
+  imports: [PerfilComponent, ButtonComponent, DividerComponent, LoaderComponent],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.scss',
 })
 export class PerfilUsuarioComponent implements OnInit {
 
   user!: User;
+  loading: boolean = true;
 
   constructor(
     private readonly navbarService: NavbarService,
@@ -42,6 +44,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.userService.buscarUserPorId().subscribe({
       next: (user) => {
         this.user = user;
+        this.loading = false;
       },
     });
   }

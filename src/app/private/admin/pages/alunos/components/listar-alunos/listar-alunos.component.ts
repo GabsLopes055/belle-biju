@@ -18,6 +18,7 @@ import { AlunosService } from '../../alunos.service';
 import { HttpClient } from '@angular/common/http';
 import { filtroDeBusca } from '../../../../../../models/filtro-busca.interface';
 import { ToastService } from '../../../../../../shared/toast/toast.service';
+import { LoaderComponent } from "../../../../../../shared/loader/loader.component";
 
 interface Aluno {
   nome: string;
@@ -39,7 +40,8 @@ interface Aluno {
     ItemListComponent,
     ItemDataComponent,
     PaginatorComponent,
-  ],
+    LoaderComponent
+],
   templateUrl: './listar-alunos.component.html',
   styleUrl: './listar-alunos.component.scss',
 })
@@ -48,7 +50,7 @@ export class ListarAlunosComponent implements OnInit {
   limit: number = 20;
   alunos: alunoResponse[] = [];
   serverUrl: string = 'https://escola-ai-backend.technolimit.com.br';
-
+  loading: boolean = true;
   filtroBusca: filtroDeBusca = {
     page: this.page,
     limit: this.limit,
@@ -74,6 +76,7 @@ export class ListarAlunosComponent implements OnInit {
     this.alunosService.listarAlunos(this.filtroBusca).subscribe({
       next: (value) => {
         this.alunos = value.data;
+        this.loading = false;
       },
       error: (err) => {
         this.toast.notify({
