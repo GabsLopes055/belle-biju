@@ -13,8 +13,10 @@
         <div header class="header-list">
           <tgt-header-list>
             <tgt-header-col>Aluno</tgt-header-col>
+            <tgt-header-col>Matrícula</tgt-header-col>
             <tgt-header-col>Nome Responsável</tgt-header-col>
             <tgt-header-col>E-mail responsável</tgt-header-col>
+            <tgt-header-col>Telefone responsável</tgt-header-col>
             <tgt-header-col></tgt-header-col>
           </tgt-header-list>
         </div>
@@ -22,8 +24,24 @@
           @for (item of alunos; track item) {
           <tgt-item-list>
             <tgt-item-data>{{ item.nome }}</tgt-item-data>
-            <tgt-item-data>{{ item.nomeResponsavel }}</tgt-item-data>
-            <tgt-item-data>{{ item.emailResponsavel }}</tgt-item-data>
+            <tgt-item-data>123456</tgt-item-data>
+            <tgt-item-data>Nome do Responsável</tgt-item-data>
+            <tgt-item-data>E-mail do Responsável</tgt-item-data>
+            <tgt-item-data>(00) 00000-0000</tgt-item-data>
+            <tgt-item-data>
+              <span class="material-symbols-outlined icone" (click)="verAluno(item.id)">arrow_forward</span>
+            </tgt-item-data>
+          </tgt-item-list>
+          }
+        </div>
+        <div body class="body">
+          @for (item of alunos; track item) {
+          <tgt-item-list>
+            <tgt-item-data>{{ item.nome }}</tgt-item-data>
+            <tgt-item-data>123456</tgt-item-data>
+            <tgt-item-data>Nome do Responsável</tgt-item-data>
+            <tgt-item-data>E-mail do Responsável</tgt-item-data>
+            <tgt-item-data>(00) 00000-0000</tgt-item-data>
             <tgt-item-data>
               <span class="material-symbols-outlined icone" (click)="verAluno(item.id)">arrow_forward</span>
             </tgt-item-data>

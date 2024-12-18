@@ -1,0 +1,54 @@
+<tgt-modal [witdhModal]="'80%'">
+  <main>
+
+    <div class="header">
+      <div class="title">
+        <h3>Cadastrar Histórico</h3>
+      </div>
+    </div>
+
+    <div class="chips">
+      <tgt-stepper [steps]="steps"></tgt-stepper>
+    </div>
+
+    <div class="form">
+      @switch (stepHistorico) {
+        @case ('dados-escola') {
+          <div class="input">
+            <tgt-input-icon [border]="true" [placeholder]="'CNPJ*'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Nome da Instituição*'"></tgt-input-icon>
+          </div>
+          <div class="input">
+            <tgt-input-icon [border]="true" [placeholder]="'CEP*'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Rua*'"></tgt-input-icon>
+          </div>
+          <div class="input">
+            <tgt-input-icon [border]="true" [placeholder]="'Número*'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Complemento'"></tgt-input-icon>
+          </div>
+          <tgt-input-icon [border]="true" [placeholder]="'Bairro'"></tgt-input-icon>
+          <div class="input">
+            <tgt-input-icon [border]="true" [placeholder]="'Cidade*'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Estado'"></tgt-input-icon>
+          </div>
+        }
+        @case ('boletim') {
+          <h5>Utilizar componente de tabela feito pelo jonathan</h5>
+        }
+        @case('observacao') {
+          <tgt-textarea [placeholder]="'Observação'" [linhas]="10"></tgt-textarea>
+        }
+      }
+    </div>
+
+
+    <div class="actions">
+      <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
+      @if(this.stepHistorico === 'observacao') {
+      <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
+      } @else {
+      <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
+      }
+    </div>
+  </main>
+</tgt-modal>

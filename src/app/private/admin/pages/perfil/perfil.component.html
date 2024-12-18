@@ -6,7 +6,10 @@
         <tgt-perfil></tgt-perfil>
         <span>{{user.firstName + ' ' + user.lastName}}</span>
       </div>
-      <tgt-button (click)="abrirModalAlterarDados()" [icon]="'edit'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Editar</tgt-button>
+      <div class="actions">
+        <tgt-button (click)="abrirModalAlterarSenha()" [icon]="'lock_reset'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Alterar Senha</tgt-button>
+        <tgt-button (click)="abrirModalAlterarDados()" [icon]="'edit'" [fieldButton]="'field'" [color]="'primary'">Editar</tgt-button>
+      </div>
     </div>
 
     <div class="info">
@@ -31,7 +34,7 @@
     </div>
 
     <div class="alterarSenha">
-      <tgt-button (click)="abrirModalAlterarSenha()" [icon]="'edit'" [border]="false" [fieldButton]="'outline'" [color]="'secundary'">Alterar Senha</tgt-button>
+
     </div>
 
   </section>

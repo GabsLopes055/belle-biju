@@ -6,6 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 
 import { ModalService } from '../modal/modal.service';
 import { NewEventComponent } from './new-event/new-event.component';
+import { CriarEventoComponent } from '../../private/admin/pages/escola/aba-agenda/agenda/components/criar-evento/criar-evento.component';
 
 
 @Component({
@@ -41,7 +42,8 @@ export class CalendarComponent {
   }
 
   dayClick(res: {dateStr: string}) {
-    this.modal.open(NewEventComponent);
+    this.modal.open(CriarEventoComponent);
+    // this.modal.open(NewEventComponent);
     // alert('voce clicou' + res.dateStr);
   }
   editarEvento(arg: EventClickArg) {

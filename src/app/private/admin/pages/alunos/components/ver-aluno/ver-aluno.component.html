@@ -2,7 +2,7 @@
   <div class="header">
     <div class="esquerdo">
       <p class="material-symbols-outlined icone" (click)="back()">arrow_back</p>
-      <h3>{{this.aluno?.nome}}</h3>
+      <h2>{{this.aluno?.nome}}</h2>
       <div class="icons">
         <span class="material-symbols-outlined new" [appTooltip]="'Novo Aluno'" [tooltipPosition]="'right'">
           face
@@ -43,20 +43,7 @@
     </div>
   </div>
 
-  <div class="info-usuario">
-    <!-- <div class="info">
-      <span>Turma:</span>
-      <p>8° Ano - Turma A</p>
-    </div> -->
-    <div class="info">
-      <span>Responsável:</span>
-      <p>{{this.aluno?.nomeResponsavel}}</p>
-    </div>
-    <div class="info">
-      <span>E-mail Responsável:</span>
-      <p>{{this.aluno?.emailResponsavel}}</p>
-    </div>
-  </div>
+
 
   <app-tabs [tabs]="tabs" (change)="chosenTab($event)"></app-tabs>
 

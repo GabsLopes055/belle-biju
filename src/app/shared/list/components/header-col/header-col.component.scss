@@ -6,7 +6,8 @@ main {
   line-height: 16px;
   letter-spacing: 0.4000000059604645px;
   text-align: left;
-
+  display: flex;
+  justify-content: center;
   span {
     display: flex;
     flex-direction: row;

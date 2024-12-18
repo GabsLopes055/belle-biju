@@ -11,11 +11,13 @@ import { historico } from '../../../../../../../../../models/historico.interface
 import { VerHistoricoComponent } from '../ver-historico/ver-historico.component';
 import {GridEditableComponent} from "../../../../../../../../../shared/grid-editable/grid-editable.component";
 import {CalendarComponent} from "../../../../../../../../../shared/calendar/calendar.component";
+import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
+import { CadastrarHistoricoComponent } from '../cadastrar-historico/cadastrar-historico.component';
 
 @Component({
   selector: 'listar-historico',
   standalone: true,
-  imports: [InputIconComponent, ListComponent, HeaderListComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, GridEditableComponent, CalendarComponent],
+  imports: [InputIconComponent, ListComponent, HeaderListComponent, HeaderColComponent, ItemDataComponent, ItemListComponent, GridEditableComponent, CalendarComponent, ButtonComponent],
   templateUrl: './listar-historico.component.html',
   styleUrl: './listar-historico.component.scss'
 })
@@ -47,5 +49,10 @@ export class ListarHistoricoComponent {
 
   verHistorico() {
     this.modalService.open(VerHistoricoComponent)
+  }
+
+  cadastrarHistorico() {
+    this.modalService.open(CadastrarHistoricoComponent)
+
   }
 }
