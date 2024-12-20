@@ -1,13 +1,14 @@
 <main>
-  <div>
-    <span>Câmeras</span>
-  </div>
   <div class="camera-container">
     <video #videoElement autoplay muted></video>
   </div>
-  <button (click)="toggleFrameCapture()">
-    {{ isSendingFrames ? 'Desativar' : 'Ativar' }}
-  </button>
+  <div class="btns">
+
+    <tgt-button (click)="toggleFrameCapture()">
+      {{ isSendingFrames ? 'Desativar' : 'Ativar' }}
+    </tgt-button>
+    <tgt-button [color]="'error'" (click)="reset()">Resetar</tgt-button>
+  </div>
 
   <div id="alunoPresente" style="display:none; margin-top: 20px;">
     <h1>Aluno <span #alunoNome></span> presente na aula</h1>

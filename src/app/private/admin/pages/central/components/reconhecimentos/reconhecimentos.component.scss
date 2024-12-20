@@ -5,8 +5,8 @@ main {
   justify-content: start;
   background-color: #F7FBF2;
   border-radius: 16px;
-  height: 100%;
-  width: 100%;
+  height: 600px;
+  overflow: auto;
   gap: 24px;
 
   span {
@@ -25,15 +25,23 @@ main {
     display: flex;
     flex-direction: row;
     gap: 24px;
-    position: relative;
+    justify-content: space-around;
     align-items: center;
 
-    .aluno-foto {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      position: relative;
+    .info {
+
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      .aluno-foto {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+      }
     }
 
     .esquerda,
@@ -50,8 +58,12 @@ main {
 
     .direita {
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       gap: 8px;
+
+      p {
+        font-weight: 400;
+      }
     }
 
     .presente-box {
@@ -60,7 +72,7 @@ main {
       justify-content: center;
       gap: 5px;
       padding: 5px 10px;
-      background-color: #00d775;
+      background-color: #00E554;
       color: #ffffff;
       font-weight: bold;
       font-size: 14px;

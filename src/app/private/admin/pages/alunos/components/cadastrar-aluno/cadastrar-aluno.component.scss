@@ -25,7 +25,7 @@ main {
       flex-direction: row;
       gap: 12px;
       padding: 18px 0px;
-
+      overflow: auto;
       // tgt-stepper {
       //   width: 90%;
       // }
@@ -251,6 +251,43 @@ main {
               width: 100%;
             }
 
+          }
+
+          .foto-capturada {
+            display: flex;
+            padding: 16px;
+            gap: 24px;
+            border-radius: 8px;
+            border: 1px solid #39693B;
+            opacity: 0px;
+            background-color: #EBFFE6;
+
+            .info {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+
+              img {
+                width: 16%;
+                border-radius: 4px;
+              }
+
+              span {
+                color: #424940;
+                font-size: 12px;
+                font-weight: 500;
+              }
+            }
+
+            .action {
+              display: flex;
+              align-items: center;
+
+              span {
+                cursor: pointer;
+                color: #39693B;
+              }
+            }
           }
         }
       }

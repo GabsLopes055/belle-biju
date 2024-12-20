@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -9,6 +10,7 @@ import { ModalComponent } from '../../../../../../../../shared/modal/modal.compo
 import { FormControl, FormGroup } from '@angular/forms';
 import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
 import { ModalService } from '../../../../../../../../shared/modal/modal.service';
+import { AlunosService } from '../../../../alunos.service';
 
 @Component({
   selector: 'app-abrir-camera',
@@ -18,6 +20,9 @@ import { ModalService } from '../../../../../../../../shared/modal/modal.service
   styleUrl: './abrir-camera.component.scss',
 })
 export class AbrirCameraComponent implements OnInit {
+
+  // @Input() ladoFoto: string = '';
+
   fotoCapturadaUrl: string | null = null;
   @ViewChild('video', { static: false })
   videoElement!: ElementRef<HTMLVideoElement>;
@@ -32,7 +37,15 @@ export class AbrirCameraComponent implements OnInit {
     foto_aluno: new FormControl(null),
   });
 
-  constructor(private readonly modalService: ModalService) {}
+  constructor(
+    private readonly modalService: ModalService,
+    private readonly alunoService: AlunosService
+  ) {}
+
+  salvarFotoBehavior(){
+    this.alunoService.fotoAluno.next(this.form.value.foto_aluno);
+    this.modalService.close();
+  }
 
   ngOnInit(): void {
     this.alternarCamera();
@@ -41,6 +54,7 @@ export class AbrirCameraComponent implements OnInit {
   voltar() {
     this.modalService.close();
   }
+
 
   alternarCamera() {
     if (this.cameraAtiva) {
@@ -102,7 +116,7 @@ export class AbrirCameraComponent implements OnInit {
   tirarOutraFoto() {
     this.fotoCapturada = null;
     this.fotoCapturadaUrl = null;
-    this.videoElement.nativeElement.play(); // Retomar o vídeo para tirar outra foto
+    this.videoElement?.nativeElement.play(); // Retomar o vídeo para tirar outra foto
   }
 
   pararCamera() {

@@ -12,15 +12,17 @@ const URL_BASE = `${environment.BACKEND_API}/alunos`;
 export class AlunosService {
 
   steps = new BehaviorSubject<aluno>({component: 'listar-alunos', idAluno: ''});
-
+  fotoAluno = new BehaviorSubject<any>('');
+  fotoAlunoDireito = new BehaviorSubject<any>('');
+  fotoAlunoEsquerdo = new BehaviorSubject<any>('');
 
   private apiUrl = 'https://escola-ai-backend.technolimit.com.br'; // URL base do backend
 
   constructor(private http: HttpClient) {}
 
-  cadastrarAluno(alunoRequest: alunoRequest): Observable<alunoResponse> {
-    return this.http.post<alunoResponse>(`${URL_BASE}`, alunoRequest);
-  }
+  // cadastrarAluno(alunoRequest: alunoRequest): Observable<alunoResponse> {
+  //   return this.http.post<alunoResponse>(`${URL_BASE}`, alunoRequest);
+  // }
 
   listarAlunos(filtro: filtroDeBusca) : Observable<listaAlunosResponse> {
     return this.http.get<listaAlunosResponse>(`${URL_BASE}?page=${filtro.page}&limit=${filtro.limit}`)
@@ -29,6 +31,11 @@ export class AlunosService {
   buscarAlunoPorId(idAluno: string) : Observable<alunoResponse> {
     return this.http.get<alunoResponse>(`${URL_BASE}/${idAluno}`)
   }
+
+  cadastrarAluno(formData: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cadastro-aluno`, formData);
+  }
+
 
 
 }

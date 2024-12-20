@@ -1,25 +1,27 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {NgIf} from "@angular/common";
+import { CentralService } from './../../central.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { io } from 'socket.io-client';
+import { ButtonComponent } from '../../../../../../shared/button/button.component';
+import { ToastService } from '../../../../../../shared/toast/toast.service';
 
 @Component({
   selector: 'cameras',
   standalone: true,
-  imports: [
-    NgIf
-  ],
+  imports: [NgIf, ButtonComponent],
   templateUrl: './cameras.component.html',
-  styleUrl: './cameras.component.scss'
+  styleUrl: './cameras.component.scss',
 })
-export class CamerasComponent implements OnInit{
-  @ViewChild('videoElement', { static: true }) videoElement!: ElementRef<HTMLVideoElement>;
+export class CamerasComponent implements OnInit {
+  @ViewChild('videoElement', { static: true })
+  videoElement!: ElementRef<HTMLVideoElement>;
   @ViewChild('alunoNome', { static: true }) alunoNomeElement!: ElementRef;
   isSendingFrames: boolean = false;
   frameInterval: any;
   socket: any;
   serverUrl: string = 'https://escola-ai-backend.technolimit.com.br';
 
-  constructor() {
+  constructor(private readonly centralService: CentralService, private readonly toast: ToastService) {
     this.socket = io(this.serverUrl);
   }
 
@@ -50,6 +52,13 @@ export class CamerasComponent implements OnInit{
     this.alunoNomeElement.nativeElement.style.display = 'block';
   }
 
+  reset() {
+    this.centralService.reset().subscribe(() => {
+      this.toast.notify({message: 'Reconhecimento resetado !', type: 'SUCCESS'});
+      this.centralService.atualizarLista.next(true);
+    });
+  }
+
   // Toggle frame capture on/off
   toggleFrameCapture() {
     if (this.isSendingFrames) {
@@ -78,12 +87,22 @@ export class CamerasComponent implements OnInit{
     canvas.width = this.videoElement.nativeElement.videoWidth;
     canvas.height = this.videoElement.nativeElement.videoHeight;
 
-    context.drawImage(this.videoElement.nativeElement, 0, 0, canvas.width, canvas.height);
-    canvas.toBlob((blob) => {
-      if (blob) {
-        this.sendFrameToServer(blob);
-      }
-    }, 'image/jpeg', 0.95);
+    context.drawImage(
+      this.videoElement.nativeElement,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+    canvas.toBlob(
+      (blob) => {
+        if (blob) {
+          this.sendFrameToServer(blob);
+        }
+      },
+      'image/jpeg',
+      0.95
+    );
   }
 
   // Send frame to server
@@ -93,11 +112,10 @@ export class CamerasComponent implements OnInit{
 
     fetch(`${this.serverUrl}/upload-frame`, {
       method: 'POST',
-      body: formData
+      body: formData,
     })
-      .then(response => response.json())
-      .then(data => console.log('Server response:', data))
-      .catch(err => console.error('Error sending frame:', err));
+      .then((response) => response.json())
+      .then((data) => console.log('Server response:', data))
+      .catch((err) => console.error('Error sending frame:', err));
   }
-
 }

@@ -29,7 +29,10 @@
       }
       @if(fotoCapturadaUrl) {
       <tgt-button (click)="tirarOutraFoto()" [border]="false" [size]="'small'" [color]="'warning'" [icon]="'photo_camera'">Tirar Outra Foto</tgt-button>
-      }
-    </div>
+    }
+  </div>
+  @if(fotoCapturadaUrl){
+    <tgt-button (click)="tirarOutraFoto()" [border]="false" [size]="'small'" [color]="'primary'" [icon]="'photo_camera'" (click)="salvarFotoBehavior()">Usar esta foto</tgt-button>
+  }
   </main>
 </tgt-modal>

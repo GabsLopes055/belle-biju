@@ -3,16 +3,17 @@
     Reconhecimento
   </span>
   <div *ngFor="let aluno of listaPresenca" class="card">
-    <img [src]="aluno.fotoUrl" alt="Foto do aluno" class="aluno-foto">
-    <div class="esquerda">
-      <span>Nome</span>
-      <span>Turma</span>
+    <div class="info">
+      <img [src]="aluno.fotoUrl" alt="Foto do aluno" class="aluno-foto">
       <span class="presente-box" *ngIf="aluno.presente">😊 Presente</span>
     </div>
+    <!-- <div class="esquerda">
+      <span>Nome</span>
+      <span>Turma</span>
+    </div> -->
     <div class="direita">
+      <p>Aluno</p>
       <span>{{ aluno.nome }}</span>
-      <span>{{ aluno.turma }}</span>
-      <span>--</span>
     </div>
 
   </div>

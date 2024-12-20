@@ -14,36 +14,33 @@
     @switch (stepRegisterUser) {
     @case('dados-pessoais') {
     <div class="form">
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="CPF*" [mask]="'000.000.000-00'"
-        [type]="'text'" [iconPosition]="'right'" [control]="form.controls.cpf"></tgt-input-icon>
-
+      <tgt-input-icon [error]="camposObrigadores" [control]="form.controls.nomeCompleto" [border]="true"
+        placeholder="Nome completo aluno*" [type]="'text'"></tgt-input-icon>
+      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+        [control]="form.controls.nomeResponsavel"></tgt-input-icon>
+      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+        [control]="form.controls.emailResponsavel"></tgt-input-icon>
       <div class="infos">
-        <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="Nome completo aluno*" [type]="'text'"
-          [iconPosition]="'right'" [control]="form.controls.nome"></tgt-input-icon>
-        <tgt-input-icon [error]="camposObrigadores" [border]="true" placeholder="Matrícula*" [type]="'text'"
-          [iconPosition]="'right'" [control]="form.controls.matricula"></tgt-input-icon>
+        <tgt-input-icon [border]="true" placeholder="CPF*" [mask]="'000.000.000-00'" [type]="'text'"
+          [iconPosition]="'right'"></tgt-input-icon>
+
+        <tgt-input-icon [border]="true" placeholder="Matrícula*" [type]="'text'"></tgt-input-icon>
       </div>
 
       <div class="infos">
-        <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"
-          [control]="form.controls['dataNascimento']"></tgt-input-icon>
-        <tgt-select [label]="'Gênero*'" [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"
-          [control]="form.controls['genero']"></tgt-select>
+        <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"></tgt-input-icon>
+        <tgt-select [label]="'Gênero*'"
+          [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"></tgt-select>
       </div>
 
-      <!-- <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Alergias'"
+      <!-- <tgt-input-icon [border]="true" [placeholder]="'Alergias'"
         [control]="form.controls['alergias']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Medicação necessária'"
+      <tgt-input-icon [border]="true" [placeholder]="'Medicação necessária'"
         [control]="form.controls['medicacao']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Condições médicas relevantes'"
+      <tgt-input-icon [border]="true" [placeholder]="'Condições médicas relevantes'"
         [control]="form.controls['condicaoMedica']"></tgt-input-icon> -->
 
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
-        [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
-        [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
-        [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Telefone'"></tgt-input-icon>
 
       @if(adicionarSegundoResponsavel) {
       <div class="segundo-responsavel">
@@ -54,11 +51,11 @@
           </span>
         </div>
         <div class="direita">
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+          <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
             [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+          <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
             [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+          <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
             [control]="form.controls['emailResponsavel']"></tgt-input-icon>
         </div>
       </div>
@@ -72,11 +69,11 @@
           </span>
         </div>
         <div class="direita">
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+          <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
             [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+          <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
             [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Telefone'"
+          <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
             [control]="form.controls['emailResponsavel']"></tgt-input-icon>
         </div>
       </div>
@@ -89,28 +86,21 @@
     </div>
     }
 
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'CEP'" [type]="'text'"
-      [control]="form.controls['cep']"></tgt-input-icon>
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Endereço'"
-      [control]="form.controls['endereco']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'CEP'" [type]="'text'"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Endereço'"></tgt-input-icon>
 
     <div class="infos">
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Número'" [type]="'text'"
-        [control]="form.controls['numeroEndereco']"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Complemento'" [type]="'text'"
-        [control]="form.controls['complemento']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'"></tgt-input-icon>
     </div>
 
 
-    <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Bairro'"
-      [control]="form.controls['bairro']"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Bairro'"></tgt-input-icon>
 
     <div class="infos">
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Cidade'"
-        [control]="form.controls['cidade']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'Cidade'"></tgt-input-icon>
 
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'UF'" [type]="'text'"
-        [control]="form.controls['uf']"></tgt-input-icon>
+      <tgt-input-icon [border]="true" [placeholder]="'UF'" [type]="'text'"></tgt-input-icon>
     </div>
 
     <!-- <div class="carregar-imagem" (click)="abrirModalCamera()">
@@ -258,10 +248,25 @@
         </div>
         <div class="btn-selfies">
           <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+            [icon]="'add_a_photo'" iconPosition="right" (click)="abrirModalCamera()">Capturar</tgt-button>
           <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
             [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
         </div>
+
+        @if(fotoCapturada) {
+        <div class="foto-capturada">
+          <div class="info">
+            <img [src]="fotoCapturadaUrl" alt="Pré-visualização da Foto" class="photo-preview" />
+            <span>frente.JPEG</span>
+          </div>
+          <div class="action">
+            <span class="material-symbols-outlined" (click)="clearPhoto()">
+              delete
+            </span>
+          </div>
+        </div>
+        }
+
       </div>
       <div class="card-content">
         <div>
@@ -269,8 +274,8 @@
           <p>Uma foto do lado direito do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
         </div>
         <div class="btn-selfies">
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+          <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
+            [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
           <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
             [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
         </div>
@@ -281,8 +286,8 @@
           <p>Uma foto do lado esquerdo do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
         </div>
         <div class="btn-selfies">
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+          <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
+            [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
           <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
             [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
         </div>
@@ -305,7 +310,13 @@
   <div class="actions">
     <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
     @if(this.stepRegisterUser === 'selfie-aluno') {
-    <tgt-button (click)="salvar()" [icon]="'add'">Cadastrar</tgt-button>
+    <tgt-button (click)="salvar()" [icon]="'add'">
+      @if(loader) {
+      <tgt-loader [size]="'small'"></tgt-loader>
+      } @else {
+      Cadastrar
+      }
+    </tgt-button>
     } @else {
     <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
     }

@@ -35,20 +35,14 @@ main {
     object-fit: cover;
   }
 
-  button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
+  .btns {
+    display: flex;
+    gap: 8px;
+    width: 100%;
 
-  button:hover {
-    background-color: #45a049;
+    tgt-button {
+      width: 100%;
+    }
   }
 
   .imagens {
@@ -59,6 +53,7 @@ main {
     img {
       padding: 0px 0px 10px 0px;
     }
+
     // padding: 24px 0px;
   }
 }

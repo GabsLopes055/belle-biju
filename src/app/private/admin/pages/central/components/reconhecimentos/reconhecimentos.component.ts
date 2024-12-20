@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { io } from 'socket.io-client';
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import { CentralService } from '../../central.service';
 
 interface Presenca {
   nome: string;
@@ -26,7 +27,7 @@ export class ReconhecimentosComponent implements OnInit {
   socket: any;
   serverUrl: string = 'https://escola-ai-backend.technolimit.com.br';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private readonly centralService: CentralService) {
     this.socket = io(this.serverUrl);
   }
 
@@ -38,6 +39,12 @@ export class ReconhecimentosComponent implements OnInit {
     this.socket.on('alunoPresente', () => {
       this.atualizarListaPresenca(); // Atualiza a lista quando um novo aluno é reconhecido
     });
+
+    this.centralService.atualizarLista.subscribe(value => {
+      if(value) {
+        this.atualizarListaPresenca();
+      }
+    })
   }
 
   // Função para buscar a lista de presença do endpoint
