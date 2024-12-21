@@ -52,6 +52,26 @@ main {
           padding: 18px 0px;
           align-items: end;
 
+          .end {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+
+            .data-nascimento {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              p {
+                font-size: 12px;
+                font-weight: 500;
+              }
+              tgt-input-icon {
+                width: 160px;
+              }
+
+            }
+          }
+
           span {
             font-size: 16px;
             font-weight: 600;

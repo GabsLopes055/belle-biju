@@ -69,6 +69,33 @@ export class CriarEventoComponent {
     },
   ];
 
+  optionsCategoria: OptionSelect[] = [
+    {
+      label: 'Reuniões',
+      value: 'Reuniões'
+    },
+    {
+      label: 'Comunicados',
+      value: 'Comunicados'
+    },
+    {
+      label: 'Atividades Acadêmicas',
+      value: 'Atividades Acadêmicas'
+    },
+    {
+      label: 'Evento especial',
+      value: 'Evento especial'
+    },
+    {
+      label: 'Atividades Extraescolares',
+      value: 'Atividades Extraescolares'
+    },
+    {
+      label: 'Assuntos Administrativos',
+      value: 'Assuntos Administrativos'
+    },
+  ]
+
   agendar() {
     // console.log(this.formPerguntas.value)
     this.modalService.close(CriarEventoComponent);

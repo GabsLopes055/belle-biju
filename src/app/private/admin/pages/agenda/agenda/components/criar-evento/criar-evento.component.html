@@ -1,7 +1,7 @@
 <tgt-modal [witdhModal]="'80%'">
   <main>
 
-    <h3>Criar Evento</h3>
+    <h3>Criar Agenda</h3>
     <tgt-divider></tgt-divider>
 
     <div class="evento">
@@ -13,6 +13,9 @@
             [label]="item"></chips-selects>
           }
         </div>
+
+        <tgt-select [label]="'Categoria*'" [options]="optionsCategoria"></tgt-select>
+
         <tgt-toggle [control]="form.controls.toggle" (changeToggle)="eventToggle($event)"
           [label]="'Agendar'"></tgt-toggle>
 
