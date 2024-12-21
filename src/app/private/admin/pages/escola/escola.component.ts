@@ -4,8 +4,8 @@ import { MenuService } from '../../../../shared/menu/menu.service';
 import { EscolaService } from './escola.service';
 import { DashboardComponent } from './aba-dashboard/dashboard/dashboard.component';
 import { Tab, TabsComponent } from '../../../../shared/tabs/tabs.component';
-import { AgendaComponent } from "./aba-agenda/agenda/agenda.component";
-import { PesquisaComponent } from "./aba-pesquisa/pesquisa/pesquisa.component";
+import { PesquisaComponent } from "../pesquisas/pesquisa/pesquisa.component";
+import { AgendaComponent } from '../agenda/agenda/agenda.component';
 
 @Component({
   selector: 'app-escola',
@@ -23,19 +23,7 @@ export class EscolaComponent {
       label: 'Dashboard',
       value: 'dashboard-escola',
       selected: false,
-    },
-    {
-      icon: '',
-      label: 'Agenda',
-      value: 'agenda-escola',
-      selected: false,
-    },
-    {
-      icon: '',
-      label: 'Pesquisa',
-      value: 'pesquisa-escola',
-      selected: false,
-    },
+    }
   ];
 
   constructor(

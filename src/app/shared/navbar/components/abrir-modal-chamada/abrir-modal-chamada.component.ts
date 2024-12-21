@@ -26,6 +26,10 @@ export class AbrirModalChamadaComponent {
     private readonly modalService: ModalService
   ){}
 
+  cancel() {
+    this.modalService.close();
+  }
+
   abrirChamada() {
     this.modalService.open(RealizarChamadaComponent)
   }

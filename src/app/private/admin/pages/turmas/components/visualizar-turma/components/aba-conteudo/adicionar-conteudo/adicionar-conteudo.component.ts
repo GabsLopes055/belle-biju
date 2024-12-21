@@ -6,11 +6,12 @@ import { ModalComponent } from "../../../../../../../../../shared/modal/modal.co
 import { InputIconComponent } from "../../../../../../../../../shared/input-icon/input-icon.component";
 import { TextareaComponent } from "../../../../../../../../../shared/textarea/textarea.component";
 import { ButtonComponent } from "../../../../../../../../../shared/button/button.component";
+import { SelectComponent } from "../../../../../../../../../shared/select/select.component";
 
 @Component({
   selector: 'app-adicionar-conteudo',
   standalone: true,
-  imports: [DividerComponent, ModalComponent, InputIconComponent, TextareaComponent, ButtonComponent],
+  imports: [DividerComponent, ModalComponent, InputIconComponent, TextareaComponent, ButtonComponent, SelectComponent],
   templateUrl: './adicionar-conteudo.component.html',
   styleUrl: './adicionar-conteudo.component.scss'
 })

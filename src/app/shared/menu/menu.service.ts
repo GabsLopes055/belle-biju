@@ -64,6 +64,24 @@ export class MenuService {
         checked: false,
       },
       {
+        icon: 'calendar_month',
+        label: 'Agenda',
+        route: '/admin/agenda',
+        checked: false,
+      },
+      {
+        icon: 'chat_bubble',
+        label: 'Chat',
+        route: '/admin/chat',
+        checked: false,
+      },
+      {
+        icon: 'assignment',
+        label: 'Pesquisas',
+        route: '/admin/pesquisas',
+        checked: false,
+      },
+      {
         icon: 'nest_cam_wired_stand',
         label: 'Central',
         route: '/admin/central',

@@ -9,10 +9,15 @@ main {
 
   .text {
     display: flex;
-    gap: 24px;
+    gap: 14px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
+
+    tgt-select {
+      width: 100%;
+    }
+
     span {
       width: 557px;
       height: 28px;
@@ -22,12 +27,11 @@ main {
       font-size: 22px;
       font-weight: 700;
       line-height: 28px;
-      text-align: center;
+      // text-align: center;
     }
 
     p {
-      width: 288px;
-      height: 48px;
+
       gap: 0px;
       opacity: 0px;
       color: #000000;
@@ -35,7 +39,6 @@ main {
       font-weight: 400;
       line-height: 24px;
       letter-spacing: 0.5px;
-      text-align: center;
     }
   }
 

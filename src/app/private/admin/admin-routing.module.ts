@@ -1,3 +1,4 @@
+
 import { NgModule, inject } from "@angular/core";
 import { CanActivateFn, RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'alunos', loadComponent: () => import('./pages/alunos/alunos.component').then((c) => c.AlunosComponent), canActivate: [tokenGuard]},
   { path: 'central', loadComponent: () => import('./pages/central/central.component').then((c) => c.CentralComponent), canActivate: [tokenGuard]},
   { path: 'perfil', loadComponent: () => import('./pages/perfil/perfil.component').then((c) => c.PerfilUsuarioComponent), canActivate: [tokenGuard]},
+  { path: 'agenda', loadComponent: () => import('./pages/agenda/agenda/agenda.component').then((c) => c.AgendaComponent), canActivate: [tokenGuard]},
+  { path: 'pesquisas', loadComponent: () => import('./pages/pesquisas/pesquisa/pesquisa.component').then((c) => c.PesquisaComponent), canActivate: [tokenGuard]},
 ];
 
 

@@ -4,10 +4,10 @@
     <tgt-divider></tgt-divider>
     <div class="text">
       <span>Deseja desvincular este professor da turma?</span>
-      <br>
       <p>
         Ao confirmar você não poderá voltar atrás com esta ação.
       </p>
+      <tgt-select [label]="'Motivo*'"></tgt-select>
     </div>
     <div class="action">
       <tgt-button [border]="false" [color]="'primary'" [size]="'small'" [fieldButton]="'outline'" (click)="excluir()">Cancelar</tgt-button>

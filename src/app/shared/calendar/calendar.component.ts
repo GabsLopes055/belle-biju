@@ -6,7 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 
 import { ModalService } from '../modal/modal.service';
 import { NewEventComponent } from './new-event/new-event.component';
-import { CriarEventoComponent } from '../../private/admin/pages/escola/aba-agenda/agenda/components/criar-evento/criar-evento.component';
+import { CriarEventoComponent } from '../../private/admin/pages/agenda/agenda/components/criar-evento/criar-evento.component';
 
 
 @Component({

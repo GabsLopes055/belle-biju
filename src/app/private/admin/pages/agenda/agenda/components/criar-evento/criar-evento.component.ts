@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalComponent } from '../../../../../../../shared/modal/modal.component';
+import { ButtonComponent } from '../../../../../../../shared/button/button.component';
+import { DividerComponent } from '../../../../../../../shared/divider/divider.component';
+import { InputIconComponent } from '../../../../../../../shared/input-icon/input-icon.component';
+import { CheckboxComponent } from '../../../../../../../shared/checkbox/checkbox.component';
+import { ToggleComponent } from '../../../../../../../shared/toggle/toggle.component';
+import { TextareaComponent } from '../../../../../../../shared/textarea/textarea.component';
+import { OptionSelect, SelectComponent } from '../../../../../../../shared/select/select.component';
+import { ChipsSelectsComponent } from '../../../../../../../shared/chips-selects/chips-selects.component';
+import { ModalService } from '../../../../../../../shared/modal/modal.service';
 
-import { ButtonComponent } from '../../../../../../../../shared/button/button.component';
-import { CheckboxComponent } from '../../../../../../../../shared/checkbox/checkbox.component';
-import { DividerComponent } from '../../../../../../../../shared/divider/divider.component';
-import { InputIconComponent } from '../../../../../../../../shared/input-icon/input-icon.component';
-import { ModalComponent } from '../../../../../../../../shared/modal/modal.component';
-import { ToggleComponent } from "../../../../../../../../shared/toggle/toggle.component";
-import { TextareaComponent } from "../../../../../../../../shared/textarea/textarea.component";
-import { ModalService } from '../../../../../../../../shared/modal/modal.service';
-import { OptionSelect, SelectComponent } from "../../../../../../../../shared/select/select.component";
-import { ChipsSelectsComponent } from "../../../../../../../../shared/chips-selects/chips-selects.component";
+
 
 @Component({
   selector: 'app-criar-evento',

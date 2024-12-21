@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
-import { ModalService } from '../../../../../../shared/modal/modal.service';
-import { ModalComponent } from "../../../../../../shared/modal/modal.component";
-import { ButtonComponent } from "../../../../../../shared/button/button.component";
 import { PerguntaComponent } from "./components/pergunta/pergunta.component";
 import { RespostaComponent } from "./components/resposta/resposta.component";
+import { ModalComponent } from '../../../../../../../shared/modal/modal.component';
+import { Tab, TabsComponent } from '../../../../../../../shared/tabs/tabs.component';
+import { ButtonComponent } from '../../../../../../../shared/button/button.component';
+import { ModalService } from '../../../../../../../shared/modal/modal.service';
 
 @Component({
   selector: 'app-ver-pesquisa',

@@ -63,7 +63,7 @@ export class VerColaboradorComponent {
     },
     {
       icon: '',
-      label: 'Chamadas',
+      label: 'Chamadas Realizadas',
       value: 'chamadas',
       selected: false,
     },

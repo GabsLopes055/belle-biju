@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { ButtonComponent } from '../../../../../../shared/button/button.component';
 import { TooltipDirective } from '../../../../../../shared/directives/tooltip.directive';
 import { InputIconComponent } from '../../../../../../shared/input-icon/input-icon.component';
@@ -10,22 +11,20 @@ import { ItemListComponent } from '../../../../../../shared/list/components/item
 import { ListComponent } from '../../../../../../shared/list/list.component';
 import { ModalService } from '../../../../../../shared/modal/modal.service';
 import { PaginatorComponent } from '../../../../../../shared/paginator/paginator.component';
-import {
-  Tab,
-  TabsComponent,
-} from '../../../../../../shared/tabs/tabs.component';
-import { ListarAlunosComponent } from './components/aba-aluno/listar-alunos/listar-alunos.component';
+import { Tab, TabsComponent } from '../../../../../../shared/tabs/tabs.component';
 import { TurmasService } from '../../turmas.service';
-import { ListarProfessoresComponent } from './components/aba-professor/listar-professores/listar-professores.component';
-import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
-import { DashboardComponent } from './components/aba-dashboard/dashboard/dashboard.component';
-import { NotasTurmasComponent } from './components/aba-notas/notas-turmas/notas-turmas.component';
+import { ExcluirTurmaComponent } from '../excluir-turma/excluir-turma.component';
+import { ListarAlunosComponent } from './components/aba-aluno/listar-alunos/listar-alunos.component';
 import { TurmasConteudosComponent } from './components/aba-conteudo/turmas-conteudos/turmas-conteudos.component';
 import { DadosTurmaComponent } from './components/aba-dados-turma/dados-turma/dados-turma.component';
-import { RealizarChamadaComponent } from './components/aba-frequencia/realizar-chamada/realizar-chamada.component';
-import { ExcluirTurmaComponent } from './components/aba-frequencia/excluir-turma/excluir-turma.component';
+import { DashboardComponent } from './components/aba-dashboard/dashboard/dashboard.component';
 import { ListarChamadasComponent } from './components/aba-frequencia/listar-chamadas/listar-chamadas.component';
-import { ListarGradeCurricularComponent } from './components/aba-grade-curricular/listar-grade-curricular/listar-grade-curricular.component';
+import {
+  ListarGradeCurricularComponent,
+} from './components/aba-grade-curricular/listar-grade-curricular/listar-grade-curricular.component';
+import { NotasTurmasComponent } from './components/aba-notas/notas-turmas/notas-turmas.component';
+import { ListarProfessoresComponent } from './components/aba-professor/listar-professores/listar-professores.component';
+import { InformacoesTurmaComponent } from './components/informacoes-turma/informacoes-turma.component';
 
 @Component({
   selector: 'visualizar-turma',
