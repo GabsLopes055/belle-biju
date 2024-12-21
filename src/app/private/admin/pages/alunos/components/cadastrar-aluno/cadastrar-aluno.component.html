@@ -12,314 +12,366 @@
     </div>
 
     @switch (stepRegisterUser) {
-    @case('dados-pessoais') {
-    <div class="form">
-      <tgt-input-icon [error]="camposObrigadores" [control]="form.controls.nomeCompleto" [border]="true"
-        placeholder="Nome completo aluno*" [type]="'text'"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
-        [control]="form.controls.nomeResponsavel"></tgt-input-icon>
-      <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
-        [control]="form.controls.emailResponsavel"></tgt-input-icon>
-      <div class="infos">
-        <tgt-input-icon [border]="true" placeholder="CPF*" [mask]="'000.000.000-00'" [type]="'text'"
-          [iconPosition]="'right'"></tgt-input-icon>
+      @case('dados-pessoais') {
+        <div class="form">
+            <tgt-input-icon [border]="true" placeholder="CPF*" [mask]="'000.000.000-00'" [type]="'text'"[iconPosition]="'right'"></tgt-input-icon>
 
-        <tgt-input-icon [border]="true" placeholder="Matrícula*" [type]="'text'"></tgt-input-icon>
-      </div>
+            <div class="infos">
+              <tgt-input-icon [error]="camposObrigadores" [control]="form.controls.nomeCompleto" [border]="true"
+                placeholder="Nome completo aluno*" [type]="'text'"></tgt-input-icon>
+              <tgt-input-icon [border]="true" placeholder="Matrícula*" [type]="'text'"></tgt-input-icon>
+            </div>
 
-      <div class="infos">
-        <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"></tgt-input-icon>
-        <tgt-select [label]="'Gênero*'"
-          [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"></tgt-select>
-      </div>
 
-      <!-- <tgt-input-icon [border]="true" [placeholder]="'Alergias'"
-        [control]="form.controls['alergias']"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Medicação necessária'"
-        [control]="form.controls['medicacao']"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Condições médicas relevantes'"
-        [control]="form.controls['condicaoMedica']"></tgt-input-icon> -->
 
-      <tgt-input-icon [border]="true" [placeholder]="'Telefone'"></tgt-input-icon>
-
-      @if(adicionarSegundoResponsavel) {
-      <div class="segundo-responsavel">
-        <div class="esquerda">
-          <p>2</p>
-          <span class="material-symbols-outlined delete" (click)="retirarResponsavel('dois')">
-            delete
-          </span>
-        </div>
-        <div class="direita">
-          <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
-            [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
-            [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
-            [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-        </div>
-      </div>
-      }
-      @if(adicionarTerceiroResponsavel) {
-      <div class="segundo-responsavel">
-        <div class="esquerda">
-          <p>3</p>
-          <span class="material-symbols-outlined delete" (click)="retirarResponsavel('tres')">
-            delete
-          </span>
-        </div>
-        <div class="direita">
-          <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
-            [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
-            [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-          <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
-            [control]="form.controls['emailResponsavel']"></tgt-input-icon>
-        </div>
-      </div>
-      }
-      @if(this.stepsAdicionarResponsavel <= 2) { <div class="adicionar-responsavel">
-        <span class="material-symbols-outlined">
-          add
-        </span>
-        <p (click)="adicionarResponsavel()">Adicionar mais um Responsável</p>
+          <div class="infos">
+            <tgt-input-icon [border]="true" [placeholder]="'Data Nascimento'" [type]="'date'"></tgt-input-icon>
+            <tgt-select [label]="'Gênero*'"
+              [options]="[{label: 'Masculino', value: 'M'}, {label: 'Feminino', value: 'F'}]"></tgt-select>
+          </div>
     </div>
     }
-
-    <tgt-input-icon [border]="true" [placeholder]="'CEP'" [type]="'text'"></tgt-input-icon>
-    <tgt-input-icon [border]="true" [placeholder]="'Endereço'"></tgt-input-icon>
-
-    <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'"></tgt-input-icon>
-    </div>
-
-
-    <tgt-input-icon [border]="true" [placeholder]="'Bairro'"></tgt-input-icon>
-
-    <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Cidade'"></tgt-input-icon>
-
-      <tgt-input-icon [border]="true" [placeholder]="'UF'" [type]="'text'"></tgt-input-icon>
-    </div>
-
-    <!-- <div class="carregar-imagem" (click)="abrirModalCamera()">
-
-        <span class="material-symbols-outlined">
-          add_a_photo
-        </span>
-        <p>Capturar imagem</p>
-
-      </div> -->
-
-
-  </div>
-  }
-  @case('ficha-medica') {
-
-  <div class="ficha-medica">
-
-
-    <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Altura (m)*'"></tgt-input-icon>
-
-      <tgt-input-icon [border]="true" [placeholder]="'Peso (kg)*'" [type]="'text'"></tgt-input-icon>
-
-      <tgt-input-icon [border]="true" [placeholder]="'Tipo Sanguíneo*'" [type]="'text'"></tgt-input-icon>
-    </div>
-
-    <div class="infos">
-
-      <tgt-input-icon [border]="true" [placeholder]="'Número da Carteira do SUS'" [type]="'text'"></tgt-input-icon>
-
-      <tgt-input-icon [border]="true" [placeholder]="'Fator RH'" [type]="'text'"></tgt-input-icon>
-    </div>
-
-    <span>Em caso de emergência, autorizo levar meu(minha) filho(a) para o Hospital ou Clínica mais próximos:*</span>
-    <tgt-input-icon [border]="true" [placeholder]="'Responsável*'" [type]="'text'"></tgt-input-icon>
-
-    <span>Em caso de emergência, caso não seja encontrado pais ou responsáveis, avisar:*</span>
-    <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Nome*'" [type]="'text'"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Parentesco*'" [type]="'text'"></tgt-input-icon>
-    </div>
-    <div class="infos">
-      <tgt-input-icon [border]="true" [placeholder]="'Telefone*'" [type]="'text'"></tgt-input-icon>
-      <tgt-input-icon [border]="true" [placeholder]="'Celular*'" [type]="'text'"></tgt-input-icon>
-    </div>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno possui plano de saúde?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno é alérgico a algum medicamento?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno é alérgico a algum alimento?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno possui doença congêtina?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno é fumante?</tgt-checkbox>
-      <tgt-checkbox>O aluno já contraiu caxumba?</tgt-checkbox>
-      <tgt-checkbox>O aluno já contraiu sarampo?</tgt-checkbox>
-      <tgt-checkbox>O aluno já contraiu rubeola?</tgt-checkbox>
-      <tgt-checkbox>O aluno já contraiu catapora?</tgt-checkbox>
-    </div>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno já contraiu escarlatina?</tgt-checkbox>
-      <tgt-checkbox>O aluno já contraiu coqueluche?</tgt-checkbox>
-      <tgt-checkbox>O aluno é epilético?</tgt-checkbox>
-      <tgt-checkbox>Está em tratamento?</tgt-checkbox>
-      <tgt-checkbox>O aluno é hemofílico?</tgt-checkbox>
-      <tgt-checkbox>O aluno tem hipertensão?</tgt-checkbox>
-    </div>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno é asmático?</tgt-checkbox>
-      <tgt-checkbox>O aluno é diabético?</tgt-checkbox>
-      <tgt-checkbox>Depende de insulina?</tgt-checkbox>
-    </div>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno faz tratamento médico?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno está ingerindo medicação específica?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno tem acompanhamento médico ou psicológico?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno tem restrição a alguma atividade física?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-
-    <div class="checkbox">
-      <tgt-checkbox>O aluno sofreu alguma fratura ou trauma?</tgt-checkbox>
-    </div>
-
-    <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
-
-
-
-
-  </div>
-  }
-  @case('selfie-aluno') {
-  <div class="selfie">
-    <p>Para que possamos realizar a chamada automática solicitamos que o aluno envie três fotos. Essas imagens serão
-      utilizadas exclusivamente para a identificação automática do aluno durante a chamada e não serão compartilhadas ou
-      usadas para outros fins.</p>
-
-    <div class="cards">
-      <div class="card-content">
-        <div>
-          <span>Foto frontal</span>
-          <p>Uma foto de frente, onde o rosto do aluno esteja bem visível e iluminado.</p>
-        </div>
-        <div class="btn-selfies">
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'add_a_photo'" iconPosition="right" (click)="abrirModalCamera()">Capturar</tgt-button>
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
-        </div>
-
-        @if(fotoCapturada) {
-        <div class="foto-capturada">
-          <div class="info">
-            <img [src]="fotoCapturadaUrl" alt="Pré-visualização da Foto" class="photo-preview" />
-            <span>frente.JPEG</span>
+      @case('responsaveis') {
+        <div class="form">
+          <h5>Documento de Identidade</h5>
+          <div class="documento-responsavel">
+            <div class="doc">
+              <span class="material-symbols-outlined">
+                upload
+                </span>
+            </div>
+            <div class="infos">
+              <span>Clique para carregar</span>
+              <p>Tamanho máximo do arquivo: X</p>
+            </div>
           </div>
-          <div class="action">
-            <span class="material-symbols-outlined" (click)="clearPhoto()">
-              delete
-            </span>
+          <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'Nome Completo Responsável'"
+          [control]="form.controls.nomeResponsavel"></tgt-input-icon>
+
+          <div class="infos">
+
+            <tgt-input-icon [error]="camposObrigadores" [border]="true" [placeholder]="'E-mail Responsável'"
+            [control]="form.controls.emailResponsavel"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Telefone'"></tgt-input-icon>
+          </div>
+
+          @if(adicionarSegundoResponsavel) {
+            <div class="segundo-responsavel">
+              <div class="esquerda">
+                <p>2</p>
+                <span class="material-symbols-outlined delete" (click)="retirarResponsavel('dois')">
+                  delete
+                </span>
+              </div>
+              <div class="direita">
+                <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
+                  [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
+                <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
+                  [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+                <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
+                  [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+                  <h5>Documento de Identidade</h5>
+                  <div class="documento-responsavel">
+                    <div class="doc">
+                      <span class="material-symbols-outlined">
+                        upload
+                        </span>
+                    </div>
+                    <div class="infos">
+                      <span>Clique para carregar</span>
+                      <p>Tamanho máximo do arquivo: X</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          }
+          @if(adicionarTerceiroResponsavel) {
+            <div class="segundo-responsavel">
+              <div class="esquerda">
+                <p>3</p>
+                <span class="material-symbols-outlined delete" (click)="retirarResponsavel('tres')">
+                  delete
+                </span>
+              </div>
+              <div class="direita">
+                <tgt-input-icon [border]="true" [placeholder]="'Nome Completo Responsável'"
+                  [control]="form.controls['nomeResponsavel']"></tgt-input-icon>
+                <tgt-input-icon [border]="true" [placeholder]="'E-mail Responsável'"
+                  [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+                <tgt-input-icon [border]="true" [placeholder]="'Telefone'"
+                  [control]="form.controls['emailResponsavel']"></tgt-input-icon>
+                  <h5>Documento de Identidade</h5>
+                  <div class="documento-responsavel">
+                    <div class="doc">
+                      <span class="material-symbols-outlined">
+                        upload
+                        </span>
+                    </div>
+                    <div class="infos">
+                      <span>Clique para carregar</span>
+                      <p>Tamanho máximo do arquivo: X</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          }
+          @if(this.stepsAdicionarResponsavel <= 2) {
+            <div class="adicionar-responsavel">
+              <span class="material-symbols-outlined">
+                add
+              </span>
+              <p (click)="adicionarResponsavel()">Adicionar mais um Responsável</p>
+            </div>
+          }
+        </div>
+      }
+      @case('ficha-medica') {
+        <div class="ficha-medica">
+          <h5>Carteirinha de Vacinação</h5>
+          <div class="doc-ficha-medica">
+            <div class="doc">
+              <span class="material-symbols-outlined">
+                upload
+                </span>
+            </div>
+            <div class="infos">
+              <span>Clique para carregar</span>
+              <p>Tamanho máximo do arquivo: X</p>
+            </div>
+          </div>
+
+          <div class="infos">
+            <tgt-input-icon [border]="true" [placeholder]="'Altura (m)*'"></tgt-input-icon>
+
+            <tgt-input-icon [border]="true" [placeholder]="'Peso (kg)*'" [type]="'text'"></tgt-input-icon>
+
+            <tgt-input-icon [border]="true" [placeholder]="'Tipo Sanguíneo*'" [type]="'text'"></tgt-input-icon>
+          </div>
+
+          <div class="infos">
+
+            <tgt-input-icon [border]="true" [placeholder]="'Número da Carteira do SUS'" [type]="'text'"></tgt-input-icon>
+
+            <tgt-input-icon [border]="true" [placeholder]="'Fator RH'" [type]="'text'"></tgt-input-icon>
+          </div>
+
+          <span>Em caso de emergência, autorizo levar meu(minha) filho(a) para o Hospital ou Clínica mais próximos:*</span>
+          <tgt-input-icon [border]="true" [placeholder]="'Responsável*'" [type]="'text'"></tgt-input-icon>
+
+          <span>Em caso de emergência, caso não seja encontrado pais ou responsáveis, avisar:*</span>
+          <div class="infos">
+            <tgt-input-icon [border]="true" [placeholder]="'Nome*'" [type]="'text'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Parentesco*'" [type]="'text'"></tgt-input-icon>
+          </div>
+          <div class="infos">
+            <tgt-input-icon [border]="true" [placeholder]="'Telefone*'" [type]="'text'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Celular*'" [type]="'text'"></tgt-input-icon>
+          </div>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno possui plano de saúde?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno é alérgico a algum medicamento?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno é alérgico a algum alimento?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno possui doença congêtina?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno é fumante?</tgt-checkbox>
+            <tgt-checkbox>O aluno já contraiu caxumba?</tgt-checkbox>
+            <tgt-checkbox>O aluno já contraiu sarampo?</tgt-checkbox>
+            <tgt-checkbox>O aluno já contraiu rubeola?</tgt-checkbox>
+            <tgt-checkbox>O aluno já contraiu catapora?</tgt-checkbox>
+          </div>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno já contraiu escarlatina?</tgt-checkbox>
+            <tgt-checkbox>O aluno já contraiu coqueluche?</tgt-checkbox>
+            <tgt-checkbox>O aluno é epilético?</tgt-checkbox>
+            <tgt-checkbox>Está em tratamento?</tgt-checkbox>
+            <tgt-checkbox>O aluno é hemofílico?</tgt-checkbox>
+            <tgt-checkbox>O aluno tem hipertensão?</tgt-checkbox>
+          </div>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno é asmático?</tgt-checkbox>
+            <tgt-checkbox>O aluno é diabético?</tgt-checkbox>
+            <tgt-checkbox>Depende de insulina?</tgt-checkbox>
+          </div>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno faz tratamento médico?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno está ingerindo medicação específica?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno tem acompanhamento médico ou psicológico?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno tem restrição a alguma atividade física?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+
+          <div class="checkbox">
+            <tgt-checkbox>O aluno sofreu alguma fratura ou trauma?</tgt-checkbox>
+          </div>
+
+          <tgt-input-icon [disabled]="true" [border]="true" [placeholder]="'Quais?'" [type]="'text'"></tgt-input-icon>
+
+        </div>
+      }
+
+      @case('endereco') {
+
+        <div class="form">
+
+          <h5>Compovante de Endereço</h5>
+            <div class="documento-responsavel">
+              <div class="doc">
+                <span class="material-symbols-outlined">
+                  upload
+                  </span>
+              </div>
+              <div class="infos">
+                <span>Clique para carregar</span>
+                <p>Tamanho máximo do arquivo: X</p>
+              </div>
+            </div>
+
+          <tgt-input-icon [border]="true" [placeholder]="'CEP'" [type]="'text'"></tgt-input-icon>
+          <tgt-input-icon [border]="true" [placeholder]="'Endereço'"></tgt-input-icon>
+
+          <div class="infos">
+            <tgt-input-icon [border]="true" [placeholder]="'Número'" [type]="'text'"></tgt-input-icon>
+            <tgt-input-icon [border]="true" [placeholder]="'Complemento'" [type]="'text'"></tgt-input-icon>
+          </div>
+
+          <tgt-input-icon [border]="true" [placeholder]="'Bairro'"></tgt-input-icon>
+
+            <div class="infos">
+              <tgt-select [border]="true" [label]="'Cidade'"></tgt-select>
+              <tgt-select [border]="true" [label]="'Estado'"></tgt-select>
+            </div>
+
+      </div>
+      }
+
+      @case('selfie-aluno') {
+        <div class="selfie">
+          <p>Para que possamos realizar a chamada automática solicitamos que o aluno envie três fotos. Essas imagens serão
+            utilizadas exclusivamente para a identificação automática do aluno durante a chamada e não serão compartilhadas ou
+            usadas para outros fins.</p>
+
+          <div class="cards">
+            <div class="card-content">
+              <div>
+                <span>Foto frontal</span>
+                <p>Uma foto de frente, onde o rosto do aluno esteja bem visível e iluminado.</p>
+              </div>
+              <div class="btn-selfies">
+                <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+                  [icon]="'add_a_photo'" iconPosition="right" (click)="abrirModalCamera()">Capturar</tgt-button>
+                <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+                  [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+              </div>
+
+              @if(fotoCapturada) {
+              <div class="foto-capturada">
+                <div class="info">
+                  <img [src]="fotoCapturadaUrl" alt="Pré-visualização da Foto" class="photo-preview" />
+                  <span>frente.JPEG</span>
+                </div>
+                <div class="action">
+                  <span class="material-symbols-outlined" (click)="clearPhoto()">
+                    delete
+                  </span>
+                </div>
+              </div>
+              }
+
+            </div>
+            <div class="card-content">
+              <div>
+                <span>Foto do lado direito</span>
+                <p>Uma foto do lado direito do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+              </div>
+              <div class="btn-selfies">
+                <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
+                  [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+                <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+                  [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+              </div>
+            </div>
+            <div class="card-content">
+              <div>
+                <span>Foto do lado esquerdo</span>
+                <p>Uma foto do lado esquerdo do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
+              </div>
+              <div class="btn-selfies">
+                <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
+                  [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
+                <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
+                  [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="card-footer">
+            <span>Importante!</span>
+            <li>A imagem do rosto do aluno deve ser nítida;</li>
+            <li>Não utilize fotos com óculos escuros ou chapéus.</li>
           </div>
         </div>
-        }
-
-      </div>
-      <div class="card-content">
-        <div>
-          <span>Foto do lado direito</span>
-          <p>Uma foto do lado direito do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
-        </div>
-        <div class="btn-selfies">
-          <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
-            [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
-        </div>
-      </div>
-      <div class="card-content">
-        <div>
-          <span>Foto do lado esquerdo</span>
-          <p>Uma foto do lado esquerdo do rosto, para auxiliar no reconhecimento de diferentes ângulos.</p>
-        </div>
-        <div class="btn-selfies">
-          <tgt-button type="button" (click)="abrirModalCamera()" [color]="'primary'" [border]="false"
-            [fieldButton]="'outline'" size="small" [icon]="'add_a_photo'" iconPosition="right">Capturar</tgt-button>
-          <tgt-button type="button" [color]="'primary'" [border]="false" [fieldButton]="'outline'" size="small"
-            [icon]="'upgrade'" iconPosition="right">Carregar</tgt-button>
-        </div>
-      </div>
-
-
-
-    </div>
-    <div class="card-footer">
-      <span>Importante!</span>
-      <li>A imagem do rosto do aluno deve ser nítida;</li>
-      <li>Não utilize fotos com óculos escuros ou chapéus.</li>
-    </div>
-  </div>
-  }
-
-  }
+      }
+    }
 
   </div>
   <div class="actions">
     <tgt-button (click)="back()" [fieldButton]="'outline'" [border]="false" [size]="'small'">Cancelar</tgt-button>
-    @if(this.stepRegisterUser === 'selfie-aluno') {
-    <tgt-button (click)="salvar()" [icon]="'add'">
-      @if(loader) {
-      <tgt-loader [size]="'small'"></tgt-loader>
+      @if(this.stepRegisterUser === 'selfie-aluno') {
+        <tgt-button (click)="salvar()" [icon]="'add'">
+          @if(loader) {
+            <tgt-loader [size]="'small'"></tgt-loader>
+          } @else {
+            Cadastrar
+          }
+        </tgt-button>
       } @else {
-      Cadastrar
+        <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
       }
-    </tgt-button>
-    } @else {
-    <tgt-button (click)="next()" [size]="'small'">Próximo</tgt-button>
-    }
   </div>
 </main>
 

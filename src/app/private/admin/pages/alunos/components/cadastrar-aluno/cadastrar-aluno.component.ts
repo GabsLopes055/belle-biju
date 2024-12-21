@@ -47,12 +47,22 @@ export class CadastrarAlunoComponent {
       active: true,
     },
     {
+      label: 'Responsáveis',
+      value: 'responsaveis',
+      active: false,
+    },
+    {
       label: 'Ficha Médica',
       value: 'ficha-medica',
       active: false,
     },
     {
-      label: 'Selfie do Aluno',
+      label: 'Endereço',
+      value: 'endereco',
+      active: false,
+    },
+    {
+      label: 'Fotos do Aluno',
       value: 'selfie-aluno',
       active: false,
     },
@@ -88,7 +98,7 @@ export class CadastrarAlunoComponent {
   // numeroEndereco: new FormControl('', Validators.required),
   // complemento: new FormControl('', Validators.required),
 
-  stepRegisterUser: 'dados-pessoais' | 'selfie-aluno' | 'ficha-medica' =
+  stepRegisterUser: 'dados-pessoais' | 'responsaveis' | 'ficha-medica' | 'endereco'  | 'selfie-aluno' =
     'dados-pessoais';
 
   camposObrigadores: boolean = false;
@@ -176,7 +186,10 @@ export class CadastrarAlunoComponent {
           this.form.reset();
           this.clearPhoto();
           this.loader = false;
-          this.router.navigate(['/admin/central']);
+          this.alunosService.steps.next({
+            component: 'listar-alunos',
+            idAluno: '',
+          });
         },
         (error) => {
           console.error('Erro ao cadastrar aluno:', error);
@@ -197,20 +210,29 @@ export class CadastrarAlunoComponent {
   next() {
     const lastIndex = this.steps.findLastIndex((step) => step.active);
 
-    if (this.form.valid) {
-      if (lastIndex < this.steps.length - 1) {
-        this.steps[lastIndex + 1].active = true;
-        if (this.steps[lastIndex + 1].value === 'ficha-medica') {
-          this.stepRegisterUser = 'ficha-medica';
-        }
+    if (lastIndex < this.steps.length - 1) {
+      this.steps[lastIndex + 1].active = true;
 
-        if (this.steps[lastIndex + 1].value === 'selfie-aluno') {
-          this.stepRegisterUser = 'selfie-aluno';
-        }
+      if (this.steps[lastIndex + 1].value === 'responsaveis') {
+        this.stepRegisterUser = 'responsaveis';
       }
-    } else {
-      this.camposObrigadores = true;
+
+      if (this.steps[lastIndex + 1].value === 'ficha-medica') {
+        this.stepRegisterUser = 'ficha-medica';
+      }
+
+      if (this.steps[lastIndex + 1].value === 'endereco') {
+        this.stepRegisterUser = 'endereco';
+      }
+      if (this.steps[lastIndex + 1].value === 'selfie-aluno') {
+        this.stepRegisterUser = 'selfie-aluno';
+      }
     }
+
+    // if (this.form.valid) {
+    // } else {
+    //   this.camposObrigadores = true;
+    // }
   }
 
   back() {
@@ -219,8 +241,19 @@ export class CadastrarAlunoComponent {
     if (lastIndex > 0 && lastIndex <= this.steps.length) {
       this.steps[lastIndex].active = false;
 
+      if (this.steps[lastIndex - 1].value === 'responsaveis') {
+        this.stepRegisterUser = 'responsaveis';
+      }
+
       if (this.steps[lastIndex - 1].value === 'ficha-medica') {
         this.stepRegisterUser = 'ficha-medica';
+      }
+
+      if (this.steps[lastIndex - 1].value === 'endereco') {
+        this.stepRegisterUser = 'endereco';
+      }
+      if (this.steps[lastIndex - 1].value === 'selfie-aluno') {
+        this.stepRegisterUser = 'selfie-aluno';
       }
       if (this.steps[lastIndex - 1].value === 'dados-pessoais') {
         this.stepRegisterUser = 'dados-pessoais';
