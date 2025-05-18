@@ -1,0 +1,1 @@
+import{R as o,Sb as r,W as n,Wb as a}from"./chunk-YFERI2R3.js";var l=`${a.BACKEND_API}/authentication/login`,u=(()=>{class t{constructor(e){this.http=e}logar(e){return this.http.post(`${l}`,e)}static{this.\u0275fac=function(i){return new(i||t)(n(r))}}static{this.\u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})}}return t})();export{u as a};
