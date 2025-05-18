@@ -1,0 +1,20 @@
+<sidebar [title]="'Editar Venda'">
+  @if(loader) {
+    <div class="loader">
+      <tgt-loader [size]="'large'"></tgt-loader>
+    </div>
+  } @else {
+    <div class="form">
+    <tgt-input-icon [border]="true" [placeholder]="'Nome do Produto*'" [type]="'text'" [control]="form.controls.nomeProduto"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Preço do Produto*'" [type]="'number'" [control]="form.controls.preco"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [placeholder]="'Quantidade Vendida*'" [control]="form.controls.quantidade" [type]="'number'"></tgt-input-icon>
+    <tgt-input-icon [border]="true" [control]="form.controls.total" [placeholder]="'Total da Venda*'" [type]="'number'"></tgt-input-icon>
+    <tgt-select (changeValue)="changeValue($event)" [valueOptionSelected]="valueChange" [control]="form.controls.formaPagamento" [options]="options" [label]="'Forma de Pagamento*'"></tgt-select>
+  </div>
+  <div class="actions">
+    <tgt-button [icon]="'block'" (click)="fechar()" [border]="false" [fieldButton]="'outline'">Cancelar</tgt-button>
+    <tgt-button [icon]="'edit'" (click)="editar()">Editar</tgt-button>
+  </div>
+  }
+
+</sidebar>

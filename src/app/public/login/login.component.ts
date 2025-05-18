@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   campoObrigatorio: boolean = false;
 
   formLogin = new FormGroup({
-    email: new FormControl('lopesgabriel055@gmail.com', Validators.required),
-    password: new FormControl('G@bs2305', Validators.required),
+    username: new FormControl('teste', Validators.required),
+    password: new FormControl('teste', Validators.required),
   });
 
   constructor(
@@ -59,14 +59,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
         .logar(this.formLogin.value as AuthenticationRequest)
         .subscribe({
           next: (response) => {
+            const payload = JSON.parse(atob(response.token.split('.')[1]));
             window.sessionStorage.setItem('token', response.token);
-            // const token = response.token.split('.')[1];
-            // const payload = JSON.parse(atob(token));
-            // console.log(payload)
-            const usuario: User = response.user;
-            this.userService.usuarioInstance = usuario;
-            this.userService.usuario.next(usuario);
-            this.router.navigate(['/admin/escola']);
+            window.sessionStorage.setItem('user', payload['sub']);
+            this.router.navigate(['/admin']);
             this.menuService.updateMenu();
           },
           error: (erro) => {

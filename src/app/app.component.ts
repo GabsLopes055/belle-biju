@@ -23,7 +23,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   ],
 })
 export class AppComponent implements OnInit {
-  title = 'Escolar Ai';
+  title = 'Belle Biju';
   isMenu: Menu[] = [];
 
   constructor(

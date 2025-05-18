@@ -30,8 +30,8 @@ export class ButtonComponent {
 
 
   colors: Colors = {
-    primary: '#00E554',
-    secundary: '#D5E8CF',
+    primary: '#7a0b7c',
+    secundary: '#128280',
     warning: '',
     success: '',
     error: '#EE0D43'

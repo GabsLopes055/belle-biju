@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
 import { ButtonComponent } from '../../shared/button/button.component';
 import { InputIconComponent } from '../../shared/input-icon/input-icon.component';
-import { RouterLink } from '@angular/router';
 import { MenuService } from '../../shared/menu/menu.service';
 
 @Component({

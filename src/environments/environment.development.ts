@@ -1,3 +1,3 @@
 export const environment = {
-    BACKEND_API: 'https://escola.technolimit.com.br/api/v1',
+  BACKEND_API: 'https://bellebiju-backend-production-5cda.up.railway.app/api',
 };

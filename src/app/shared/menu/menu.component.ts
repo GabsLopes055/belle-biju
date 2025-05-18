@@ -21,7 +21,7 @@ import { TooltipDirective } from '../directives/tooltip.directive';
   ],
 })
 export class MenuComponent implements OnInit {
-  isOpen = true;
+  isOpen = false;
 
   menu: Menu[] = [];
 

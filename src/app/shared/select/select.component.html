@@ -1,9 +1,9 @@
 <main>
   <div [style.border]="border ? 'solid 1px #000' : ''"
-    class="input-wrapper" [style.border-color]="control.value ? '#39693b' : '#000'"
+    class="input-wrapper" [style.border-color]="control.value ? '#7a0b7c' : '#000'"
     [class.floating]="control.value || isOpenModal"
     (click)="openModal()">
-    <label [style.color]="control.value ? '#39693b' : '#000'" class="label">{{ label }}</label>
+    <label [style.color]="control.value ? '#7a0b7c' : '#000'" class="label">{{ label }}</label>
     <span [style.padding-left]="'15px'" [style.font-size]="'13px'">{{valueOptionSelected.label}}</span>
     <div class="input">
       <span class="material-symbols-outlined">{{ icon }}</span>

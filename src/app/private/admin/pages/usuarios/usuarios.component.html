@@ -1,0 +1,66 @@
+<main>
+
+  @if(loading) {
+    <div class="loader">
+      <tgt-loader [size]="'large'"></tgt-loader>
+    </div>
+  }@else {
+    @if(usuarios.length > 0) {
+      <div class="content">
+        <div class="header">
+          <tgt-button [icon]="'add'" [size]="'small'" [iconPosition]="'right'">Cadastrar Usuário</tgt-button>
+          <tgt-input-icon [icon]="'search'" [backGround]="'whitesmoke'" [placeholder]="'Busque aqui'"
+            [iconPosition]="'right'"></tgt-input-icon>
+        </div>
+        <section class="desktop">
+          <tgt-list>
+            <div header class="header-list">
+              <tgt-header-list>
+                <tgt-header-col>Nome</tgt-header-col>
+                <tgt-header-col>Usuario</tgt-header-col>
+                <tgt-header-col>Criado Em</tgt-header-col>
+                <tgt-header-col>Permissão</tgt-header-col>
+                <tgt-header-col></tgt-header-col>
+              </tgt-header-list>
+            </div>
+            <div body class="body">
+              @for (item of usuarios; track item) {
+              <tgt-item-list>
+                <tgt-item-data>{{item.nome}}</tgt-item-data>
+                <tgt-item-data>{{item.username}}</tgt-item-data>
+                <tgt-item-data>{{item.createdAt}}</tgt-item-data>
+                <tgt-item-data>{{item.roles}}</tgt-item-data>
+                <tgt-item-data>
+                  <span class="material-symbols-outlined icone">search</span>
+                </tgt-item-data>
+              </tgt-item-list>
+              }
+            </div>
+          </tgt-list>
+        </section>
+        <section class="mobile">
+          @for (item of usuarios; track item) {
+          <div class="cards">
+            <div class="title">{{item.nome}}</div>
+            <div class="content">
+              <div class="infos">
+                <span>{{item.roles}}</span>
+              </div>
+              <div class="actions">
+                <span class="material-symbols-outlined icone">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+          }
+        </section>
+      </div>
+    } @else {
+      <div class="empty">
+        <img src="../../../../../assets/images/vazio.png" alt="">
+        <span>Nenhum Usuário Encontrado !</span>
+        <p>Não perca tempo, cadastre agora mesmo.</p>
+        <tgt-button [icon]="'add'" [iconPosition]="'right'" [size]="'small'">Cadastrar Usuário</tgt-button>
+      </div>
+    }
+  }
+</main>

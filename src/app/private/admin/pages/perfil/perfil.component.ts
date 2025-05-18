@@ -37,17 +37,10 @@ export class PerfilUsuarioComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
-    this.buscarUsuarioPorID();
+    // this.buscarUsuarioPorID();
   }
 
-  buscarUsuarioPorID() {
-    this.userService.buscarUserPorId().subscribe({
-      next: (user) => {
-        this.user = user;
-        this.loading = false;
-      },
-    });
-  }
+
 
   abrirModalAlterarSenha() {
     this.sidebarService.openSide(AlterarSenhaComponent);

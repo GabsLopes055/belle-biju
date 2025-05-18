@@ -18,10 +18,10 @@ main {
       justify-content: center;
 
       img {
-        width: 90%; // Ocupará a largura máxima disponível
-        height: auto; // Mantém a proporção
-        border-radius: 18px;
-        object-fit: cover; // Garante que a imagem se ajuste ao espaço sem distorção
+        width: 60%; // Ocupará a largura máxima disponível
+        // height: auto; // Mantém a proporção
+        // border-radius: 18px;
+        // object-fit: cover; // Garante que a imagem se ajuste ao espaço sem distorção
       }
     }
   }
@@ -32,6 +32,13 @@ main {
     justify-content: space-between;
     width: 20%;
     height: 55%;
+
+    .img-logo {
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
 
     .form {
       width: 100%;

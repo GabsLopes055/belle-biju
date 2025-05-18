@@ -1,11 +1,11 @@
 <main>
 
   @if(loading) {
-    <div class="loader">
-      <tgt-loader [size]="'large'"></tgt-loader>
-    </div>
+  <div class="loader">
+    <tgt-loader [size]="'large'"></tgt-loader>
+  </div>
   }@else {
-    <div class="content">
+  <div class="content">
     <div class="header">
       <tgt-button [icon]="'add'" [size]="'small'" (click)="cadastrarAluno()">Cadastrar Aluno</tgt-button>
       <tgt-input-icon [control]="this.form.controls.buscarAluno" [icon]="'search'" [backGround]="'#EEF2E9'"

@@ -1,0 +1,70 @@
+<main>
+
+  @if(loading) {
+    <div class="loader">
+      <tgt-loader [size]="'large'"></tgt-loader>
+    </div>
+  }@else {
+    @if(vendas.length > 0) {
+      <div class="content">
+        <div class="header">
+          <tgt-button [icon]="'add'" [size]="'small'" [iconPosition]="'right'" (click)="cadastrarVenda()">Cadastrar Venda</tgt-button>
+          <tgt-input-icon [icon]="'search'" [backGround]="'whitesmoke'" [placeholder]="'Busque aqui'"
+            [iconPosition]="'right'"></tgt-input-icon>
+        </div>
+        <section class="desktop">
+          <tgt-list>
+            <div header class="header-list">
+              <tgt-header-list>
+                <tgt-header-col>Produto</tgt-header-col>
+                <tgt-header-col>Preço</tgt-header-col>
+                <tgt-header-col>Quantidade</tgt-header-col>
+                <tgt-header-col>Total</tgt-header-col>
+                <tgt-header-col>Forma Pagamento</tgt-header-col>
+                <tgt-header-col></tgt-header-col>
+              </tgt-header-list>
+            </div>
+            <div body class="body">
+              @for (item of vendas; track item) {
+              <tgt-item-list>
+                <tgt-item-data>{{item.nomeProduto}}</tgt-item-data>
+                <tgt-item-data>{{item.preco | currency : 'BRL'}}</tgt-item-data>
+                <tgt-item-data>{{item.quantidade}}</tgt-item-data>
+                <tgt-item-data>{{item.total | currency : 'BRL'}}</tgt-item-data>
+                <tgt-item-data>{{item.formaPagamento}}</tgt-item-data>
+                <tgt-item-data>
+                  <span (click)="verVenda(item)" class="material-symbols-outlined icone">edit</span>
+                  <span (click)="deletarVenda(item.id)" class="material-symbols-outlined icone">delete</span>
+                </tgt-item-data>
+              </tgt-item-list>
+              }
+            </div>
+          </tgt-list>
+        </section>
+        <section class="mobile">
+          @for (item of vendas; track item) {
+          <div class="cards">
+            <div class="title">{{item.nomeProduto}}</div>
+            <div class="content">
+              <div class="infos">
+                <span>Preco R$&nbsp;{{item.preco}}</span>
+                <span class="total">Total R$&nbsp;{{item.total}}</span>
+              </div>
+              <div class="actions">
+                <span class="material-symbols-outlined icone">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+          }
+        </section>
+      </div>
+    } @else {
+      <div class="empty">
+        <img src="../../../../../assets/images/vazio.png" alt="">
+        <span>Nenhuma Venda Encontrada !</span>
+        <p>Não perca tempo, cadastre agora mesmo.</p>
+        <tgt-button [icon]="'add'" [iconPosition]="'right'" [size]="'small'">Cadastrar Venda</tgt-button>
+      </div>
+    }
+  }
+</main>

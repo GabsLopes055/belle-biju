@@ -15,7 +15,7 @@
 </div> -->
 
 
-<div class="input" [style.border-color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'"
+<div class="input" [style.border-color]="control.value ? '#7a0b7c' : error ? '#ff0000' :'#000'"
   [style.background]="backGround" [style.border]="border ? '' : 'none'">
   <div class="input-wrapper">
     <input [style.background]="backGround" [mask]="mask" (change)="validarValor()" [disabled]="disabled ? true : false"
@@ -24,7 +24,7 @@
       [style.background]="backGround">{{ placeholder }}</label>
   </div>
   <span class="material-symbols-outlined color-icon"
-    [style.color]="control.value ? '#39693B' : error ? '#ff0000' :'#000'">
+    [style.color]="control.value ? '#7a0b7c' : error ? '#ff0000' :'#000'">
     {{icon}}
   </span>
 </div>

@@ -1,6 +1,14 @@
 import {Empresa} from "./empresa.interface";
 import { filtroDeBusca } from "./filtro-busca.interface";
 
+export interface userResponse {
+  idUser: string,
+  nome: string,
+  username: string,
+  createdAt: string,
+  roles: string,
+}
+
 export interface User {
     id: number;
     nome: string;

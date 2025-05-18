@@ -40,53 +40,24 @@ export class MenuService {
   updateMenu() {
     this._menu.next([
       {
-        icon: 'home_work',
-        label: 'Escola',
-        route: '/admin/escola',
+        icon: 'sell',
+        label: 'Vendas',
+        route: '/admin/vendas',
         checked: false,
       },
       {
-        icon: 'meeting_room',
-        label: 'Turmas',
-        route: '/admin/turmas',
+        icon: 'group',
+        label: 'Usuários',
+        route: '/admin/usuarios',
         checked: false,
       },
       {
-        icon: 'badge',
-        label: 'Colaboradores',
-        route: '/admin/colaboradores',
+        icon: 'inventory_2',
+        label: 'Produtos',
+        route: '/admin/produtos',
         checked: false,
       },
-      {
-        icon: 'school',
-        label: 'Alunos',
-        route: '/admin/alunos',
-        checked: false,
-      },
-      {
-        icon: 'calendar_month',
-        label: 'Agenda',
-        route: '/admin/agenda',
-        checked: false,
-      },
-      {
-        icon: 'chat_bubble',
-        label: 'Chat',
-        route: '/admin/chat',
-        checked: false,
-      },
-      {
-        icon: 'assignment',
-        label: 'Pesquisas',
-        route: '/admin/pesquisas',
-        checked: false,
-      },
-      {
-        icon: 'nest_cam_wired_stand',
-        label: 'Central',
-        route: '/admin/central',
-        checked: false,
-      },
+
     ]);
   }
 
